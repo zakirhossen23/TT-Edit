@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace TT_Edit.Classess
+namespace TT_Edit.Classes
 {
     // Class to Parse VTT
     public class VttParser
