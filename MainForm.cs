@@ -92,8 +92,15 @@ namespace TT_Edit
                 {
                     // Adding those file into allVTTFiles List as VTTFile class
                     string filename = Path.GetFileName(file);
-                    var newfile = new VTTFile(file, filename);
-                    allVTTFiles.Add(newfile);
+                    string fileExt = Path.GetExtension(filename).Trim();
+
+                    // Load only vtt files
+                    if (fileExt == ".vtt")
+                    {
+                        var newfile = new VTTFile(file, filename);
+                        allVTTFiles.Add(newfile);
+
+                    }
 
                 }
             }
