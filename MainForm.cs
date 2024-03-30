@@ -12,6 +12,14 @@ namespace TT_Edit
 {
     public partial class MainForm : Form
     {
+        /* ************** Variables ****************/
+        public static int totalFiles = 0;
+        public static int doneFiles = 0;
+        public static int percentageDone = 0;
+
+
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -49,10 +57,24 @@ namespace TT_Edit
             Properties.Settings.Default.Save();
 
         }
-
+        // Event handler for Start button click
         private void btnConvertAndExport_Click(object sender, EventArgs e)
         {
 
+            CheckForIllegalCrossThreadCalls = false;
+
+        }
+
+
+        /********************** Functions ******************/
+        void updateStatus()
+        {
+            if (totalFiles == 0) return;
+
+            percentageDone = (doneFiles / totalFiles) * 100;
+            //statusProgress.Value = percentageDone;
+            //lblDoneStatus.Text = $"{doneFiles}/{totalFiles}";
+            //tslStatus.Text = $"Progress: {percentageDone}%";
         }
 
 
