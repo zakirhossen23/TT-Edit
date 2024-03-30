@@ -9,8 +9,10 @@ using System.Text.RegularExpressions;
 
 namespace TT_Edit.Classess
 {
+    // Class to Parse VTT
     public class VttParser
     {
+        // Delimiters can be used inbetween timecodes
         private readonly string[] _delimiters = new string[3]
       {
             "-->",
@@ -18,6 +20,7 @@ namespace TT_Edit.Classess
             "->"
       };
 
+        // Function to parse VTT file
         public List<SubtitleItem> ParseStream(Stream vttStream, Encoding encoding)
         {
             if (!vttStream.CanRead || !vttStream.CanSeek)
@@ -28,11 +31,16 @@ namespace TT_Edit.Classess
             vttStream.Position = 0L;
             StreamReader reader = new StreamReader(vttStream, encoding, detectEncodingFromByteOrderMarks: true);
             List<SubtitleItem> list = new List<SubtitleItem>();
+
+
+            // Getting all the string lines form the Vtt files
             List<string> list2 = GetVttSubTitleParts(reader).ToList();
             if (list2.Any())
             {
+                // Iterating all the lines
                 foreach (string item in list2)
                 {
+                    // Removing newline and other things
                     List<string> list3 = (from s in item.Split(new string[1]
                         {
                             Environment.NewLine
@@ -40,11 +48,15 @@ namespace TT_Edit.Classess
                                           select s.Trim() into l
                                           where !string.IsNullOrEmpty(l)
                                           select l).ToList();
+
+                    // Iterating Trimmed list
                     SubtitleItem subtitleItem = new SubtitleItem();
                     foreach (string item2 in list3)
                     {
+                        // Checking if subtitleItem starttime and endtime is 0 or not
                         if (subtitleItem.StartTime == 0 && subtitleItem.EndTime == 0)
                         {
+                            // Then it will parse
                             if (TryParseTimecodeLine(item2, out int startTc, out int endTc))
                             {
                                 subtitleItem.StartTime = startTc;
@@ -53,15 +65,19 @@ namespace TT_Edit.Classess
                         }
                         else
                         {
+                            // Else it will add line to that to subtitle
                             subtitleItem.Lines.Add(item2);
                         }
                     }
 
+                    // Adding this subtitleItem 
                     if ((subtitleItem.StartTime != 0 || subtitleItem.EndTime != 0) )
                     {
                         list.Add(subtitleItem);
                     }
                 }
+
+                // Returning the list of Subtitle Items
 
                 if (list.Any())
                 {
@@ -74,6 +90,7 @@ namespace TT_Edit.Classess
             throw new FormatException("Parsing as VTT returned no VTT part.");
         }
 
+        // Function to return all the lines of text contain except newline and spaces in list of string
         private IEnumerable<string> GetVttSubTitleParts(TextReader reader)
         {
             StringBuilder stringBuilder = new StringBuilder();
@@ -108,6 +125,7 @@ namespace TT_Edit.Classess
             }
         }
 
+        // Function to check if possible to Parse TimecodeLine 
         private bool TryParseTimecodeLine(string line, out int startTc, out int endTc)
         {
             string[] array = line.Split(_delimiters, StringSplitOptions.None);
@@ -123,6 +141,7 @@ namespace TT_Edit.Classess
             return true;
         }
 
+        // Function to Parse VTT Time code
         private int ParseVttTimecode(string s)
         {
             string text = string.Empty;

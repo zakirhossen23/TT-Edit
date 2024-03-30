@@ -26,38 +26,47 @@ namespace TT_Edit
         private List<VTTFile> allVTTFiles = new List<VTTFile>();
 
 
-
+        //Constructor
         public MainForm()
         {
             InitializeComponent();
         }
 
+        // Event Handler to Open Folder Browser for VTT files
         private void btnVTTFolderBrowse_Click(object sender, EventArgs e)
         {
             if (VTTfolderDialog.ShowDialog() == DialogResult.OK)
             {
+                // Settings selectted path to textboxes
                 txtVTTFolderPath.Text = VTTfolderDialog.SelectedPath;
                 vTTfolderPath = txtVTTFolderPath.Text;
+
+                // Loading files
                 loadFiles();
             }
         }
 
+        // Event Handler to opening Export Folder Browser for VTT files
         private void btnVTTExportFolderBrowse_Click(object sender, EventArgs e)
         {
             if (VTTfolderDialog.ShowDialog() == DialogResult.OK)
             {
+                // Settings selectted path to textboxes
                 txtVTTExportFolderPath.Text = VTTfolderDialog.SelectedPath;
                 vTTExportfolderPath = txtVTTExportFolderPath.Text;
             }
         }
 
+        // Event Handler to save choosen Vtt Folder Path into settings
         private void txtVTTFolderPath_TextChanged(object sender, EventArgs e)
         {
+            
             Properties.Settings.Default["vttFolder"] = txtVTTFolderPath.Text;
             Properties.Settings.Default.Save();
 
         }
 
+        // Event Handler to save choosen Exporting Vtt Folder Path into settings
         private void txtVTTExportFolderPath_TextChanged(object sender, EventArgs e)
         {
             if (txtVTTExportFolderPath.Text.Trim() != "") { btnExportedFolderOpen.Enabled = true; } else { btnExportedFolderOpen.Enabled = false; }
@@ -66,42 +75,49 @@ namespace TT_Edit
             Properties.Settings.Default.Save();
 
         }
-        // Event handler for Start button click
-        private void btnConvertAndExport_Click(object sender, EventArgs e)
-        {
-
-            CheckForIllegalCrossThreadCalls = false;
-
-        }
 
 
         /********************** Functions ******************/
+        // Function to load vtt files
         void loadFiles()
         {
             if (txtVTTFolderPath.Text != "")
             {
+                //Clear previous VTT files
+                allVTTFiles.Clear();
+
+                // Iterate all the files exists in that VTT folder
                 var files = from file in Directory.EnumerateFiles(txtVTTFolderPath.Text) select file;
                 foreach (var file in files)
                 {
+                    // Adding those file into allVTTFiles List as VTTFile class
                     string filename = Path.GetFileName(file);
                     var newfile = new VTTFile(file, filename);
                     allVTTFiles.Add(newfile);
 
                 }
             }
+
+            // Refreshing status and Loading Datagridview
             updateStatus();
             loadData();
         }
+
+        // Function to Update All the Status
         void updateStatus()
         {
+
+            // Getting All the Pending and Completed files
             var allPending = from file in allVTTFiles where file.status == "Pending" select file;
             var allCompleted = from file in allVTTFiles where file.status == "Completed" select file;
 
+            // Storing those files count
             totalFiles = allVTTFiles.Count();
             doneFiles = allCompleted.Count();
             pendingFiles = allPending.Count();
 
 
+            // If totalFiles are greater than zero then it willl calculate progressbar
             if (totalFiles != 0)
             {
                 percentageDone = (doneFiles / totalFiles) * 100;
@@ -109,21 +125,27 @@ namespace TT_Edit
             }
             else
             {
+                // else will show 0%
                 percentageDone = 0;
                 percentagePending = 0;
             }
 
+            // Showing those counts into Labels
             lblTotalFiles.Text = totalFiles.ToString();
             lblCompletedFiles.Text = doneFiles.ToString();
             lblPendingFiles.Text = pendingFiles.ToString();
 
+            // Showing those percentage into progressbar
             gcpCompletedFiles.Value = percentageDone;
             gcpPendingFiles.Value = percentagePending;
 
 
         }
+
+        // Function to Update Datagridview
         void updateDGV()
         {
+            // Iterating all the rows and making style for Pending, Completed and Running Cells
             foreach (DataGridViewRow rowItem in dgvFilesList.Rows)
             {
                 string statusText = rowItem.Cells["stStatus"].Value.ToString();
@@ -136,40 +158,48 @@ namespace TT_Edit
 
             }
         }
-
+           
+        // Function to refresh Everything using files list or AllFileList
         void refreshEverything(List<VTTFile> loadToView = null)
         {
             updateStatus();
             loadToView = loadToView == null ? allVTTFiles : loadToView;
             loadData(loadToView);
         }
+
+        // Function to load data into datagridview
         void loadData(List<VTTFile> loadToView = null)
         {
             loadToView = loadToView == null ? allVTTFiles : loadToView;
             dgvFilesList.Rows.Clear();
             foreach (VTTFile item in loadToView)
             {
-
+                // Adding name, lines count, date created, status into datagridview
                 dgvFilesList.Rows.Add(new string[] { item.name, item.lines.ToString(), item.date_created.ToString("dd/MM/yyyy"), item.status });
 
             }
+            // Updating Status Cell color
             updateDGV();
 
         }
 
+        // Handle to remove files in Datagridview
         private void dgvFilesList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
+                // Checking if it is Remove Button Column or not
                 DataGridViewCell selectedCell = dgvFilesList.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 if (selectedCell.ColumnIndex == dgvFilesList.Columns["stRemoveBTN"].Index)
                 {
+                    // Removing that file and refreshing everything
                     allVTTFiles.RemoveAt(e.RowIndex);
                     refreshEverything();
                 }
             }
         }
 
+        // Event Handler to search Status in datagridview
         private void cmbStatusSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbStatusSearch.Text != "All")
@@ -184,14 +214,17 @@ namespace TT_Edit
 
         }
 
+        // Event Handler for search box to search in Datagridview
         private void txtSearchBox_TextChanged(object sender, EventArgs e)
         {
             List<VTTFile> searchedvTTFiles = (from file in allVTTFiles where file.name.Contains(txtSearchBox.Text) select file).ToList();
             refreshEverything(searchedvTTFiles);
         }
 
+        // Event Handler for Start Button
         private void btnStart_Click(object sender, EventArgs e)
         {
+            // Validating if all the fields are filled
             ErrorMessageDialog.Text = "";
             if (txtVTTFolderPath.Text == "") ErrorMessageDialog.Text = "Please enter VTT folder Path";             
             
@@ -201,18 +234,23 @@ namespace TT_Edit
 
             if (ErrorMessageDialog.Text != "") { ErrorMessageDialog.Show(); return; }
 
+            // Disabling Satart Button and Enabling Stop Button
             btnStart.Enabled = false;
             btnStop.Enabled = true;
 
+            // Runing the work
             CheckForIllegalCrossThreadCalls = false;
             backgroundWorkerConverter.RunWorkerAsync();
 
         }
 
+        // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
+            // Iterating through files which status are Pending
             foreach (VTTFile item in from file in allVTTFiles where file.status=="Pending" select file)
             {
+                // Setting current status Running and refreshing everything
                 item.status = "Running";
                 refreshEverything();
 
@@ -220,38 +258,53 @@ namespace TT_Edit
                 bool isNewSub = true;
                 foreach (SubtitleItem subtitle in item.AllSubTitleItems)
                 {
+                    // First joining all lines into a string
                     string draftLines = string.Join(" ", subtitle.Lines.ToArray());
+                    
+                    // If it should be new Subtitle to gather next sentances then store it into firstSubTitle variable
                     if (isNewSub)
                     {
                         firstSubTitle = subtitle;
                     }
                     else
                     {
+                        // If previous one has no fullstop then it will add current lines to that one
                         firstSubTitle.Lines.AddRange(subtitle.Lines);
                        
+                        // Clearing current subtitle lines
                         subtitle.Lines.Clear();
 
                     }
+                    // If current subtitle contains fullstop then will set isNewSub to true 
                     if (! draftLines.Contains("."))
                     {
                         isNewSub = false;
                     }
                     else
                     {
+                        // else false
                         isNewSub = true;
                     }
                 }
+
+                // Now exporting that subtitle 
                 item.export();
+
+                // Updating current item status to Completed and refreshing everything
                 item.status = "Completed";
                 refreshEverything();
             }
+
+            // When everything is finished then will disable Stop button and enable Start Buttton.
             btnStart.Enabled = true;
             btnStop.Enabled = false;
 
         }
 
+        // Event Handler to Stop
         private void btnStop_Click(object sender, EventArgs e)
         {
+            // Force Cancel BackgrounWorker and skip if found any error
             try
             {
                 backgroundWorkerConverter.CancelAsync();
@@ -262,12 +315,14 @@ namespace TT_Edit
             }
             finally
             {
+
+                // Then Enable Start button and Disable Stop Button
                 btnStart.Enabled = true;
                 btnStop.Enabled = false;
-
             }
-
         }
+
+        // Event Handler to Open Exported Path
 
         private void btnExportedFolderOpen_Click(object sender, EventArgs e)
         {
@@ -278,14 +333,20 @@ namespace TT_Edit
 
     }
 
+
+    // Class for VTT File
     internal class VTTFile
     {
+        /* ************** Variables ****************/
         public string path;
         public string name;
         public int lines;
         public DateTime date_created;
         public string status = "Pending";
         public List<SubtitleItem> AllSubTitleItems;
+
+
+        // Constructor with required fields
         public VTTFile(string _path, string _name)
         {
             this.path = _path;
@@ -293,10 +354,17 @@ namespace TT_Edit
             parseVttFile();
 
         }
+
+
+
+        /********************** Functions ******************/
+        // Function to get export path
         public string export_path()
         {
             return MainForm.vTTExportfolderPath + "\\" + name;
         }
+
+        // Function to export
         public void export()
         {
             WriteToVttFile(AllSubTitleItems,export_path(),Encoding.UTF8);   
@@ -304,38 +372,50 @@ namespace TT_Edit
         }
 
       
-
+        // Function to write subtitles into VTT file
         public void WriteToVttFile(List<SubtitleItem> subtitleItems, string filePath, Encoding encoding)
         {
             using (StreamWriter writer = new StreamWriter(filePath, false, encoding))
             {
+                // First writing default WEBVTT and a newline
                 writer.WriteLine("WEBVTT\n");
                 foreach (SubtitleItem item in subtitleItems)
                 {
-
+                    // Writing Timeline
                     writer.WriteLine($"{FormatTimecode(item.StartTime)} --> {FormatTimecode(item.EndTime)}");
+
+                    // Joining all lines into one line and then writing into new file
                     string draftLines = string.Join(" ", item.Lines.ToArray()).Trim();
                     writer.WriteLine(draftLines);
-                    writer.WriteLine(); // Add an empty line between subtitle items
+
+                    // Add an empty line between subtitle items
+                    writer.WriteLine(); 
                 }
             }
         }
+
+        // Function to format TimeCode
         private string FormatTimecode(int milliseconds)
         {
             TimeSpan time = TimeSpan.FromMilliseconds(milliseconds);
             return $"{time.Hours:00}:{time.Minutes:00}:{time.Seconds:00}.{time.Milliseconds:000}";
         }
 
+        // Function to parse VTT File
         public void parseVttFile()
         {
             date_created = File.GetCreationTime(path);
 
+            // Reading file
             var newParser = new Classess.VttParser();
             using (var fileStream = File.OpenRead(path))
             {
+                // Parsing the file and storing into AllSubtitleItems as List
                 var newParsed = newParser.ParseStream(fileStream, Encoding.UTF8);
                 AllSubTitleItems = newParsed.ToList();
             }
+
+            // Setting All subtitle count
             lines = AllSubTitleItems.Count;
 
 
