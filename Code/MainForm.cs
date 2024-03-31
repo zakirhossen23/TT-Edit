@@ -75,7 +75,16 @@ namespace TT_Edit
 
         }
 
+        private void ICBTimeframe_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            var timeframecontrol = new TT_Edit.Forms.TimeframeControl();
+            timeframecontrol.ErrorMessageDialog.Parent = this;
+            timeframecontrol.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(timeframecontrol);
+            ActivateButton((IconButton)sender);
 
+        }
     }
 
 }

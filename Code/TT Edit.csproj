@@ -92,9 +92,16 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\VttFIleTimeUniting.cs" />
     <Compile Include="Classes\VttFIleConverter.cs" />
     <Compile Include="Classes\VTTFileReverser.cs" />
     <Compile Include="Classes\VttParser.cs" />
+    <Compile Include="Forms\TimeframeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\TimeframeControl.Designer.cs">
+      <DependentUpon>TimeframeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ReverseConverterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +122,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\TimeframeControl.resx">
+      <DependentUpon>TimeframeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReverseConverterControl.resx">
       <DependentUpon>ReverseConverterControl.cs</DependentUpon>
     </EmbeddedResource>

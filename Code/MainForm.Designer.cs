@@ -36,14 +36,15 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ControlContainer = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ICBTimeframe = new FontAwesome.Sharp.IconButton();
             this.ICBReverseConverter = new FontAwesome.Sharp.IconButton();
             this.ICBConverter = new FontAwesome.Sharp.IconButton();
             this.gunaDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.ControlContainer = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.panelTopHeader.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -132,6 +133,19 @@
             this.guna2Panel2.Size = new System.Drawing.Size(1252, 713);
             this.guna2Panel2.TabIndex = 1;
             // 
+            // ControlContainer
+            // 
+            this.ControlContainer.BackColor = System.Drawing.Color.Transparent;
+            this.ControlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ControlContainer.FillColor = System.Drawing.Color.Transparent;
+            this.ControlContainer.Location = new System.Drawing.Point(304, 37);
+            this.ControlContainer.Margin = new System.Windows.Forms.Padding(10);
+            this.ControlContainer.Name = "ControlContainer";
+            this.ControlContainer.Padding = new System.Windows.Forms.Padding(10);
+            this.ControlContainer.Size = new System.Drawing.Size(948, 676);
+            this.ControlContainer.TabIndex = 1;
+            this.ControlContainer.Text = "guna2ContainerControl1";
+            // 
             // guna2Panel1
             // 
             this.guna2Panel1.Controls.Add(this.tableLayoutPanel1);
@@ -180,6 +194,7 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Controls.Add(this.ICBTimeframe);
             this.guna2Panel3.Controls.Add(this.ICBReverseConverter);
             this.guna2Panel3.Controls.Add(this.ICBConverter);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -188,6 +203,31 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(304, 611);
             this.guna2Panel3.TabIndex = 1;
+            // 
+            // ICBTimeframe
+            // 
+            this.ICBTimeframe.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBTimeframe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBTimeframe.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBTimeframe.FlatAppearance.BorderSize = 0;
+            this.ICBTimeframe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBTimeframe.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBTimeframe.IconChar = FontAwesome.Sharp.IconChar.Clock;
+            this.ICBTimeframe.IconColor = System.Drawing.Color.Gray;
+            this.ICBTimeframe.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBTimeframe.IconSize = 20;
+            this.ICBTimeframe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBTimeframe.Location = new System.Drawing.Point(0, 102);
+            this.ICBTimeframe.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBTimeframe.Name = "ICBTimeframe";
+            this.ICBTimeframe.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBTimeframe.Size = new System.Drawing.Size(304, 51);
+            this.ICBTimeframe.TabIndex = 3;
+            this.ICBTimeframe.Text = "TImeframe Uniting";
+            this.ICBTimeframe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBTimeframe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBTimeframe.UseVisualStyleBackColor = true;
+            this.ICBTimeframe.Click += new System.EventHandler(this.ICBTimeframe_Click);
             // 
             // ICBReverseConverter
             // 
@@ -246,19 +286,6 @@
             this.gunaDragControl.TargetControl = this.panelTopHeader;
             this.gunaDragControl.UseTransparentDrag = true;
             // 
-            // ControlContainer
-            // 
-            this.ControlContainer.BackColor = System.Drawing.Color.Transparent;
-            this.ControlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ControlContainer.FillColor = System.Drawing.Color.Transparent;
-            this.ControlContainer.Location = new System.Drawing.Point(304, 37);
-            this.ControlContainer.Margin = new System.Windows.Forms.Padding(10);
-            this.ControlContainer.Name = "ControlContainer";
-            this.ControlContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.ControlContainer.Size = new System.Drawing.Size(948, 676);
-            this.ControlContainer.TabIndex = 1;
-            this.ControlContainer.Text = "guna2ContainerControl1";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -299,6 +326,7 @@
         private FontAwesome.Sharp.IconButton ICBConverter;
         private FontAwesome.Sharp.IconButton ICBReverseConverter;
         private Guna.UI2.WinForms.Guna2ContainerControl ControlContainer;
+        private FontAwesome.Sharp.IconButton ICBTimeframe;
     }
 }
 
