@@ -262,8 +262,8 @@ namespace TT_Edit.Forms
                     string draftLines = string.Join(" ", subtitle.Lines.ToArray());
 
                     // If it should be new Subtitle to gather next sentances then store it into firstSubTitle variable
-                    if (isNewSub)
-                    {
+                    if (isNewSub )
+                    { if (draftLines.Length > 0)
                         firstSubTitle = subtitle;
                     }
                     else
@@ -276,7 +276,7 @@ namespace TT_Edit.Forms
 
                     }
                     // If current subtitle contains fullstop then will set isNewSub to true 
-                    if (!draftLines.Contains("."))
+                    if (!draftLines.Contains(".") && draftLines.Length != 0 )
                     {
                         isNewSub = false;
                     }

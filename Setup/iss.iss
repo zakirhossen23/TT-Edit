@@ -30,7 +30,7 @@ PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputDir=D:\code\bahauddin\TT EDIT ALL FILES\Setup
 OutputBaseFilename=TT Edit
-SetupIconFile=D:\code\bahauddin\TT-Edit\images\icon.ico
+SetupIconFile="D:\code\bahauddin\TT EDIT ALL FILES\Code\images\icon.ico"
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -42,13 +42,13 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\code\bahauddin\TT-Edit\bin\Debug\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\bahauddin\TT-Edit\bin\Debug\Guna.UI2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\bahauddin\TT-Edit\bin\Debug\SubtitlesParser.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\bahauddin\TT-Edit\bin\Debug\TT Edit.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\bahauddin\TT-Edit\bin\Debug\TT Edit.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\bahauddin\TT-Edit\bin\Debug\TT Edit.exe.manifest"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\bahauddin\TT-Edit\bin\Debug\TT Edit.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\bahauddin\TT EDIT ALL FILES\code\bin\Debug\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\bahauddin\TT EDIT ALL FILES\code\bin\Debug\Guna.UI2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\bahauddin\TT EDIT ALL FILES\code\bin\Debug\SubtitlesParser.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\bahauddin\TT EDIT ALL FILES\code\bin\Debug\TT Edit.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\bahauddin\TT EDIT ALL FILES\code\bin\Debug\TT Edit.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\bahauddin\TT EDIT ALL FILES\code\bin\Debug\TT Edit.exe.manifest"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\bahauddin\TT EDIT ALL FILES\code\bin\Debug\TT Edit.pdb"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]

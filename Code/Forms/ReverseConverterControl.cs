@@ -244,6 +244,55 @@ namespace TT_Edit.Forms
 
         }
 
+        // Funtion for Adding line to Subtitle
+        private void addToSubtitle(ref SubtitleItem subtitle, ref List<string> listOfLines, int maxLine)
+        {
+
+
+            StringBuilder currentLineBuilder = new StringBuilder(); // Initialize StringBuilder for building the line
+
+            subtitle.Lines.Clear();
+            currentLineBuilder = new StringBuilder();
+
+            string[] wordsLines = listOfLines[0].Split(' '); // Split the line into words
+            bool lineAddedLast = false;
+            foreach (string word in wordsLines)
+            {
+            restartSecond:
+                if (currentLineBuilder.Length + word.Length < 30)
+                {
+                    lineAddedLast = false;
+                    // If adding the word won't exceed the max line length, add it to the current line
+                    currentLineBuilder.Append(word).Append(' '); // Append word and space
+                }
+                else
+                {
+                    // If adding the word will exceed the max line length, start a new line
+                    subtitle.Lines.Add(currentLineBuilder.ToString().Trim()); // Add current line to subtitle
+                    currentLineBuilder.Clear(); // Clear the current line builder
+                    lineAddedLast = true;
+                    goto restartSecond;
+                }
+            }
+            // If not added last line then readd 
+            if (currentLineBuilder.Length > 0 && !lineAddedLast) { subtitle.Lines.Add(currentLineBuilder.ToString().Trim()); lineAddedLast = true; }
+
+            // If line is more than 2 then add to last line
+            if (currentLineBuilder.Length > 0 && lineAddedLast && subtitle.Lines.Count > 2)
+            {
+                for (int k = maxLine; k < subtitle.Lines.Count; k++)
+                {
+
+                    subtitle.Lines[1] += " " + subtitle.Lines[k];
+                    subtitle.Lines.RemoveAt(k);
+                }
+
+            }
+
+
+            listOfLines.RemoveAt(0);
+
+        }
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -257,19 +306,21 @@ namespace TT_Edit.Forms
                 List<string> listOfLines = null;
 
                 int AddToNextTimeFrame = 1;
-                for (int i = 0; i < item.AllSubTitleItems.Count; i++)
+                for (int i = 0; i < item.AllSubTitleItems.Count-1; i++)
                 {
                     SubtitleItem subtitle = item.AllSubTitleItems[i];
                
                     // First joining all lines into a string
                     string draftLines = string.Join(" ", subtitle.Lines.ToArray()).Trim();
 
+                    
                     if (draftLines.Length != 0)
                     {
+                        // Counter for next timeframe which are empty
                         AddToNextTimeFrame = 1;
                         for (int j = i + 1; j < item.AllSubTitleItems.Count; j++)
                         {
-                            if (item.AllSubTitleItems[j].Lines.Count == 0)
+                            if (item.AllSubTitleItems[j].Lines.Count == 0 && j != item.AllSubTitleItems.Count -1)
                             {
                                 AddToNextTimeFrame++;
                             }
@@ -278,61 +329,61 @@ namespace TT_Edit.Forms
                                 break;
                             }
                         }
+
+                        // Dividing length by next time frame counter as max length
                         int perMaxLine = (int)(draftLines.Length / AddToNextTimeFrame);
                         StringBuilder currentLineBuilder = new StringBuilder(); // Initialize StringBuilder for building the line
 
                         listOfLines = new List<string>();
-
+                        bool lineAddedLast = false;
                         foreach (string line in subtitle.Lines)
                         {
                             string[] words = line.Split(' '); // Split the line into words
 
                             foreach (string word in words)
                             {
-                                if (currentLineBuilder.Length + word.Length < perMaxLine)
+                                restartFirst:
+                                if (currentLineBuilder.Length + word.Length <= perMaxLine)
                                 {
+                                    lineAddedLast = false;
                                     // If adding the word won't exceed the max line length, add it to the current line
                                     currentLineBuilder.Append(word).Append(' '); // Append word and space
                                 }
                                 else
                                 {
+                                 
                                     // If adding the word will exceed the max line length, start a new line
                                     listOfLines.Add(currentLineBuilder.ToString().Trim()); // Add current line to subtitle
                                     currentLineBuilder.Clear(); // Clear the current line builder
-                                    currentLineBuilder.Append(word).Append(' '); // Start a new line with the current word
+                                    lineAddedLast = true;
+                                    goto restartFirst;
                                 }
                             }
+
+                            // If not added last line then will add it to list
+                            if (currentLineBuilder.Length > 0 && !lineAddedLast) {listOfLines.Add(currentLineBuilder.ToString().Trim()); lineAddedLast = true;}
+
+                            // If lines are over counted next timeframe
+                            if (currentLineBuilder.Length > 0 && lineAddedLast && AddToNextTimeFrame < listOfLines.Count)
+                            {
+                                for (int k = AddToNextTimeFrame; k < listOfLines.Count; k++)
+                                    listOfLines[AddToNextTimeFrame - 1] += " " + listOfLines[k];
+                            }
+
                         }
 
+                        // Adding Lines to Subtitle
+                        addToSubtitle(ref subtitle,ref listOfLines, AddToNextTimeFrame);
 
-                        subtitle.Lines.Clear();
-                        currentLineBuilder = new StringBuilder();
 
-                        string[] wordsLines = listOfLines[0].Split(' '); // Split the line into words
 
-                        foreach (string word in wordsLines)
-                        {
-                            if (currentLineBuilder.Length + word.Length < 42)
-                            {
-                                // If adding the word won't exceed the max line length, add it to the current line
-                                currentLineBuilder.Append(word).Append(' '); // Append word and space
-                            }
-                            else
-                            {
-                                // If adding the word will exceed the max line length, start a new line
-                                subtitle.Lines.Add(currentLineBuilder.ToString().Trim()); // Add current line to subtitle
-                                currentLineBuilder.Clear(); // Clear the current line builder
-                                currentLineBuilder.Append(word).Append(' '); // Start a new line with the current word
-                            }
-                        }
-
-                        subtitle.Lines.Add(currentLineBuilder.ToString().Trim());
-                        listOfLines.RemoveAt(0);
                     }
                     else
                     {
-                        subtitle.Lines.Add(listOfLines[0]);
-                        listOfLines.RemoveAt(0);
+
+                        // Adding Lines to Subtitle
+                        if (listOfLines != null)
+                        addToSubtitle(ref subtitle, ref listOfLines, 2);
                     }
                 }
 
