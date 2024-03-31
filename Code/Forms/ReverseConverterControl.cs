@@ -306,7 +306,27 @@ namespace TT_Edit.Forms
 
 
                         subtitle.Lines.Clear();
-                        subtitle.Lines.Add(listOfLines[0]);
+                        currentLineBuilder = new StringBuilder();
+
+                        string[] wordsLines = listOfLines[0].Split(' '); // Split the line into words
+
+                        foreach (string word in wordsLines)
+                        {
+                            if (currentLineBuilder.Length + word.Length < 42)
+                            {
+                                // If adding the word won't exceed the max line length, add it to the current line
+                                currentLineBuilder.Append(word).Append(' '); // Append word and space
+                            }
+                            else
+                            {
+                                // If adding the word will exceed the max line length, start a new line
+                                subtitle.Lines.Add(currentLineBuilder.ToString().Trim()); // Add current line to subtitle
+                                currentLineBuilder.Clear(); // Clear the current line builder
+                                currentLineBuilder.Append(word).Append(' '); // Start a new line with the current word
+                            }
+                        }
+
+                        subtitle.Lines.Add(currentLineBuilder.ToString().Trim());
                         listOfLines.RemoveAt(0);
                     }
                     else
