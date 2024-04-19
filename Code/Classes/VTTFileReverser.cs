@@ -20,12 +20,15 @@ namespace TT_Edit.Classes
         public DateTime date_created;
         public string status = "Pending";
         public List<SubtitleItem> AllSubTitleItems;
+        public string lang = "";
 
         // Constructor with required fields
-        public VTTFileReverser(string _path, string _name)
+        public VTTFileReverser(string _path, string _name,string _lang = "")
         {
             this.path = _path;
             this.name = _name;
+            this.lang = _lang;
+
             parseVttFile();
 
         }

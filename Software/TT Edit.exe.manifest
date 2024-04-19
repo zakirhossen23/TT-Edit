@@ -66,6 +66,54 @@
     </dependentAssembly>
   </dependency>
   <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JiebaNet.Analyser.dll" size="16384">
+      <assemblyIdentity name="JiebaNet.Analyser" version="0.42.2.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>CISmY4/BBoc01sZfrT5Sjy1e7NOXKykJ4h9oDmbOAPw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="JiebaNet.Segmenter.dll" size="42496">
+      <assemblyIdentity name="JiebaNet.Segmenter" version="0.42.2.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>mHiMsRWJluubLZXdk16WAYcY/EcUlq3f+yPyCC+wqAI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MeCab.DotNet.dll" size="65024">
+      <assemblyIdentity name="MeCab.DotNet" version="1.2.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>wUDJz5JYIZa2K4V0E2/vJTBAW8/FI2E33DPj8fG+AMY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Newtonsoft.Json.dll" size="700336">
+      <assemblyIdentity name="Newtonsoft.Json" version="12.0.0.0" publicKeyToken="30AD4FE6B2A6AEED" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>f5ErKKB8Im4L46z7L1fwUFOKugEA+h8L8sOfGh8dqBQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="SubtitlesParser.dll" size="24064">
       <assemblyIdentity name="SubtitlesParser" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -78,17 +126,71 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TT Edit.exe" size="273880">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TT Edit.exe" size="277464">
       <assemblyIdentity name="TT Edit" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qDzN6Ytms0YoWcfPomne3oPLYuED0HZAJU7+TsdDksQ=</dsig:DigestValue>
+        <dsig:DigestValue>NaMmQfsZ16EiOpmvjCwh25JmD9sqvGZ+jRgpaRxaUtU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="dic\char.bin" size="262496">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>gbulAq5I+gBaN0gZ8V5ERS62gIaosyPsIKBE1RRACDI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="dic\dicrc" size="725">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>cRHIyp2yaJibLHneAi9aBV3OELPpwqyJlLpBYmrHk9M=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="dic\matrix.bin" size="3463716">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>7kTXNQzctoDr1pn4PhIb4dxjMQ+IMtVby1N6BoF3YRo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="dic\README.txt" size="52">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xjwuZlXJb5C1wWMI1amTWmeDf1E5EuZTjp3KB0ryCso=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="dic\sys.dic" size="49205956">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xy38AmMitrj2u8jZD9Zwa++dVm2bNrBh6sjElCefxCc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="dic\unk.dic" size="5690">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>pazO8Nl3yS9v9cwwpkKN8tuDkLPToxUnPemFExT6DbQ=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="TT Edit.exe.config" size="1012">
     <hash>
       <dsig:Transforms>

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using SubtitlesParser.Parsers;
 using SubtitlesParser;
 using TT_Edit.Classes;
+using System.Text.RegularExpressions;
 
 namespace TT_Edit.Forms
 {
@@ -243,6 +244,24 @@ namespace TT_Edit.Forms
             backgroundWorkerConverter.RunWorkerAsync();
 
         }
+        string[] DecimalsInString(String line)
+        {
+            string[] allDecimals = new string[] { };
+            string pattern = @"([0-9]+[\.][0-9]+)";
+            var allmatches = Regex.Matches(line, pattern);  
+            for (int i = 0; i < allmatches.Count; i++)
+            {
+                Match match = allmatches[i];
+                if (match.Success && match.Groups.Count > 0)
+                {
+                    var text = match.Groups[1].Value;
+                    allDecimals = allDecimals.Union(new String[] { text }).ToArray();
+                }
+            }
+
+            return allDecimals;
+        }
+
 
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
@@ -255,19 +274,33 @@ namespace TT_Edit.Forms
                 refreshEverything();
 
                 SubtitleItem firstSubTitle = null;
+                string splittedLine = null;
                 bool isNewSub = true;
                 foreach (SubtitleItem subtitle in item.AllSubTitleItems)
                 {
+
+
                     // First joining all lines into a string
                     string draftLines = string.Join(" ", subtitle.Lines.ToArray());
 
                     // If it should be new Subtitle to gather next sentances then store it into firstSubTitle variable
-                    if (isNewSub )
-                    { if (draftLines.Length > 0)
-                        firstSubTitle = subtitle;
+                    if (isNewSub)
+                    {
+                        if (draftLines.Length > 0)
+                            firstSubTitle = subtitle;
+                        if (splittedLine != null)
+                        {
+                            firstSubTitle.Lines.Insert(0, splittedLine);
+                            splittedLine = null;
+
+                        }
+
+
                     }
                     else
                     {
+
+
                         // If previous one has no fullstop then it will add current lines to that one
                         firstSubTitle.Lines.AddRange(subtitle.Lines);
 
@@ -275,16 +308,47 @@ namespace TT_Edit.Forms
                         subtitle.Lines.Clear();
 
                     }
-                    // If current subtitle contains fullstop then will set isNewSub to true 
-                    if (!draftLines.Contains(".") && draftLines.Length != 0 )
+
+                    // Removing deciaml (float numbers)
+                    string[] allDecimals = DecimalsInString(draftLines);
+                    foreach (var num in allDecimals)
                     {
-                        isNewSub = false;
-                    }
-                    else
+                        draftLines = draftLines.Replace(num, ""); 
+                    }  
+
+                    // Removing ignoring words
+                    string[] allIgnoreWords = ignoreCharsTxt.Text.Split(',');
+                    foreach (var word in allIgnoreWords)
                     {
-                        // else false
-                        isNewSub = true;
+                        draftLines = draftLines.Replace(word, ""); 
                     }
+
+
+                    if (cbxBreakDotEnd.Checked)
+                    {
+                        if (draftLines.EndsWith(".") && draftLines.Length != 0)
+                        {
+                            isNewSub = true;
+                        }
+                        else
+                        {
+                            isNewSub = false;
+                        }
+                    }else if (!cbxBreakDotEnd.Checked)
+                    {
+                        if (draftLines.Contains(".") && draftLines.Length != 0)
+                        {
+                            splittedLine = draftLines.Split('.')[1];
+                            isNewSub = true;
+                        }
+                        else
+                        {
+                            splittedLine = null;
+                        }
+                    }
+                   
+
+
                 }
 
                 // Now exporting that subtitle 

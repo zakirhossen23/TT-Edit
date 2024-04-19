@@ -28,22 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnExportedFolderOpen = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
-            this.btnStop = new Guna.UI2.WinForms.Guna2Button();
-            this.btnStart = new Guna.UI2.WinForms.Guna2Button();
-            this.txtVTTExportFolderPath = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtVTTFilesPath = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.guna2ContainerControl7 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.guna2ContainerControl8 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.gcpPendingFiles = new Guna.UI2.WinForms.Guna2CircleProgressBar();
@@ -56,12 +48,25 @@
             this.lblCompletedFiles = new System.Windows.Forms.Label();
             this.guna2ContainerControl6 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.label6 = new System.Windows.Forms.Label();
-            this.lblVTTFolderPath = new System.Windows.Forms.Label();
             this.guna2ContainerControl1 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.guna2ContainerControl2 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.lblTotalFiles = new System.Windows.Forms.Label();
             this.guna2ContainerControl3 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.label3 = new System.Windows.Forms.Label();
+            this.ignoreCharsTxt = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cbxBreakDotEnd = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnExportedFolderOpen = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
+            this.btnStop = new Guna.UI2.WinForms.Guna2Button();
+            this.btnStart = new Guna.UI2.WinForms.Guna2Button();
+            this.txtVTTExportFolderPath = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtVTTFilesPath = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
+            this.lblVTTFolderPath = new System.Windows.Forms.Label();
             this.cmbStatusSearch = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtSearchBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnVTTFilesBrowse = new System.Windows.Forms.Button();
@@ -79,6 +84,7 @@
             this.ErrorMessageDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.vttOFD = new System.Windows.Forms.OpenFileDialog();
             this.guna2Panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.guna2ContainerControl7.SuspendLayout();
             this.guna2ContainerControl8.SuspendLayout();
             this.guna2ContainerControl9.SuspendLayout();
@@ -95,6 +101,11 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.guna2Panel2.Controls.Add(this.panel1);
+            this.guna2Panel2.Controls.Add(this.ignoreCharsTxt);
+            this.guna2Panel2.Controls.Add(this.cbxBreakDotEnd);
+            this.guna2Panel2.Controls.Add(this.label1);
+            this.guna2Panel2.Controls.Add(this.label2);
             this.guna2Panel2.Controls.Add(this.btnExportedFolderOpen);
             this.guna2Panel2.Controls.Add(this.guna2Separator1);
             this.guna2Panel2.Controls.Add(this.guna2Separator3);
@@ -104,10 +115,7 @@
             this.guna2Panel2.Controls.Add(this.txtVTTFilesPath);
             this.guna2Panel2.Controls.Add(this.label9);
             this.guna2Panel2.Controls.Add(this.guna2Separator2);
-            this.guna2Panel2.Controls.Add(this.guna2ContainerControl7);
-            this.guna2Panel2.Controls.Add(this.guna2ContainerControl4);
             this.guna2Panel2.Controls.Add(this.lblVTTFolderPath);
-            this.guna2Panel2.Controls.Add(this.guna2ContainerControl1);
             this.guna2Panel2.Controls.Add(this.cmbStatusSearch);
             this.guna2Panel2.Controls.Add(this.txtSearchBox);
             this.guna2Panel2.Controls.Add(this.btnVTTFilesBrowse);
@@ -120,6 +128,297 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1340, 749);
             this.guna2Panel2.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.guna2ContainerControl7);
+            this.panel1.Controls.Add(this.guna2ContainerControl4);
+            this.panel1.Controls.Add(this.guna2ContainerControl1);
+            this.panel1.Location = new System.Drawing.Point(479, 245);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(823, 146);
+            this.panel1.TabIndex = 43;
+            // 
+            // guna2ContainerControl7
+            // 
+            this.guna2ContainerControl7.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ContainerControl7.BorderRadius = 10;
+            this.guna2ContainerControl7.Controls.Add(this.guna2ContainerControl8);
+            this.guna2ContainerControl7.Controls.Add(this.guna2ContainerControl9);
+            this.guna2ContainerControl7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.guna2ContainerControl7.Location = new System.Drawing.Point(579, 17);
+            this.guna2ContainerControl7.Name = "guna2ContainerControl7";
+            this.guna2ContainerControl7.Padding = new System.Windows.Forms.Padding(5);
+            this.guna2ContainerControl7.ShadowDecoration.BorderRadius = 15;
+            this.guna2ContainerControl7.ShadowDecoration.Depth = 3;
+            this.guna2ContainerControl7.ShadowDecoration.Enabled = true;
+            this.guna2ContainerControl7.Size = new System.Drawing.Size(244, 110);
+            this.guna2ContainerControl7.TabIndex = 17;
+            this.guna2ContainerControl7.Text = "guna2ContainerControl7";
+            // 
+            // guna2ContainerControl8
+            // 
+            this.guna2ContainerControl8.BorderRadius = 5;
+            this.guna2ContainerControl8.Controls.Add(this.gcpPendingFiles);
+            this.guna2ContainerControl8.Controls.Add(this.lblPendingFiles);
+            this.guna2ContainerControl8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2ContainerControl8.Location = new System.Drawing.Point(5, 46);
+            this.guna2ContainerControl8.Name = "guna2ContainerControl8";
+            this.guna2ContainerControl8.Size = new System.Drawing.Size(234, 59);
+            this.guna2ContainerControl8.TabIndex = 1;
+            this.guna2ContainerControl8.Text = "guna2ContainerControl8";
+            // 
+            // gcpPendingFiles
+            // 
+            this.gcpPendingFiles.BackColor = System.Drawing.Color.Transparent;
+            this.gcpPendingFiles.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.gcpPendingFiles.FillThickness = 4;
+            this.gcpPendingFiles.Font = new System.Drawing.Font("Arial", 10F);
+            this.gcpPendingFiles.ForeColor = System.Drawing.Color.Black;
+            this.gcpPendingFiles.Location = new System.Drawing.Point(181, 3);
+            this.gcpPendingFiles.Minimum = 0;
+            this.gcpPendingFiles.Name = "gcpPendingFiles";
+            this.gcpPendingFiles.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
+            this.gcpPendingFiles.ProgressColor = System.Drawing.Color.Coral;
+            this.gcpPendingFiles.ProgressColor2 = System.Drawing.Color.Coral;
+            this.gcpPendingFiles.ProgressThickness = 4;
+            this.gcpPendingFiles.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.gcpPendingFiles.ShowText = true;
+            this.gcpPendingFiles.Size = new System.Drawing.Size(50, 50);
+            this.gcpPendingFiles.TabIndex = 2;
+            this.gcpPendingFiles.Text = "guna2CircleProgressBar2";
+            // 
+            // lblPendingFiles
+            // 
+            this.lblPendingFiles.AutoSize = true;
+            this.lblPendingFiles.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPendingFiles.Location = new System.Drawing.Point(9, 10);
+            this.lblPendingFiles.Name = "lblPendingFiles";
+            this.lblPendingFiles.Size = new System.Drawing.Size(36, 39);
+            this.lblPendingFiles.TabIndex = 0;
+            this.lblPendingFiles.Text = "0";
+            // 
+            // guna2ContainerControl9
+            // 
+            this.guna2ContainerControl9.Controls.Add(this.label8);
+            this.guna2ContainerControl9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2ContainerControl9.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ContainerControl9.Location = new System.Drawing.Point(5, 5);
+            this.guna2ContainerControl9.Name = "guna2ContainerControl9";
+            this.guna2ContainerControl9.Size = new System.Drawing.Size(234, 41);
+            this.guna2ContainerControl9.TabIndex = 2;
+            this.guna2ContainerControl9.Text = "guna2ContainerControl9";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Gray;
+            this.label8.Location = new System.Drawing.Point(10, 10);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 18);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Pending Files";
+            // 
+            // guna2ContainerControl4
+            // 
+            this.guna2ContainerControl4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ContainerControl4.BorderRadius = 10;
+            this.guna2ContainerControl4.Controls.Add(this.guna2ContainerControl5);
+            this.guna2ContainerControl4.Controls.Add(this.guna2ContainerControl6);
+            this.guna2ContainerControl4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.guna2ContainerControl4.Location = new System.Drawing.Point(290, 17);
+            this.guna2ContainerControl4.Name = "guna2ContainerControl4";
+            this.guna2ContainerControl4.Padding = new System.Windows.Forms.Padding(5);
+            this.guna2ContainerControl4.ShadowDecoration.BorderRadius = 15;
+            this.guna2ContainerControl4.ShadowDecoration.Depth = 3;
+            this.guna2ContainerControl4.ShadowDecoration.Enabled = true;
+            this.guna2ContainerControl4.Size = new System.Drawing.Size(244, 110);
+            this.guna2ContainerControl4.TabIndex = 16;
+            this.guna2ContainerControl4.Text = "guna2ContainerControl4";
+            // 
+            // guna2ContainerControl5
+            // 
+            this.guna2ContainerControl5.BorderRadius = 5;
+            this.guna2ContainerControl5.Controls.Add(this.gcpCompletedFiles);
+            this.guna2ContainerControl5.Controls.Add(this.lblCompletedFiles);
+            this.guna2ContainerControl5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2ContainerControl5.Location = new System.Drawing.Point(5, 46);
+            this.guna2ContainerControl5.Name = "guna2ContainerControl5";
+            this.guna2ContainerControl5.Size = new System.Drawing.Size(234, 59);
+            this.guna2ContainerControl5.TabIndex = 1;
+            this.guna2ContainerControl5.Text = "guna2ContainerControl5";
+            // 
+            // gcpCompletedFiles
+            // 
+            this.gcpCompletedFiles.BackColor = System.Drawing.Color.Transparent;
+            this.gcpCompletedFiles.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.gcpCompletedFiles.FillThickness = 4;
+            this.gcpCompletedFiles.Font = new System.Drawing.Font("Arial", 10F);
+            this.gcpCompletedFiles.ForeColor = System.Drawing.Color.Black;
+            this.gcpCompletedFiles.Location = new System.Drawing.Point(169, 3);
+            this.gcpCompletedFiles.Minimum = 0;
+            this.gcpCompletedFiles.Name = "gcpCompletedFiles";
+            this.gcpCompletedFiles.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
+            this.gcpCompletedFiles.ProgressColor = System.Drawing.Color.Blue;
+            this.gcpCompletedFiles.ProgressThickness = 4;
+            this.gcpCompletedFiles.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.gcpCompletedFiles.ShowText = true;
+            this.gcpCompletedFiles.Size = new System.Drawing.Size(50, 50);
+            this.gcpCompletedFiles.TabIndex = 1;
+            this.gcpCompletedFiles.Text = "guna2CircleProgressBar1";
+            // 
+            // lblCompletedFiles
+            // 
+            this.lblCompletedFiles.AutoSize = true;
+            this.lblCompletedFiles.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompletedFiles.Location = new System.Drawing.Point(9, 10);
+            this.lblCompletedFiles.Name = "lblCompletedFiles";
+            this.lblCompletedFiles.Size = new System.Drawing.Size(36, 39);
+            this.lblCompletedFiles.TabIndex = 0;
+            this.lblCompletedFiles.Text = "0";
+            // 
+            // guna2ContainerControl6
+            // 
+            this.guna2ContainerControl6.Controls.Add(this.label6);
+            this.guna2ContainerControl6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2ContainerControl6.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ContainerControl6.Location = new System.Drawing.Point(5, 5);
+            this.guna2ContainerControl6.Name = "guna2ContainerControl6";
+            this.guna2ContainerControl6.Size = new System.Drawing.Size(234, 41);
+            this.guna2ContainerControl6.TabIndex = 2;
+            this.guna2ContainerControl6.Text = "guna2ContainerControl6";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Gray;
+            this.label6.Location = new System.Drawing.Point(10, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(123, 18);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Completed Files";
+            // 
+            // guna2ContainerControl1
+            // 
+            this.guna2ContainerControl1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ContainerControl1.BorderRadius = 10;
+            this.guna2ContainerControl1.Controls.Add(this.guna2ContainerControl2);
+            this.guna2ContainerControl1.Controls.Add(this.guna2ContainerControl3);
+            this.guna2ContainerControl1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.guna2ContainerControl1.Location = new System.Drawing.Point(2, 17);
+            this.guna2ContainerControl1.Name = "guna2ContainerControl1";
+            this.guna2ContainerControl1.Padding = new System.Windows.Forms.Padding(5);
+            this.guna2ContainerControl1.ShadowDecoration.BorderRadius = 15;
+            this.guna2ContainerControl1.ShadowDecoration.Depth = 3;
+            this.guna2ContainerControl1.ShadowDecoration.Enabled = true;
+            this.guna2ContainerControl1.Size = new System.Drawing.Size(244, 110);
+            this.guna2ContainerControl1.TabIndex = 15;
+            this.guna2ContainerControl1.Text = "guna2ContainerControl1";
+            // 
+            // guna2ContainerControl2
+            // 
+            this.guna2ContainerControl2.BorderRadius = 5;
+            this.guna2ContainerControl2.Controls.Add(this.lblTotalFiles);
+            this.guna2ContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2ContainerControl2.Location = new System.Drawing.Point(5, 46);
+            this.guna2ContainerControl2.Name = "guna2ContainerControl2";
+            this.guna2ContainerControl2.Size = new System.Drawing.Size(234, 59);
+            this.guna2ContainerControl2.TabIndex = 1;
+            this.guna2ContainerControl2.Text = "guna2ContainerControl2";
+            // 
+            // lblTotalFiles
+            // 
+            this.lblTotalFiles.AutoSize = true;
+            this.lblTotalFiles.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalFiles.Location = new System.Drawing.Point(9, 10);
+            this.lblTotalFiles.Name = "lblTotalFiles";
+            this.lblTotalFiles.Size = new System.Drawing.Size(36, 39);
+            this.lblTotalFiles.TabIndex = 0;
+            this.lblTotalFiles.Text = "0";
+            // 
+            // guna2ContainerControl3
+            // 
+            this.guna2ContainerControl3.Controls.Add(this.label3);
+            this.guna2ContainerControl3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2ContainerControl3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ContainerControl3.Location = new System.Drawing.Point(5, 5);
+            this.guna2ContainerControl3.Name = "guna2ContainerControl3";
+            this.guna2ContainerControl3.Size = new System.Drawing.Size(234, 41);
+            this.guna2ContainerControl3.TabIndex = 2;
+            this.guna2ContainerControl3.Text = "guna2ContainerControl3";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Gray;
+            this.label3.Location = new System.Drawing.Point(10, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 18);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Total Files";
+            // 
+            // ignoreCharsTxt
+            // 
+            this.ignoreCharsTxt.BorderRadius = 8;
+            this.ignoreCharsTxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ignoreCharsTxt.DefaultText = "etc.";
+            this.ignoreCharsTxt.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ignoreCharsTxt.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ignoreCharsTxt.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ignoreCharsTxt.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ignoreCharsTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ignoreCharsTxt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ignoreCharsTxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ignoreCharsTxt.Location = new System.Drawing.Point(42, 326);
+            this.ignoreCharsTxt.Name = "ignoreCharsTxt";
+            this.ignoreCharsTxt.PasswordChar = '\0';
+            this.ignoreCharsTxt.PlaceholderText = "";
+            this.ignoreCharsTxt.SelectedText = "";
+            this.ignoreCharsTxt.Size = new System.Drawing.Size(421, 36);
+            this.ignoreCharsTxt.TabIndex = 41;
+            // 
+            // cbxBreakDotEnd
+            // 
+            this.cbxBreakDotEnd.Checked = true;
+            this.cbxBreakDotEnd.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbxBreakDotEnd.CheckedState.BorderRadius = 0;
+            this.cbxBreakDotEnd.CheckedState.BorderThickness = 0;
+            this.cbxBreakDotEnd.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbxBreakDotEnd.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxBreakDotEnd.Location = new System.Drawing.Point(42, 262);
+            this.cbxBreakDotEnd.Name = "cbxBreakDotEnd";
+            this.cbxBreakDotEnd.Size = new System.Drawing.Size(211, 31);
+            this.cbxBreakDotEnd.TabIndex = 40;
+            this.cbxBreakDotEnd.Text = "Break only dot at the end";
+            this.cbxBreakDotEnd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxBreakDotEnd.UncheckedState.BorderColor = System.Drawing.Color.DimGray;
+            this.cbxBreakDotEnd.UncheckedState.BorderRadius = 0;
+            this.cbxBreakDotEnd.UncheckedState.BorderThickness = 1;
+            this.cbxBreakDotEnd.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(38, 206);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 25);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "Config";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(39, 302);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(394, 18);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Ignore these characters to end line(Comma separated): ";
             // 
             // btnExportedFolderOpen
             // 
@@ -258,7 +557,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(37, 215);
+            this.label9.Location = new System.Drawing.Point(476, 206);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(102, 25);
             this.label9.TabIndex = 10;
@@ -274,165 +573,6 @@
             this.guna2Separator2.Size = new System.Drawing.Size(1336, 13);
             this.guna2Separator2.TabIndex = 18;
             // 
-            // guna2ContainerControl7
-            // 
-            this.guna2ContainerControl7.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ContainerControl7.BorderRadius = 10;
-            this.guna2ContainerControl7.Controls.Add(this.guna2ContainerControl8);
-            this.guna2ContainerControl7.Controls.Add(this.guna2ContainerControl9);
-            this.guna2ContainerControl7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.guna2ContainerControl7.Location = new System.Drawing.Point(619, 258);
-            this.guna2ContainerControl7.Name = "guna2ContainerControl7";
-            this.guna2ContainerControl7.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2ContainerControl7.ShadowDecoration.BorderRadius = 15;
-            this.guna2ContainerControl7.ShadowDecoration.Depth = 3;
-            this.guna2ContainerControl7.ShadowDecoration.Enabled = true;
-            this.guna2ContainerControl7.Size = new System.Drawing.Size(244, 110);
-            this.guna2ContainerControl7.TabIndex = 17;
-            this.guna2ContainerControl7.Text = "guna2ContainerControl7";
-            // 
-            // guna2ContainerControl8
-            // 
-            this.guna2ContainerControl8.BorderRadius = 5;
-            this.guna2ContainerControl8.Controls.Add(this.gcpPendingFiles);
-            this.guna2ContainerControl8.Controls.Add(this.lblPendingFiles);
-            this.guna2ContainerControl8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2ContainerControl8.Location = new System.Drawing.Point(5, 46);
-            this.guna2ContainerControl8.Name = "guna2ContainerControl8";
-            this.guna2ContainerControl8.Size = new System.Drawing.Size(234, 59);
-            this.guna2ContainerControl8.TabIndex = 1;
-            this.guna2ContainerControl8.Text = "guna2ContainerControl8";
-            // 
-            // gcpPendingFiles
-            // 
-            this.gcpPendingFiles.BackColor = System.Drawing.Color.Transparent;
-            this.gcpPendingFiles.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.gcpPendingFiles.FillThickness = 4;
-            this.gcpPendingFiles.Font = new System.Drawing.Font("Arial", 10F);
-            this.gcpPendingFiles.ForeColor = System.Drawing.Color.Black;
-            this.gcpPendingFiles.Location = new System.Drawing.Point(181, 3);
-            this.gcpPendingFiles.Minimum = 0;
-            this.gcpPendingFiles.Name = "gcpPendingFiles";
-            this.gcpPendingFiles.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
-            this.gcpPendingFiles.ProgressColor = System.Drawing.Color.Coral;
-            this.gcpPendingFiles.ProgressColor2 = System.Drawing.Color.Coral;
-            this.gcpPendingFiles.ProgressThickness = 4;
-            this.gcpPendingFiles.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.gcpPendingFiles.ShowText = true;
-            this.gcpPendingFiles.Size = new System.Drawing.Size(50, 50);
-            this.gcpPendingFiles.TabIndex = 2;
-            this.gcpPendingFiles.Text = "guna2CircleProgressBar2";
-            // 
-            // lblPendingFiles
-            // 
-            this.lblPendingFiles.AutoSize = true;
-            this.lblPendingFiles.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPendingFiles.Location = new System.Drawing.Point(9, 10);
-            this.lblPendingFiles.Name = "lblPendingFiles";
-            this.lblPendingFiles.Size = new System.Drawing.Size(36, 39);
-            this.lblPendingFiles.TabIndex = 0;
-            this.lblPendingFiles.Text = "0";
-            // 
-            // guna2ContainerControl9
-            // 
-            this.guna2ContainerControl9.Controls.Add(this.label8);
-            this.guna2ContainerControl9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2ContainerControl9.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ContainerControl9.Location = new System.Drawing.Point(5, 5);
-            this.guna2ContainerControl9.Name = "guna2ContainerControl9";
-            this.guna2ContainerControl9.Size = new System.Drawing.Size(234, 41);
-            this.guna2ContainerControl9.TabIndex = 2;
-            this.guna2ContainerControl9.Text = "guna2ContainerControl9";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.Color.Gray;
-            this.label8.Location = new System.Drawing.Point(10, 10);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(104, 18);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Pending Files";
-            // 
-            // guna2ContainerControl4
-            // 
-            this.guna2ContainerControl4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ContainerControl4.BorderRadius = 10;
-            this.guna2ContainerControl4.Controls.Add(this.guna2ContainerControl5);
-            this.guna2ContainerControl4.Controls.Add(this.guna2ContainerControl6);
-            this.guna2ContainerControl4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.guna2ContainerControl4.Location = new System.Drawing.Point(330, 258);
-            this.guna2ContainerControl4.Name = "guna2ContainerControl4";
-            this.guna2ContainerControl4.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2ContainerControl4.ShadowDecoration.BorderRadius = 15;
-            this.guna2ContainerControl4.ShadowDecoration.Depth = 3;
-            this.guna2ContainerControl4.ShadowDecoration.Enabled = true;
-            this.guna2ContainerControl4.Size = new System.Drawing.Size(244, 110);
-            this.guna2ContainerControl4.TabIndex = 16;
-            this.guna2ContainerControl4.Text = "guna2ContainerControl4";
-            // 
-            // guna2ContainerControl5
-            // 
-            this.guna2ContainerControl5.BorderRadius = 5;
-            this.guna2ContainerControl5.Controls.Add(this.gcpCompletedFiles);
-            this.guna2ContainerControl5.Controls.Add(this.lblCompletedFiles);
-            this.guna2ContainerControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2ContainerControl5.Location = new System.Drawing.Point(5, 46);
-            this.guna2ContainerControl5.Name = "guna2ContainerControl5";
-            this.guna2ContainerControl5.Size = new System.Drawing.Size(234, 59);
-            this.guna2ContainerControl5.TabIndex = 1;
-            this.guna2ContainerControl5.Text = "guna2ContainerControl5";
-            // 
-            // gcpCompletedFiles
-            // 
-            this.gcpCompletedFiles.BackColor = System.Drawing.Color.Transparent;
-            this.gcpCompletedFiles.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
-            this.gcpCompletedFiles.FillThickness = 4;
-            this.gcpCompletedFiles.Font = new System.Drawing.Font("Arial", 10F);
-            this.gcpCompletedFiles.ForeColor = System.Drawing.Color.Black;
-            this.gcpCompletedFiles.Location = new System.Drawing.Point(169, 3);
-            this.gcpCompletedFiles.Minimum = 0;
-            this.gcpCompletedFiles.Name = "gcpCompletedFiles";
-            this.gcpCompletedFiles.ProgressBrushMode = Guna.UI2.WinForms.Enums.BrushMode.Solid;
-            this.gcpCompletedFiles.ProgressColor = System.Drawing.Color.Blue;
-            this.gcpCompletedFiles.ProgressThickness = 4;
-            this.gcpCompletedFiles.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.gcpCompletedFiles.ShowText = true;
-            this.gcpCompletedFiles.Size = new System.Drawing.Size(50, 50);
-            this.gcpCompletedFiles.TabIndex = 1;
-            this.gcpCompletedFiles.Text = "guna2CircleProgressBar1";
-            // 
-            // lblCompletedFiles
-            // 
-            this.lblCompletedFiles.AutoSize = true;
-            this.lblCompletedFiles.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompletedFiles.Location = new System.Drawing.Point(9, 10);
-            this.lblCompletedFiles.Name = "lblCompletedFiles";
-            this.lblCompletedFiles.Size = new System.Drawing.Size(36, 39);
-            this.lblCompletedFiles.TabIndex = 0;
-            this.lblCompletedFiles.Text = "0";
-            // 
-            // guna2ContainerControl6
-            // 
-            this.guna2ContainerControl6.Controls.Add(this.label6);
-            this.guna2ContainerControl6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2ContainerControl6.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ContainerControl6.Location = new System.Drawing.Point(5, 5);
-            this.guna2ContainerControl6.Name = "guna2ContainerControl6";
-            this.guna2ContainerControl6.Size = new System.Drawing.Size(234, 41);
-            this.guna2ContainerControl6.TabIndex = 2;
-            this.guna2ContainerControl6.Text = "guna2ContainerControl6";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(10, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 18);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Completed Files";
-            // 
             // lblVTTFolderPath
             // 
             this.lblVTTFolderPath.AutoSize = true;
@@ -442,65 +582,6 @@
             this.lblVTTFolderPath.Size = new System.Drawing.Size(75, 18);
             this.lblVTTFolderPath.TabIndex = 1;
             this.lblVTTFolderPath.Text = "VTT Files";
-            // 
-            // guna2ContainerControl1
-            // 
-            this.guna2ContainerControl1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ContainerControl1.BorderRadius = 10;
-            this.guna2ContainerControl1.Controls.Add(this.guna2ContainerControl2);
-            this.guna2ContainerControl1.Controls.Add(this.guna2ContainerControl3);
-            this.guna2ContainerControl1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.guna2ContainerControl1.Location = new System.Drawing.Point(42, 258);
-            this.guna2ContainerControl1.Name = "guna2ContainerControl1";
-            this.guna2ContainerControl1.Padding = new System.Windows.Forms.Padding(5);
-            this.guna2ContainerControl1.ShadowDecoration.BorderRadius = 15;
-            this.guna2ContainerControl1.ShadowDecoration.Depth = 3;
-            this.guna2ContainerControl1.ShadowDecoration.Enabled = true;
-            this.guna2ContainerControl1.Size = new System.Drawing.Size(244, 110);
-            this.guna2ContainerControl1.TabIndex = 15;
-            this.guna2ContainerControl1.Text = "guna2ContainerControl1";
-            // 
-            // guna2ContainerControl2
-            // 
-            this.guna2ContainerControl2.BorderRadius = 5;
-            this.guna2ContainerControl2.Controls.Add(this.lblTotalFiles);
-            this.guna2ContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2ContainerControl2.Location = new System.Drawing.Point(5, 46);
-            this.guna2ContainerControl2.Name = "guna2ContainerControl2";
-            this.guna2ContainerControl2.Size = new System.Drawing.Size(234, 59);
-            this.guna2ContainerControl2.TabIndex = 1;
-            this.guna2ContainerControl2.Text = "guna2ContainerControl2";
-            // 
-            // lblTotalFiles
-            // 
-            this.lblTotalFiles.AutoSize = true;
-            this.lblTotalFiles.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalFiles.Location = new System.Drawing.Point(9, 10);
-            this.lblTotalFiles.Name = "lblTotalFiles";
-            this.lblTotalFiles.Size = new System.Drawing.Size(36, 39);
-            this.lblTotalFiles.TabIndex = 0;
-            this.lblTotalFiles.Text = "0";
-            // 
-            // guna2ContainerControl3
-            // 
-            this.guna2ContainerControl3.Controls.Add(this.label3);
-            this.guna2ContainerControl3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2ContainerControl3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ContainerControl3.Location = new System.Drawing.Point(5, 5);
-            this.guna2ContainerControl3.Name = "guna2ContainerControl3";
-            this.guna2ContainerControl3.Size = new System.Drawing.Size(234, 41);
-            this.guna2ContainerControl3.TabIndex = 2;
-            this.guna2ContainerControl3.Text = "guna2ContainerControl3";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.Gray;
-            this.label3.Location = new System.Drawing.Point(10, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Total Files";
             // 
             // cmbStatusSearch
             // 
@@ -604,22 +685,22 @@
             this.dgvFilesList.AllowUserToAddRows = false;
             this.dgvFilesList.AllowUserToDeleteRows = false;
             this.dgvFilesList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvFilesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvFilesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvFilesList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.dgvFilesList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFilesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFilesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvFilesList.ColumnHeadersHeight = 40;
             this.dgvFilesList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.stTitle,
@@ -627,14 +708,14 @@
             this.stDateCreated,
             this.stStatus,
             this.stRemoveBTN});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFilesList.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFilesList.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvFilesList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFilesList.GridColor = System.Drawing.Color.LightGray;
             this.dgvFilesList.Location = new System.Drawing.Point(1, 1);
@@ -642,17 +723,17 @@
             this.dgvFilesList.Name = "dgvFilesList";
             this.dgvFilesList.ReadOnly = true;
             this.dgvFilesList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFilesList.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFilesList.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvFilesList.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5);
-            this.dgvFilesList.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5);
+            this.dgvFilesList.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvFilesList.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.dgvFilesList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvFilesList.RowTemplate.DividerHeight = 1;
@@ -717,8 +798,8 @@
             // 
             this.stRemoveBTN.ActiveLinkColor = System.Drawing.Color.Blue;
             this.stRemoveBTN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.stRemoveBTN.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.stRemoveBTN.DefaultCellStyle = dataGridViewCellStyle9;
             this.stRemoveBTN.FillWeight = 126.9036F;
             this.stRemoveBTN.HeaderText = "Action";
             this.stRemoveBTN.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
@@ -768,6 +849,7 @@
             this.Size = new System.Drawing.Size(1340, 749);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.guna2ContainerControl7.ResumeLayout(false);
             this.guna2ContainerControl8.ResumeLayout(false);
             this.guna2ContainerControl8.PerformLayout();
@@ -799,26 +881,8 @@
         private Guna.UI2.WinForms.Guna2Button btnStart;
         private Guna.UI2.WinForms.Guna2TextBox txtVTTExportFolderPath;
         private Guna.UI2.WinForms.Guna2TextBox txtVTTFilesPath;
-        private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator2;
-        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl7;
-        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl8;
-        private Guna.UI2.WinForms.Guna2CircleProgressBar gcpPendingFiles;
-        private System.Windows.Forms.Label lblPendingFiles;
-        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl9;
-        private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl4;
-        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl5;
-        private Guna.UI2.WinForms.Guna2CircleProgressBar gcpCompletedFiles;
-        private System.Windows.Forms.Label lblCompletedFiles;
-        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl6;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblVTTFolderPath;
-        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl1;
-        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl2;
-        private System.Windows.Forms.Label lblTotalFiles;
-        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl3;
-        private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2ComboBox cmbStatusSearch;
         private Guna.UI2.WinForms.Guna2TextBox txtSearchBox;
         private System.Windows.Forms.Button btnVTTFilesBrowse;
@@ -835,5 +899,28 @@
         private System.ComponentModel.BackgroundWorker backgroundWorkerConverter;
         private System.Windows.Forms.OpenFileDialog vttOFD;
         public Guna.UI2.WinForms.Guna2MessageDialog ErrorMessageDialog;
+        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl1;
+        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl2;
+        private System.Windows.Forms.Label lblTotalFiles;
+        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl3;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl7;
+        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl8;
+        private Guna.UI2.WinForms.Guna2CircleProgressBar gcpPendingFiles;
+        private System.Windows.Forms.Label lblPendingFiles;
+        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl9;
+        private System.Windows.Forms.Label label8;
+        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl4;
+        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl5;
+        private Guna.UI2.WinForms.Guna2CircleProgressBar gcpCompletedFiles;
+        private System.Windows.Forms.Label lblCompletedFiles;
+        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl6;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
+        private Guna.UI2.WinForms.Guna2TextBox ignoreCharsTxt;
+        private Guna.UI2.WinForms.Guna2CheckBox cbxBreakDotEnd;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

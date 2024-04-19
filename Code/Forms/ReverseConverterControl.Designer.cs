@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnExportedFolderOpen = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
@@ -258,7 +258,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(37, 215);
+            this.label9.Location = new System.Drawing.Point(38, 216);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(102, 25);
             this.label9.TabIndex = 10;
@@ -281,7 +281,7 @@
             this.guna2ContainerControl7.Controls.Add(this.guna2ContainerControl8);
             this.guna2ContainerControl7.Controls.Add(this.guna2ContainerControl9);
             this.guna2ContainerControl7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.guna2ContainerControl7.Location = new System.Drawing.Point(619, 258);
+            this.guna2ContainerControl7.Location = new System.Drawing.Point(624, 272);
             this.guna2ContainerControl7.Name = "guna2ContainerControl7";
             this.guna2ContainerControl7.Padding = new System.Windows.Forms.Padding(5);
             this.guna2ContainerControl7.ShadowDecoration.BorderRadius = 15;
@@ -361,7 +361,7 @@
             this.guna2ContainerControl4.Controls.Add(this.guna2ContainerControl5);
             this.guna2ContainerControl4.Controls.Add(this.guna2ContainerControl6);
             this.guna2ContainerControl4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.guna2ContainerControl4.Location = new System.Drawing.Point(330, 258);
+            this.guna2ContainerControl4.Location = new System.Drawing.Point(335, 272);
             this.guna2ContainerControl4.Name = "guna2ContainerControl4";
             this.guna2ContainerControl4.Padding = new System.Windows.Forms.Padding(5);
             this.guna2ContainerControl4.ShadowDecoration.BorderRadius = 15;
@@ -450,7 +450,7 @@
             this.guna2ContainerControl1.Controls.Add(this.guna2ContainerControl2);
             this.guna2ContainerControl1.Controls.Add(this.guna2ContainerControl3);
             this.guna2ContainerControl1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.guna2ContainerControl1.Location = new System.Drawing.Point(42, 258);
+            this.guna2ContainerControl1.Location = new System.Drawing.Point(47, 272);
             this.guna2ContainerControl1.Name = "guna2ContainerControl1";
             this.guna2ContainerControl1.Padding = new System.Windows.Forms.Padding(5);
             this.guna2ContainerControl1.ShadowDecoration.BorderRadius = 15;
@@ -604,22 +604,22 @@
             this.dgvFilesList.AllowUserToAddRows = false;
             this.dgvFilesList.AllowUserToDeleteRows = false;
             this.dgvFilesList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvFilesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvFilesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvFilesList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.dgvFilesList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFilesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFilesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
             this.dgvFilesList.ColumnHeadersHeight = 40;
             this.dgvFilesList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.stTitle,
@@ -627,14 +627,14 @@
             this.stDateCreated,
             this.stStatus,
             this.stRemoveBTN});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFilesList.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFilesList.DefaultCellStyle = dataGridViewCellStyle28;
             this.dgvFilesList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFilesList.GridColor = System.Drawing.Color.LightGray;
             this.dgvFilesList.Location = new System.Drawing.Point(1, 1);
@@ -642,17 +642,17 @@
             this.dgvFilesList.Name = "dgvFilesList";
             this.dgvFilesList.ReadOnly = true;
             this.dgvFilesList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFilesList.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFilesList.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvFilesList.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5);
-            this.dgvFilesList.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle30.Padding = new System.Windows.Forms.Padding(5);
+            this.dgvFilesList.RowsDefaultCellStyle = dataGridViewCellStyle30;
             this.dgvFilesList.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.dgvFilesList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvFilesList.RowTemplate.DividerHeight = 1;
@@ -717,8 +717,8 @@
             // 
             this.stRemoveBTN.ActiveLinkColor = System.Drawing.Color.Blue;
             this.stRemoveBTN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.stRemoveBTN.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.stRemoveBTN.DefaultCellStyle = dataGridViewCellStyle27;
             this.stRemoveBTN.FillWeight = 126.9036F;
             this.stRemoveBTN.HeaderText = "Action";
             this.stRemoveBTN.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;

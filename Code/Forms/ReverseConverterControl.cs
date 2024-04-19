@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SubtitlesParser.Parsers;
 using SubtitlesParser;
+using MeCab;
+using JiebaNet.Segmenter;
+
 using TT_Edit.Classes;
 
 namespace TT_Edit.Forms
@@ -87,12 +90,24 @@ namespace TT_Edit.Forms
                     string fileExt = Path.GetExtension(filename).Trim();
 
                     // Load only vtt files
-                    if (fileExt == ".vtt")
+                    if (filename.Contains(".ja.vtt"))
+                    {
+                        var newfile = new VTTFileReverser(file, filename, "ja");
+                        allVTTFiles.Add(newfile);
+                    }
+                    else if (filename.Contains(".cn.vtt"))
+                    {
+                        var newfile = new VTTFileReverser(file, filename, "cn");
+                        allVTTFiles.Add(newfile);
+                    }
+                    else if (fileExt == ".vtt")
                     {
                         var newfile = new VTTFileReverser(file, filename);
                         allVTTFiles.Add(newfile);
 
                     }
+
+
 
                 }
 
@@ -306,21 +321,21 @@ namespace TT_Edit.Forms
                 List<string> listOfLines = null;
 
                 int AddToNextTimeFrame = 1;
-                for (int i = 0; i < item.AllSubTitleItems.Count-1; i++)
+                for (int i = 0; i < item.AllSubTitleItems.Count - 1; i++)
                 {
                     SubtitleItem subtitle = item.AllSubTitleItems[i];
-               
                     // First joining all lines into a string
                     string draftLines = string.Join(" ", subtitle.Lines.ToArray()).Trim();
-
                     
+                    
+
                     if (draftLines.Length != 0)
                     {
                         // Counter for next timeframe which are empty
                         AddToNextTimeFrame = 1;
                         for (int j = i + 1; j < item.AllSubTitleItems.Count; j++)
                         {
-                            if (item.AllSubTitleItems[j].Lines.Count == 0 && j != item.AllSubTitleItems.Count -1)
+                            if (item.AllSubTitleItems[j].Lines.Count == 0 && j != item.AllSubTitleItems.Count - 1)
                             {
                                 AddToNextTimeFrame++;
                             }
@@ -338,11 +353,32 @@ namespace TT_Edit.Forms
                         bool lineAddedLast = false;
                         foreach (string line in subtitle.Lines)
                         {
-                            string[] words = line.Split(' '); // Split the line into words
+                            string[] words= new string[] { } ; // Split the line into words
+                            if (item.lang == "ja")
+                            {
+                                var tagger = MeCabTagger.Create();
+                                var nodes = tagger.ParseToNodes(draftLines);
+                                 words = nodes
+                                    .Where (node=> node.Stat != MeCabNodeStat.Bos && node.Stat != MeCabNodeStat.Eos)
+                                  .Select(node => node.Surface)
+                                  .ToArray();
 
+
+                            }
+                            else if (item.lang == "cn")
+                            {
+                                var segmenter = new JiebaSegmenter();
+                                var segments = segmenter.Cut(draftLines);
+                                words = segments.ToArray();
+                            }
+                            else
+                            {
+                                words = draftLines.Split(' ');
+
+                            }
                             foreach (string word in words)
                             {
-                                restartFirst:
+                            restartFirst:
                                 if (currentLineBuilder.Length + word.Length <= perMaxLine)
                                 {
                                     lineAddedLast = false;
@@ -351,7 +387,7 @@ namespace TT_Edit.Forms
                                 }
                                 else
                                 {
-                                 
+
                                     // If adding the word will exceed the max line length, start a new line
                                     listOfLines.Add(currentLineBuilder.ToString().Trim()); // Add current line to subtitle
                                     currentLineBuilder.Clear(); // Clear the current line builder
@@ -361,7 +397,7 @@ namespace TT_Edit.Forms
                             }
 
                             // If not added last line then will add it to list
-                            if (currentLineBuilder.Length > 0 && !lineAddedLast) {listOfLines.Add(currentLineBuilder.ToString().Trim()); lineAddedLast = true;}
+                            if (currentLineBuilder.Length > 0 && !lineAddedLast) { listOfLines.Add(currentLineBuilder.ToString().Trim()); lineAddedLast = true; }
 
                             // If lines are over counted next timeframe
                             if (currentLineBuilder.Length > 0 && lineAddedLast && AddToNextTimeFrame < listOfLines.Count)
@@ -373,7 +409,7 @@ namespace TT_Edit.Forms
                         }
 
                         // Adding Lines to Subtitle
-                        addToSubtitle(ref subtitle,ref listOfLines, AddToNextTimeFrame);
+                        addToSubtitle(ref subtitle, ref listOfLines, AddToNextTimeFrame);
 
 
 
@@ -383,7 +419,7 @@ namespace TT_Edit.Forms
 
                         // Adding Lines to Subtitle
                         if (listOfLines != null)
-                        addToSubtitle(ref subtitle, ref listOfLines, 2);
+                            addToSubtitle(ref subtitle, ref listOfLines, 2);
                     }
                 }
 
@@ -448,4 +484,4 @@ namespace TT_Edit.Forms
 
 
     }
-   }
+}
