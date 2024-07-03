@@ -126,14 +126,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TT Edit.exe" size="277464">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TT Edit.exe" size="293376">
       <assemblyIdentity name="TT Edit" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NaMmQfsZ16EiOpmvjCwh25JmD9sqvGZ+jRgpaRxaUtU=</dsig:DigestValue>
+        <dsig:DigestValue>kSaiGAa119MdLiyp+scE1QH9VTX6wQ22Y/dCUCPa+1s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -41,6 +41,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ICBSpaceRemover = new FontAwesome.Sharp.IconButton();
             this.ICBTimeframe = new FontAwesome.Sharp.IconButton();
             this.ICBReverseConverter = new FontAwesome.Sharp.IconButton();
             this.ICBConverter = new FontAwesome.Sharp.IconButton();
@@ -194,6 +195,7 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Controls.Add(this.ICBSpaceRemover);
             this.guna2Panel3.Controls.Add(this.ICBTimeframe);
             this.guna2Panel3.Controls.Add(this.ICBReverseConverter);
             this.guna2Panel3.Controls.Add(this.ICBConverter);
@@ -203,6 +205,31 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(304, 633);
             this.guna2Panel3.TabIndex = 1;
+            // 
+            // ICBSpaceRemover
+            // 
+            this.ICBSpaceRemover.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBSpaceRemover.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBSpaceRemover.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBSpaceRemover.FlatAppearance.BorderSize = 0;
+            this.ICBSpaceRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBSpaceRemover.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBSpaceRemover.IconChar = FontAwesome.Sharp.IconChar.Outdent;
+            this.ICBSpaceRemover.IconColor = System.Drawing.Color.Gray;
+            this.ICBSpaceRemover.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBSpaceRemover.IconSize = 20;
+            this.ICBSpaceRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBSpaceRemover.Location = new System.Drawing.Point(0, 153);
+            this.ICBSpaceRemover.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBSpaceRemover.Name = "ICBSpaceRemover";
+            this.ICBSpaceRemover.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBSpaceRemover.Size = new System.Drawing.Size(304, 51);
+            this.ICBSpaceRemover.TabIndex = 4;
+            this.ICBSpaceRemover.Text = "Space Eraser";
+            this.ICBSpaceRemover.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBSpaceRemover.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBSpaceRemover.UseVisualStyleBackColor = true;
+            this.ICBSpaceRemover.Click += new System.EventHandler(this.ICBSpaceRemover_Click);
             // 
             // ICBTimeframe
             // 
@@ -327,6 +354,7 @@
         private FontAwesome.Sharp.IconButton ICBReverseConverter;
         private Guna.UI2.WinForms.Guna2ContainerControl ControlContainer;
         private FontAwesome.Sharp.IconButton ICBTimeframe;
+        private FontAwesome.Sharp.IconButton ICBSpaceRemover;
     }
 }
 

@@ -85,6 +85,17 @@ namespace TT_Edit
             ActivateButton((IconButton)sender);
 
         }
+
+        private void ICBSpaceRemover_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            var erasercontrol = new TT_Edit.Forms.SpaceEraserControl();
+            erasercontrol.ErrorMessageDialog.Parent = this;
+            erasercontrol.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(erasercontrol);
+            ActivateButton((IconButton)sender);
+
+        }
     }
 
 }
