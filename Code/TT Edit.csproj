@@ -107,11 +107,26 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\VttFIleCommaChecker.cs" />
+    <Compile Include="Classes\VttFIleCplCounter.cs" />
     <Compile Include="Classes\VttFIleSpaceRemover.cs" />
     <Compile Include="Classes\VttFIleTimeUniting.cs" />
     <Compile Include="Classes\VttFIleConverter.cs" />
     <Compile Include="Classes\VTTFileReverser.cs" />
+    <Compile Include="Classes\VttParserComma.cs" />
     <Compile Include="Classes\VttParser.cs" />
+    <Compile Include="Forms\CommaCheckerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\CommaCheckerControl.Designer.cs">
+      <DependentUpon>CommaCheckerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CplCounterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\CplCounterControl.Designer.cs">
+      <DependentUpon>CplCounterControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SpaceEraserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -144,6 +159,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\CommaCheckerControl.resx">
+      <DependentUpon>CommaCheckerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CplCounterControl.resx">
+      <DependentUpon>CplCounterControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\SpaceEraserControl.resx">
       <DependentUpon>SpaceEraserControl.cs</DependentUpon>
     </EmbeddedResource>

@@ -42,13 +42,13 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "D:\code\Seungho\TT-Edit\code\bin\Debug\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\code\bin\Debug\Guna.UI2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\code\bin\Debug\SubtitlesParser.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\code\bin\Debug\TT Edit.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\code\bin\Debug\TT Edit.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\code\bin\Debug\TT Edit.exe.manifest"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\code\bin\Debug\TT Edit.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\Seungho\TT-Edit\Software\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\Seungho\TT-Edit\Software\Guna.UI2.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\Seungho\TT-Edit\Software\SubtitlesParser.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\Seungho\TT-Edit\Software\TT Edit.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\Seungho\TT-Edit\Software\TT Edit.exe.config"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\Seungho\TT-Edit\Software\TT Edit.exe.manifest"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\Seungho\TT-Edit\Software\TT Edit.pdb"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]

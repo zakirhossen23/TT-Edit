@@ -58,10 +58,11 @@ namespace TT_Edit.Classes
                     // Writing Timeline
                     writer.WriteLine($"{FormatTimecode(item.StartTime)} --> {FormatTimecode(item.EndTime)}");
 
-                    // Joining all lines into one line and then writing into new file
-                    string draftLines = string.Join(" ", item.Lines.ToArray()).Trim();
-                    writer.WriteLine(draftLines);
-
+                    for (int i = 0; i < item.Lines.Count; i++)
+                    {
+                        writer.WriteLine(item.Lines[i]);
+                    }
+                 
                     // Add an empty line between subtitle items
                     writer.WriteLine();
                 }

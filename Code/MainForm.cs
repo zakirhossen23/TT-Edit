@@ -96,6 +96,26 @@ namespace TT_Edit
             ActivateButton((IconButton)sender);
 
         }
+
+        private void ICBCPLcounter_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            var cplcountercontrol = new TT_Edit.Forms.CplCounterControl();
+            cplcountercontrol.ErrorMessageDialog.Parent = this;
+            cplcountercontrol.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(cplcountercontrol);
+            ActivateButton((IconButton)sender);
+        }
+
+        private void ICBCommaChecker_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            var commacheckercontrol = new TT_Edit.Forms.CommaCheckerControl();
+            commacheckercontrol.ErrorMessageDialog.Parent = this;
+            commacheckercontrol.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(commacheckercontrol);
+            ActivateButton((IconButton)sender);
+        }
     }
 
 }

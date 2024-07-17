@@ -258,13 +258,11 @@ namespace TT_Edit.Forms
                 for (int i = 0; i < item.AllSubTitleItems.Count-1; i++)
                 {
                     SubtitleItem subtitle = item.AllSubTitleItems[i];
-               
-                    // First joining all lines into a string
-                    string draftLines = string.Join(" ", subtitle.Lines.ToArray()).Trim();
-
-                    if (subtitle.Lines.Count > 0)
-                    subtitle.Lines[0] = draftLines;
-
+                    for (int li = 0; li < subtitle.Lines.Count; li++)
+                    {
+                        subtitle.Lines[li] = subtitle.Lines[li].Trim();
+                    }
+                  
                     item.AllSubTitleItems[i] = subtitle;
 
                     

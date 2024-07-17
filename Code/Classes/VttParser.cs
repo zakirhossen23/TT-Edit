@@ -59,6 +59,7 @@ namespace TT_Edit.Classes
                             // Then it will parse
                             if (TryParseTimecodeLine(item2, out int startTc, out int endTc))
                             {
+                                
                                 subtitleItem.StartTime = startTc;
                                 subtitleItem.EndTime = endTc;
                             }
