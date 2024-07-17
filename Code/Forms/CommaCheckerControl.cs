@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using SubtitlesParser.Parsers;
 using SubtitlesParser;
 using TT_Edit.Classes;
+using Microsoft.WindowsAPICodePack.Dialogs;
 
 namespace TT_Edit.Forms
 {
@@ -45,7 +46,6 @@ namespace TT_Edit.Forms
                 txtVTTFilesPath.Text = String.Join(", ", allFiles);
                 vTTfilesPath = txtVTTFilesPath.Text;
 
-
                 if (allFiles.Length == 0)
                 {
                     ErrorMessageDialog.Text = "No VTT files to convert";
@@ -61,10 +61,12 @@ namespace TT_Edit.Forms
         // Event Handler to opening Export Folder Browser for VTT files
         private void btnVTTExportFolderBrowse_Click(object sender, EventArgs e)
         {
-            if (VTTfolderDialog.ShowDialog() == DialogResult.OK)
+            var folderBrowser = new Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog { IsFolderPicker = true };
+
+            if (folderBrowser.ShowDialog() == Microsoft.WindowsAPICodePack.Dialogs.CommonFileDialogResult.Ok)
             {
                 // Settings selectted path to textboxes
-                txtVTTExportFolderPath.Text = VTTfolderDialog.SelectedPath;
+                txtVTTExportFolderPath.Text = folderBrowser.FileName;
                 vTTExportfolderPath = txtVTTExportFolderPath.Text;
             }
         }
@@ -276,10 +278,10 @@ namespace TT_Edit.Forms
 
                     item.AllSubTitleItems[i] = subtitle;
 
-                    
-                }
 
+                }
                 // Now exporting that subtitle 
+                if (total_commas>0)
                 item.export();
 
                 // Updating current item status to Completed and refreshing everything

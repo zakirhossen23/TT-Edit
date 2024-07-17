@@ -221,12 +221,12 @@
             this.txtVTTExportFolderPath.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtVTTExportFolderPath.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtVTTExportFolderPath.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtVTTExportFolderPath.Location = new System.Drawing.Point(216, 67);
+            this.txtVTTExportFolderPath.Location = new System.Drawing.Point(233, 67);
             this.txtVTTExportFolderPath.Name = "txtVTTExportFolderPath";
             this.txtVTTExportFolderPath.PasswordChar = '\0';
             this.txtVTTExportFolderPath.PlaceholderText = "";
             this.txtVTTExportFolderPath.SelectedText = "";
-            this.txtVTTExportFolderPath.Size = new System.Drawing.Size(975, 36);
+            this.txtVTTExportFolderPath.Size = new System.Drawing.Size(958, 36);
             this.txtVTTExportFolderPath.TabIndex = 20;
             this.txtVTTExportFolderPath.TextChanged += new System.EventHandler(this.txtVTTExportFolderPath_TextChanged);
             // 
@@ -244,12 +244,12 @@
             this.txtVTTFilesPath.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtVTTFilesPath.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtVTTFilesPath.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtVTTFilesPath.Location = new System.Drawing.Point(216, 25);
+            this.txtVTTFilesPath.Location = new System.Drawing.Point(233, 25);
             this.txtVTTFilesPath.Name = "txtVTTFilesPath";
             this.txtVTTFilesPath.PasswordChar = '\0';
             this.txtVTTFilesPath.PlaceholderText = "";
             this.txtVTTFilesPath.SelectedText = "";
-            this.txtVTTFilesPath.Size = new System.Drawing.Size(975, 36);
+            this.txtVTTFilesPath.Size = new System.Drawing.Size(958, 36);
             this.txtVTTFilesPath.TabIndex = 19;
             // 
             // label9
@@ -756,7 +756,7 @@
             this.vttOFD.SupportMultiDottedExtensions = true;
             this.vttOFD.Title = "Select VTT files";
             // 
-            // ReverseConverterControl
+            // TimeframeControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -764,7 +764,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ReverseConverterControl";
+            this.Name = "TimeframeControl";
             this.Size = new System.Drawing.Size(1340, 749);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();

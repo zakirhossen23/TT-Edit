@@ -79,6 +79,12 @@
     <Reference Include="MeCab.DotNet, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\MeCab.DotNet.1.2.0\lib\net45\MeCab.DotNet.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -112,7 +118,6 @@
     <Compile Include="Classes\VttFIleSpaceRemover.cs" />
     <Compile Include="Classes\VttFIleTimeUniting.cs" />
     <Compile Include="Classes\VttFIleConverter.cs" />
-    <Compile Include="Classes\VTTFileReverser.cs" />
     <Compile Include="Classes\VttParserComma.cs" />
     <Compile Include="Classes\VttParser.cs" />
     <Compile Include="Forms\CommaCheckerControl.cs">
@@ -139,12 +144,6 @@
     <Compile Include="Forms\TimeframeControl.Designer.cs">
       <DependentUpon>TimeframeControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ReverseConverterControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Forms\ReverseConverterControl.Designer.cs">
-      <DependentUpon>ReverseConverterControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ConverterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,9 +169,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\TimeframeControl.resx">
       <DependentUpon>TimeframeControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ReverseConverterControl.resx">
-      <DependentUpon>ReverseConverterControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ConverterControl.resx">
       <DependentUpon>ConverterControl.cs</DependentUpon>

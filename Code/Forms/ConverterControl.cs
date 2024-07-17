@@ -46,7 +46,6 @@ namespace TT_Edit.Forms
                 txtVTTFilesPath.Text = String.Join(", ", allFiles);
                 vTTfilesPath = txtVTTFilesPath.Text;
 
-
                 if (allFiles.Length == 0)
                 {
                     ErrorMessageDialog.Text = "No VTT files to convert";
@@ -62,7 +61,9 @@ namespace TT_Edit.Forms
         // Event Handler to opening Export Folder Browser for VTT files
         private void btnVTTExportFolderBrowse_Click(object sender, EventArgs e)
         {
-            if (VTTfolderDialog.ShowDialog() == DialogResult.OK)
+            var folderBrowser = new Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog { IsFolderPicker = true };
+
+            if (folderBrowser.ShowDialog() == Microsoft.WindowsAPICodePack.Dialogs.CommonFileDialogResult.Ok)
             {
                 // Settings selectted path to textboxes
                 txtVTTExportFolderPath.Text = VTTfolderDialog.SelectedPath;
@@ -248,7 +249,7 @@ namespace TT_Edit.Forms
         {
             string[] allDecimals = new string[] { };
             string pattern = @"([0-9]+[\.][0-9]+)";
-            var allmatches = Regex.Matches(line, pattern);  
+            var allmatches = Regex.Matches(line, pattern);
             for (int i = 0; i < allmatches.Count; i++)
             {
                 Match match = allmatches[i];
@@ -313,14 +314,14 @@ namespace TT_Edit.Forms
                     string[] allDecimals = DecimalsInString(draftLines);
                     foreach (var num in allDecimals)
                     {
-                        draftLines = draftLines.Replace(num, ""); 
-                    }  
+                        draftLines = draftLines.Replace(num, "");
+                    }
 
                     // Removing ignoring words
                     string[] allIgnoreWords = ignoreCharsTxt.Text.Split(',');
                     foreach (var word in allIgnoreWords)
                     {
-                        draftLines = draftLines.Replace(word, ""); 
+                        draftLines = draftLines.Replace(word, "");
                     }
 
 
@@ -334,7 +335,8 @@ namespace TT_Edit.Forms
                         {
                             isNewSub = false;
                         }
-                    }else if (!cbxBreakDotEnd.Checked)
+                    }
+                    else if (!cbxBreakDotEnd.Checked)
                     {
                         if (draftLines.Contains(".") && draftLines.Length != 0)
                         {
@@ -346,7 +348,7 @@ namespace TT_Edit.Forms
                             splittedLine = null;
                         }
                     }
-                   
+
 
 
                 }
@@ -412,4 +414,4 @@ namespace TT_Edit.Forms
 
 
     }
-  }
+}

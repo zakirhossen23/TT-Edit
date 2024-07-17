@@ -7,14 +7,14 @@
     <framework targetVersion="4.6" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="TT Edit.exe.manifest" size="10437">
+    <dependentAssembly dependencyType="install" codebase="TT Edit.exe.manifest" size="11799">
       <assemblyIdentity name="TT Edit.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>P5lMnp/kYdWTvN07uRFrF0i+s7TIoRawbzwXzceN/Ek=</dsig:DigestValue>
+        <dsig:DigestValue>pmvyEnOHj/qW2MdkIt0ey3WWX8f8GIGh/O60qY62894=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

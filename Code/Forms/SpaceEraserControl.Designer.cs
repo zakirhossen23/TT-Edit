@@ -146,7 +146,7 @@
             // 
             // guna2Separator1
             // 
-            this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator1.BackColor = System.Drawing.Color.Transparent;
             this.guna2Separator1.Location = new System.Drawing.Point(3, 461);
@@ -156,7 +156,7 @@
             // 
             // guna2Separator3
             // 
-            this.guna2Separator3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.guna2Separator3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Separator3.Location = new System.Drawing.Point(1, 184);
@@ -209,7 +209,7 @@
             // 
             // txtVTTExportFolderPath
             // 
-            this.txtVTTExportFolderPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtVTTExportFolderPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtVTTExportFolderPath.BorderRadius = 8;
             this.txtVTTExportFolderPath.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -221,18 +221,18 @@
             this.txtVTTExportFolderPath.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtVTTExportFolderPath.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtVTTExportFolderPath.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtVTTExportFolderPath.Location = new System.Drawing.Point(216, 67);
+            this.txtVTTExportFolderPath.Location = new System.Drawing.Point(229, 67);
             this.txtVTTExportFolderPath.Name = "txtVTTExportFolderPath";
             this.txtVTTExportFolderPath.PasswordChar = '\0';
             this.txtVTTExportFolderPath.PlaceholderText = "";
             this.txtVTTExportFolderPath.SelectedText = "";
-            this.txtVTTExportFolderPath.Size = new System.Drawing.Size(975, 36);
+            this.txtVTTExportFolderPath.Size = new System.Drawing.Size(962, 36);
             this.txtVTTExportFolderPath.TabIndex = 20;
             this.txtVTTExportFolderPath.TextChanged += new System.EventHandler(this.txtVTTExportFolderPath_TextChanged);
             // 
             // txtVTTFilesPath
             // 
-            this.txtVTTFilesPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtVTTFilesPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtVTTFilesPath.BorderRadius = 8;
             this.txtVTTFilesPath.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -244,12 +244,12 @@
             this.txtVTTFilesPath.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtVTTFilesPath.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtVTTFilesPath.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtVTTFilesPath.Location = new System.Drawing.Point(216, 25);
+            this.txtVTTFilesPath.Location = new System.Drawing.Point(229, 25);
             this.txtVTTFilesPath.Name = "txtVTTFilesPath";
             this.txtVTTFilesPath.PasswordChar = '\0';
             this.txtVTTFilesPath.PlaceholderText = "";
             this.txtVTTFilesPath.SelectedText = "";
-            this.txtVTTFilesPath.Size = new System.Drawing.Size(975, 36);
+            this.txtVTTFilesPath.Size = new System.Drawing.Size(962, 36);
             this.txtVTTFilesPath.TabIndex = 19;
             // 
             // label9
@@ -266,7 +266,7 @@
             // 
             // guna2Separator2
             // 
-            this.guna2Separator2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.guna2Separator2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator2.BackColor = System.Drawing.Color.Transparent;
             this.guna2Separator2.Location = new System.Drawing.Point(2, 391);
@@ -585,8 +585,8 @@
             // 
             // guna2ContainerControl10
             // 
-            this.guna2ContainerControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.guna2ContainerControl10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ContainerControl10.BackColor = System.Drawing.Color.Transparent;
             this.guna2ContainerControl10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -756,7 +756,7 @@
             this.vttOFD.SupportMultiDottedExtensions = true;
             this.vttOFD.Title = "Select VTT files";
             // 
-            // ReverseConverterControl
+            // SpaceEraserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -764,7 +764,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "ReverseConverterControl";
+            this.Name = "SpaceEraserControl";
             this.Size = new System.Drawing.Size(1340, 749);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();

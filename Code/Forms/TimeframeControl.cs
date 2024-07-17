@@ -45,7 +45,6 @@ namespace TT_Edit.Forms
                 txtVTTFilesPath.Text = String.Join(", ", allFiles);
                 vTTfilesPath = txtVTTFilesPath.Text;
 
-
                 if (allFiles.Length == 0)
                 {
                     ErrorMessageDialog.Text = "No VTT files to convert";
@@ -61,7 +60,9 @@ namespace TT_Edit.Forms
         // Event Handler to opening Export Folder Browser for VTT files
         private void btnVTTExportFolderBrowse_Click(object sender, EventArgs e)
         {
-            if (VTTfolderDialog.ShowDialog() == DialogResult.OK)
+            var folderBrowser = new Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog { IsFolderPicker = true };
+
+            if (folderBrowser.ShowDialog() == Microsoft.WindowsAPICodePack.Dialogs.CommonFileDialogResult.Ok)
             {
                 // Settings selectted path to textboxes
                 txtVTTExportFolderPath.Text = VTTfolderDialog.SelectedPath;

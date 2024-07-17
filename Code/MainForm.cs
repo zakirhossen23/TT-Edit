@@ -40,15 +40,6 @@ namespace TT_Edit
             ActivateButton((IconButton) sender);
         }
 
-        private void ICBReverseConverter_Click(object sender, EventArgs e)
-        {
-            ControlContainer.Controls.Clear();
-            var revconvcontrol = new TT_Edit.Forms.ReverseConverterControl();
-            revconvcontrol.ErrorMessageDialog.Parent = this;
-            revconvcontrol.Dock = DockStyle.Fill;
-            ControlContainer.Controls.Add(revconvcontrol);
-            ActivateButton((IconButton)sender);
-        }
         /******************** Functions ********************/
 
         public void makeStylesForActivate(IconButton sender)

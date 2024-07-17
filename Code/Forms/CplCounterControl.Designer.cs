@@ -69,16 +69,16 @@
             this.btnVTTExportFolderBrowse = new System.Windows.Forms.Button();
             this.guna2ContainerControl10 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.dgvFilesList = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.VTTfolderDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.backgroundWorkerConverter = new System.ComponentModel.BackgroundWorker();
-            this.ErrorMessageDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.vttOFD = new System.Windows.Forms.OpenFileDialog();
             this.stTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stTotalLines = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stDateCreated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stExceed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.stRemoveBTN = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.VTTfolderDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.backgroundWorkerConverter = new System.ComponentModel.BackgroundWorker();
+            this.ErrorMessageDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
+            this.vttOFD = new System.Windows.Forms.OpenFileDialog();
             this.guna2Panel2.SuspendLayout();
             this.guna2ContainerControl7.SuspendLayout();
             this.guna2ContainerControl8.SuspendLayout();
@@ -222,12 +222,12 @@
             this.txtVTTExportFolderPath.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtVTTExportFolderPath.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtVTTExportFolderPath.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtVTTExportFolderPath.Location = new System.Drawing.Point(216, 67);
+            this.txtVTTExportFolderPath.Location = new System.Drawing.Point(218, 67);
             this.txtVTTExportFolderPath.Name = "txtVTTExportFolderPath";
             this.txtVTTExportFolderPath.PasswordChar = '\0';
             this.txtVTTExportFolderPath.PlaceholderText = "";
             this.txtVTTExportFolderPath.SelectedText = "";
-            this.txtVTTExportFolderPath.Size = new System.Drawing.Size(975, 36);
+            this.txtVTTExportFolderPath.Size = new System.Drawing.Size(973, 36);
             this.txtVTTExportFolderPath.TabIndex = 20;
             this.txtVTTExportFolderPath.TextChanged += new System.EventHandler(this.txtVTTExportFolderPath_TextChanged);
             // 
@@ -245,12 +245,12 @@
             this.txtVTTFilesPath.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtVTTFilesPath.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtVTTFilesPath.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtVTTFilesPath.Location = new System.Drawing.Point(216, 25);
+            this.txtVTTFilesPath.Location = new System.Drawing.Point(218, 25);
             this.txtVTTFilesPath.Name = "txtVTTFilesPath";
             this.txtVTTFilesPath.PasswordChar = '\0';
             this.txtVTTFilesPath.PlaceholderText = "";
             this.txtVTTFilesPath.SelectedText = "";
-            this.txtVTTFilesPath.Size = new System.Drawing.Size(975, 36);
+            this.txtVTTFilesPath.Size = new System.Drawing.Size(973, 36);
             this.txtVTTFilesPath.TabIndex = 19;
             // 
             // label9
@@ -687,30 +687,6 @@
             this.dgvFilesList.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvFilesList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFilesList_CellContentClick);
             // 
-            // backgroundWorkerConverter
-            // 
-            this.backgroundWorkerConverter.WorkerReportsProgress = true;
-            this.backgroundWorkerConverter.WorkerSupportsCancellation = true;
-            this.backgroundWorkerConverter.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerConverter_DoWork);
-            // 
-            // ErrorMessageDialog
-            // 
-            this.ErrorMessageDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
-            this.ErrorMessageDialog.Caption = "TT Edit";
-            this.ErrorMessageDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
-            this.ErrorMessageDialog.Parent = null;
-            this.ErrorMessageDialog.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
-            this.ErrorMessageDialog.Text = null;
-            // 
-            // vttOFD
-            // 
-            this.vttOFD.DefaultExt = "vtt";
-            this.vttOFD.FileName = "VTT File";
-            this.vttOFD.Filter = "VTT Files|*.vtt|All Files|*.*";
-            this.vttOFD.Multiselect = true;
-            this.vttOFD.SupportMultiDottedExtensions = true;
-            this.vttOFD.Title = "Select VTT files";
-            // 
             // stTitle
             // 
             this.stTitle.FillWeight = 93.27411F;
@@ -765,6 +741,30 @@
             this.stRemoveBTN.TrackVisitedState = false;
             this.stRemoveBTN.UseColumnTextForLinkValue = true;
             this.stRemoveBTN.Width = 56;
+            // 
+            // backgroundWorkerConverter
+            // 
+            this.backgroundWorkerConverter.WorkerReportsProgress = true;
+            this.backgroundWorkerConverter.WorkerSupportsCancellation = true;
+            this.backgroundWorkerConverter.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerConverter_DoWork);
+            // 
+            // ErrorMessageDialog
+            // 
+            this.ErrorMessageDialog.Buttons = Guna.UI2.WinForms.MessageDialogButtons.OK;
+            this.ErrorMessageDialog.Caption = "TT Edit";
+            this.ErrorMessageDialog.Icon = Guna.UI2.WinForms.MessageDialogIcon.Error;
+            this.ErrorMessageDialog.Parent = null;
+            this.ErrorMessageDialog.Style = Guna.UI2.WinForms.MessageDialogStyle.Light;
+            this.ErrorMessageDialog.Text = null;
+            // 
+            // vttOFD
+            // 
+            this.vttOFD.DefaultExt = "vtt";
+            this.vttOFD.FileName = "VTT File";
+            this.vttOFD.Filter = "VTT Files|*.vtt|All Files|*.*";
+            this.vttOFD.Multiselect = true;
+            this.vttOFD.SupportMultiDottedExtensions = true;
+            this.vttOFD.Title = "Select VTT files";
             // 
             // CplCounterControl
             // 
