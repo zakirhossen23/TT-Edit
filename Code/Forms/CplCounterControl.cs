@@ -65,7 +65,7 @@ namespace TT_Edit.Forms
             if (folderBrowser.ShowDialog() == Microsoft.WindowsAPICodePack.Dialogs.CommonFileDialogResult.Ok)
             {
                 // Settings selectted path to textboxes
-                txtVTTExportFolderPath.Text = VTTfolderDialog.SelectedPath;
+                txtVTTExportFolderPath.Text = folderBrowser.FileName;
                 vTTExportfolderPath = txtVTTExportFolderPath.Text;
             }
         }
