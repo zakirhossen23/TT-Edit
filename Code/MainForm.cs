@@ -107,6 +107,37 @@ namespace TT_Edit
             ControlContainer.Controls.Add(commacheckercontrol);
             ActivateButton((IconButton)sender);
         }
+
+        private void ICBTimeframeDivider_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            var timeframecontrol = new TT_Edit.Forms.TimeframeDividerControl();
+            timeframecontrol.ErrorMessageDialog.Parent = this;
+            timeframecontrol.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(timeframecontrol);
+            ActivateButton((IconButton)sender);
+        }
+
+        private void ICBAtInserter_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            var control = new TT_Edit.Forms.AtInserterControl();
+            control.ErrorMessageDialog.Parent = this;
+            control.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(control);
+            ActivateButton((IconButton)sender);
+        }
+
+        private void ICBAtRemover_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            var control = new TT_Edit.Forms.AtRemoverControl();
+            control.ErrorMessageDialog.Parent = this;
+            control.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(control);
+            ActivateButton((IconButton)sender);
+
+        }
     }
 
 }

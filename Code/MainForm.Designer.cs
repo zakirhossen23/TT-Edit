@@ -41,9 +41,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ICBAtRemover = new FontAwesome.Sharp.IconButton();
+            this.ICBAtInserter = new FontAwesome.Sharp.IconButton();
             this.ICBCommaChecker = new FontAwesome.Sharp.IconButton();
             this.ICBCPLcounter = new FontAwesome.Sharp.IconButton();
             this.ICBSpaceRemover = new FontAwesome.Sharp.IconButton();
+            this.ICBTimeframeDivider = new FontAwesome.Sharp.IconButton();
             this.ICBTimeframe = new FontAwesome.Sharp.IconButton();
             this.ICBConverter = new FontAwesome.Sharp.IconButton();
             this.gunaDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
@@ -196,9 +199,12 @@
             // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Controls.Add(this.ICBAtRemover);
+            this.guna2Panel3.Controls.Add(this.ICBAtInserter);
             this.guna2Panel3.Controls.Add(this.ICBCommaChecker);
             this.guna2Panel3.Controls.Add(this.ICBCPLcounter);
             this.guna2Panel3.Controls.Add(this.ICBSpaceRemover);
+            this.guna2Panel3.Controls.Add(this.ICBTimeframeDivider);
             this.guna2Panel3.Controls.Add(this.ICBTimeframe);
             this.guna2Panel3.Controls.Add(this.ICBConverter);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -207,6 +213,56 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(304, 633);
             this.guna2Panel3.TabIndex = 1;
+            // 
+            // ICBAtRemover
+            // 
+            this.ICBAtRemover.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBAtRemover.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBAtRemover.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBAtRemover.FlatAppearance.BorderSize = 0;
+            this.ICBAtRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBAtRemover.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBAtRemover.IconChar = FontAwesome.Sharp.IconChar.At;
+            this.ICBAtRemover.IconColor = System.Drawing.Color.Gray;
+            this.ICBAtRemover.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBAtRemover.IconSize = 20;
+            this.ICBAtRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBAtRemover.Location = new System.Drawing.Point(0, 357);
+            this.ICBAtRemover.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBAtRemover.Name = "ICBAtRemover";
+            this.ICBAtRemover.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBAtRemover.Size = new System.Drawing.Size(304, 51);
+            this.ICBAtRemover.TabIndex = 9;
+            this.ICBAtRemover.Text = "Remover";
+            this.ICBAtRemover.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBAtRemover.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBAtRemover.UseVisualStyleBackColor = true;
+            this.ICBAtRemover.Click += new System.EventHandler(this.ICBAtRemover_Click);
+            // 
+            // ICBAtInserter
+            // 
+            this.ICBAtInserter.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBAtInserter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBAtInserter.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBAtInserter.FlatAppearance.BorderSize = 0;
+            this.ICBAtInserter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBAtInserter.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBAtInserter.IconChar = FontAwesome.Sharp.IconChar.At;
+            this.ICBAtInserter.IconColor = System.Drawing.Color.Gray;
+            this.ICBAtInserter.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBAtInserter.IconSize = 20;
+            this.ICBAtInserter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBAtInserter.Location = new System.Drawing.Point(0, 306);
+            this.ICBAtInserter.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBAtInserter.Name = "ICBAtInserter";
+            this.ICBAtInserter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBAtInserter.Size = new System.Drawing.Size(304, 51);
+            this.ICBAtInserter.TabIndex = 8;
+            this.ICBAtInserter.Text = "Inserter";
+            this.ICBAtInserter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBAtInserter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBAtInserter.UseVisualStyleBackColor = true;
+            this.ICBAtInserter.Click += new System.EventHandler(this.ICBAtInserter_Click);
             // 
             // ICBCommaChecker
             // 
@@ -221,7 +277,7 @@
             this.ICBCommaChecker.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBCommaChecker.IconSize = 20;
             this.ICBCommaChecker.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBCommaChecker.Location = new System.Drawing.Point(0, 204);
+            this.ICBCommaChecker.Location = new System.Drawing.Point(0, 255);
             this.ICBCommaChecker.Margin = new System.Windows.Forms.Padding(0);
             this.ICBCommaChecker.Name = "ICBCommaChecker";
             this.ICBCommaChecker.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -246,7 +302,7 @@
             this.ICBCPLcounter.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBCPLcounter.IconSize = 20;
             this.ICBCPLcounter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBCPLcounter.Location = new System.Drawing.Point(0, 153);
+            this.ICBCPLcounter.Location = new System.Drawing.Point(0, 204);
             this.ICBCPLcounter.Margin = new System.Windows.Forms.Padding(0);
             this.ICBCPLcounter.Name = "ICBCPLcounter";
             this.ICBCPLcounter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -271,7 +327,7 @@
             this.ICBSpaceRemover.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBSpaceRemover.IconSize = 20;
             this.ICBSpaceRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBSpaceRemover.Location = new System.Drawing.Point(0, 102);
+            this.ICBSpaceRemover.Location = new System.Drawing.Point(0, 153);
             this.ICBSpaceRemover.Margin = new System.Windows.Forms.Padding(0);
             this.ICBSpaceRemover.Name = "ICBSpaceRemover";
             this.ICBSpaceRemover.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -282,6 +338,31 @@
             this.ICBSpaceRemover.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ICBSpaceRemover.UseVisualStyleBackColor = true;
             this.ICBSpaceRemover.Click += new System.EventHandler(this.ICBSpaceRemover_Click);
+            // 
+            // ICBTimeframeDivider
+            // 
+            this.ICBTimeframeDivider.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBTimeframeDivider.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBTimeframeDivider.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBTimeframeDivider.FlatAppearance.BorderSize = 0;
+            this.ICBTimeframeDivider.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBTimeframeDivider.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBTimeframeDivider.IconChar = FontAwesome.Sharp.IconChar.Divide;
+            this.ICBTimeframeDivider.IconColor = System.Drawing.Color.Gray;
+            this.ICBTimeframeDivider.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBTimeframeDivider.IconSize = 20;
+            this.ICBTimeframeDivider.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBTimeframeDivider.Location = new System.Drawing.Point(0, 102);
+            this.ICBTimeframeDivider.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBTimeframeDivider.Name = "ICBTimeframeDivider";
+            this.ICBTimeframeDivider.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBTimeframeDivider.Size = new System.Drawing.Size(304, 51);
+            this.ICBTimeframeDivider.TabIndex = 7;
+            this.ICBTimeframeDivider.Text = "TImeframe Divider";
+            this.ICBTimeframeDivider.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBTimeframeDivider.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBTimeframeDivider.UseVisualStyleBackColor = true;
+            this.ICBTimeframeDivider.Click += new System.EventHandler(this.ICBTimeframeDivider_Click);
             // 
             // ICBTimeframe
             // 
@@ -383,6 +464,9 @@
         private FontAwesome.Sharp.IconButton ICBSpaceRemover;
         private FontAwesome.Sharp.IconButton ICBCPLcounter;
         private FontAwesome.Sharp.IconButton ICBCommaChecker;
+        private FontAwesome.Sharp.IconButton ICBTimeframeDivider;
+        private FontAwesome.Sharp.IconButton ICBAtInserter;
+        private FontAwesome.Sharp.IconButton ICBAtRemover;
     }
 }
 
