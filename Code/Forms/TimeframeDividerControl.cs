@@ -259,7 +259,7 @@ namespace TT_Edit.Forms
 
                 int AddToNextTimeFrame = 0;
                 int PreviousTimeFrame = 0;
-                for (int i = 0; i < item.AllSubTitleItems.Count-1; i++)
+                for (int i = 0; i < item.AllSubTitleItems.Count; i++)
                 {
                     SubtitleItemDivider subtitle = item.AllSubTitleItems[i];
                
@@ -274,7 +274,7 @@ namespace TT_Edit.Forms
                         PreviousTimeFrame = i;
                         for (int j = i + 1; j < item.AllSubTitleItems.Count; j++)
                         {
-                            if (item.AllSubTitleItems[j].Lines.Count == 0 && j != item.AllSubTitleItems.Count - 1)
+                            if (item.AllSubTitleItems[j].Lines.Count == 0 )
                             {
                                 AddToNextTimeFrame++;
                             }

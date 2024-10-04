@@ -257,7 +257,7 @@ namespace TT_Edit.Forms
                 refreshEverything();
 
                 int AddToNextTimeFrame = 1;
-                for (int i = 0; i < item.AllSubTitleItems.Count-1; i++)
+                for (int i = 0; i < item.AllSubTitleItems.Count; i++)
                 {
                     SubtitleItem subtitle = item.AllSubTitleItems[i];
                
@@ -271,7 +271,7 @@ namespace TT_Edit.Forms
                         AddToNextTimeFrame = 0;
                         for (int j = i + 1; j < item.AllSubTitleItems.Count; j++)
                         {
-                            if (item.AllSubTitleItems[j].Lines.Count == 0 && j != item.AllSubTitleItems.Count -1)
+                            if (item.AllSubTitleItems[j].Lines.Count == 0 )
                             {
                                 AddToNextTimeFrame++;
                             }

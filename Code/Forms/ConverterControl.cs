@@ -277,10 +277,9 @@ namespace TT_Edit.Forms
                 SubtitleItem firstSubTitle = null;
                 string splittedLine = null;
                 bool isNewSub = true;
-                foreach (SubtitleItem subtitle in item.AllSubTitleItems)
+                for (int i = 0; i < item.AllSubTitleItems.Count; i++)
                 {
-
-
+                    SubtitleItem subtitle = item.AllSubTitleItems[i];
                     // First joining all lines into a string
                     string draftLines = string.Join(" ", subtitle.Lines.ToArray());
 
@@ -295,19 +294,14 @@ namespace TT_Edit.Forms
                             splittedLine = null;
 
                         }
-
-
                     }
                     else
                     {
-
-
                         // If previous one has no fullstop then it will add current lines to that one
                         firstSubTitle.Lines.AddRange(subtitle.Lines);
 
                         // Clearing current subtitle lines
                         subtitle.Lines.Clear();
-
                     }
 
                     // Removing deciaml (float numbers)
@@ -327,14 +321,8 @@ namespace TT_Edit.Forms
 
                     if (cbxBreakDotEnd.Checked)
                     {
-                        if (draftLines.EndsWith(".") && draftLines.Length != 0)
-                        {
-                            isNewSub = true;
-                        }
-                        else
-                        {
-                            isNewSub = false;
-                        }
+                        if (draftLines.EndsWith(".") && draftLines.Length != 0)isNewSub = true;
+                        else isNewSub = false;
                     }
                     else if (!cbxBreakDotEnd.Checked)
                     {
@@ -344,14 +332,13 @@ namespace TT_Edit.Forms
                             isNewSub = true;
                         }
                         else
-                        {
                             splittedLine = null;
-                        }
                     }
 
-
+                    if (draftLines.Trim() == "@"  ) isNewSub = true;
 
                 }
+
 
                 // Now exporting that subtitle 
                 item.export();

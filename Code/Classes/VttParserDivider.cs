@@ -129,6 +129,18 @@ namespace TT_Edit.Classes
                 // Adding this subtitleItem 
                 if ((subtitleItem.StartEndString != "" && subtitleItem.StartEndString != null))
                 {
+                    if (newLineCount == 0)
+                    {
+                        if (stringBuilder.ToString().TrimEnd() != "")
+                            subtitleItem.Lines.Add(stringBuilder.ToString().TrimEnd());
+                        
+                    }
+                    else if (newLineCount == 1)
+                    {
+                        if (stringBuilder.ToString().TrimEnd() != "")
+                            subtitleItem.Lines.Add(stringBuilder.ToString().TrimEnd());
+
+                    }
                     list.Add(subtitleItem);
                 }
 

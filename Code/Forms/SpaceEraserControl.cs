@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using SubtitlesParser.Parsers;
 using SubtitlesParser;
 using TT_Edit.Classes;
+using System.Text.RegularExpressions;
 
 namespace TT_Edit.Forms
 {
@@ -262,7 +263,11 @@ namespace TT_Edit.Forms
                     SubtitleItem subtitle = item.AllSubTitleItems[i];
                     for (int li = 0; li < subtitle.Lines.Count; li++)
                     {
-                        subtitle.Lines[li] = subtitle.Lines[li].Trim();
+                       string sentence =  subtitle.Lines[li].Trim();
+                        RegexOptions options = RegexOptions.None;
+                        Regex regex = new Regex("[ ]{2,}", options);
+                        sentence = regex.Replace(sentence, " ");
+                        subtitle.Lines[li] = sentence;
                     }
                   
                     item.AllSubTitleItems[i] = subtitle;

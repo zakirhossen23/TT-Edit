@@ -262,7 +262,7 @@ namespace TT_Edit.Forms
                     SubtitleItem subtitle = item.AllSubTitleItems[i];
                     if (subtitle.Lines.Count ==1 && subtitle.Lines[0].Trim() == "@")
                     {
-                        subtitle.Lines.RemoveAt(0);
+                        subtitle.Lines[0] = "";
                     }                   
                   
                     item.AllSubTitleItems[i] = subtitle;

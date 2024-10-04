@@ -27,12 +27,63 @@ namespace TT_Edit.Classes
             this.path = _path;
             this.name = _name;
             parseVttFile();
-
+            format_error_check();
         }
 
 
 
         /********************** Functions ******************/
+        public void format_error_check()
+        {
+            if (AllSubTitleItems == null) return;
+            int AddToNextTimeFrame = 0;
+            int PreviousTimeFrame = 0;
+            for (int i = 0; i < AllSubTitleItems.Count - 1; i++)
+            {
+                SubtitleItemDivider subtitle = AllSubTitleItems[i];
+
+                // First joining all lines into a string
+                string draftLines = string.Join(" ", subtitle.Lines.ToArray()).Trim();
+
+
+                if (draftLines.Length != 0)
+                {
+                    // Counter for next timeframe which are empty
+                    AddToNextTimeFrame = 0;
+                    PreviousTimeFrame = i;
+                    for (int j = i + 1; j < AllSubTitleItems.Count; j++)
+                    {
+                        if (AllSubTitleItems[j].Lines.Count == 0 )
+                        {
+                            AddToNextTimeFrame++;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                    if ((subtitle.Lines.Count - 1) > 0)
+                    {
+                        if (AddToNextTimeFrame != (subtitle.Lines.Count - 1))
+                        {
+                            this.status = "Format Error";
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        if (AddToNextTimeFrame > 0)
+                        {
+
+                            AddToNextTimeFrame--;
+                        }
+                    }
+                }
+            }
+            
+
+
+        }
         // Function to get export path
         public string export_path()
         {
