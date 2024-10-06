@@ -315,7 +315,7 @@ namespace TT_Edit.Forms
                     string[] allIgnoreWords = ignoreCharsTxt.Text.Split(',');
                     foreach (var word in allIgnoreWords)
                     {
-                        draftLines = draftLines.Replace(word, "");
+                        draftLines = draftLines.Replace(word.Trim(), "");
                     }
 
 

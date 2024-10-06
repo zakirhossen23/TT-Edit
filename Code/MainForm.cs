@@ -138,6 +138,15 @@ namespace TT_Edit
             ActivateButton((IconButton)sender);
 
         }
+
+        private void ICBHelp_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            var control = new TT_Edit.Forms.HelpControl();
+            control.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(control);
+            ActivateButton((IconButton)sender);
+        }
     }
 
 }

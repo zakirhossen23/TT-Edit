@@ -66,23 +66,32 @@ namespace TT_Edit.Classes
                 StringBuilder stringBuilder = new StringBuilder();
                 int newLineCount = 0;
                 // Iterating all the lines
-                foreach (string item2 in list2)
+                foreach (string item in list2)
                 {
-
+                    string item2 = item;
+                    if (item != null)
+                        item2 = item.Trim();
                     if (subtitleItem.StartEndString != null && subtitleItem.StartEndString != "")
                     // Checking if subtitleItem starttime and endtime is 0 or not
                     {
+                       
                         if (item2 != null && item2 != "" )
                         {
                             if (newLineCount == 0)
                             {
-                                stringBuilder.AppendLine(item2);
+                                
                                 if (stringBuilder.ToString().TrimEnd() != "")
-                                subtitleItem.Lines.Add(stringBuilder.ToString().TrimEnd());
-                                stringBuilder = new StringBuilder();
-                                newLineCount = 0;
+                                {
+                                    stringBuilder.AppendLine(item2);
+                                    newLineCount = 0;
+                                }
+                                else
+                                {
+                                    stringBuilder.AppendLine(item2);
+                                    newLineCount = 0;
+                                }
                             }
-                            else if (newLineCount == 1)
+                            else if (newLineCount > 0)
                             {
                                 if (stringBuilder.ToString().TrimEnd() != "")
                                     subtitleItem.Lines.Add(stringBuilder.ToString().TrimEnd());
@@ -112,17 +121,17 @@ namespace TT_Edit.Classes
 
                             list.Add(subtitleItem);
                         }
-                        newLineCount = 1;
+                        newLineCount = 0;
                         subtitleItem = new SubtitleItemDivider();
                         stringBuilder = new StringBuilder();
                         subtitleItem.StartEndString = item2;
-                    }
-                   
+                    }else if (item2 != "")
+                    { 
+                        if (item2.Length > 45)
+                        {
+                            throw new ArgumentException("Error VTT format");
 
-                    if (newLineCount > 2)
-                    {
-                        throw new ArgumentException("VTT format error");
-
+                        }
                     }
 
                 }
@@ -148,6 +157,7 @@ namespace TT_Edit.Classes
 
                 if (list.Any())
                 {
+                    //list.RemoveAt(0);
                     return list;
                 }
 

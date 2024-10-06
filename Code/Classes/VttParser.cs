@@ -40,6 +40,7 @@ namespace TT_Edit.Classes
                 // Iterating all the lines
                 foreach (string item in list2)
                 {
+                  
                     // Removing newline and other things
                     List<string> list3 = (from s in item.Split(new string[1]
                         {

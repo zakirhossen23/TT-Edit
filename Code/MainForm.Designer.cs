@@ -39,23 +39,27 @@
             this.ControlContainer = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.versionLabel = new System.Windows.Forms.Label();
+            this.guna2ContainerControl1 = new Guna.UI2.WinForms.Guna2ContainerControl();
+            this.gunaDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.ICBHelp = new FontAwesome.Sharp.IconButton();
             this.ICBAtRemover = new FontAwesome.Sharp.IconButton();
-            this.ICBAtInserter = new FontAwesome.Sharp.IconButton();
             this.ICBCommaChecker = new FontAwesome.Sharp.IconButton();
             this.ICBCPLcounter = new FontAwesome.Sharp.IconButton();
             this.ICBSpaceRemover = new FontAwesome.Sharp.IconButton();
             this.ICBTimeframeDivider = new FontAwesome.Sharp.IconButton();
             this.ICBTimeframe = new FontAwesome.Sharp.IconButton();
             this.ICBConverter = new FontAwesome.Sharp.IconButton();
-            this.gunaDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.ICBAtInserter = new FontAwesome.Sharp.IconButton();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panelTopHeader.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel3.SuspendLayout();
+            this.guna2ContainerControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaBorderlessForm
@@ -170,8 +174,8 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.guna2PictureBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.guna2Panel3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.guna2ContainerControl1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
@@ -179,40 +183,84 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.34911F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.65089F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(304, 738);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(24)))), ((int)(((byte)(90)))));
-            this.guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2PictureBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(24)))), ((int)(((byte)(90)))));
-            this.guna2PictureBox1.Image = global::TT_Edit.Properties.Resources.icon;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(304, 105);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            // 
             // guna2Panel3
             // 
+            this.guna2Panel3.Controls.Add(this.ICBHelp);
+            this.guna2Panel3.Controls.Add(this.versionLabel);
             this.guna2Panel3.Controls.Add(this.ICBAtRemover);
-            this.guna2Panel3.Controls.Add(this.ICBAtInserter);
             this.guna2Panel3.Controls.Add(this.ICBCommaChecker);
             this.guna2Panel3.Controls.Add(this.ICBCPLcounter);
             this.guna2Panel3.Controls.Add(this.ICBSpaceRemover);
             this.guna2Panel3.Controls.Add(this.ICBTimeframeDivider);
             this.guna2Panel3.Controls.Add(this.ICBTimeframe);
             this.guna2Panel3.Controls.Add(this.ICBConverter);
+            this.guna2Panel3.Controls.Add(this.ICBAtInserter);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel3.Location = new System.Drawing.Point(0, 105);
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(304, 633);
             this.guna2Panel3.TabIndex = 1;
+            // 
+            // versionLabel
+            // 
+            this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.versionLabel.BackColor = System.Drawing.Color.Red;
+            this.versionLabel.ForeColor = System.Drawing.Color.White;
+            this.versionLabel.Location = new System.Drawing.Point(-3, 609);
+            this.versionLabel.Name = "versionLabel";
+            this.versionLabel.Size = new System.Drawing.Size(74, 24);
+            this.versionLabel.TabIndex = 0;
+            this.versionLabel.Text = "v1.0.1";
+            this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // guna2ContainerControl1
+            // 
+            this.guna2ContainerControl1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ContainerControl1.Controls.Add(this.guna2PictureBox2);
+            this.guna2ContainerControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2ContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.guna2ContainerControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2ContainerControl1.Name = "guna2ContainerControl1";
+            this.guna2ContainerControl1.Size = new System.Drawing.Size(304, 105);
+            this.guna2ContainerControl1.TabIndex = 1;
+            this.guna2ContainerControl1.Text = "guna2ContainerControl1";
+            this.guna2ContainerControl1.UseTransparentBackground = true;
+            // 
+            // gunaDragControl
+            // 
+            this.gunaDragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.gunaDragControl.TargetControl = this.panelTopHeader;
+            this.gunaDragControl.UseTransparentDrag = true;
+            // 
+            // ICBHelp
+            // 
+            this.ICBHelp.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBHelp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBHelp.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBHelp.FlatAppearance.BorderSize = 0;
+            this.ICBHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBHelp.ForeColor = System.Drawing.Color.Red;
+            this.ICBHelp.IconChar = FontAwesome.Sharp.IconChar.QuestionCircle;
+            this.ICBHelp.IconColor = System.Drawing.Color.Red;
+            this.ICBHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBHelp.IconSize = 20;
+            this.ICBHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBHelp.Location = new System.Drawing.Point(0, 408);
+            this.ICBHelp.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBHelp.Name = "ICBHelp";
+            this.ICBHelp.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBHelp.Size = new System.Drawing.Size(304, 51);
+            this.ICBHelp.TabIndex = 10;
+            this.ICBHelp.Text = "Help";
+            this.ICBHelp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBHelp.UseVisualStyleBackColor = true;
+            this.ICBHelp.Click += new System.EventHandler(this.ICBHelp_Click);
             // 
             // ICBAtRemover
             // 
@@ -239,31 +287,6 @@
             this.ICBAtRemover.UseVisualStyleBackColor = true;
             this.ICBAtRemover.Click += new System.EventHandler(this.ICBAtRemover_Click);
             // 
-            // ICBAtInserter
-            // 
-            this.ICBAtInserter.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ICBAtInserter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ICBAtInserter.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.ICBAtInserter.FlatAppearance.BorderSize = 0;
-            this.ICBAtInserter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ICBAtInserter.ForeColor = System.Drawing.Color.DimGray;
-            this.ICBAtInserter.IconChar = FontAwesome.Sharp.IconChar.At;
-            this.ICBAtInserter.IconColor = System.Drawing.Color.Gray;
-            this.ICBAtInserter.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ICBAtInserter.IconSize = 20;
-            this.ICBAtInserter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBAtInserter.Location = new System.Drawing.Point(0, 306);
-            this.ICBAtInserter.Margin = new System.Windows.Forms.Padding(0);
-            this.ICBAtInserter.Name = "ICBAtInserter";
-            this.ICBAtInserter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.ICBAtInserter.Size = new System.Drawing.Size(304, 51);
-            this.ICBAtInserter.TabIndex = 8;
-            this.ICBAtInserter.Text = "Inserter";
-            this.ICBAtInserter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBAtInserter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ICBAtInserter.UseVisualStyleBackColor = true;
-            this.ICBAtInserter.Click += new System.EventHandler(this.ICBAtInserter_Click);
-            // 
             // ICBCommaChecker
             // 
             this.ICBCommaChecker.Cursor = System.Windows.Forms.Cursors.Default;
@@ -277,7 +300,7 @@
             this.ICBCommaChecker.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBCommaChecker.IconSize = 20;
             this.ICBCommaChecker.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBCommaChecker.Location = new System.Drawing.Point(0, 255);
+            this.ICBCommaChecker.Location = new System.Drawing.Point(0, 306);
             this.ICBCommaChecker.Margin = new System.Windows.Forms.Padding(0);
             this.ICBCommaChecker.Name = "ICBCommaChecker";
             this.ICBCommaChecker.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -302,7 +325,7 @@
             this.ICBCPLcounter.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBCPLcounter.IconSize = 20;
             this.ICBCPLcounter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBCPLcounter.Location = new System.Drawing.Point(0, 204);
+            this.ICBCPLcounter.Location = new System.Drawing.Point(0, 255);
             this.ICBCPLcounter.Margin = new System.Windows.Forms.Padding(0);
             this.ICBCPLcounter.Name = "ICBCPLcounter";
             this.ICBCPLcounter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -327,7 +350,7 @@
             this.ICBSpaceRemover.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBSpaceRemover.IconSize = 20;
             this.ICBSpaceRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBSpaceRemover.Location = new System.Drawing.Point(0, 153);
+            this.ICBSpaceRemover.Location = new System.Drawing.Point(0, 204);
             this.ICBSpaceRemover.Margin = new System.Windows.Forms.Padding(0);
             this.ICBSpaceRemover.Name = "ICBSpaceRemover";
             this.ICBSpaceRemover.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -352,7 +375,7 @@
             this.ICBTimeframeDivider.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBTimeframeDivider.IconSize = 20;
             this.ICBTimeframeDivider.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBTimeframeDivider.Location = new System.Drawing.Point(0, 102);
+            this.ICBTimeframeDivider.Location = new System.Drawing.Point(0, 153);
             this.ICBTimeframeDivider.Margin = new System.Windows.Forms.Padding(0);
             this.ICBTimeframeDivider.Name = "ICBTimeframeDivider";
             this.ICBTimeframeDivider.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -377,7 +400,7 @@
             this.ICBTimeframe.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBTimeframe.IconSize = 20;
             this.ICBTimeframe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBTimeframe.Location = new System.Drawing.Point(0, 51);
+            this.ICBTimeframe.Location = new System.Drawing.Point(0, 102);
             this.ICBTimeframe.Margin = new System.Windows.Forms.Padding(0);
             this.ICBTimeframe.Name = "ICBTimeframe";
             this.ICBTimeframe.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -403,7 +426,7 @@
             this.ICBConverter.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBConverter.IconSize = 20;
             this.ICBConverter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBConverter.Location = new System.Drawing.Point(0, 0);
+            this.ICBConverter.Location = new System.Drawing.Point(0, 51);
             this.ICBConverter.Margin = new System.Windows.Forms.Padding(0);
             this.ICBConverter.Name = "ICBConverter";
             this.ICBConverter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -415,11 +438,45 @@
             this.ICBConverter.UseVisualStyleBackColor = false;
             this.ICBConverter.Click += new System.EventHandler(this.ICBConverter_Click);
             // 
-            // gunaDragControl
+            // ICBAtInserter
             // 
-            this.gunaDragControl.DockIndicatorTransparencyValue = 0.6D;
-            this.gunaDragControl.TargetControl = this.panelTopHeader;
-            this.gunaDragControl.UseTransparentDrag = true;
+            this.ICBAtInserter.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBAtInserter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBAtInserter.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBAtInserter.FlatAppearance.BorderSize = 0;
+            this.ICBAtInserter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBAtInserter.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBAtInserter.IconChar = FontAwesome.Sharp.IconChar.At;
+            this.ICBAtInserter.IconColor = System.Drawing.Color.Gray;
+            this.ICBAtInserter.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBAtInserter.IconSize = 20;
+            this.ICBAtInserter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBAtInserter.Location = new System.Drawing.Point(0, 0);
+            this.ICBAtInserter.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBAtInserter.Name = "ICBAtInserter";
+            this.ICBAtInserter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBAtInserter.Size = new System.Drawing.Size(304, 51);
+            this.ICBAtInserter.TabIndex = 8;
+            this.ICBAtInserter.Text = "Inserter";
+            this.ICBAtInserter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBAtInserter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBAtInserter.UseVisualStyleBackColor = true;
+            this.ICBAtInserter.Click += new System.EventHandler(this.ICBAtInserter_Click);
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(24)))), ((int)(((byte)(90)))));
+            this.guna2PictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2PictureBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(24)))), ((int)(((byte)(90)))));
+            this.guna2PictureBox2.Image = global::TT_Edit.Properties.Resources.icon;
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.guna2PictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(304, 105);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox2.TabIndex = 1;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // MainForm
             // 
@@ -440,8 +497,9 @@
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
+            this.guna2ContainerControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -456,7 +514,6 @@
         private Guna.UI2.WinForms.Guna2DragControl gunaDragControl;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private FontAwesome.Sharp.IconButton ICBConverter;
         private Guna.UI2.WinForms.Guna2ContainerControl ControlContainer;
@@ -467,6 +524,10 @@
         private FontAwesome.Sharp.IconButton ICBTimeframeDivider;
         private FontAwesome.Sharp.IconButton ICBAtInserter;
         private FontAwesome.Sharp.IconButton ICBAtRemover;
+        private Guna.UI2.WinForms.Guna2ContainerControl guna2ContainerControl1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        private System.Windows.Forms.Label versionLabel;
+        private FontAwesome.Sharp.IconButton ICBHelp;
     }
 }
 
