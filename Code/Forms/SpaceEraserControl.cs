@@ -247,42 +247,53 @@ namespace TT_Edit.Forms
 
         }
 
-    
+        int lastIndex = 0;
+        VttFIleSpaceRemover lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
-            // Iterating through files which status are Pending
-            foreach (VttFIleSpaceRemover item in from file in allVTTFiles where file.status == "Pending" select file)
+            try
             {
-                // Setting current status Running and refreshing everything
-                item.status = "Running";
-                refreshEverything();
 
-                for (int i = 0; i < item.AllSubTitleItems.Count-1; i++)
+                // Iterating through files which status are Pending
+                foreach (VttFIleSpaceRemover item in from file in allVTTFiles where file.status == "Pending" select file)
                 {
-                    SubtitleItem subtitle = item.AllSubTitleItems[i];
-                    for (int li = 0; li < subtitle.Lines.Count; li++)
+                    // Setting current status Running and refreshing everything
+                    item.status = "Running";
+                    refreshEverything();
+
+                    for (int i = 0; i < item.AllSubTitleItems.Count - 1; i++)
                     {
-                       string sentence =  subtitle.Lines[li].Trim();
-                        RegexOptions options = RegexOptions.None;
-                        Regex regex = new Regex("[ ]{2,}", options);
-                        sentence = regex.Replace(sentence, " ");
-                        subtitle.Lines[li] = sentence;
+                        lastIndex = i;
+                        lastitem = item;
+                        SubtitleItem subtitle = item.AllSubTitleItems[i];
+                        for (int li = 0; li < subtitle.Lines.Count; li++)
+                        {
+                            string sentence = subtitle.Lines[li].Trim();
+                            RegexOptions options = RegexOptions.None;
+                            Regex regex = new Regex("[ ]{2,}", options);
+                            sentence = regex.Replace(sentence, " ");
+                            subtitle.Lines[li] = sentence;
+                        }
+
+                        item.AllSubTitleItems[i] = subtitle;
+
+
                     }
-                  
-                    item.AllSubTitleItems[i] = subtitle;
 
-                    
+                    // Now exporting that subtitle 
+                    item.export();
+
+                    // Updating current item status to Completed and refreshing everything
+                    item.status = "Completed";
+                    refreshEverything();
                 }
-
-                // Now exporting that subtitle 
-                item.export();
-
-                // Updating current item status to Completed and refreshing everything
-                item.status = "Completed";
-                refreshEverything();
             }
+            catch (Exception ex)
+            {
 
+                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + VttFIleSpaceRemover.GetFormattedStartEnd(lastitem.AllSubTitleItems[lastIndex]), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             // When everything is finished then will disable Stop button and enable Start Buttton.
             btnStart.Enabled = true;
             btnStop.Enabled = false;
@@ -336,4 +347,4 @@ namespace TT_Edit.Forms
 
 
     }
-   }
+}

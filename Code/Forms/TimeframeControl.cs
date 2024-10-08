@@ -245,61 +245,74 @@ namespace TT_Edit.Forms
 
         }
 
-    
+
+        int lastIndex = 0;
+        VttFIleTimeUniting lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
-            // Iterating through files which status are Pending
-            foreach (VttFIleTimeUniting item in from file in allVTTFiles where file.status == "Pending" select file)
+            try
             {
-                // Setting current status Running and refreshing everything
-                item.status = "Running";
-                refreshEverything();
 
-                int AddToNextTimeFrame = 1;
-                for (int i = 0; i < item.AllSubTitleItems.Count; i++)
+                // Iterating through files which status are Pending
+                foreach (VttFIleTimeUniting item in from file in allVTTFiles where file.status == "Pending" select file)
                 {
-                    SubtitleItem subtitle = item.AllSubTitleItems[i];
-               
-                    // First joining all lines into a string
-                    string draftLines = string.Join(" ", subtitle.Lines.ToArray()).Trim();
+                    // Setting current status Running and refreshing everything
+                    item.status = "Running";
+                    refreshEverything();
 
-                    
-                    if (draftLines.Length != 0)
+                    int AddToNextTimeFrame = 1;
+                    for (int i = 0; i < item.AllSubTitleItems.Count; i++)
                     {
-                        // Counter for next timeframe which are empty
-                        AddToNextTimeFrame = 0;
-                        for (int j = i + 1; j < item.AllSubTitleItems.Count; j++)
+                        lastIndex = i;
+                        lastitem = item;
+                        SubtitleItem subtitle = item.AllSubTitleItems[i];
+
+                        // First joining all lines into a string
+                        string draftLines = string.Join(" ", subtitle.Lines.ToArray()).Trim();
+
+
+                        if (draftLines.Length != 0)
                         {
-                            if (item.AllSubTitleItems[j].Lines.Count == 0 )
+                            // Counter for next timeframe which are empty
+                            AddToNextTimeFrame = 0;
+                            for (int j = i + 1; j < item.AllSubTitleItems.Count; j++)
                             {
-                                AddToNextTimeFrame++;
+                                if (item.AllSubTitleItems[j].Lines.Count == 0)
+                                {
+                                    AddToNextTimeFrame++;
+                                }
+                                else
+                                {
+                                    break;
+                                }
                             }
-                            else
+
+                            subtitle.EndTime = item.AllSubTitleItems[i + AddToNextTimeFrame].EndTime;
+
+                            for (int j = 0; j < AddToNextTimeFrame; j++)
                             {
-                                break;
+                                item.AllSubTitleItems.RemoveAt(i + 1);
+
                             }
-                        }
+                            item.AllSubTitleItems[i] = subtitle;
 
-                        subtitle.EndTime = item.AllSubTitleItems[i+ AddToNextTimeFrame].EndTime;
-
-                        for (int j = 0; j < AddToNextTimeFrame; j++)
-                        {
-                            item.AllSubTitleItems.RemoveAt(i+1);
 
                         }
-                        item.AllSubTitleItems[i] = subtitle;
-
-
                     }
+
+                    // Now exporting that subtitle 
+                    item.export();
+
+                    // Updating current item status to Completed and refreshing everything
+                    item.status = "Completed";
+                    refreshEverything();
                 }
+            }
+            catch (Exception ex)
+            {
 
-                // Now exporting that subtitle 
-                item.export();
-
-                // Updating current item status to Completed and refreshing everything
-                item.status = "Completed";
-                refreshEverything();
+                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + VttFIleTimeUniting.GetFormattedStartEnd(lastitem.AllSubTitleItems[lastIndex]), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             // When everything is finished then will disable Stop button and enable Start Buttton.
@@ -355,4 +368,4 @@ namespace TT_Edit.Forms
 
 
     }
-   }
+}

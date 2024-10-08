@@ -40,10 +40,8 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.versionLabel = new System.Windows.Forms.Label();
-            this.guna2ContainerControl1 = new Guna.UI2.WinForms.Guna2ContainerControl();
-            this.gunaDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.ICBHelp = new FontAwesome.Sharp.IconButton();
+            this.versionLabel = new System.Windows.Forms.Label();
             this.ICBAtRemover = new FontAwesome.Sharp.IconButton();
             this.ICBCommaChecker = new FontAwesome.Sharp.IconButton();
             this.ICBCPLcounter = new FontAwesome.Sharp.IconButton();
@@ -52,7 +50,9 @@
             this.ICBTimeframe = new FontAwesome.Sharp.IconButton();
             this.ICBConverter = new FontAwesome.Sharp.IconButton();
             this.ICBAtInserter = new FontAwesome.Sharp.IconButton();
+            this.guna2ContainerControl1 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.gunaDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panelTopHeader.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -206,37 +206,6 @@
             this.guna2Panel3.Size = new System.Drawing.Size(304, 633);
             this.guna2Panel3.TabIndex = 1;
             // 
-            // versionLabel
-            // 
-            this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.versionLabel.BackColor = System.Drawing.Color.Red;
-            this.versionLabel.ForeColor = System.Drawing.Color.White;
-            this.versionLabel.Location = new System.Drawing.Point(-3, 609);
-            this.versionLabel.Name = "versionLabel";
-            this.versionLabel.Size = new System.Drawing.Size(74, 24);
-            this.versionLabel.TabIndex = 0;
-            this.versionLabel.Text = "v1.0.1";
-            this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // guna2ContainerControl1
-            // 
-            this.guna2ContainerControl1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ContainerControl1.Controls.Add(this.guna2PictureBox2);
-            this.guna2ContainerControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2ContainerControl1.Location = new System.Drawing.Point(0, 0);
-            this.guna2ContainerControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.guna2ContainerControl1.Name = "guna2ContainerControl1";
-            this.guna2ContainerControl1.Size = new System.Drawing.Size(304, 105);
-            this.guna2ContainerControl1.TabIndex = 1;
-            this.guna2ContainerControl1.Text = "guna2ContainerControl1";
-            this.guna2ContainerControl1.UseTransparentBackground = true;
-            // 
-            // gunaDragControl
-            // 
-            this.gunaDragControl.DockIndicatorTransparencyValue = 0.6D;
-            this.gunaDragControl.TargetControl = this.panelTopHeader;
-            this.gunaDragControl.UseTransparentDrag = true;
-            // 
             // ICBHelp
             // 
             this.ICBHelp.Cursor = System.Windows.Forms.Cursors.Default;
@@ -261,6 +230,18 @@
             this.ICBHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ICBHelp.UseVisualStyleBackColor = true;
             this.ICBHelp.Click += new System.EventHandler(this.ICBHelp_Click);
+            // 
+            // versionLabel
+            // 
+            this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.versionLabel.BackColor = System.Drawing.Color.Red;
+            this.versionLabel.ForeColor = System.Drawing.Color.White;
+            this.versionLabel.Location = new System.Drawing.Point(-3, 609);
+            this.versionLabel.Name = "versionLabel";
+            this.versionLabel.Size = new System.Drawing.Size(74, 24);
+            this.versionLabel.TabIndex = 0;
+            this.versionLabel.Text = "v1.0.2";
+            this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ICBAtRemover
             // 
@@ -463,6 +444,19 @@
             this.ICBAtInserter.UseVisualStyleBackColor = true;
             this.ICBAtInserter.Click += new System.EventHandler(this.ICBAtInserter_Click);
             // 
+            // guna2ContainerControl1
+            // 
+            this.guna2ContainerControl1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ContainerControl1.Controls.Add(this.guna2PictureBox2);
+            this.guna2ContainerControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2ContainerControl1.Location = new System.Drawing.Point(0, 0);
+            this.guna2ContainerControl1.Margin = new System.Windows.Forms.Padding(0);
+            this.guna2ContainerControl1.Name = "guna2ContainerControl1";
+            this.guna2ContainerControl1.Size = new System.Drawing.Size(304, 105);
+            this.guna2ContainerControl1.TabIndex = 1;
+            this.guna2ContainerControl1.Text = "guna2ContainerControl1";
+            this.guna2ContainerControl1.UseTransparentBackground = true;
+            // 
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(24)))), ((int)(((byte)(90)))));
@@ -477,6 +471,12 @@
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox2.TabIndex = 1;
             this.guna2PictureBox2.TabStop = false;
+            // 
+            // gunaDragControl
+            // 
+            this.gunaDragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.gunaDragControl.TargetControl = this.panelTopHeader;
+            this.gunaDragControl.UseTransparentDrag = true;
             // 
             // MainForm
             // 

@@ -250,48 +250,58 @@ namespace TT_Edit.Forms
 
         }
 
-    
+        int lastIndex = 0;
+        VttFIleCplCounter lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
-          
-            // Iterating through files which status are Pending
-            foreach (VttFIleCplCounter item in from file in allVTTFiles where file.status == "Pending" select file)
+
+            try
             {
-                // Setting current status Running and refreshing everything
-                item.status = "Running";
-                item.Exceed = "Running";
-                int total_exceed = 0;
-                refreshEverything();
-
-                for (int i = 0; i < item.AllSubTitleItems.Count-1; i++)
+                // Iterating through files which status are Pending
+                foreach (VttFIleCplCounter item in from file in allVTTFiles where file.status == "Pending" select file)
                 {
-                    SubtitleItem subtitle = item.AllSubTitleItems[i];
-                    for (int li = 0; li < subtitle.Lines.Count; li++)
+                    // Setting current status Running and refreshing everything
+                    item.status = "Running";
+                    item.Exceed = "Running";
+                    int total_exceed = 0;
+                    refreshEverything();
+
+                    for (int i = 0; i < item.AllSubTitleItems.Count - 1; i++)
                     {
-                        if (subtitle.Lines[li].Length > 45)
+                        SubtitleItem subtitle = item.AllSubTitleItems[i];
+                        for (int li = 0; li < subtitle.Lines.Count; li++)
                         {
-                            total_exceed += 1;
-                            subtitle.Lines[li] = subtitle.Lines[li]+ " ("+ subtitle.Lines[li].Length + " CPL)" ;
+                            lastIndex = i;
+                            lastitem = item;
+                            if (subtitle.Lines[li].Length > 45)
+                            {
+                                total_exceed += 1;
+                                subtitle.Lines[li] = subtitle.Lines[li] + " (" + subtitle.Lines[li].Length + " CPL)";
 
+                            }
                         }
+
+                        item.AllSubTitleItems[i] = subtitle;
+
+
                     }
-                  
-                    item.AllSubTitleItems[i] = subtitle;
 
-                    
+                    // Now exporting that subtitle 
+                    if (total_exceed > 0)
+                        item.export();
+
+                    // Updating current item status to Completed and refreshing everything
+                    item.status = "Completed";
+                    item.Exceed = total_exceed.ToString();
+                    refreshEverything();
                 }
-
-                // Now exporting that subtitle 
-                if (total_exceed>0)
-                item.export();
-
-                // Updating current item status to Completed and refreshing everything
-                item.status = "Completed";  
-                item.Exceed = total_exceed.ToString();
-                refreshEverything();
             }
+            catch (Exception ex)
+            {
 
+                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + VttFIleCplCounter.GetFormattedStartEnd(lastitem.AllSubTitleItems[lastIndex]), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             // When everything is finished then will disable Stop button and enable Start Buttton.
             btnStart.Enabled = true;
             btnStop.Enabled = false;
@@ -345,4 +355,4 @@ namespace TT_Edit.Forms
 
 
     }
-   }
+}

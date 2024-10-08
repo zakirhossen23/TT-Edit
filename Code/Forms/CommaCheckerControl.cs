@@ -251,45 +251,56 @@ namespace TT_Edit.Forms
 
         }
 
-    
+        int lastIndex = 0;
+        VttFIleCommaChecker lastitem;
+
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
-          
-            // Iterating through files which status are Pending
-            foreach (VttFIleCommaChecker item in from file in allVTTFiles where file.status == "Pending" select file)
+            try
             {
-                // Setting current status Running and refreshing everything
-                item.status = "Running";
-                item.Commas = "Running";
-                int total_commas = 0;
-                refreshEverything();
 
-                for (int i = 0; i < item.AllSubTitleItems.Count-1; i++)
+                // Iterating through files which status are Pending
+                foreach (VttFIleCommaChecker item in from file in allVTTFiles where file.status == "Pending" select file)
                 {
-                    SubtitleItemCommas subtitle = item.AllSubTitleItems[i];
-                    if ((subtitle.StartEndString).ToString().Contains(","))
+                    // Setting current status Running and refreshing everything
+                    item.status = "Running";
+                    item.Commas = "Running";
+                    int total_commas = 0;
+                    refreshEverything();
+
+                    for (int i = 0; i < item.AllSubTitleItems.Count - 1; i++)
                     {
-                        subtitle.StartEndString = subtitle.StartEndString + " (Have comma - Bad)";
-                        total_commas += 1;
+                        lastIndex = i;
+                        lastitem = item;
+                        SubtitleItemCommas subtitle = item.AllSubTitleItems[i];
+                        if ((subtitle.StartEndString).ToString().Contains(","))
+                        {
+                            subtitle.StartEndString = subtitle.StartEndString + " (Have comma - Bad)";
+                            total_commas += 1;
+
+
+                        }
+
+                        item.AllSubTitleItems[i] = subtitle;
 
 
                     }
+                    // Now exporting that subtitle 
+                    if (total_commas > 0)
+                        item.export();
 
-                    item.AllSubTitleItems[i] = subtitle;
-
-
+                    // Updating current item status to Completed and refreshing everything
+                    item.status = "Completed";
+                    item.Commas = total_commas.ToString();
+                    refreshEverything();
                 }
-                // Now exporting that subtitle 
-                if (total_commas>0)
-                item.export();
-
-                // Updating current item status to Completed and refreshing everything
-                item.status = "Completed";  
-                item.Commas = total_commas.ToString();
-                refreshEverything();
             }
+            catch (Exception ex)
+            {
 
+                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + lastitem.AllSubTitleItems[lastIndex].StartEndString, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             // When everything is finished then will disable Stop button and enable Start Buttton.
             btnStart.Enabled = true;
             btnStop.Enabled = false;
@@ -343,4 +354,4 @@ namespace TT_Edit.Forms
 
 
     }
-   }
+}

@@ -68,8 +68,14 @@ namespace TT_Edit.Classes
             }
         }
 
+
+        public static string GetFormattedStartEnd(SubtitleItem item)
+        {
+            return $"{FormatTimecode(item.StartTime)} --> {FormatTimecode(item.EndTime)}";
+        }
+
         // Function to format TimeCode
-        private string FormatTimecode(int milliseconds)
+        private static string FormatTimecode(int milliseconds)
         {
             TimeSpan time = TimeSpan.FromMilliseconds(milliseconds);
             return $"{time.Hours:00}:{time.Minutes:00}:{time.Seconds:00}.{time.Milliseconds:000}";

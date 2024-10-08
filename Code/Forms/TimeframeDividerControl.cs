@@ -12,6 +12,7 @@ using SubtitlesParser.Parsers;
 using SubtitlesParser;
 using TT_Edit.Classes;
 using System.Text.RegularExpressions;
+using System.Windows;
 
 namespace TT_Edit.Forms
 {
@@ -247,71 +248,83 @@ namespace TT_Edit.Forms
 
         }
 
-    
+        int lastIndex = 0;
+        VttFIleTimeDivider lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
-            // Iterating through files which status are Pending
-            foreach (VttFIleTimeDivider item in from file in allVTTFiles where file.status == "Pending" select file)
+            try
             {
-                // Setting current status Running and refreshing everything
-                item.status = "Running";
-                refreshEverything();
-
-                int AddToNextTimeFrame = 0;
-                int PreviousTimeFrame = 0;
-                for (int i = 0; i < item.AllSubTitleItems.Count; i++)
+                // Iterating through files which status are Pending
+                foreach (VttFIleTimeDivider item in from file in allVTTFiles where file.status == "Pending" select file)
                 {
-                    SubtitleItemDivider subtitle = item.AllSubTitleItems[i];
-                    for (int li = 0; li < subtitle.Lines.Count; li++)
-                    {
-                        string sentence = subtitle.Lines[li].Trim();
-                        RegexOptions options = RegexOptions.None;
-                        Regex regex = new Regex("[ ]{2,}", options);
-                        sentence = regex.Replace(sentence, " ");
-                        subtitle.Lines[li] = sentence;
-                    }
+                    lastitem = item;
+                    // Setting current status Running and refreshing everything
+                    item.status = "Running";
+                    refreshEverything();
 
-                    // First joining all lines into a string
-                    string draftLines = string.Join(" ", subtitle.Lines.ToArray()).Trim();
-
-                    
-                    if (draftLines.Length != 0)
+                    int AddToNextTimeFrame = 0;
+                    int PreviousTimeFrame = 0;
+                    for (int i = 0; i < item.AllSubTitleItems.Count; i++)
                     {
-                        // Counter for next timeframe which are empty
-                        AddToNextTimeFrame = 0;
-                        PreviousTimeFrame = i;
-                        for (int j = i + 1; j < item.AllSubTitleItems.Count; j++)
+                        lastIndex = i;
+                        SubtitleItemDivider subtitle = item.AllSubTitleItems[i];
+                        for (int li = 0; li < subtitle.Lines.Count; li++)
                         {
-                            if (item.AllSubTitleItems[j].Lines.Count == 0 )
+                            string sentence = subtitle.Lines[li].Trim();
+                            RegexOptions options = RegexOptions.None;
+                            Regex regex = new Regex("[ ]{2,}", options);
+                            sentence = regex.Replace(sentence, " ");
+                            subtitle.Lines[li] = sentence;
+                        }
+
+                        // First joining all lines into a string
+                        string draftLines = string.Join(" ", subtitle.Lines.ToArray()).Trim();
+
+
+                        if (draftLines.Length != 0)
+                        {
+                            // Counter for next timeframe which are empty
+                            AddToNextTimeFrame = 0;
+                            PreviousTimeFrame = i;
+                            for (int j = i + 1; j < item.AllSubTitleItems.Count; j++)
                             {
-                                AddToNextTimeFrame++;
+                                if (item.AllSubTitleItems[j].Lines.Count == 0)
+                                {
+                                    AddToNextTimeFrame++;
+                                }
+                                else
+                                {
+                                    break;
+                                }
                             }
-                            else
+                        }
+                        else
+                        {
+                            if (AddToNextTimeFrame > 0)
                             {
-                                break;
+                                subtitle.Lines.Add(item.AllSubTitleItems[PreviousTimeFrame].Lines[1]);
+                                item.AllSubTitleItems[PreviousTimeFrame].Lines.RemoveAt(1);
+                                AddToNextTimeFrame--;
                             }
                         }
                     }
-                    else
-                    {
-                        if (AddToNextTimeFrame > 0)
-                        {
-                            subtitle.Lines.Add(item.AllSubTitleItems[PreviousTimeFrame].Lines[1]);
-                            item.AllSubTitleItems[PreviousTimeFrame].Lines.RemoveAt(1);
-                            AddToNextTimeFrame--;
-                        }
-                    }
+
+                    // Now exporting that subtitle 
+                    item.export();
+                    item.status = "Completed";
+
+
+                    // Updating current item status to Completed and refreshing everything
+
+                    refreshEverything();
                 }
-
-                // Now exporting that subtitle 
-                item.export();
-
-                // Updating current item status to Completed and refreshing everything
-                item.status = "Completed";
-                refreshEverything();
             }
+            catch (Exception ex)
+            {
 
+                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + lastitem.AllSubTitleItems[lastIndex].StartEndString, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             // When everything is finished then will disable Stop button and enable Start Buttton.
             btnStart.Enabled = true;
             btnStop.Enabled = false;
@@ -365,4 +378,4 @@ namespace TT_Edit.Forms
 
 
     }
-   }
+}

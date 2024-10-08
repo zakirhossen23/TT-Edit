@@ -246,36 +246,46 @@ namespace TT_Edit.Forms
 
         }
 
-    
+
+        int lastIndex = 0;
+        VttFIleAtInserter lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
-            // Iterating through files which status are Pending
-            foreach (VttFIleAtInserter item in from file in allVTTFiles where file.status == "Pending" select file)
+            try
             {
-                // Setting current status Running and refreshing everything
-                item.status = "Running";
-                refreshEverything();
-
-                for (int i = 0; i < item.AllSubTitleItems.Count; i++)
+                // Iterating through files which status are Pending
+                foreach (VttFIleAtInserter item in from file in allVTTFiles where file.status == "Pending" select file)
                 {
-                    SubtitleItem subtitle = item.AllSubTitleItems[i];
-                    if (subtitle.Lines.Count == 0)
+                    // Setting current status Running and refreshing everything
+                    item.status = "Running";
+                    refreshEverything();
+
+                    for (int i = 0; i < item.AllSubTitleItems.Count; i++)
                     {
-                        subtitle.Lines.Add("@");
+                        lastIndex = i;
+                        SubtitleItem subtitle = item.AllSubTitleItems[i];
+                        if (subtitle.Lines.Count == 0)
+                        {
+                            subtitle.Lines.Add("@");
+                        }
+
+                        item.AllSubTitleItems[i] = subtitle;
                     }
-                    
-                    item.AllSubTitleItems[i] = subtitle;
+
+                    // Now exporting that subtitle 
+                    item.export();
+
+                    // Updating current item status to Completed and refreshing everything
+                    item.status = "Completed";
+                    refreshEverything();
                 }
-
-                // Now exporting that subtitle 
-                item.export();
-
-                // Updating current item status to Completed and refreshing everything
-                item.status = "Completed";
-                refreshEverything();
             }
+            catch (Exception ex)
+            {
 
+                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + VttFIleAtInserter.GetFormattedStartEnd( lastitem.AllSubTitleItems[lastIndex]), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             // When everything is finished then will disable Stop button and enable Start Buttton.
             btnStart.Enabled = true;
             btnStop.Enabled = false;
@@ -329,4 +339,4 @@ namespace TT_Edit.Forms
 
 
     }
-   }
+}

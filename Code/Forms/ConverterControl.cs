@@ -264,90 +264,102 @@ namespace TT_Edit.Forms
         }
 
 
+        int lastIndex = 0;
+        VttFIleConverter lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
-            // Iterating through files which status are Pending
-            foreach (VttFIleConverter item in from file in allVTTFiles where file.status == "Pending" select file)
+            try
             {
-                // Setting current status Running and refreshing everything
-                item.status = "Running";
-                refreshEverything();
 
-                SubtitleItem firstSubTitle = null;
-                string splittedLine = null;
-                bool isNewSub = true;
-                for (int i = 0; i < item.AllSubTitleItems.Count; i++)
+                // Iterating through files which status are Pending
+                foreach (VttFIleConverter item in from file in allVTTFiles where file.status == "Pending" select file)
                 {
-                    SubtitleItem subtitle = item.AllSubTitleItems[i];
-                    // First joining all lines into a string
-                    string draftLines = string.Join(" ", subtitle.Lines.ToArray());
+                    // Setting current status Running and refreshing everything
+                    item.status = "Running";
+                    refreshEverything();
 
-                    // If it should be new Subtitle to gather next sentances then store it into firstSubTitle variable
-                    if (isNewSub)
+                    SubtitleItem firstSubTitle = null;
+                    string splittedLine = null;
+                    bool isNewSub = true;
+                    for (int i = 0; i < item.AllSubTitleItems.Count; i++)
                     {
-                        if (draftLines.Length > 0)
-                            firstSubTitle = subtitle;
-                        if (splittedLine != null)
+                        lastIndex = i;
+                        lastitem = item;
+                        SubtitleItem subtitle = item.AllSubTitleItems[i];
+                        // First joining all lines into a string
+                        string draftLines = string.Join(" ", subtitle.Lines.ToArray());
+
+                        // If it should be new Subtitle to gather next sentances then store it into firstSubTitle variable
+                        if (isNewSub)
                         {
-                            firstSubTitle.Lines.Insert(0, splittedLine);
-                            splittedLine = null;
+                            if (draftLines.Length > 0)
+                                firstSubTitle = subtitle;
+                            if (splittedLine != null)
+                            {
+                                firstSubTitle.Lines.Insert(0, splittedLine);
+                                splittedLine = null;
 
-                        }
-                    }
-                    else
-                    {
-                        // If previous one has no fullstop then it will add current lines to that one
-                        firstSubTitle.Lines.AddRange(subtitle.Lines);
-
-                        // Clearing current subtitle lines
-                        subtitle.Lines.Clear();
-                    }
-
-                    // Removing deciaml (float numbers)
-                    string[] allDecimals = DecimalsInString(draftLines);
-                    foreach (var num in allDecimals)
-                    {
-                        draftLines = draftLines.Replace(num, "");
-                    }
-
-                    // Removing ignoring words
-                    string[] allIgnoreWords = ignoreCharsTxt.Text.Split(',');
-                    foreach (var word in allIgnoreWords)
-                    {
-                        draftLines = draftLines.Replace(word.Trim(), "");
-                    }
-
-
-                    if (cbxBreakDotEnd.Checked)
-                    {
-                        if (draftLines.EndsWith(".") && draftLines.Length != 0)isNewSub = true;
-                        else isNewSub = false;
-                    }
-                    else if (!cbxBreakDotEnd.Checked)
-                    {
-                        if (draftLines.Contains(".") && draftLines.Length != 0)
-                        {
-                            splittedLine = draftLines.Split('.')[1];
-                            isNewSub = true;
+                            }
                         }
                         else
-                            splittedLine = null;
+                        {
+                            // If previous one has no fullstop then it will add current lines to that one
+                            firstSubTitle.Lines.AddRange(subtitle.Lines);
+
+                            // Clearing current subtitle lines
+                            subtitle.Lines.Clear();
+                        }
+
+                        // Removing deciaml (float numbers)
+                        string[] allDecimals = DecimalsInString(draftLines);
+                        foreach (var num in allDecimals)
+                        {
+                            draftLines = draftLines.Replace(num, "");
+                        }
+
+                        // Removing ignoring words
+                        string[] allIgnoreWords = ignoreCharsTxt.Text.Split(',');
+                        foreach (var word in allIgnoreWords)
+                        {
+                            draftLines = draftLines.Replace(word.Trim(), "");
+                        }
+
+
+                        if (cbxBreakDotEnd.Checked)
+                        {
+                            if (draftLines.EndsWith(".") && draftLines.Length != 0) isNewSub = true;
+                            else isNewSub = false;
+                        }
+                        else if (!cbxBreakDotEnd.Checked)
+                        {
+                            if (draftLines.Contains(".") && draftLines.Length != 0)
+                            {
+                                splittedLine = draftLines.Split('.')[1];
+                                isNewSub = true;
+                            }
+                            else
+                                splittedLine = null;
+                        }
+
+                        if (draftLines.Trim() == "@") isNewSub = true;
+
                     }
 
-                    if (draftLines.Trim() == "@"  ) isNewSub = true;
 
+                    // Now exporting that subtitle 
+                    item.export();
+
+                    // Updating current item status to Completed and refreshing everything
+                    item.status = "Completed";
+                    refreshEverything();
                 }
-
-
-                // Now exporting that subtitle 
-                item.export();
-
-                // Updating current item status to Completed and refreshing everything
-                item.status = "Completed";
-                refreshEverything();
             }
+            catch (Exception ex)
+            {
 
+                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + VttFIleConverter.GetFormattedStartEnd(lastitem.AllSubTitleItems[lastIndex]), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             // When everything is finished then will disable Stop button and enable Start Buttton.
             btnStart.Enabled = true;
             btnStop.Enabled = false;
