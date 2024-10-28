@@ -339,7 +339,9 @@ namespace TT_Edit.Forms
 
         }
 
-
-
+        private void ResetAllbtn_Click(object sender, EventArgs e)
+        {
+            ((MainForm)this.ParentForm).ResetPage();
+        }
     }
 }

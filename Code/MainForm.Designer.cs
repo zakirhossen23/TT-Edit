@@ -41,6 +41,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.ICBHelp = new FontAwesome.Sharp.IconButton();
+            this.ICBPageTextDeFormatter = new FontAwesome.Sharp.IconButton();
+            this.ICBPageTextFormatter = new FontAwesome.Sharp.IconButton();
             this.versionLabel = new System.Windows.Forms.Label();
             this.ICBAtRemover = new FontAwesome.Sharp.IconButton();
             this.ICBCommaChecker = new FontAwesome.Sharp.IconButton();
@@ -190,6 +192,8 @@
             // guna2Panel3
             // 
             this.guna2Panel3.Controls.Add(this.ICBHelp);
+            this.guna2Panel3.Controls.Add(this.ICBPageTextDeFormatter);
+            this.guna2Panel3.Controls.Add(this.ICBPageTextFormatter);
             this.guna2Panel3.Controls.Add(this.versionLabel);
             this.guna2Panel3.Controls.Add(this.ICBAtRemover);
             this.guna2Panel3.Controls.Add(this.ICBCommaChecker);
@@ -219,7 +223,7 @@
             this.ICBHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBHelp.IconSize = 20;
             this.ICBHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBHelp.Location = new System.Drawing.Point(0, 408);
+            this.ICBHelp.Location = new System.Drawing.Point(0, 510);
             this.ICBHelp.Margin = new System.Windows.Forms.Padding(0);
             this.ICBHelp.Name = "ICBHelp";
             this.ICBHelp.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -231,6 +235,56 @@
             this.ICBHelp.UseVisualStyleBackColor = true;
             this.ICBHelp.Click += new System.EventHandler(this.ICBHelp_Click);
             // 
+            // ICBPageTextDeFormatter
+            // 
+            this.ICBPageTextDeFormatter.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBPageTextDeFormatter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBPageTextDeFormatter.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBPageTextDeFormatter.FlatAppearance.BorderSize = 0;
+            this.ICBPageTextDeFormatter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBPageTextDeFormatter.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBPageTextDeFormatter.IconChar = FontAwesome.Sharp.IconChar.FileDownload;
+            this.ICBPageTextDeFormatter.IconColor = System.Drawing.Color.Gray;
+            this.ICBPageTextDeFormatter.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBPageTextDeFormatter.IconSize = 20;
+            this.ICBPageTextDeFormatter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBPageTextDeFormatter.Location = new System.Drawing.Point(0, 459);
+            this.ICBPageTextDeFormatter.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBPageTextDeFormatter.Name = "ICBPageTextDeFormatter";
+            this.ICBPageTextDeFormatter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBPageTextDeFormatter.Size = new System.Drawing.Size(304, 51);
+            this.ICBPageTextDeFormatter.TabIndex = 12;
+            this.ICBPageTextDeFormatter.Text = "Pagetext Deformat";
+            this.ICBPageTextDeFormatter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBPageTextDeFormatter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBPageTextDeFormatter.UseVisualStyleBackColor = true;
+            this.ICBPageTextDeFormatter.Click += new System.EventHandler(this.ICBPageTextDeFormatter_Click);
+            // 
+            // ICBPageTextFormatter
+            // 
+            this.ICBPageTextFormatter.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBPageTextFormatter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBPageTextFormatter.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBPageTextFormatter.FlatAppearance.BorderSize = 0;
+            this.ICBPageTextFormatter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBPageTextFormatter.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBPageTextFormatter.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
+            this.ICBPageTextFormatter.IconColor = System.Drawing.Color.Gray;
+            this.ICBPageTextFormatter.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBPageTextFormatter.IconSize = 20;
+            this.ICBPageTextFormatter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBPageTextFormatter.Location = new System.Drawing.Point(0, 408);
+            this.ICBPageTextFormatter.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBPageTextFormatter.Name = "ICBPageTextFormatter";
+            this.ICBPageTextFormatter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBPageTextFormatter.Size = new System.Drawing.Size(304, 51);
+            this.ICBPageTextFormatter.TabIndex = 11;
+            this.ICBPageTextFormatter.Text = "Pagetext format";
+            this.ICBPageTextFormatter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBPageTextFormatter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBPageTextFormatter.UseVisualStyleBackColor = true;
+            this.ICBPageTextFormatter.Click += new System.EventHandler(this.ICBPageTextFormatter_Click);
+            // 
             // versionLabel
             // 
             this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -238,9 +292,9 @@
             this.versionLabel.ForeColor = System.Drawing.Color.White;
             this.versionLabel.Location = new System.Drawing.Point(-3, 609);
             this.versionLabel.Name = "versionLabel";
-            this.versionLabel.Size = new System.Drawing.Size(74, 24);
+            this.versionLabel.Size = new System.Drawing.Size(100, 24);
             this.versionLabel.TabIndex = 0;
-            this.versionLabel.Text = "v1.0.2";
+            this.versionLabel.Text = "v1.0.5";
             this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ICBAtRemover
@@ -528,6 +582,8 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.Label versionLabel;
         private FontAwesome.Sharp.IconButton ICBHelp;
+        private FontAwesome.Sharp.IconButton ICBPageTextFormatter;
+        private FontAwesome.Sharp.IconButton ICBPageTextDeFormatter;
     }
 }
 

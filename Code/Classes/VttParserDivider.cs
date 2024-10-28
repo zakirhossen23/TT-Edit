@@ -144,7 +144,7 @@ namespace TT_Edit.Classes
                             subtitleItem.Lines.Add(stringBuilder.ToString().TrimEnd());
                         
                     }
-                    else if (newLineCount == 1)
+                    else if (newLineCount > 0)
                     {
                         if (stringBuilder.ToString().TrimEnd() != "")
                             subtitleItem.Lines.Add(stringBuilder.ToString().TrimEnd());

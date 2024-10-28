@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ResetAllbtn = new Guna.UI2.WinForms.Guna2Button();
             this.btnExportedFolderOpen = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
@@ -95,6 +96,7 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.guna2Panel2.Controls.Add(this.ResetAllbtn);
             this.guna2Panel2.Controls.Add(this.btnExportedFolderOpen);
             this.guna2Panel2.Controls.Add(this.guna2Separator1);
             this.guna2Panel2.Controls.Add(this.guna2Separator3);
@@ -120,6 +122,27 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1340, 749);
             this.guna2Panel2.TabIndex = 2;
+            // 
+            // ResetAllbtn
+            // 
+            this.ResetAllbtn.Animated = true;
+            this.ResetAllbtn.BackColor = System.Drawing.Color.Transparent;
+            this.ResetAllbtn.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ResetAllbtn.BorderRadius = 5;
+            this.ResetAllbtn.BorderThickness = 1;
+            this.ResetAllbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ResetAllbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ResetAllbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ResetAllbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ResetAllbtn.FillColor = System.Drawing.Color.Transparent;
+            this.ResetAllbtn.Font = new System.Drawing.Font("Arial", 12F);
+            this.ResetAllbtn.ForeColor = System.Drawing.Color.Black;
+            this.ResetAllbtn.Location = new System.Drawing.Point(394, 125);
+            this.ResetAllbtn.Name = "ResetAllbtn";
+            this.ResetAllbtn.Size = new System.Drawing.Size(160, 39);
+            this.ResetAllbtn.TabIndex = 31;
+            this.ResetAllbtn.Text = "Reset All";
+            this.ResetAllbtn.Click += new System.EventHandler(this.ResetAllbtn_Click);
             // 
             // btnExportedFolderOpen
             // 
@@ -756,7 +779,7 @@
             this.vttOFD.SupportMultiDottedExtensions = true;
             this.vttOFD.Title = "Select VTT files";
             // 
-            // TimeframeControl
+            // TimeframeDividerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -764,7 +787,7 @@
             this.Controls.Add(this.guna2Panel2);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "TimeframeControl";
+            this.Name = "TimeframeDividerControl";
             this.Size = new System.Drawing.Size(1340, 749);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
@@ -835,5 +858,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorkerConverter;
         private System.Windows.Forms.OpenFileDialog vttOFD;
         public Guna.UI2.WinForms.Guna2MessageDialog ErrorMessageDialog;
+        private Guna.UI2.WinForms.Guna2Button ResetAllbtn;
     }
 }

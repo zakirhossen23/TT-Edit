@@ -18,7 +18,7 @@ namespace TT_Edit
     {
         /************* Variables **************/
         IconButton prevousButton = null;
-
+        dynamic selectedControl = null;
 
 
         //Constructor
@@ -69,10 +69,10 @@ namespace TT_Edit
         private void ICBTimeframe_Click(object sender, EventArgs e)
         {
             ControlContainer.Controls.Clear();
-            var timeframecontrol = new TT_Edit.Forms.TimeframeControl();
-            timeframecontrol.ErrorMessageDialog.Parent = this;
-            timeframecontrol.Dock = DockStyle.Fill;
-            ControlContainer.Controls.Add(timeframecontrol);
+            selectedControl = new TT_Edit.Forms.TimeframeControl();
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
 
         }
@@ -80,10 +80,10 @@ namespace TT_Edit
         private void ICBSpaceRemover_Click(object sender, EventArgs e)
         {
             ControlContainer.Controls.Clear();
-            var erasercontrol = new TT_Edit.Forms.SpaceEraserControl();
-            erasercontrol.ErrorMessageDialog.Parent = this;
-            erasercontrol.Dock = DockStyle.Fill;
-            ControlContainer.Controls.Add(erasercontrol);
+            selectedControl = new TT_Edit.Forms.SpaceEraserControl();
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
 
         }
@@ -91,50 +91,50 @@ namespace TT_Edit
         private void ICBCPLcounter_Click(object sender, EventArgs e)
         {
             ControlContainer.Controls.Clear();
-            var cplcountercontrol = new TT_Edit.Forms.CplCounterControl();
-            cplcountercontrol.ErrorMessageDialog.Parent = this;
-            cplcountercontrol.Dock = DockStyle.Fill;
-            ControlContainer.Controls.Add(cplcountercontrol);
+            selectedControl = new TT_Edit.Forms.CplCounterControl();
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
         }
 
         private void ICBCommaChecker_Click(object sender, EventArgs e)
         {
             ControlContainer.Controls.Clear();
-            var commacheckercontrol = new TT_Edit.Forms.CommaCheckerControl();
-            commacheckercontrol.ErrorMessageDialog.Parent = this;
-            commacheckercontrol.Dock = DockStyle.Fill;
-            ControlContainer.Controls.Add(commacheckercontrol);
+            selectedControl = new TT_Edit.Forms.CommaCheckerControl();
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
         }
 
         private void ICBTimeframeDivider_Click(object sender, EventArgs e)
         {
             ControlContainer.Controls.Clear();
-            var timeframecontrol = new TT_Edit.Forms.TimeframeDividerControl();
-            timeframecontrol.ErrorMessageDialog.Parent = this;
-            timeframecontrol.Dock = DockStyle.Fill;
-            ControlContainer.Controls.Add(timeframecontrol);
+            selectedControl = new TT_Edit.Forms.TimeframeDividerControl();
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
         }
 
         private void ICBAtInserter_Click(object sender, EventArgs e)
         {
             ControlContainer.Controls.Clear();
-            var control = new TT_Edit.Forms.AtInserterControl();
-            control.ErrorMessageDialog.Parent = this;
-            control.Dock = DockStyle.Fill;
-            ControlContainer.Controls.Add(control);
+            selectedControl = new TT_Edit.Forms.AtInserterControl();
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
         }
 
         private void ICBAtRemover_Click(object sender, EventArgs e)
         {
             ControlContainer.Controls.Clear();
-            var control = new TT_Edit.Forms.AtRemoverControl();
-            control.ErrorMessageDialog.Parent = this;
-            control.Dock = DockStyle.Fill;
-            ControlContainer.Controls.Add(control);
+            selectedControl = new TT_Edit.Forms.AtRemoverControl();
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
 
         }
@@ -142,11 +142,45 @@ namespace TT_Edit
         private void ICBHelp_Click(object sender, EventArgs e)
         {
             ControlContainer.Controls.Clear();
-            var control = new TT_Edit.Forms.HelpControl();
-            control.Dock = DockStyle.Fill;
-            ControlContainer.Controls.Add(control);
+            selectedControl = new TT_Edit.Forms.HelpControl();
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
         }
+        public void ResetPage()
+        {
+            ControlContainer.Controls.Clear();
+
+            selectedControl.Dispose();
+            selectedControl = Activator.CreateInstance(selectedControl.GetType());
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
+
+        }
+        private void ICBPageTextFormatter_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            selectedControl = new TT_Edit.Forms.PageTextFormatControl();
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
+            ActivateButton((IconButton)sender);
+        }
+  
+        private void ICBPageTextDeFormatter_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            selectedControl = new TT_Edit.Forms.PageTextDeFormatControl();
+
+            selectedControl.Parent = this;
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
+            ActivateButton((IconButton)sender);
+
+        }
+
     }
 
 }

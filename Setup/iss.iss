@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "TT Edit"
-#define MyAppVersion "1.0.2"
+#define MyAppVersion "1.0.5"
 #define MyAppPublisher "TongueTwist, LLC"
 #define MyAppURL "https://www.upwork.com/agencies/1451219253427150848/"
 #define MyAppExeName "TT Edit.exe"
