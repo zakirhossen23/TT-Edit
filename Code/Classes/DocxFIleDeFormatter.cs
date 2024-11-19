@@ -123,9 +123,7 @@ namespace TT_Edit.Classes
                 foreach (Paragraph co in
                             wordDoc.MainDocumentPart.Document.Body.Descendants<Paragraph>())
                 {
-                    if (co.ParagraphProperties != null)
-                    {
-                        if (co.InnerText == "")
+                      if (co.InnerText == "")
                         {
                             if (AllItemsOriginal.Count >= 1)
                             {
@@ -151,7 +149,7 @@ namespace TT_Edit.Classes
                                 
                         
                         }
-                    }
+               
                 }
 
             }

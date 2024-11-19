@@ -268,7 +268,7 @@ namespace TT_Edit.Forms
                     for (int i = 0; i < item.AllSubTitleItems.Count; i++)
                     {
                         lastIndex = i;
-                        SubtitleItemDivider subtitle = item.AllSubTitleItems[i];
+                        SubtitleItem subtitle = item.AllSubTitleItems[i];
                         for (int li = 0; li < subtitle.Lines.Count; li++)
                         {
                             string sentence = subtitle.Lines[li].Trim();
@@ -323,7 +323,7 @@ namespace TT_Edit.Forms
             catch (Exception ex)
             {
 
-                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + lastitem.AllSubTitleItems[lastIndex].StartEndString, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + lastitem.AllSubTitleItems[lastIndex].ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             // When everything is finished then will disable Stop button and enable Start Buttton.
             btnStart.Enabled = true;

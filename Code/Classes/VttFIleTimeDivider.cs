@@ -19,7 +19,7 @@ namespace TT_Edit.Classes
 
         public DateTime date_created;
         public string status = "Pending";
-        public List<SubtitleItemDivider> AllSubTitleItems;
+        public List<SubtitleItem> AllSubTitleItems;
 
         // Constructor with required fields
         public VttFIleTimeDivider(string _path, string _name)
@@ -40,8 +40,21 @@ namespace TT_Edit.Classes
             int PreviousTimeFrame = 0;
             for (int i = 0; i < AllSubTitleItems.Count - 1; i++)
             {
-                SubtitleItemDivider subtitle = AllSubTitleItems[i];
+                SubtitleItem subtitle = AllSubTitleItems[i];
 
+                for (int j = 0;  j< subtitle.Lines.Count;j++)
+                {
+                    if (subtitle.Lines[j].Split(new string[1]
+                        {
+                            Environment.NewLine
+                        }, StringSplitOptions.None).Count() > 2)
+                    {
+                        this.status = "Format Error";
+                        break;
+
+                    }
+
+                }
                 // First joining all lines into a string
                 string draftLines = string.Join(" ", subtitle.Lines.ToArray()).Trim();
 
@@ -99,16 +112,16 @@ namespace TT_Edit.Classes
 
 
         // Function to write subtitles into VTT file
-        public void WriteToVttFile(List<SubtitleItemDivider> subtitleItems, string filePath, Encoding encoding)
+        public void WriteToVttFile(List<SubtitleItem> subtitleItems, string filePath, Encoding encoding)
         {
             using (StreamWriter writer = new StreamWriter(filePath, false, encoding))
             {
                 // First writing default WEBVTT and a newline
                 writer.WriteLine("WEBVTT\n");
-                foreach (SubtitleItemDivider item in subtitleItems)
+                foreach (SubtitleItem item in subtitleItems)
                 {
                     // Writing Timeline
-                    writer.WriteLine($"{(item.StartEndString.ToString())}");
+                    writer.WriteLine($"{GetFormattedStartEnd(item)}");
 
                     for (int i = 0; i < item.Lines.Count; i++)
                     {
@@ -123,7 +136,19 @@ namespace TT_Edit.Classes
         }
 
         // Function to format TimeCode
-        
+
+        public static string GetFormattedStartEnd(SubtitleItem item)
+        {
+            return $"{FormatTimecode(item.StartTime)} --> {FormatTimecode(item.EndTime)}";
+        }
+
+        // Function to format TimeCode
+        private static string FormatTimecode(int milliseconds)
+        {
+            TimeSpan time = TimeSpan.FromMilliseconds(milliseconds);
+            return $"{time.Hours:00}:{time.Minutes:00}:{time.Seconds:00}.{time.Milliseconds:000}";
+        }
+
 
         // Function to parse VTT File
         public void parseVttFile()

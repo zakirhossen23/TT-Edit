@@ -120,12 +120,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\DocxFIleDeFormatter.cs" />
+    <Compile Include="Classes\DocxFileConverter.cs" />
+    <Compile Include="Classes\DocxSubOrgMerger.cs" />
+    <Compile Include="Classes\FileStruct.cs" />
     <Compile Include="Classes\VttFIleAtRemover.cs" />
     <Compile Include="Classes\VttFIleCommaChecker.cs" />
     <Compile Include="Classes\VttFIleCplCounter.cs" />
     <Compile Include="Classes\VttFIleAtInserter.cs" />
     <Compile Include="Classes\VttFIleSpaceRemover.cs" />
     <Compile Include="Classes\DocxFIleFormatter.cs" />
+    <Compile Include="Classes\VttFIleSubOrgMerger.cs" />
     <Compile Include="Classes\VttFIleTimeDivider.cs" />
     <Compile Include="Classes\VttFIleTimeUniting.cs" />
     <Compile Include="Classes\VttFIleConverter.cs" />
@@ -161,6 +165,18 @@
     </Compile>
     <Compile Include="Forms\PageTextDeFormatControl.Designer.cs">
       <DependentUpon>PageTextDeFormatControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DocToVTTConverterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\DocToVTTConverterControl.Designer.cs">
+      <DependentUpon>DocToVTTConverterControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SubOrgMergerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SubOrgMergerControl.Designer.cs">
+      <DependentUpon>SubOrgMergerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SpaceEraserControl.cs">
       <SubType>UserControl</SubType>
@@ -220,6 +236,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PageTextDeFormatControl.resx">
       <DependentUpon>PageTextDeFormatControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DocToVTTConverterControl.resx">
+      <DependentUpon>DocToVTTConverterControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SubOrgMergerControl.resx">
+      <DependentUpon>SubOrgMergerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SpaceEraserControl.resx">
       <DependentUpon>SpaceEraserControl.cs</DependentUpon>

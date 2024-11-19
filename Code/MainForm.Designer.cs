@@ -41,6 +41,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.ICBHelp = new FontAwesome.Sharp.IconButton();
+            this.ICBDocToVTT = new FontAwesome.Sharp.IconButton();
+            this.ICBSubOrgLangMerger = new FontAwesome.Sharp.IconButton();
             this.ICBPageTextDeFormatter = new FontAwesome.Sharp.IconButton();
             this.ICBPageTextFormatter = new FontAwesome.Sharp.IconButton();
             this.versionLabel = new System.Windows.Forms.Label();
@@ -55,6 +57,7 @@
             this.guna2ContainerControl1 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.gunaDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.ICBVttToDoc = new FontAwesome.Sharp.IconButton();
             this.panelTopHeader.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -84,7 +87,7 @@
             this.panelTopHeader.Location = new System.Drawing.Point(304, 0);
             this.panelTopHeader.Name = "panelTopHeader";
             this.panelTopHeader.Padding = new System.Windows.Forms.Padding(2);
-            this.panelTopHeader.Size = new System.Drawing.Size(1096, 37);
+            this.panelTopHeader.Size = new System.Drawing.Size(1113, 37);
             this.panelTopHeader.TabIndex = 0;
             // 
             // guna2ControlBox3
@@ -97,7 +100,7 @@
             this.guna2ControlBox3.Dock = System.Windows.Forms.DockStyle.Right;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.Gray;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(995, 2);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1012, 2);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(33, 33);
             this.guna2ControlBox3.TabIndex = 2;
@@ -112,7 +115,7 @@
             this.guna2ControlBox2.Dock = System.Windows.Forms.DockStyle.Right;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.Gray;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(1028, 2);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1045, 2);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(33, 33);
             this.guna2ControlBox2.TabIndex = 1;
@@ -126,7 +129,7 @@
             this.guna2ControlBox1.Dock = System.Windows.Forms.DockStyle.Right;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.Red;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(1061, 2);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1078, 2);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(33, 33);
             this.guna2ControlBox1.TabIndex = 0;
@@ -141,7 +144,7 @@
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1400, 738);
+            this.guna2Panel2.Size = new System.Drawing.Size(1417, 907);
             this.guna2Panel2.TabIndex = 1;
             // 
             // ControlContainer
@@ -153,7 +156,7 @@
             this.ControlContainer.Margin = new System.Windows.Forms.Padding(10);
             this.ControlContainer.Name = "ControlContainer";
             this.ControlContainer.Padding = new System.Windows.Forms.Padding(10);
-            this.ControlContainer.Size = new System.Drawing.Size(1096, 701);
+            this.ControlContainer.Size = new System.Drawing.Size(1113, 870);
             this.ControlContainer.TabIndex = 1;
             this.ControlContainer.Text = "guna2ContainerControl1";
             // 
@@ -168,7 +171,7 @@
             this.guna2Panel1.ShadowDecoration.Depth = 5;
             this.guna2Panel1.ShadowDecoration.Enabled = true;
             this.guna2Panel1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 10, 10);
-            this.guna2Panel1.Size = new System.Drawing.Size(304, 738);
+            this.guna2Panel1.Size = new System.Drawing.Size(304, 907);
             this.guna2Panel1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -186,12 +189,15 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.34911F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.65089F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(304, 738);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(304, 907);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // guna2Panel3
             // 
             this.guna2Panel3.Controls.Add(this.ICBHelp);
+            this.guna2Panel3.Controls.Add(this.ICBVttToDoc);
+            this.guna2Panel3.Controls.Add(this.ICBDocToVTT);
+            this.guna2Panel3.Controls.Add(this.ICBSubOrgLangMerger);
             this.guna2Panel3.Controls.Add(this.ICBPageTextDeFormatter);
             this.guna2Panel3.Controls.Add(this.ICBPageTextFormatter);
             this.guna2Panel3.Controls.Add(this.versionLabel);
@@ -204,10 +210,10 @@
             this.guna2Panel3.Controls.Add(this.ICBConverter);
             this.guna2Panel3.Controls.Add(this.ICBAtInserter);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel3.Location = new System.Drawing.Point(0, 105);
+            this.guna2Panel3.Location = new System.Drawing.Point(0, 130);
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(0);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(304, 633);
+            this.guna2Panel3.Size = new System.Drawing.Size(304, 777);
             this.guna2Panel3.TabIndex = 1;
             // 
             // ICBHelp
@@ -223,7 +229,7 @@
             this.ICBHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBHelp.IconSize = 20;
             this.ICBHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBHelp.Location = new System.Drawing.Point(0, 510);
+            this.ICBHelp.Location = new System.Drawing.Point(0, 663);
             this.ICBHelp.Margin = new System.Windows.Forms.Padding(0);
             this.ICBHelp.Name = "ICBHelp";
             this.ICBHelp.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -234,6 +240,56 @@
             this.ICBHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ICBHelp.UseVisualStyleBackColor = true;
             this.ICBHelp.Click += new System.EventHandler(this.ICBHelp_Click);
+            // 
+            // ICBDocToVTT
+            // 
+            this.ICBDocToVTT.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBDocToVTT.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBDocToVTT.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBDocToVTT.FlatAppearance.BorderSize = 0;
+            this.ICBDocToVTT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBDocToVTT.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBDocToVTT.IconChar = FontAwesome.Sharp.IconChar.ExchangeAlt;
+            this.ICBDocToVTT.IconColor = System.Drawing.Color.Gray;
+            this.ICBDocToVTT.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBDocToVTT.IconSize = 20;
+            this.ICBDocToVTT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBDocToVTT.Location = new System.Drawing.Point(0, 561);
+            this.ICBDocToVTT.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBDocToVTT.Name = "ICBDocToVTT";
+            this.ICBDocToVTT.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBDocToVTT.Size = new System.Drawing.Size(304, 51);
+            this.ICBDocToVTT.TabIndex = 14;
+            this.ICBDocToVTT.Text = "Docx To VTT";
+            this.ICBDocToVTT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBDocToVTT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBDocToVTT.UseVisualStyleBackColor = true;
+            this.ICBDocToVTT.Click += new System.EventHandler(this.ICBDocToVTT_Click);
+            // 
+            // ICBSubOrgLangMerger
+            // 
+            this.ICBSubOrgLangMerger.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBSubOrgLangMerger.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBSubOrgLangMerger.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBSubOrgLangMerger.FlatAppearance.BorderSize = 0;
+            this.ICBSubOrgLangMerger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBSubOrgLangMerger.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBSubOrgLangMerger.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.ICBSubOrgLangMerger.IconColor = System.Drawing.Color.Gray;
+            this.ICBSubOrgLangMerger.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBSubOrgLangMerger.IconSize = 20;
+            this.ICBSubOrgLangMerger.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBSubOrgLangMerger.Location = new System.Drawing.Point(0, 510);
+            this.ICBSubOrgLangMerger.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBSubOrgLangMerger.Name = "ICBSubOrgLangMerger";
+            this.ICBSubOrgLangMerger.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBSubOrgLangMerger.Size = new System.Drawing.Size(304, 51);
+            this.ICBSubOrgLangMerger.TabIndex = 13;
+            this.ICBSubOrgLangMerger.Text = "SUB Org+Lang Merger";
+            this.ICBSubOrgLangMerger.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBSubOrgLangMerger.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBSubOrgLangMerger.UseVisualStyleBackColor = true;
+            this.ICBSubOrgLangMerger.Click += new System.EventHandler(this.ICBSubOrgLangMerger_Click);
             // 
             // ICBPageTextDeFormatter
             // 
@@ -290,11 +346,11 @@
             this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.versionLabel.BackColor = System.Drawing.Color.Red;
             this.versionLabel.ForeColor = System.Drawing.Color.White;
-            this.versionLabel.Location = new System.Drawing.Point(-3, 609);
+            this.versionLabel.Location = new System.Drawing.Point(-3, 753);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(100, 24);
             this.versionLabel.TabIndex = 0;
-            this.versionLabel.Text = "v1.0.5";
+            this.versionLabel.Text = "v1.0.6";
             this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ICBAtRemover
@@ -532,12 +588,36 @@
             this.gunaDragControl.TargetControl = this.panelTopHeader;
             this.gunaDragControl.UseTransparentDrag = true;
             // 
+            // ICBVttToDoc
+            // 
+            this.ICBVttToDoc.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBVttToDoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBVttToDoc.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBVttToDoc.FlatAppearance.BorderSize = 0;
+            this.ICBVttToDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBVttToDoc.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBVttToDoc.IconChar = FontAwesome.Sharp.IconChar.ExchangeAlt;
+            this.ICBVttToDoc.IconColor = System.Drawing.Color.Gray;
+            this.ICBVttToDoc.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBVttToDoc.IconSize = 20;
+            this.ICBVttToDoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBVttToDoc.Location = new System.Drawing.Point(0, 612);
+            this.ICBVttToDoc.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBVttToDoc.Name = "ICBVttToDoc";
+            this.ICBVttToDoc.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBVttToDoc.Size = new System.Drawing.Size(304, 51);
+            this.ICBVttToDoc.TabIndex = 15;
+            this.ICBVttToDoc.Text = "VTT to Docx";
+            this.ICBVttToDoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBVttToDoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBVttToDoc.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(250)))), ((int)(((byte)(252)))));
-            this.ClientSize = new System.Drawing.Size(1400, 738);
+            this.ClientSize = new System.Drawing.Size(1417, 907);
             this.Controls.Add(this.guna2Panel2);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
@@ -584,6 +664,9 @@
         private FontAwesome.Sharp.IconButton ICBHelp;
         private FontAwesome.Sharp.IconButton ICBPageTextFormatter;
         private FontAwesome.Sharp.IconButton ICBPageTextDeFormatter;
+        private FontAwesome.Sharp.IconButton ICBSubOrgLangMerger;
+        private FontAwesome.Sharp.IconButton ICBDocToVTT;
+        private FontAwesome.Sharp.IconButton ICBVttToDoc;
     }
 }
 

@@ -1,4 +1,5 @@
 ﻿
+using SubtitlesParser;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,30 +9,7 @@ using System.Text.RegularExpressions;
 
 namespace TT_Edit.Classes
 {
-    public class SubtitleItemDivider
-    {
-        public string StartEndString
-        {
-            get;
-            set;
-        }
-        public List<string> Lines
-        {
-            get;
-            set;
-        }
-
-        public SubtitleItemDivider()
-        {
-            Lines = new List<string>();
-        }
-
-        public override string ToString()
-        {
-            return string.Format(format: "{0}: {1}", arg0: StartEndString, arg1: string.Join(Environment.NewLine, Lines));
-        }
-    }
-
+  
     // Class to Parse VTT
     public class VttParserDivider
     {
@@ -44,7 +22,7 @@ namespace TT_Edit.Classes
       };
 
         // Function to parse VTT file
-        public List<SubtitleItemDivider> ParseStream(Stream vttStream, Encoding encoding)
+        public List<SubtitleItem> ParseStream(Stream vttStream, Encoding encoding)
         {
             if (!vttStream.CanRead || !vttStream.CanSeek)
             {
@@ -53,7 +31,7 @@ namespace TT_Edit.Classes
 
             vttStream.Position = 0L;
             StreamReader reader = new StreamReader(vttStream, encoding, detectEncodingFromByteOrderMarks: true);
-            List<SubtitleItemDivider> list = new List<SubtitleItemDivider>();
+            List<SubtitleItem> list = new List<SubtitleItem>();
 
 
             // Getting all the string lines form the Vtt files
@@ -62,7 +40,7 @@ namespace TT_Edit.Classes
             {
 
                 // Iterating Trimmed list
-                SubtitleItemDivider subtitleItem = new SubtitleItemDivider();
+                SubtitleItem subtitleItem = new SubtitleItem();
                 StringBuilder stringBuilder = new StringBuilder();
                 int newLineCount = 0;
                 // Iterating all the lines
@@ -71,7 +49,7 @@ namespace TT_Edit.Classes
                     string item2 = item;
                     if (item != null)
                         item2 = item.Trim();
-                    if (subtitleItem.StartEndString != null && subtitleItem.StartEndString != "")
+                    if (subtitleItem.ToString() != null && subtitleItem.ToString() != "")
                     // Checking if subtitleItem starttime and endtime is 0 or not
                     {
                        
@@ -116,15 +94,21 @@ namespace TT_Edit.Classes
                     if (array.Length == 2)
                     {
                         // Adding this subtitleItem 
-                        if ((subtitleItem.StartEndString != "" && subtitleItem.StartEndString != null))
+                        if ((subtitleItem.StartTime != 0 || subtitleItem.EndTime != 0))
                         {
 
                             list.Add(subtitleItem);
                         }
                         newLineCount = 0;
-                        subtitleItem = new SubtitleItemDivider();
+                        subtitleItem = new SubtitleItem();
                         stringBuilder = new StringBuilder();
-                        subtitleItem.StartEndString = item2;
+                        // Then it will parse
+                        if (TryParseTimecodeLine(item2, out int startTc, out int endTc))
+                        {
+
+                            subtitleItem.StartTime = startTc;
+                            subtitleItem.EndTime = endTc;
+                        }
                     }else if (item2 != "")
                     { 
                         if (item2.Length > 45)
@@ -136,7 +120,7 @@ namespace TT_Edit.Classes
 
                 }
                 // Adding this subtitleItem 
-                if ((subtitleItem.StartEndString != "" && subtitleItem.StartEndString != null))
+                if ((subtitleItem.StartTime != 0 || subtitleItem.EndTime != 0))
                 {
                     if (newLineCount == 0)
                     {
@@ -180,6 +164,51 @@ namespace TT_Edit.Classes
                 //stringBuilder.AppendLine(line);
                 yield return line;
             }
+        }
+        // Function to check if possible to Parse TimecodeLine 
+        private bool TryParseTimecodeLine(string line, out int startTc, out int endTc)
+        {
+            string[] array = line.Split(_delimiters, StringSplitOptions.None);
+            if (array.Length != 2)
+            {
+                startTc = -1;
+                endTc = -1;
+                return false;
+            }
+
+            startTc = ParseVttTimecode(array[0]);
+            endTc = ParseVttTimecode(array[1]);
+            return true;
+        }
+
+        // Function to Parse VTT Time code
+        private int ParseVttTimecode(string s)
+        {
+            string text = string.Empty;
+            Match match = Regex.Match(s, "[0-9]+:[0-9]+:[0-9]+[,\\.][0-9]+");
+            if (match.Success)
+            {
+                text = match.Value;
+            }
+            else
+            {
+                match = Regex.Match(s, "[0-9]+:[0-9]+[,\\.][0-9]+");
+                if (match.Success)
+                {
+                    text = "00:" + match.Value;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(text))
+            {
+                text = text.Replace(',', '.');
+                if (TimeSpan.TryParse(text, out TimeSpan result))
+                {
+                    return (int)result.TotalMilliseconds;
+                }
+            }
+
+            return -1;
         }
 
 

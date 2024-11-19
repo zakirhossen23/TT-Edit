@@ -181,6 +181,29 @@ namespace TT_Edit
 
         }
 
+        private void ICBSubOrgLangMerger_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            selectedControl = new TT_Edit.Forms.SubOrgMergerControl();
+
+            selectedControl.Parent = this;
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
+            ActivateButton((IconButton)sender);
+        }
+
+        private void ICBDocToVTT_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            selectedControl = new TT_Edit.Forms.DocToVTTConverterControl();
+
+            selectedControl.Parent = this;
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
+            ActivateButton((IconButton)sender);
+        }
     }
 
 }
