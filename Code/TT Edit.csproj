@@ -123,19 +123,32 @@
     <Compile Include="Classes\DocxFileConverter.cs" />
     <Compile Include="Classes\DocxSubOrgMerger.cs" />
     <Compile Include="Classes\FileStruct.cs" />
+    <Compile Include="Classes\VttFIleToDocConverter.cs" />
     <Compile Include="Classes\VttFIleAtRemover.cs" />
     <Compile Include="Classes\VttFIleCommaChecker.cs" />
     <Compile Include="Classes\VttFIleCplCounter.cs" />
     <Compile Include="Classes\VttFIleAtInserter.cs" />
     <Compile Include="Classes\VttFIleSpaceRemover.cs" />
     <Compile Include="Classes\DocxFIleFormatter.cs" />
-    <Compile Include="Classes\VttFIleSubOrgMerger.cs" />
+    <Compile Include="Classes\VttFileSubOrgMerger.cs" />
     <Compile Include="Classes\VttFIleTimeDivider.cs" />
     <Compile Include="Classes\VttFIleTimeUniting.cs" />
     <Compile Include="Classes\VttFIleConverter.cs" />
     <Compile Include="Classes\VttParserDivider.cs" />
     <Compile Include="Classes\VttParserComma.cs" />
     <Compile Include="Classes\VttParser.cs" />
+    <Compile Include="Forms\PreviewSampleFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PreviewSampleFile.Designer.cs">
+      <DependentUpon>PreviewSampleFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VttToDocControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\VttToDocControl.Designer.cs">
+      <DependentUpon>VttToDocControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AtRemoverControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -222,6 +235,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\PreviewSampleFile.resx">
+      <DependentUpon>PreviewSampleFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VttToDocControl.resx">
+      <DependentUpon>VttToDocControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AtRemoverControl.resx">
       <DependentUpon>AtRemoverControl.cs</DependentUpon>
     </EmbeddedResource>

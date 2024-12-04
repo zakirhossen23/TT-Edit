@@ -41,9 +41,15 @@ namespace TT_Edit.Classes
             for (int i = 0; i < AllSubTitleItems.Count - 1; i++)
             {
                 SubtitleItem subtitle = AllSubTitleItems[i];
+                if (!TimeframeDividerControl.TransOnly)
+                {
+                    if (subtitle.Lines.Count >1)
+                    subtitle.Lines.RemoveAt(0);
 
+                }
                 for (int j = 0;  j< subtitle.Lines.Count;j++)
                 {
+                   
                     if (subtitle.Lines[j].Split(new string[1]
                         {
                             Environment.NewLine

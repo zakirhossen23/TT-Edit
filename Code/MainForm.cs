@@ -33,10 +33,11 @@ namespace TT_Edit
         private void ICBConverter_Click(object sender, EventArgs e)
         {
             ControlContainer.Controls.Clear();
-           var convcontrol = new TT_Edit.Forms.ConverterControl();
-            convcontrol.ErrorMessageDialog.Parent = this;
-            convcontrol.Dock = DockStyle.Fill;  
-            ControlContainer.Controls.Add(convcontrol);
+            selectedControl = new TT_Edit.Forms.ConverterControl();
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;  
+            ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton) sender);
         }
 
@@ -71,6 +72,7 @@ namespace TT_Edit
             ControlContainer.Controls.Clear();
             selectedControl = new TT_Edit.Forms.TimeframeControl();
             selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Parent = this;
             selectedControl.Dock = DockStyle.Fill;
             ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
@@ -82,6 +84,7 @@ namespace TT_Edit
             ControlContainer.Controls.Clear();
             selectedControl = new TT_Edit.Forms.SpaceEraserControl();
             selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Parent = this;
             selectedControl.Dock = DockStyle.Fill;
             ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
@@ -93,6 +96,7 @@ namespace TT_Edit
             ControlContainer.Controls.Clear();
             selectedControl = new TT_Edit.Forms.CplCounterControl();
             selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Parent = this;
             selectedControl.Dock = DockStyle.Fill;
             ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
@@ -103,6 +107,7 @@ namespace TT_Edit
             ControlContainer.Controls.Clear();
             selectedControl = new TT_Edit.Forms.CommaCheckerControl();
             selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Parent = this;
             selectedControl.Dock = DockStyle.Fill;
             ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
@@ -113,6 +118,7 @@ namespace TT_Edit
             ControlContainer.Controls.Clear();
             selectedControl = new TT_Edit.Forms.TimeframeDividerControl();
             selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Parent = this;
             selectedControl.Dock = DockStyle.Fill;
             ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
@@ -123,6 +129,7 @@ namespace TT_Edit
             ControlContainer.Controls.Clear();
             selectedControl = new TT_Edit.Forms.AtInserterControl();
             selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Parent = this;
             selectedControl.Dock = DockStyle.Fill;
             ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
@@ -133,6 +140,7 @@ namespace TT_Edit
             ControlContainer.Controls.Clear();
             selectedControl = new TT_Edit.Forms.AtRemoverControl();
             selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Parent = this;
             selectedControl.Dock = DockStyle.Fill;
             ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
@@ -144,6 +152,7 @@ namespace TT_Edit
             ControlContainer.Controls.Clear();
             selectedControl = new TT_Edit.Forms.HelpControl();
             selectedControl.Dock = DockStyle.Fill;
+            selectedControl.Parent = this;
             ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
         }
@@ -153,6 +162,7 @@ namespace TT_Edit
 
             selectedControl.Dispose();
             selectedControl = Activator.CreateInstance(selectedControl.GetType());
+            selectedControl.Parent = this;
             selectedControl.ErrorMessageDialog.Parent = this;
             selectedControl.Dock = DockStyle.Fill;
             ControlContainer.Controls.Add(selectedControl);
@@ -162,6 +172,7 @@ namespace TT_Edit
         {
             ControlContainer.Controls.Clear();
             selectedControl = new TT_Edit.Forms.PageTextFormatControl();
+            selectedControl.Parent = this;
             selectedControl.ErrorMessageDialog.Parent = this;
             selectedControl.Dock = DockStyle.Fill;
             ControlContainer.Controls.Add(selectedControl);
@@ -203,6 +214,23 @@ namespace TT_Edit
             selectedControl.Dock = DockStyle.Fill;
             ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
+        }
+
+        private void ICBVttToDoc_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            selectedControl = new TT_Edit.Forms.VttToDocControl();
+
+            selectedControl.Parent = this;
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
+            ActivateButton((IconButton)sender);
+        }
+
+        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

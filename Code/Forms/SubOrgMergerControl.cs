@@ -13,6 +13,7 @@ using SubtitlesParser;
 using TT_Edit.Classes;
 using System.Text.RegularExpressions;
 using System.Windows;
+using TT_Edit.Properties;
 
 namespace TT_Edit.Forms
 {
@@ -28,7 +29,7 @@ namespace TT_Edit.Forms
         public static string VTTTransfilesPath = "";
         public static string VTTExportfolderPath = "";
 
-        private List<DocxSubOrgMerger> allVTTFiles = new List<DocxSubOrgMerger>();
+        private List<VttFileSubOrgMerger> allVTTFiles = new List<VttFileSubOrgMerger>();
         private Dictionary<FileStruct, FileStruct> MappedFileNames = new Dictionary<FileStruct, FileStruct>();
 
 
@@ -44,7 +45,7 @@ namespace TT_Edit.Forms
         {
             if (vttOFD.ShowDialog() == DialogResult.OK)
             {
-                string[] allFiles = (from file in vttOFD.FileNames where Path.GetExtension(file).Contains(".vtt") select file).ToArray();
+                string[] allFiles = (from file in vttOFD.FileNames where Path.GetExtension(file).ToLower().Contains(".vtt") select file).ToArray();
                 // Settings selectted path to textboxes
                 txtVTTFilesPath.Text = String.Join(", ", allFiles);
                 VTTfilesPath = txtVTTFilesPath.Text;
@@ -65,7 +66,7 @@ namespace TT_Edit.Forms
         {
             if (vttOFD.ShowDialog() == DialogResult.OK)
             {
-                string[] allFiles = (from file in vttOFD.FileNames where Path.GetExtension(file).Contains(".vtt") select file).ToArray();
+                string[] allFiles = (from file in vttOFD.FileNames where Path.GetExtension(file).ToLower().Contains(".vtt") select file).ToArray();
                 // Settings selectted path to textboxes
                 txtTransVTTFilesPath.Text = String.Join(", ", allFiles);
                 VTTTransfilesPath = txtTransVTTFilesPath.Text;
@@ -116,8 +117,8 @@ namespace TT_Edit.Forms
 
                     // Adding those file into allVTTFiles List as VTTFile class
                     string filename = Path.GetFileName(file);
-                    string fileExt = Path.GetExtension(filename).Trim();
-                    filename = filename.Substring(0, filename.IndexOf(".vtt"));
+                    string fileExt = Path.GetExtension(filename).Trim().ToLower();
+                    filename = filename.Substring(0, filename.ToLower().IndexOf(".vtt"));
 
                     // Load only vtt files
                     if (fileExt.StartsWith(".vtt"))
@@ -146,7 +147,7 @@ namespace TT_Edit.Forms
                 }
                 var allFileStucts = MappedFileNames.Keys.ToList();
 
-                foreach (var  orgFile in allFileStucts)
+                foreach (var orgFile in allFileStucts)
                 {
 
                     string transFilePath = files.Where(x => x.Contains(orgFile.fileName)).FirstOrDefault();
@@ -155,8 +156,8 @@ namespace TT_Edit.Forms
 
                         // Adding those file into allVTTFiles List as VTTFile class
                         string filename = Path.GetFileName(transFilePath);
-                        string fileExt = Path.GetExtension(filename).Trim();
-                        filename = filename.Substring(0, filename.IndexOf(".vtt"));
+                        string fileExt = Path.GetExtension(filename).Trim().ToLower();
+                        filename = filename.Substring(0, filename.ToLower().IndexOf(".vtt"));
 
                         // Load only vtt files
                         if (fileExt.StartsWith(".vtt"))
@@ -174,7 +175,7 @@ namespace TT_Edit.Forms
                 // Iterate all the files                 
                 foreach (var file in MappedFileNames)
                 {
-                    var newfile = new DocxSubOrgMerger(file.Key, file.Value);
+                    var newfile = new VttFileSubOrgMerger(file.Key, file.Value);
                     allVTTFiles.Add(newfile);
 
 
@@ -242,7 +243,7 @@ namespace TT_Edit.Forms
         }
 
         // Function to refresh Everything using files list or AllFileList
-        void refreshEverything(List<DocxSubOrgMerger> loadToView = null)
+        void refreshEverything(List<VttFileSubOrgMerger> loadToView = null)
         {
             updateStatus();
             loadToView = loadToView == null ? allVTTFiles : loadToView;
@@ -250,11 +251,11 @@ namespace TT_Edit.Forms
         }
 
         // Function to load data into datagridview
-        void loadData(List<DocxSubOrgMerger> loadToView = null)
+        void loadData(List<VttFileSubOrgMerger> loadToView = null)
         {
             loadToView = loadToView == null ? allVTTFiles : loadToView;
             dgvFilesList.Rows.Clear();
-            foreach (DocxSubOrgMerger item in loadToView)
+            foreach (VttFileSubOrgMerger item in loadToView)
             {
                 // Adding name, lines count, date created, status into datagridview
                 dgvFilesList.Rows.Add(new string[] { item.org.fileName, item.trans.fileName, item.lines.ToString(), item.date_created.ToString("dd/MM/yyyy"), item.status });
@@ -286,7 +287,7 @@ namespace TT_Edit.Forms
         {
             if (cmbStatusSearch.Text != "All")
             {
-                List<DocxSubOrgMerger> searchedvTTFiles = (from file in allVTTFiles where file.status == cmbStatusSearch.Text select file).ToList();
+                List<VttFileSubOrgMerger> searchedvTTFiles = (from file in allVTTFiles where file.status == cmbStatusSearch.Text select file).ToList();
                 refreshEverything(searchedvTTFiles);
             }
             else
@@ -299,7 +300,7 @@ namespace TT_Edit.Forms
         // Event Handler for search box to search in Datagridview
         private void txtSearchBox_TextChanged(object sender, EventArgs e)
         {
-            List<DocxSubOrgMerger> searchedvTTFiles = (from file in allVTTFiles where file.org.fileName.Contains(txtSearchBox.Text) select file).ToList();
+            List<VttFileSubOrgMerger> searchedvTTFiles = (from file in allVTTFiles where file.org.fileName.Contains(txtSearchBox.Text) select file).ToList();
             refreshEverything(searchedvTTFiles);
         }
 
@@ -316,7 +317,7 @@ namespace TT_Edit.Forms
 
             if (ErrorMessageDialog.Text != "") { ErrorMessageDialog.Show(); return; }
 
-            // Disabling Satart Button and Enabling Stop Button
+            // Disabling Start Button and Enabling Stop Button
             btnStart.Enabled = false;
             btnStop.Enabled = true;
 
@@ -327,43 +328,54 @@ namespace TT_Edit.Forms
         }
 
         int lastIndex = 0;
-        DocxSubOrgMerger lastitem;
+        VttFileSubOrgMerger lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
-            //try
-            //{
-            // Iterating through files which status are Pending
-            //    foreach (DocxSubOrgMerger item in from file in allVTTFiles where file.status == "Pending" select file)
-            //    {
-            //        lastitem = item;
-            //        // Setting current status Running and refreshing everything
-            //        item.status = "Running";
-            //        refreshEverything();
+            try
+            {
+                //Iterating through files which status are Pending
+                foreach (VttFileSubOrgMerger item in from file in allVTTFiles where file.status == "Pending" select file)
+                {
+                    lastitem = item;
+                    // Setting current status Running and refreshing everything
+
+                    item.status = "Running";
+                    refreshEverything();
 
 
-            //        for (int i = 0; i < item.AllItems.Count; i++)
-            //        {
-            //            item.AllItemsFinal.Add(item.AllItems[i]);
-            //            item.AllItemsFinal.Add(item.AllItemsTranslated[i]);
-            //            lastIndex = i;
-            //        }
+                    for (int i = 0; i < item.OrgList.Count; i++)
+                    {
+                        item.AllItems.Add(VttFileSubOrgMerger.GetFormattedStartEnd(item.OrgList[i]));
+                        if (item.OrgList[i].Lines.Count > 0)
+                        {
+                            item.AllItems.Add(item.OrgList[i].Lines[0]);
+                        }
+                        item.AllItems.Add("");
+                        if (item.TransList[i].Lines.Count > 0)
+                        {
+                            item.AllItems.Add(item.TransList[i].Lines[0]);
+                        }
+                        item.AllItems.Add("");
 
-            //        // Now exporting that subtitle 
-            //        item.export();
-            //        item.status = "Completed";
+                        lastIndex = i;
+                    }
+
+                    // Now exporting that subtitle 
+                    item.export();
+                    item.status = "Completed";
 
 
-            //        // Updating current item status to Completed and refreshing everything
+                    // Updating current item status to Completed and refreshing everything
 
-            //        refreshEverything();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
+                    refreshEverything();
+                }
+            }
+            catch (Exception ex)
+            {
 
-            //    System.Windows.Forms.MessageBox.Show("Issue at : " + lastitem.AllItems[lastIndex], "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+                System.Windows.Forms.MessageBox.Show("Issue", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             // When everything is finished then will disable Stop button and enable Start Buttton.
             btnStart.Enabled = true;
             btnStop.Enabled = false;
@@ -420,6 +432,11 @@ namespace TT_Edit.Forms
             ((MainForm)this.ParentForm).ResetPage();
         }
 
+        private void SampleBTN_Click(object sender, EventArgs e)
+        {
+
+            var PreviewSample = new PreviewSampleFile(Properties.Resources.SubOrgMergerSample, Resources.SubOrgMergerOutput); PreviewSample.ShowDialog();
+        }
     }
 
 }

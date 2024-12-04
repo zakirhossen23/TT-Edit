@@ -35,6 +35,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.SampleBTN = new Guna.UI2.WinForms.Guna2Button();
             this.ResetAllbtn = new Guna.UI2.WinForms.Guna2Button();
             this.btnExportedFolderOpen = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
@@ -97,6 +98,7 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.guna2Panel2.Controls.Add(this.SampleBTN);
             this.guna2Panel2.Controls.Add(this.ResetAllbtn);
             this.guna2Panel2.Controls.Add(this.btnExportedFolderOpen);
             this.guna2Panel2.Controls.Add(this.guna2Separator1);
@@ -123,6 +125,28 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(1340, 749);
             this.guna2Panel2.TabIndex = 2;
+            // 
+            // SampleBTN
+            // 
+            this.SampleBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SampleBTN.Animated = true;
+            this.SampleBTN.BackColor = System.Drawing.Color.Transparent;
+            this.SampleBTN.BorderColor = System.Drawing.Color.Gainsboro;
+            this.SampleBTN.BorderRadius = 5;
+            this.SampleBTN.BorderThickness = 1;
+            this.SampleBTN.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SampleBTN.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SampleBTN.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SampleBTN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SampleBTN.FillColor = System.Drawing.Color.Transparent;
+            this.SampleBTN.Font = new System.Drawing.Font("Arial", 12F);
+            this.SampleBTN.ForeColor = System.Drawing.Color.Black;
+            this.SampleBTN.Location = new System.Drawing.Point(878, 125);
+            this.SampleBTN.Name = "SampleBTN";
+            this.SampleBTN.Size = new System.Drawing.Size(160, 39);
+            this.SampleBTN.TabIndex = 32;
+            this.SampleBTN.Text = "Sample File";
+            this.SampleBTN.Click += new System.EventHandler(this.SampleBTN_Click);
             // 
             // ResetAllbtn
             // 
@@ -870,5 +894,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn stCommas;
         private System.Windows.Forms.DataGridViewLinkColumn stRemoveBTN;
         private Guna.UI2.WinForms.Guna2Button ResetAllbtn;
+        private Guna.UI2.WinForms.Guna2Button SampleBTN;
     }
 }

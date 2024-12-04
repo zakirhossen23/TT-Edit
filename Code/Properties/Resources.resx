@@ -124,4 +124,342 @@
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AtInsertSample" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.580
+Perception is influenced by
+the perceptual set, context,
+
+00:00:04.580 --&gt; 00:00:07.790
+motivation, and emotion.
+
+00:00:07.790 --&gt; 00:00:10.750
+
+
+00:00:10.750 --&gt; 00:00:14.730
+Perceptual set, or perceptual expectancy,
+is the tendency to perceive things based</value>
+  </data>
+  <data name="AtInsertSampleOutput" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.580
+Perception is influenced by
+the perceptual set, context,
+test line
+
+00:00:04.580 --&gt; 00:00:07.790
+motivation, and emotion.
+
+00:00:07.790 --&gt; 00:00:10.750
+@
+
+00:00:10.750 --&gt; 00:00:14.730
+Perceptual set, or perceptual expectancy,
+is the tendency to perceive things based</value>
+  </data>
+  <data name="AtRemoverOutput" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.580
+Perception is influenced by
+the perceptual set, context,
+
+00:00:04.580 --&gt; 00:00:07.790
+motivation, and emotion.
+
+00:00:07.790 --&gt; 00:00:10.750
+
+
+00:00:10.750 --&gt; 00:00:14.730
+Perceptual set, or perceptual expectancy,
+is the tendency to perceive things based</value>
+  </data>
+  <data name="AtRemoverSample" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.580
+Perception is influenced by
+the perceptual set, context,
+
+00:00:04.580 --&gt; 00:00:07.790
+motivation, and emotion.
+
+00:00:07.790 --&gt; 00:00:10.750
+@
+
+00:00:10.750 --&gt; 00:00:14.730
+Perceptual set, or perceptual expectancy,
+is the tendency to perceive things based</value>
+  </data>
+  <data name="CommaCheckerOutput" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:03,870 (Have comma - Bad)
+Los circuitos equivalentes de
+transformadores
+
+00:00:03.870 --&gt; 00:00:06.770
+
+00:00:06.770 --&gt; 00:00:11.360
+
+00:00:11.360 --&gt; 00:00:15.400
+El flujo magnético no confinado
+produce pérdidas de potencia
+
+00:01:26.390 --&gt; 00:01:28.000
+@</value>
+  </data>
+  <data name="CommaCheckerSample" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:03,870
+Los circuitos equivalentes de
+transformadores
+
+00:00:03.870 --&gt; 00:00:06.770
+
+00:00:06.770 --&gt; 00:00:11.360
+
+00:00:11.360 --&gt; 00:00:15.400
+El flujo magnético no confinado
+produce pérdidas de potencia
+
+00:01:26.390 --&gt; 00:01:28.000
+@</value>
+  </data>
+  <data name="ConverterOutput" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.580
+Perception is influenced by the perceptual set, context, test motivation, and emotion.
+
+00:00:04.580 --&gt; 00:00:07.790
+
+
+00:00:07.790 --&gt; 00:00:10.750
+@
+
+</value>
+  </data>
+  <data name="ConverterSample" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.580
+Perception is influenced by
+the perceptual set, context,
+
+00:00:04.580 --&gt; 00:00:07.790
+motivation, and emotion.
+
+00:00:07.790 --&gt; 00:00:10.750
+@</value>
+  </data>
+  <data name="CPLCounterOutput" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.580
+Perception is influenced by tesewr wer wer wettestest (53 CPL)
+the perceptual set, context, te werw er westtestest (51 CPL)
+
+00:00:04.580 --&gt; 00:00:07.790
+motivation, and emotion.
+
+00:00:07.790 --&gt; 00:00:10.750
+@</value>
+  </data>
+  <data name="CPLCounterSample" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.580
+Perception is influenced by tesewr wer wer wettestest
+the perceptual set, context, te werw er westtestest
+
+00:00:04.580 --&gt; 00:00:07.790
+motivation, and emotion.
+
+00:00:07.790 --&gt; 00:00:10.750
+@</value>
+  </data>
+  <data name="PageTextDeFormatOutput" xml:space="preserve">
+    <value>Understanding Financial Statements
+
+Understanding financial statements is not just a skill for accountants; it is a necessity for anyone managing, investing in, or assessing a business. Financial statements, such as income statements, balance sheets, and cash flow statements, are not just numbers on a page, but tools that provide an in-depth overview of a company's financial health and performance.
+
+
+فهم البيانات المالية
+
+إن فهم البيانات المالية ليس مجرد مهارة للمحاسبين؛ بل إنه ضرورة لأي شخص يدير أو يستثمر أو يقيم عملاً تجاريًا. البيانات المالية، مثل بيانات الدخل والميزانيات العمومية وبيانات التدفق النقدي، ليست مجرد أرقام على صفحة، بل هي أدوات توفر نظرة عامة متعمقة على الصحة المالية والأداء المالي للشركة.</value>
+  </data>
+  <data name="PageTextDeFormatSample" xml:space="preserve">
+    <value>Understanding Financial Statements
+
+فهم البيانات المالية
+
+Understanding financial statements is not just a skill for accountants; it is a necessity for anyone managing, investing in, or assessing a business. Financial statements, such as income statements, balance sheets, and cash flow statements, are not just numbers on a page, but tools that provide an in-depth overview of a company's financial health and performance.
+
+إن فهم البيانات المالية ليس مجرد مهارة للمحاسبين؛ بل إنه ضرورة لأي شخص يدير أو يستثمر أو يقيم عملاً تجاريًا. البيانات المالية، مثل بيانات الدخل والميزانيات العمومية وبيانات التدفق النقدي، ليست مجرد أرقام على صفحة، بل هي أدوات توفر نظرة عامة متعمقة على الصحة المالية والأداء المالي للشركة.</value>
+  </data>
+  <data name="PageTextFormatOutput" xml:space="preserve">
+    <value>Understanding Financial Statements
+
+فهم البيانات المالية
+
+Understanding financial statements is not just a skill for accountants; it is a necessity for anyone managing, investing in, or assessing a business. Financial statements, such as income statements, balance sheets, and cash flow statements, are not just numbers on a page, but tools that provide an in-depth overview of a company's financial health and performance.
+
+إن فهم البيانات المالية ليس مجرد مهارة للمحاسبين؛ بل إنه ضرورة لأي شخص يدير أو يستثمر أو يقيم عملاً تجاريًا. البيانات المالية، مثل بيانات الدخل والميزانيات العمومية وبيانات التدفق النقدي، ليست مجرد أرقام على صفحة، بل هي أدوات توفر نظرة عامة متعمقة على الصحة المالية والأداء المالي للشركة.</value>
+  </data>
+  <data name="PageTextFormatSample" xml:space="preserve">
+    <value>Understanding Financial Statements
+
+Understanding financial statements is not just a skill for accountants; it is a necessity for anyone managing, investing in, or assessing a business. Financial statements, such as income statements, balance sheets, and cash flow statements, are not just numbers on a page, but tools that provide an in-depth overview of a company's financial health and performance.
+
+
+فهم البيانات المالية
+
+إن فهم البيانات المالية ليس مجرد مهارة للمحاسبين؛ بل إنه ضرورة لأي شخص يدير أو يستثمر أو يقيم عملاً تجاريًا. البيانات المالية، مثل بيانات الدخل والميزانيات العمومية وبيانات التدفق النقدي، ليست مجرد أرقام على صفحة، بل هي أدوات توفر نظرة عامة متعمقة على الصحة المالية والأداء المالي للشركة.</value>
+  </data>
+  <data name="SpaceEraserOutput" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:05.200
+Las enfermedades cardiovasculares afectan
+el corazón y los vasos sanguíneos.
+
+00:00:05.200 --&gt; 00:00:08.010
+Los trastornos cardíacos afectan
+la funcionalidad del órgano,</value>
+  </data>
+  <data name="SpaceEraserSample" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:05.200
+ Las enfermedades cardiovasculares afectan
+ el corazón y los vasos sanguíneos.
+
+00:00:05.200 --&gt; 00:00:08.010
+Los trastornos cardíacos afectan 
+la funcionalidad del órgano,</value>
+  </data>
+  <data name="SubOrgMergerOutput" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.220
+The human digestive system consists of two major parts: the gastrointestinal — GI — tract and the accessory organs.
+
+يتكون الجهاز الهضمي للإنسان من جزأين رئيسيين: الجهاز الهضمي والأعضاء الملحقة.
+
+00:00:04.220 --&gt; 00:00:05.850</value>
+  </data>
+  <data name="SubOrgMergerSample" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.220
+The human digestive system consists of two major parts: the gastrointestinal — GI — tract and the accessory organs.
+
+00:00:04.220 --&gt; 00:00:05.850
+
+
+WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.220
+يتكون الجهاز الهضمي للإنسان من جزأين رئيسيين: الجهاز الهضمي والأعضاء الملحقة.
+
+00:00:04.220 --&gt; 00:00:05.850</value>
+  </data>
+  <data name="TimeframeDivideOutput" xml:space="preserve">
+    <value>----------------Original +Translation Only----------------
+
+WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.150
+Das Blut transportiert hauptsächlich
+Sauerstoff, der an das Hämoglobin
+
+00:00:04.150 --&gt; 00:00:07.200
+in den roten Blutkörperchen gebunden ist.
+Ein kleiner Prozentsatz löst sich
+
+00:00:07.200 --&gt; 00:00:11.520
+aufgrund der geringen Löslichkeit
+im Blut im Plasma auf.
+
+
+----------------Translation Only----------------
+WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.150
+Das Blut transportiert hauptsächlich
+Sauerstoff, der an das Hämoglobin
+
+00:00:04.150 --&gt; 00:00:07.200
+in den roten Blutkörperchen gebunden ist.
+Ein kleiner Prozentsatz löst sich
+
+00:00:07.200 --&gt; 00:00:11.520
+aufgrund der geringen Löslichkeit
+im Blut im Plasma auf.</value>
+  </data>
+  <data name="TimeframeDivideSample" xml:space="preserve">
+    <value>----------------Original +Translation Only----------------
+
+WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.150
+ليس مجرد مهارة للمحاسبين؛ بل إنه ضرورة لأي شخص يدير أو يستثمر أو يقيم عملاً
+
+Das Blut transportiert hauptsächlich 
+Sauerstoff, der an das Hämoglobin
+
+in den roten Blutkörperchen gebunden ist. 
+Ein kleiner Prozentsatz löst sich
+
+aufgrund der geringen Löslichkeit 
+im Blut im Plasma auf.
+
+00:00:04.150 --&gt; 00:00:07.200
+
+00:00:07.200 --&gt; 00:00:11.520
+
+
+----------------Translation Only----------------
+
+WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.150
+Das Blut transportiert hauptsächlich 
+Sauerstoff, der an das Hämoglobin
+
+in den roten Blutkörperchen gebunden ist. 
+Ein kleiner Prozentsatz löst sich
+
+aufgrund der geringen Löslichkeit 
+im Blut im Plasma auf.
+
+00:00:04.150 --&gt; 00:00:07.200
+
+00:00:07.200 --&gt; 00:00:11.520</value>
+  </data>
+  <data name="TimeframeUnitOutput" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:07.790
+Perception is influenced by the perceptual set, context, motivation, and emotion.
+
+00:00:07.790 --&gt; 00:00:10.750
+@</value>
+  </data>
+  <data name="TimeframeUnitSample" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.580
+Perception is influenced by the perceptual set, context, motivation, and emotion.
+
+00:00:04.580 --&gt; 00:00:07.790
+
+
+00:00:07.790 --&gt; 00:00:10.750
+@</value>
+  </data>
 </root>

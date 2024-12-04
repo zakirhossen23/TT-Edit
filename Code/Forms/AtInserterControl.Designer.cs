@@ -64,7 +64,6 @@
             this.guna2ContainerControl3 = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.label3 = new System.Windows.Forms.Label();
             this.cmbStatusSearch = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.txtSearchBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnVTTFilesBrowse = new System.Windows.Forms.Button();
             this.lblVTTExportFolderPath = new System.Windows.Forms.Label();
             this.btnVTTExportFolderBrowse = new System.Windows.Forms.Button();
@@ -79,6 +78,8 @@
             this.backgroundWorkerConverter = new System.ComponentModel.BackgroundWorker();
             this.ErrorMessageDialog = new Guna.UI2.WinForms.Guna2MessageDialog();
             this.vttOFD = new System.Windows.Forms.OpenFileDialog();
+            this.SampleBTN = new Guna.UI2.WinForms.Guna2Button();
+            this.txtSearchBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel2.SuspendLayout();
             this.guna2ContainerControl7.SuspendLayout();
             this.guna2ContainerControl8.SuspendLayout();
@@ -96,6 +97,7 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.guna2Panel2.Controls.Add(this.SampleBTN);
             this.guna2Panel2.Controls.Add(this.ResetAllbtn);
             this.guna2Panel2.Controls.Add(this.btnExportedFolderOpen);
             this.guna2Panel2.Controls.Add(this.guna2Separator1);
@@ -550,30 +552,6 @@
             this.cmbStatusSearch.TextOffset = new System.Drawing.Point(5, 0);
             this.cmbStatusSearch.SelectedIndexChanged += new System.EventHandler(this.cmbStatusSearch_SelectedIndexChanged);
             // 
-            // txtSearchBox
-            // 
-            this.txtSearchBox.BorderColor = System.Drawing.Color.LightGray;
-            this.txtSearchBox.BorderRadius = 10;
-            this.txtSearchBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearchBox.DefaultText = "";
-            this.txtSearchBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSearchBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearchBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearchBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearchBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearchBox.Font = new System.Drawing.Font("Arial", 10F);
-            this.txtSearchBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearchBox.IconLeft = global::TT_Edit.Properties.Resources.searchicon;
-            this.txtSearchBox.IconLeftOffset = new System.Drawing.Point(8, 0);
-            this.txtSearchBox.Location = new System.Drawing.Point(42, 410);
-            this.txtSearchBox.Name = "txtSearchBox";
-            this.txtSearchBox.PasswordChar = '\0';
-            this.txtSearchBox.PlaceholderText = "Search here...";
-            this.txtSearchBox.SelectedText = "";
-            this.txtSearchBox.Size = new System.Drawing.Size(422, 36);
-            this.txtSearchBox.TabIndex = 12;
-            this.txtSearchBox.TextChanged += new System.EventHandler(this.txtSearchBox_TextChanged);
-            // 
             // btnVTTFilesBrowse
             // 
             this.btnVTTFilesBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -779,6 +757,52 @@
             this.vttOFD.SupportMultiDottedExtensions = true;
             this.vttOFD.Title = "Select VTT files";
             // 
+            // SampleBTN
+            // 
+            this.SampleBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SampleBTN.Animated = true;
+            this.SampleBTN.BackColor = System.Drawing.Color.Transparent;
+            this.SampleBTN.BorderColor = System.Drawing.Color.Gainsboro;
+            this.SampleBTN.BorderRadius = 5;
+            this.SampleBTN.BorderThickness = 1;
+            this.SampleBTN.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SampleBTN.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SampleBTN.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SampleBTN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SampleBTN.FillColor = System.Drawing.Color.Transparent;
+            this.SampleBTN.Font = new System.Drawing.Font("Arial", 12F);
+            this.SampleBTN.ForeColor = System.Drawing.Color.Black;
+            this.SampleBTN.Location = new System.Drawing.Point(878, 125);
+            this.SampleBTN.Name = "SampleBTN";
+            this.SampleBTN.Size = new System.Drawing.Size(160, 39);
+            this.SampleBTN.TabIndex = 31;
+            this.SampleBTN.Text = "Sample File";
+            this.SampleBTN.Click += new System.EventHandler(this.SampleBTN_Click);
+            // 
+            // txtSearchBox
+            // 
+            this.txtSearchBox.BorderColor = System.Drawing.Color.LightGray;
+            this.txtSearchBox.BorderRadius = 10;
+            this.txtSearchBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchBox.DefaultText = "";
+            this.txtSearchBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearchBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearchBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchBox.Font = new System.Drawing.Font("Arial", 10F);
+            this.txtSearchBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchBox.IconLeft = global::TT_Edit.Properties.Resources.searchicon;
+            this.txtSearchBox.IconLeftOffset = new System.Drawing.Point(8, 0);
+            this.txtSearchBox.Location = new System.Drawing.Point(42, 410);
+            this.txtSearchBox.Name = "txtSearchBox";
+            this.txtSearchBox.PasswordChar = '\0';
+            this.txtSearchBox.PlaceholderText = "Search here...";
+            this.txtSearchBox.SelectedText = "";
+            this.txtSearchBox.Size = new System.Drawing.Size(422, 36);
+            this.txtSearchBox.TabIndex = 12;
+            this.txtSearchBox.TextChanged += new System.EventHandler(this.txtSearchBox_TextChanged);
+            // 
             // AtInserterControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -859,5 +883,6 @@
         private System.Windows.Forms.OpenFileDialog vttOFD;
         public Guna.UI2.WinForms.Guna2MessageDialog ErrorMessageDialog;
         private Guna.UI2.WinForms.Guna2Button ResetAllbtn;
+        private Guna.UI2.WinForms.Guna2Button SampleBTN;
     }
 }

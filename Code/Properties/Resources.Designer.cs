@@ -61,6 +61,224 @@ namespace TT_Edit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.580
+        ///Perception is influenced by
+        ///the perceptual set, context,
+        ///
+        ///00:00:04.580 --&gt; 00:00:07.790
+        ///motivation, and emotion.
+        ///
+        ///00:00:07.790 --&gt; 00:00:10.750
+        ///
+        ///
+        ///00:00:10.750 --&gt; 00:00:14.730
+        ///Perceptual set, or perceptual expectancy,
+        ///is the tendency to perceive things based.
+        /// </summary>
+        internal static string AtInsertSample {
+            get {
+                return ResourceManager.GetString("AtInsertSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.580
+        ///Perception is influenced by
+        ///the perceptual set, context,
+        ///test line
+        ///
+        ///00:00:04.580 --&gt; 00:00:07.790
+        ///motivation, and emotion.
+        ///
+        ///00:00:07.790 --&gt; 00:00:10.750
+        ///@
+        ///
+        ///00:00:10.750 --&gt; 00:00:14.730
+        ///Perceptual set, or perceptual expectancy,
+        ///is the tendency to perceive things based.
+        /// </summary>
+        internal static string AtInsertSampleOutput {
+            get {
+                return ResourceManager.GetString("AtInsertSampleOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.580
+        ///Perception is influenced by
+        ///the perceptual set, context,
+        ///
+        ///00:00:04.580 --&gt; 00:00:07.790
+        ///motivation, and emotion.
+        ///
+        ///00:00:07.790 --&gt; 00:00:10.750
+        ///
+        ///
+        ///00:00:10.750 --&gt; 00:00:14.730
+        ///Perceptual set, or perceptual expectancy,
+        ///is the tendency to perceive things based.
+        /// </summary>
+        internal static string AtRemoverOutput {
+            get {
+                return ResourceManager.GetString("AtRemoverOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.580
+        ///Perception is influenced by
+        ///the perceptual set, context,
+        ///
+        ///00:00:04.580 --&gt; 00:00:07.790
+        ///motivation, and emotion.
+        ///
+        ///00:00:07.790 --&gt; 00:00:10.750
+        ///@
+        ///
+        ///00:00:10.750 --&gt; 00:00:14.730
+        ///Perceptual set, or perceptual expectancy,
+        ///is the tendency to perceive things based.
+        /// </summary>
+        internal static string AtRemoverSample {
+            get {
+                return ResourceManager.GetString("AtRemoverSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:03,870 (Have comma - Bad)
+        ///Los circuitos equivalentes de
+        ///transformadores
+        ///
+        ///00:00:03.870 --&gt; 00:00:06.770
+        ///
+        ///00:00:06.770 --&gt; 00:00:11.360
+        ///
+        ///00:00:11.360 --&gt; 00:00:15.400
+        ///El flujo magnético no confinado
+        ///produce pérdidas de potencia
+        ///
+        ///00:01:26.390 --&gt; 00:01:28.000
+        ///@.
+        /// </summary>
+        internal static string CommaCheckerOutput {
+            get {
+                return ResourceManager.GetString("CommaCheckerOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:03,870
+        ///Los circuitos equivalentes de
+        ///transformadores
+        ///
+        ///00:00:03.870 --&gt; 00:00:06.770
+        ///
+        ///00:00:06.770 --&gt; 00:00:11.360
+        ///
+        ///00:00:11.360 --&gt; 00:00:15.400
+        ///El flujo magnético no confinado
+        ///produce pérdidas de potencia
+        ///
+        ///00:01:26.390 --&gt; 00:01:28.000
+        ///@.
+        /// </summary>
+        internal static string CommaCheckerSample {
+            get {
+                return ResourceManager.GetString("CommaCheckerSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.580
+        ///Perception is influenced by the perceptual set, context, test motivation, and emotion.
+        ///
+        ///00:00:04.580 --&gt; 00:00:07.790
+        ///
+        ///
+        ///00:00:07.790 --&gt; 00:00:10.750
+        ///@
+        ///
+        ///.
+        /// </summary>
+        internal static string ConverterOutput {
+            get {
+                return ResourceManager.GetString("ConverterOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.580
+        ///Perception is influenced by
+        ///the perceptual set, context,
+        ///
+        ///00:00:04.580 --&gt; 00:00:07.790
+        ///motivation, and emotion.
+        ///
+        ///00:00:07.790 --&gt; 00:00:10.750
+        ///@.
+        /// </summary>
+        internal static string ConverterSample {
+            get {
+                return ResourceManager.GetString("ConverterSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.580
+        ///Perception is influenced by tesewr wer wer wettestest (53 CPL)
+        ///the perceptual set, context, te werw er westtestest (51 CPL)
+        ///
+        ///00:00:04.580 --&gt; 00:00:07.790
+        ///motivation, and emotion.
+        ///
+        ///00:00:07.790 --&gt; 00:00:10.750
+        ///@.
+        /// </summary>
+        internal static string CPLCounterOutput {
+            get {
+                return ResourceManager.GetString("CPLCounterOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.580
+        ///Perception is influenced by tesewr wer wer wettestest
+        ///the perceptual set, context, te werw er westtestest
+        ///
+        ///00:00:04.580 --&gt; 00:00:07.790
+        ///motivation, and emotion.
+        ///
+        ///00:00:07.790 --&gt; 00:00:10.750
+        ///@.
+        /// </summary>
+        internal static string CPLCounterSample {
+            get {
+                return ResourceManager.GetString("CPLCounterSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap icon {
@@ -71,12 +289,240 @@ namespace TT_Edit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Understanding Financial Statements
+        ///
+        ///Understanding financial statements is not just a skill for accountants; it is a necessity for anyone managing, investing in, or assessing a business. Financial statements, such as income statements, balance sheets, and cash flow statements, are not just numbers on a page, but tools that provide an in-depth overview of a company&apos;s financial health and performance.
+        ///
+        ///
+        ///فهم البيانات المالية
+        ///
+        ///إن فهم البيانات المالية ليس مجرد مهارة للمحاسبين؛ بل إنه ضرورة لأي شخص يدير أو  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PageTextDeFormatOutput {
+            get {
+                return ResourceManager.GetString("PageTextDeFormatOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Understanding Financial Statements
+        ///
+        ///فهم البيانات المالية
+        ///
+        ///Understanding financial statements is not just a skill for accountants; it is a necessity for anyone managing, investing in, or assessing a business. Financial statements, such as income statements, balance sheets, and cash flow statements, are not just numbers on a page, but tools that provide an in-depth overview of a company&apos;s financial health and performance.
+        ///
+        ///إن فهم البيانات المالية ليس مجرد مهارة للمحاسبين؛ بل إنه ضرورة لأي شخص يدير أو يس [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PageTextDeFormatSample {
+            get {
+                return ResourceManager.GetString("PageTextDeFormatSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Understanding Financial Statements
+        ///
+        ///فهم البيانات المالية
+        ///
+        ///Understanding financial statements is not just a skill for accountants; it is a necessity for anyone managing, investing in, or assessing a business. Financial statements, such as income statements, balance sheets, and cash flow statements, are not just numbers on a page, but tools that provide an in-depth overview of a company&apos;s financial health and performance.
+        ///
+        ///إن فهم البيانات المالية ليس مجرد مهارة للمحاسبين؛ بل إنه ضرورة لأي شخص يدير أو يس [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PageTextFormatOutput {
+            get {
+                return ResourceManager.GetString("PageTextFormatOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Understanding Financial Statements
+        ///
+        ///Understanding financial statements is not just a skill for accountants; it is a necessity for anyone managing, investing in, or assessing a business. Financial statements, such as income statements, balance sheets, and cash flow statements, are not just numbers on a page, but tools that provide an in-depth overview of a company&apos;s financial health and performance.
+        ///
+        ///
+        ///فهم البيانات المالية
+        ///
+        ///إن فهم البيانات المالية ليس مجرد مهارة للمحاسبين؛ بل إنه ضرورة لأي شخص يدير أو  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PageTextFormatSample {
+            get {
+                return ResourceManager.GetString("PageTextFormatSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap searchicon {
             get {
                 object obj = ResourceManager.GetObject("searchicon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:05.200
+        ///Las enfermedades cardiovasculares afectan
+        ///el corazón y los vasos sanguíneos.
+        ///
+        ///00:00:05.200 --&gt; 00:00:08.010
+        ///Los trastornos cardíacos afectan
+        ///la funcionalidad del órgano,.
+        /// </summary>
+        internal static string SpaceEraserOutput {
+            get {
+                return ResourceManager.GetString("SpaceEraserOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:05.200
+        /// Las enfermedades cardiovasculares afectan
+        /// el corazón y los vasos sanguíneos.
+        ///
+        ///00:00:05.200 --&gt; 00:00:08.010
+        ///Los trastornos cardíacos afectan 
+        ///la funcionalidad del órgano,.
+        /// </summary>
+        internal static string SpaceEraserSample {
+            get {
+                return ResourceManager.GetString("SpaceEraserSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.220
+        ///The human digestive system consists of two major parts: the gastrointestinal — GI — tract and the accessory organs.
+        ///
+        ///يتكون الجهاز الهضمي للإنسان من جزأين رئيسيين: الجهاز الهضمي والأعضاء الملحقة.
+        ///
+        ///00:00:04.220 --&gt; 00:00:05.850.
+        /// </summary>
+        internal static string SubOrgMergerOutput {
+            get {
+                return ResourceManager.GetString("SubOrgMergerOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.220
+        ///The human digestive system consists of two major parts: the gastrointestinal — GI — tract and the accessory organs.
+        ///
+        ///00:00:04.220 --&gt; 00:00:05.850
+        ///
+        ///
+        ///WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.220
+        ///يتكون الجهاز الهضمي للإنسان من جزأين رئيسيين: الجهاز الهضمي والأعضاء الملحقة.
+        ///
+        ///00:00:04.220 --&gt; 00:00:05.850.
+        /// </summary>
+        internal static string SubOrgMergerSample {
+            get {
+                return ResourceManager.GetString("SubOrgMergerSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ----------------Original +Translation Only----------------
+        ///
+        ///WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.150
+        ///Das Blut transportiert hauptsächlich
+        ///Sauerstoff, der an das Hämoglobin
+        ///
+        ///00:00:04.150 --&gt; 00:00:07.200
+        ///in den roten Blutkörperchen gebunden ist.
+        ///Ein kleiner Prozentsatz löst sich
+        ///
+        ///00:00:07.200 --&gt; 00:00:11.520
+        ///aufgrund der geringen Löslichkeit
+        ///im Blut im Plasma auf.
+        ///
+        ///
+        ///----------------Translation Only----------------
+        ///WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.150
+        ///Das Blut transportiert hauptsächlich
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TimeframeDivideOutput {
+            get {
+                return ResourceManager.GetString("TimeframeDivideOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ----------------Original +Translation Only----------------
+        ///
+        ///WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.150
+        ///ليس مجرد مهارة للمحاسبين؛ بل إنه ضرورة لأي شخص يدير أو يستثمر أو يقيم عملاً
+        ///
+        ///Das Blut transportiert hauptsächlich 
+        ///Sauerstoff, der an das Hämoglobin
+        ///
+        ///in den roten Blutkörperchen gebunden ist. 
+        ///Ein kleiner Prozentsatz löst sich
+        ///
+        ///aufgrund der geringen Löslichkeit 
+        ///im Blut im Plasma auf.
+        ///
+        ///00:00:04.150 --&gt; 00:00:07.200
+        ///
+        ///00:00:07.200 --&gt; 00:00:11.520
+        ///
+        ///
+        ///----------------Translation Only----------- [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TimeframeDivideSample {
+            get {
+                return ResourceManager.GetString("TimeframeDivideSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:07.790
+        ///Perception is influenced by the perceptual set, context, motivation, and emotion.
+        ///
+        ///00:00:07.790 --&gt; 00:00:10.750
+        ///@.
+        /// </summary>
+        internal static string TimeframeUnitOutput {
+            get {
+                return ResourceManager.GetString("TimeframeUnitOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.580
+        ///Perception is influenced by the perceptual set, context, motivation, and emotion.
+        ///
+        ///00:00:04.580 --&gt; 00:00:07.790
+        ///
+        ///
+        ///00:00:07.790 --&gt; 00:00:10.750
+        ///@.
+        /// </summary>
+        internal static string TimeframeUnitSample {
+            get {
+                return ResourceManager.GetString("TimeframeUnitSample", resourceCulture);
             }
         }
     }

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using TT_Edit.Forms;
 
 namespace TT_Edit.Classes
 {
@@ -111,7 +112,7 @@ namespace TT_Edit.Classes
                         }
                     }else if (item2 != "")
                     { 
-                        if (item2.Length > 45)
+                        if (item2.Length > 45 && TimeframeDividerControl.TransOnly)
                         {
                             throw new ArgumentException("Error VTT format");
 

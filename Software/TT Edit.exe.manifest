@@ -174,14 +174,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TT Edit.exe" size="484352">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TT Edit.exe" size="569856">
       <assemblyIdentity name="TT Edit" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>q6PXSDtbmRauW/Bs9R+Hg8QfVcdihZXODisOM8X2+ZE=</dsig:DigestValue>
+        <dsig:DigestValue>sAIAp6uwQK2h3SsDXtY1Yvm4I4ThXKQjAzCGU/pqc58=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -239,13 +239,13 @@
       <dsig:DigestValue>pazO8Nl3yS9v9cwwpkKN8tuDkLPToxUnPemFExT6DbQ=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="TT Edit.exe.config" size="1012">
+  <file name="TT Edit.exe.config" size="232">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>vTcSMbVZX7rOIohjDcMQ9lSt/FG64iODEyApUiMnrrE=</dsig:DigestValue>
+      <dsig:DigestValue>y9VHfT2IrKJ957ItEH5j0rekYS1pnXq7eZLxcdic5U4=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

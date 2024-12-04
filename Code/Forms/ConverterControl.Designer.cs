@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.SampleBTN = new Guna.UI2.WinForms.Guna2Button();
             this.ResetAllbtn = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2ContainerControl7 = new Guna.UI2.WinForms.Guna2ContainerControl();
@@ -102,6 +103,7 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
+            this.guna2Panel2.Controls.Add(this.SampleBTN);
             this.guna2Panel2.Controls.Add(this.ResetAllbtn);
             this.guna2Panel2.Controls.Add(this.panel1);
             this.guna2Panel2.Controls.Add(this.ignoreCharsTxt);
@@ -128,8 +130,30 @@
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
             this.guna2Panel2.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1340, 749);
+            this.guna2Panel2.Size = new System.Drawing.Size(1080, 749);
             this.guna2Panel2.TabIndex = 2;
+            // 
+            // SampleBTN
+            // 
+            this.SampleBTN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SampleBTN.Animated = true;
+            this.SampleBTN.BackColor = System.Drawing.Color.Transparent;
+            this.SampleBTN.BorderColor = System.Drawing.Color.Gainsboro;
+            this.SampleBTN.BorderRadius = 5;
+            this.SampleBTN.BorderThickness = 1;
+            this.SampleBTN.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SampleBTN.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SampleBTN.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SampleBTN.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SampleBTN.FillColor = System.Drawing.Color.Transparent;
+            this.SampleBTN.Font = new System.Drawing.Font("Arial", 12F);
+            this.SampleBTN.ForeColor = System.Drawing.Color.Black;
+            this.SampleBTN.Location = new System.Drawing.Point(618, 125);
+            this.SampleBTN.Name = "SampleBTN";
+            this.SampleBTN.Size = new System.Drawing.Size(160, 39);
+            this.SampleBTN.TabIndex = 45;
+            this.SampleBTN.Text = "Sample File";
+            this.SampleBTN.Click += new System.EventHandler(this.SampleBTN_Click);
             // 
             // ResetAllbtn
             // 
@@ -154,14 +178,12 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.guna2ContainerControl7);
             this.panel1.Controls.Add(this.guna2ContainerControl4);
             this.panel1.Controls.Add(this.guna2ContainerControl1);
-            this.panel1.Location = new System.Drawing.Point(479, 245);
+            this.panel1.Location = new System.Drawing.Point(297, 256);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(823, 146);
+            this.panel1.Size = new System.Drawing.Size(757, 129);
             this.panel1.TabIndex = 43;
             // 
             // guna2ContainerControl7
@@ -171,7 +193,7 @@
             this.guna2ContainerControl7.Controls.Add(this.guna2ContainerControl8);
             this.guna2ContainerControl7.Controls.Add(this.guna2ContainerControl9);
             this.guna2ContainerControl7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.guna2ContainerControl7.Location = new System.Drawing.Point(579, 17);
+            this.guna2ContainerControl7.Location = new System.Drawing.Point(507, 3);
             this.guna2ContainerControl7.Name = "guna2ContainerControl7";
             this.guna2ContainerControl7.Padding = new System.Windows.Forms.Padding(5);
             this.guna2ContainerControl7.ShadowDecoration.BorderRadius = 15;
@@ -251,7 +273,7 @@
             this.guna2ContainerControl4.Controls.Add(this.guna2ContainerControl5);
             this.guna2ContainerControl4.Controls.Add(this.guna2ContainerControl6);
             this.guna2ContainerControl4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.guna2ContainerControl4.Location = new System.Drawing.Point(290, 17);
+            this.guna2ContainerControl4.Location = new System.Drawing.Point(255, 3);
             this.guna2ContainerControl4.Name = "guna2ContainerControl4";
             this.guna2ContainerControl4.Padding = new System.Windows.Forms.Padding(5);
             this.guna2ContainerControl4.ShadowDecoration.BorderRadius = 15;
@@ -330,7 +352,7 @@
             this.guna2ContainerControl1.Controls.Add(this.guna2ContainerControl2);
             this.guna2ContainerControl1.Controls.Add(this.guna2ContainerControl3);
             this.guna2ContainerControl1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(251)))), ((int)(((byte)(251)))));
-            this.guna2ContainerControl1.Location = new System.Drawing.Point(2, 17);
+            this.guna2ContainerControl1.Location = new System.Drawing.Point(3, 3);
             this.guna2ContainerControl1.Name = "guna2ContainerControl1";
             this.guna2ContainerControl1.Padding = new System.Windows.Forms.Padding(5);
             this.guna2ContainerControl1.ShadowDecoration.BorderRadius = 15;
@@ -394,12 +416,13 @@
             this.ignoreCharsTxt.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ignoreCharsTxt.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ignoreCharsTxt.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ignoreCharsTxt.Location = new System.Drawing.Point(42, 326);
+            this.ignoreCharsTxt.Location = new System.Drawing.Point(39, 334);
+            this.ignoreCharsTxt.Multiline = true;
             this.ignoreCharsTxt.Name = "ignoreCharsTxt";
             this.ignoreCharsTxt.PasswordChar = '\0';
             this.ignoreCharsTxt.PlaceholderText = "";
             this.ignoreCharsTxt.SelectedText = "";
-            this.ignoreCharsTxt.Size = new System.Drawing.Size(421, 36);
+            this.ignoreCharsTxt.Size = new System.Drawing.Size(214, 64);
             this.ignoreCharsTxt.TabIndex = 41;
             // 
             // cbxBreakDotEnd
@@ -410,7 +433,7 @@
             this.cbxBreakDotEnd.CheckedState.BorderThickness = 0;
             this.cbxBreakDotEnd.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbxBreakDotEnd.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbxBreakDotEnd.Location = new System.Drawing.Point(42, 262);
+            this.cbxBreakDotEnd.Location = new System.Drawing.Point(42, 244);
             this.cbxBreakDotEnd.Name = "cbxBreakDotEnd";
             this.cbxBreakDotEnd.Size = new System.Drawing.Size(211, 31);
             this.cbxBreakDotEnd.TabIndex = 40;
@@ -437,11 +460,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(39, 302);
+            this.label2.Location = new System.Drawing.Point(39, 284);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(394, 18);
+            this.label2.Size = new System.Drawing.Size(211, 36);
             this.label2.TabIndex = 38;
-            this.label2.Text = "Ignore these characters to end line(Comma separated): ";
+            this.label2.Text = "Ignore these characters to \r\nend line(Comma separated): ";
             // 
             // btnExportedFolderOpen
             // 
@@ -459,7 +482,7 @@
             this.btnExportedFolderOpen.FillColor = System.Drawing.Color.Transparent;
             this.btnExportedFolderOpen.Font = new System.Drawing.Font("Arial", 12F);
             this.btnExportedFolderOpen.ForeColor = System.Drawing.Color.Black;
-            this.btnExportedFolderOpen.Location = new System.Drawing.Point(1044, 125);
+            this.btnExportedFolderOpen.Location = new System.Drawing.Point(784, 125);
             this.btnExportedFolderOpen.Name = "btnExportedFolderOpen";
             this.btnExportedFolderOpen.Size = new System.Drawing.Size(260, 39);
             this.btnExportedFolderOpen.TabIndex = 27;
@@ -471,9 +494,9 @@
             this.guna2Separator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Separator1.Location = new System.Drawing.Point(3, 461);
+            this.guna2Separator1.Location = new System.Drawing.Point(2, 492);
             this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(1335, 13);
+            this.guna2Separator1.Size = new System.Drawing.Size(1075, 13);
             this.guna2Separator1.TabIndex = 24;
             // 
             // guna2Separator3
@@ -483,7 +506,7 @@
             this.guna2Separator3.BackColor = System.Drawing.Color.Transparent;
             this.guna2Separator3.Location = new System.Drawing.Point(1, 184);
             this.guna2Separator3.Name = "guna2Separator3";
-            this.guna2Separator3.Size = new System.Drawing.Size(1336, 13);
+            this.guna2Separator3.Size = new System.Drawing.Size(1076, 13);
             this.guna2Separator3.TabIndex = 23;
             // 
             // btnStop
@@ -548,7 +571,7 @@
             this.txtVTTExportFolderPath.PasswordChar = '\0';
             this.txtVTTExportFolderPath.PlaceholderText = "";
             this.txtVTTExportFolderPath.SelectedText = "";
-            this.txtVTTExportFolderPath.Size = new System.Drawing.Size(973, 36);
+            this.txtVTTExportFolderPath.Size = new System.Drawing.Size(713, 36);
             this.txtVTTExportFolderPath.TabIndex = 20;
             this.txtVTTExportFolderPath.TextChanged += new System.EventHandler(this.txtVTTExportFolderPath_TextChanged);
             // 
@@ -571,7 +594,7 @@
             this.txtVTTFilesPath.PasswordChar = '\0';
             this.txtVTTFilesPath.PlaceholderText = "";
             this.txtVTTFilesPath.SelectedText = "";
-            this.txtVTTFilesPath.Size = new System.Drawing.Size(973, 36);
+            this.txtVTTFilesPath.Size = new System.Drawing.Size(713, 36);
             this.txtVTTFilesPath.TabIndex = 19;
             // 
             // label9
@@ -580,7 +603,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(476, 206);
+            this.label9.Location = new System.Drawing.Point(292, 213);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(102, 25);
             this.label9.TabIndex = 10;
@@ -591,9 +614,9 @@
             this.guna2Separator2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Separator2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Separator2.Location = new System.Drawing.Point(2, 391);
+            this.guna2Separator2.Location = new System.Drawing.Point(1, 422);
             this.guna2Separator2.Name = "guna2Separator2";
-            this.guna2Separator2.Size = new System.Drawing.Size(1336, 13);
+            this.guna2Separator2.Size = new System.Drawing.Size(1076, 13);
             this.guna2Separator2.TabIndex = 18;
             // 
             // lblVTTFolderPath
@@ -623,7 +646,7 @@
             "Completed",
             "Running",
             "Pending"});
-            this.cmbStatusSearch.Location = new System.Drawing.Point(1091, 410);
+            this.cmbStatusSearch.Location = new System.Drawing.Point(830, 441);
             this.cmbStatusSearch.Name = "cmbStatusSearch";
             this.cmbStatusSearch.Size = new System.Drawing.Size(213, 36);
             this.cmbStatusSearch.StartIndex = 0;
@@ -646,7 +669,7 @@
             this.txtSearchBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearchBox.IconLeft = global::TT_Edit.Properties.Resources.searchicon;
             this.txtSearchBox.IconLeftOffset = new System.Drawing.Point(8, 0);
-            this.txtSearchBox.Location = new System.Drawing.Point(42, 410);
+            this.txtSearchBox.Location = new System.Drawing.Point(41, 441);
             this.txtSearchBox.Name = "txtSearchBox";
             this.txtSearchBox.PasswordChar = '\0';
             this.txtSearchBox.PlaceholderText = "Search here...";
@@ -658,7 +681,7 @@
             // btnVTTFilesBrowse
             // 
             this.btnVTTFilesBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVTTFilesBrowse.Location = new System.Drawing.Point(1197, 25);
+            this.btnVTTFilesBrowse.Location = new System.Drawing.Point(937, 25);
             this.btnVTTFilesBrowse.Name = "btnVTTFilesBrowse";
             this.btnVTTFilesBrowse.Size = new System.Drawing.Size(108, 36);
             this.btnVTTFilesBrowse.TabIndex = 2;
@@ -679,7 +702,7 @@
             // btnVTTExportFolderBrowse
             // 
             this.btnVTTExportFolderBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVTTExportFolderBrowse.Location = new System.Drawing.Point(1197, 67);
+            this.btnVTTExportFolderBrowse.Location = new System.Drawing.Point(937, 67);
             this.btnVTTExportFolderBrowse.Name = "btnVTTExportFolderBrowse";
             this.btnVTTExportFolderBrowse.Size = new System.Drawing.Size(108, 36);
             this.btnVTTExportFolderBrowse.TabIndex = 5;
@@ -696,10 +719,10 @@
             this.guna2ContainerControl10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2ContainerControl10.BorderThickness = 1;
             this.guna2ContainerControl10.Controls.Add(this.dgvFilesList);
-            this.guna2ContainerControl10.Location = new System.Drawing.Point(42, 480);
+            this.guna2ContainerControl10.Location = new System.Drawing.Point(42, 511);
             this.guna2ContainerControl10.Name = "guna2ContainerControl10";
             this.guna2ContainerControl10.Padding = new System.Windows.Forms.Padding(1);
-            this.guna2ContainerControl10.Size = new System.Drawing.Size(1262, 257);
+            this.guna2ContainerControl10.Size = new System.Drawing.Size(1002, 226);
             this.guna2ContainerControl10.TabIndex = 26;
             this.guna2ContainerControl10.Text = "guna2ContainerControl10";
             // 
@@ -708,22 +731,22 @@
             this.dgvFilesList.AllowUserToAddRows = false;
             this.dgvFilesList.AllowUserToDeleteRows = false;
             this.dgvFilesList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvFilesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvFilesList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvFilesList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.dgvFilesList.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFilesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFilesList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvFilesList.ColumnHeadersHeight = 40;
             this.dgvFilesList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.stTitle,
@@ -731,14 +754,14 @@
             this.stDateCreated,
             this.stStatus,
             this.stRemoveBTN});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvFilesList.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvFilesList.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvFilesList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFilesList.GridColor = System.Drawing.Color.LightGray;
             this.dgvFilesList.Location = new System.Drawing.Point(1, 1);
@@ -746,17 +769,17 @@
             this.dgvFilesList.Name = "dgvFilesList";
             this.dgvFilesList.ReadOnly = true;
             this.dgvFilesList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFilesList.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFilesList.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvFilesList.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5);
-            this.dgvFilesList.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5);
+            this.dgvFilesList.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvFilesList.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
             this.dgvFilesList.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvFilesList.RowTemplate.DividerHeight = 1;
@@ -764,7 +787,7 @@
             this.dgvFilesList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvFilesList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvFilesList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvFilesList.Size = new System.Drawing.Size(1260, 255);
+            this.dgvFilesList.Size = new System.Drawing.Size(1000, 224);
             this.dgvFilesList.TabIndex = 25;
             this.dgvFilesList.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvFilesList.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -821,8 +844,8 @@
             // 
             this.stRemoveBTN.ActiveLinkColor = System.Drawing.Color.Blue;
             this.stRemoveBTN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.stRemoveBTN.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.stRemoveBTN.DefaultCellStyle = dataGridViewCellStyle9;
             this.stRemoveBTN.FillWeight = 126.9036F;
             this.stRemoveBTN.HeaderText = "Action";
             this.stRemoveBTN.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
@@ -869,7 +892,7 @@
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ConverterControl";
-            this.Size = new System.Drawing.Size(1340, 749);
+            this.Size = new System.Drawing.Size(1080, 749);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -946,5 +969,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Button ResetAllbtn;
+        private Guna.UI2.WinForms.Guna2Button SampleBTN;
     }
 }

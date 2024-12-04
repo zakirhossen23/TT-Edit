@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using SubtitlesParser.Parsers;
 using SubtitlesParser;
 using TT_Edit.Classes;
+using TT_Edit.Properties;
 
 namespace TT_Edit.Forms
 {
@@ -40,7 +41,7 @@ namespace TT_Edit.Forms
         {
             if (vttOFD.ShowDialog() == DialogResult.OK)
             {
-                string[] allFiles = (from file in vttOFD.FileNames where Path.GetExtension(file) == ".vtt" select file).ToArray();
+                string[] allFiles = (from file in vttOFD.FileNames where Path.GetExtension(file).ToLower() == ".vtt" select file).ToArray();
                 // Settings selectted path to textboxes
                 txtVTTFilesPath.Text = String.Join(", ", allFiles);
                 vTTfilesPath = txtVTTFilesPath.Text;
@@ -86,7 +87,7 @@ namespace TT_Edit.Forms
                 {
                     // Adding those file into allVTTFiles List as VTTFile class
                     string filename = Path.GetFileName(file);
-                    string fileExt = Path.GetExtension(filename).Trim();
+                    string fileExt = Path.GetExtension(filename).Trim().ToLower();
 
                     // Load only vtt files
                     if (fileExt == ".vtt")
@@ -236,7 +237,7 @@ namespace TT_Edit.Forms
 
             if (ErrorMessageDialog.Text != "") { ErrorMessageDialog.Show(); return; }
 
-            // Disabling Satart Button and Enabling Stop Button
+            // Disabling Start Button and Enabling Stop Button
             btnStart.Enabled = false;
             btnStop.Enabled = true;
 
@@ -342,6 +343,12 @@ namespace TT_Edit.Forms
         private void ResetAllbtn_Click(object sender, EventArgs e)
         {
             ((MainForm)this.ParentForm).ResetPage();
+        }
+
+        private void SampleBTN_Click(object sender, EventArgs e)
+        {
+
+            var PreviewSample = new PreviewSampleFile(Properties.Resources.AtRemoverSample, Resources.AtRemoverOutput); PreviewSample.ShowDialog();
         }
     }
 }

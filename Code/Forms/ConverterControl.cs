@@ -12,6 +12,7 @@ using SubtitlesParser.Parsers;
 using SubtitlesParser;
 using TT_Edit.Classes;
 using System.Text.RegularExpressions;
+using TT_Edit.Properties;
 
 namespace TT_Edit.Forms
 {
@@ -41,7 +42,7 @@ namespace TT_Edit.Forms
         {
             if (vttOFD.ShowDialog() == DialogResult.OK)
             {
-                string[] allFiles = (from file in vttOFD.FileNames where Path.GetExtension(file) == ".vtt" select file).ToArray();
+                string[] allFiles = (from file in vttOFD.FileNames where Path.GetExtension(file).ToLower() == ".vtt" select file).ToArray();
                 // Settings selectted path to textboxes
                 txtVTTFilesPath.Text = String.Join(", ", allFiles);
                 vTTfilesPath = txtVTTFilesPath.Text;
@@ -86,7 +87,7 @@ namespace TT_Edit.Forms
                 {
                     // Adding those file into allVTTFiles List as VTTFile class
                     string filename = Path.GetFileName(file);
-                    string fileExt = Path.GetExtension(filename).Trim();
+                    string fileExt = Path.GetExtension(filename).Trim().ToLower();
 
                     // Load only vtt files
                     if (fileExt == ".vtt")
@@ -155,6 +156,7 @@ namespace TT_Edit.Forms
                 if (statusText == "Pending") rowItem.Cells["stStatus"].Style.ForeColor = Color.Coral;
                 if (statusText == "Completed") rowItem.Cells["stStatus"].Style.ForeColor = Color.Lime;
                 if (statusText == "Running") rowItem.Cells["stStatus"].Style.ForeColor = Color.Blue;
+                if (statusText == "Format Error") rowItem.Cells["stStatus"].Style.ForeColor = Color.Red;
 
 
 
@@ -236,7 +238,7 @@ namespace TT_Edit.Forms
 
             if (ErrorMessageDialog.Text != "") { ErrorMessageDialog.Show(); return; }
 
-            // Disabling Satart Button and Enabling Stop Button
+            // Disabling Start Button and Enabling Stop Button
             btnStart.Enabled = false;
             btnStop.Enabled = true;
 
@@ -304,9 +306,25 @@ namespace TT_Edit.Forms
                         }
                         else
                         {
-                            // If previous one has no fullstop then it will add current lines to that one
-                            firstSubTitle.Lines.AddRange(subtitle.Lines);
 
+                            if (cbxBreakDotEnd.Checked)
+                            {
+                                // If previous one has no fullstop then it will add current lines to that one
+                                firstSubTitle.Lines.AddRange(subtitle.Lines);
+                            }
+                            else
+                            {
+                                foreach (var line in subtitle.Lines)
+                                {
+
+                                    if (line.Contains(".") && line.Length != 0)
+                                    {
+                                        firstSubTitle.Lines.Add(line.Split('.')[0] + ".");
+
+                                    }
+
+                                }
+                            }
                             // Clearing current subtitle lines
                             subtitle.Lines.Clear();
                         }
@@ -339,7 +357,11 @@ namespace TT_Edit.Forms
                                 isNewSub = true;
                             }
                             else
+                            {
+                                isNewSub = false;
                                 splittedLine = null;
+
+                            }
                         }
 
                         if (draftLines.Trim() == "@") isNewSub = true;
@@ -413,6 +435,12 @@ namespace TT_Edit.Forms
         private void ResetAllbtn_Click(object sender, EventArgs e)
         {
             ((MainForm)this.ParentForm).ResetPage();
+        }
+
+        private void SampleBTN_Click(object sender, EventArgs e)
+        {
+
+            var PreviewSample = new PreviewSampleFile(Properties.Resources.ConverterSample, Resources.ConverterOutput); PreviewSample.ShowDialog();
         }
     }
 }

@@ -117,17 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="guna2TextBox16.DefaultText" xml:space="preserve">
-    <value>
-
-Demand Curve in a Perfectly Competitive Market
-
-완전경쟁시장의 수요곡선
-
-In a perfectly competitive market, the demand curve faced by an individual firm is perfectly elastic, 
-
-완벽한 경쟁 시장에서 개별 기업이 직면한 수요 곡선은 완벽하게 탄력적이며, 이는 동일한 </value>
-  </data>
   <data name="guna2TextBox14.DefaultText" xml:space="preserve">
     <value>00:00:04.580 --&gt; 00:00:07.790
 These are the fruits Mangoes, Grapes and etc. which have Vitamin A.
@@ -160,6 +149,17 @@ Perception is influenced by the perceptual set. (full stop) And context, motivat
 00:00:04.580 --&gt; 00:00:07.790
 &lt;new line&gt;
 &lt;new line&gt;</value>
+  </data>
+  <data name="guna2TextBox16.DefaultText" xml:space="preserve">
+    <value>
+
+Demand Curve in a Perfectly Competitive Market
+
+완전경쟁시장의 수요곡선
+
+In a perfectly competitive market, the demand curve faced by an individual firm is perfectly elastic, 
+
+완벽한 경쟁 시장에서 개별 기업이 직면한 수요 곡선은 완벽하게 탄력적이며, 이는 동일한 </value>
   </data>
   <data name="guna2TextBox17.DefaultText" xml:space="preserve">
     <value>

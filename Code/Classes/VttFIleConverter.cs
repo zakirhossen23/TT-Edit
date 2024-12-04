@@ -26,12 +26,24 @@ namespace TT_Edit.Classes
             this.path = _path;
             this.name = _name;
             parseVttFile();
-
+            FormatCheck();
         }
 
 
 
         /********************** Functions ******************/
+        public void FormatCheck()
+        {
+            foreach (var item in AllSubTitleItems)
+            {
+                if (item.StartTime  == -1 ||  item.EndTime == -1)
+                {
+                    this.status = "Format Error";
+                }
+                
+            }
+
+        }
         // Function to get export path
         public string export_path()
         {

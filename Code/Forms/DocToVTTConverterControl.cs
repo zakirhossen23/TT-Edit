@@ -42,7 +42,7 @@ namespace TT_Edit.Forms
         {
             if (docxOFD.ShowDialog() == DialogResult.OK)
             {
-                string[] allFiles = (from file in docxOFD.FileNames where Path.GetExtension(file).Contains(".doc") select file).ToArray();
+                string[] allFiles = (from file in docxOFD.FileNames where Path.GetExtension(file).ToLower().Contains(".doc") select file).ToArray();
                 // Settings selectted path to textboxes
                 txtDocxFilesPath.Text = String.Join(", ", allFiles);
                 DocxfilesPath = txtDocxFilesPath.Text;
@@ -87,12 +87,12 @@ namespace TT_Edit.Forms
                 {
                     // Adding those file into allDocxFiles List as DocxFile class
                     string filename = Path.GetFileName(file);
-                    string fileExt = Path.GetExtension(filename).Trim();
+                    string fileExt = Path.GetExtension(filename).Trim().ToLower();
 
                     // Load only doc files
                     if (fileExt.StartsWith(".doc"))
                     {
-                        filename = filename.Substring(0, filename.IndexOf(".doc"));
+                        filename = filename.Substring(0, filename.ToLower().IndexOf(".doc"));
 
                         var newfile = new DocxFileConverter(file, filename);
                         allDocxFiles.Add(newfile);
@@ -240,7 +240,12 @@ namespace TT_Edit.Forms
 
             if (ErrorMessageDialog.Text != "") { ErrorMessageDialog.Show(); return; }
 
-            // Disabling Satart Button and Enabling Stop Button
+            if ((from file in allDocxFiles where file.status == "Pending" select file).Count() > 10)
+            {
+
+            }
+
+            // Disabling Start Button and Enabling Stop Button
             btnStart.Enabled = false;
             btnStop.Enabled = true;
 
@@ -333,6 +338,12 @@ namespace TT_Edit.Forms
         private void ResetAllbtn_Click(object sender, EventArgs e)
         {
            ((MainForm) this.ParentForm).ResetPage();
+        }
+
+        private void SampleBTN_Click(object sender, EventArgs e)
+        {
+
+            var PreviewSample = new PreviewSampleFile(Properties.Resources.AtInsertSample,"docx"); PreviewSample.ShowDialog();
         }
     }
 }
