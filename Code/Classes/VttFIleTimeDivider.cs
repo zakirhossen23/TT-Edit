@@ -49,15 +49,25 @@ namespace TT_Edit.Classes
                 }
                 for (int j = 0;  j< subtitle.Lines.Count;j++)
                 {
-                   
-                    if (subtitle.Lines[j].Split(new string[1]
+                    var lines = subtitle.Lines[j].Split(new string[1]
                         {
                             Environment.NewLine
-                        }, StringSplitOptions.None).Count() > 2)
+                        }, StringSplitOptions.None);
+
+
+                    if (lines.Count() > 2)
                     {
                         this.status = "Format Error";
                         break;
 
+                    }
+                    foreach (var line in lines)
+                    {
+                        if(line.Length > 45)
+                        {
+                            this.status = "Format Error";
+                            break;
+                        }
                     }
 
                 }
