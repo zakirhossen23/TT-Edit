@@ -38,7 +38,7 @@ namespace TT_Edit.Classes
             if (AllSubTitleItems == null) return;
             int AddToNextTimeFrame = 0;
             int PreviousTimeFrame = 0;
-            for (int i = 0; i < AllSubTitleItems.Count - 1; i++)
+            for (int i = 0; i < AllSubTitleItems.Count; i++)
             {
                 SubtitleItem subtitle = AllSubTitleItems[i];
                 if (!TimeframeDividerControl.TransOnly)

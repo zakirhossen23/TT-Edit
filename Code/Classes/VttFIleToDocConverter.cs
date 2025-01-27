@@ -50,8 +50,18 @@ namespace TT_Edit.Classes
 
         public void CreateAparagraphLine(ref Body body, string textToAppend)
         {
-            body.Append(new Paragraph(new Run(new Text(textToAppend))));
+            RunProperties runProperties = new RunProperties();
+            RunFonts runFonts = new RunFonts() { Ascii = "Arial" };
+            FontSize fontSize = new FontSize() { Val = "24" }; // 24 half-point size = 12 point size
 
+            runProperties.Append(runFonts);
+            runProperties.Append(fontSize);
+
+            Run run = new Run();
+            run.Append(runProperties);
+            run.Append(new Text(textToAppend));
+
+            body.Append(new Paragraph(run));
         }
         // Function to write lines into VTT file
         public void WriteToDocxFile(List<String> AllItems, string filePath, Encoding encoding)
@@ -60,6 +70,7 @@ namespace TT_Edit.Classes
             {
                 MainDocumentPart mainDocumentPart = wordDoc.AddMainDocumentPart();
                 mainDocumentPart.Document = new DocumentFormat.OpenXml.Wordprocessing.Document();
+                
                 mainDocumentPart.Document.Body = new Body();
 
                 Body body = mainDocumentPart.Document.Body;
