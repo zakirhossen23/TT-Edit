@@ -82,8 +82,66 @@ namespace TT_Edit.Classes
                 foreach (Paragraph co in
                             wordDoc.MainDocumentPart.Document.Body.Descendants<Paragraph>())
                 {
-                    AllItems.Add(co.InnerText);
+                    
+                    string textLine = "";
+                    foreach (Run run in co.ChildElements.OfType<Run>())
+                    {
+                        if (run.ChildElements.Count == 1)
+                        {
+                            AllItems.Add(textLine);
+                            textLine = "";
+
+                        }
+                        foreach (var item in run.ChildElements)
+                        {
+                            if (item.GetType() == (new Break()).GetType())
+                            {
+                                AllItems.Add(textLine);
+                                textLine = "";
+                            }else if (item.GetType() == (new Text()).GetType())
+                            {
+                                textLine += item.InnerText;
+                            }
+                            
+                        }
+                    }
+                    if (!string.IsNullOrEmpty(textLine) || co.ChildElements.Count == 1|| co.ChildElements.Last().ChildElements.Last().GetType() == (new Break()).GetType())
+                    {
+                        AllItems.Add(textLine);
+                        textLine = "";
+                    }
+
                 }
+
+
+                //foreach (Paragraph co in
+                //         wordDoc.MainDocumentPart.Document.Body.Descendants<Paragraph>())
+                //{
+
+                //    string textLine = "";
+                //    foreach (Run run in co.ChildElements.OfType<Run>())
+                //    {
+                //        foreach (var item in run.ChildElements)
+                //        {
+                //            if (item.GetType() == (new Break()).GetType())
+                //            {
+                //                AllItems.Add(textLine);
+                //                textLine = "";
+                //            }
+                //            else if (item.GetType() == (new Text()).GetType())
+                //            {
+                //                textLine += item.InnerText;
+                //            }
+
+                //        }
+                //    }
+                //    if (!string.IsNullOrEmpty(textLine) || co.ChildElements.Count == 1 || co.ChildElements.Last().ChildElements.Last().GetType() == (new Break()).GetType())
+                //    {
+                //        AllItems.Add(textLine);
+                //        textLine = "";
+                //    }
+
+                //}
 
             }
 

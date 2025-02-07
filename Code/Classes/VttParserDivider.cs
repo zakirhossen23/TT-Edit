@@ -54,7 +54,7 @@ namespace TT_Edit.Classes
                     // Checking if subtitleItem starttime and endtime is 0 or not
                     {
                        
-                        if (item2 != null && item2 != "" )
+                        if (item2 != null && item2 != "" && !item2.Contains("\u200B"))
                         {
                             if (newLineCount == 0)
                             {

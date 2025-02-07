@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "TT Edit"
-#define MyAppVersion "1.1.2"
+#define MyAppVersion "1.1.3"
 #define MyAppPublisher "TongueTwist, LLC"
 #define MyAppURL "https://www.upwork.com/agencies/1451219253427150848/"
 #define MyAppExeName "TT Edit.exe"
@@ -43,12 +43,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 
 [Files]
 Source: "D:\code\Seungho\TT-Edit\Software\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\Software\Guna.UI2.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\Software\SubtitlesParser.dll"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\Software\TT Edit.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\Software\TT Edit.exe.config"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\Software\TT Edit.exe.manifest"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\code\Seungho\TT-Edit\Software\TT Edit.pdb"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\code\Seungho\TT-Edit\Software\*"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Registry]
