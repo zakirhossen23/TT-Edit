@@ -1,2 +1,0 @@
-This file is a marker of MeCab.DotNet assembly inside nuget folder.
-It will not copy your build folder (ex: $(OutDir)).

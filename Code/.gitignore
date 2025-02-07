@@ -1,4 +1,36 @@
-.vsidx
-
-.vs/
+# Ignore Visual Studio temporary files, build results, and package caches
+*.csproj.user
+*.sln.docstates
+*.suo
+*.user
+bin/
 obj/
+[Bb]uild/
+[Pp]ublish/
+_ReSharper*/
+packages/
+
+# Ignore NuGet packages
+packages/*
+!packages/repositories.config
+
+# Ignore Visual Studio temporary files
+_ReSharper*/
+[Tt]est[Rr]esult*/
+[Dd]ebug*/
+[Rr]elease*/
+*.cache
+*.resharper*
+*.nupkg
+*.DotSettings.user
+*/[Ll]og*/
+
+# Ignore VS Code files
+.vscode/
+
+# Ignore OS generated files
+[Tt]humbs.db
+*.DS_Store
+
+# Ignore .zip files
+*.zip
