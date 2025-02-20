@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Packaging;
+﻿using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using SubtitlesParser;
 using System;
@@ -37,7 +38,7 @@ namespace TT_Edit.Classes
 
 
         /********************** Functions ******************/
-       
+
         // Function to get export path
         public string export_path()
         {
@@ -82,30 +83,42 @@ namespace TT_Edit.Classes
                 foreach (Paragraph co in
                             wordDoc.MainDocumentPart.Document.Body.Descendants<Paragraph>())
                 {
-                    
-                    string textLine = "";
-                    foreach (Run run in co.ChildElements.OfType<Run>())
+
+                        string textLine = "";
+                    foreach (var run in co.ChildElements)
                     {
-                        if (run.ChildElements.Count == 1)
+
+                        Run run1 = null;
+                        if (run.GetType() == typeof(SdtRun))
+                        {
+                            run1 = run.ChildElements.OfType<SdtContentRun>().FirstOrDefault().OfType<Run>().FirstOrDefault();
+                        }
+                        else if (run.GetType() == typeof(Run))
+                        {
+                            run1 = (Run)run;
+                        }
+                        else continue;
+                        if (run1.ChildElements.Count == 1)
                         {
                             AllItems.Add(textLine);
                             textLine = "";
 
                         }
-                        foreach (var item in run.ChildElements)
+                        foreach (var item in run1.ChildElements)
                         {
                             if (item.GetType() == (new Break()).GetType())
                             {
                                 AllItems.Add(textLine);
                                 textLine = "";
-                            }else if (item.GetType() == (new Text()).GetType())
+                            }
+                            else if (item.GetType() == (new Text()).GetType())
                             {
                                 textLine += item.InnerText;
                             }
-                            
+
                         }
                     }
-                    if (!string.IsNullOrEmpty(textLine) || co.ChildElements.Count == 1|| co.ChildElements.Last().ChildElements.Last().GetType() == (new Break()).GetType())
+                    if (!string.IsNullOrEmpty(textLine) || co.ChildElements.Count < 2 || ((co.ChildElements.Count == 2) && co.ChildElements.Last().ChildElements.Last().GetType() == (new Break()).GetType()))
                     {
                         AllItems.Add(textLine);
                         textLine = "";
@@ -113,41 +126,9 @@ namespace TT_Edit.Classes
 
                 }
 
-
-                //foreach (Paragraph co in
-                //         wordDoc.MainDocumentPart.Document.Body.Descendants<Paragraph>())
-                //{
-
-                //    string textLine = "";
-                //    foreach (Run run in co.ChildElements.OfType<Run>())
-                //    {
-                //        foreach (var item in run.ChildElements)
-                //        {
-                //            if (item.GetType() == (new Break()).GetType())
-                //            {
-                //                AllItems.Add(textLine);
-                //                textLine = "";
-                //            }
-                //            else if (item.GetType() == (new Text()).GetType())
-                //            {
-                //                textLine += item.InnerText;
-                //            }
-
-                //        }
-                //    }
-                //    if (!string.IsNullOrEmpty(textLine) || co.ChildElements.Count == 1 || co.ChildElements.Last().ChildElements.Last().GetType() == (new Break()).GetType())
-                //    {
-                //        AllItems.Add(textLine);
-                //        textLine = "";
-                //    }
-
-                //}
-
             }
 
-
             lines = AllItems.Count;
-
 
         }
 

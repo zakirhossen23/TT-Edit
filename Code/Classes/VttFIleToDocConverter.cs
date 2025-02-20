@@ -51,7 +51,7 @@ namespace TT_Edit.Classes
         public void CreateAparagraphLine(ref Body body, string textToAppend)
         {
             RunProperties runProperties = new RunProperties();
-            RunFonts runFonts = new RunFonts() { Ascii = "Arial" };
+            RunFonts runFonts = new RunFonts() { Ascii = "Segoe UI" };
             FontSize fontSize = new FontSize() { Val = "24" }; // 24 half-point size = 12 point size
 
             runProperties.Append(runFonts);
