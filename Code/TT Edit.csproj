@@ -121,8 +121,11 @@
   <ItemGroup>
     <Compile Include="Classes\DocxFIleDeFormatter.cs" />
     <Compile Include="Classes\DocxFileConverter.cs" />
+    <Compile Include="Classes\DocxFIleRTLParser.cs" />
     <Compile Include="Classes\DocxSubOrgMerger.cs" />
     <Compile Include="Classes\FileStruct.cs" />
+    <Compile Include="Classes\SubtitleItemCustom.cs" />
+    <Compile Include="Classes\VttFIleSubEngRemover.cs" />
     <Compile Include="Classes\VttFIleToDocConverter.cs" />
     <Compile Include="Classes\VttFIleAtRemover.cs" />
     <Compile Include="Classes\VttFIleCommaChecker.cs" />
@@ -134,14 +137,27 @@
     <Compile Include="Classes\VttFIleTimeDivider.cs" />
     <Compile Include="Classes\VttFIleTimeUniting.cs" />
     <Compile Include="Classes\VttFIleConverter.cs" />
+    <Compile Include="Classes\VttParserCustom.cs" />
     <Compile Include="Classes\VttParserDivider.cs" />
     <Compile Include="Classes\VttParserComma.cs" />
     <Compile Include="Classes\VttParser.cs" />
+    <Compile Include="Forms\RightToLeftControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\RightToLeftControl.Designer.cs">
+      <DependentUpon>RightToLeftControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\PreviewSampleFile.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\PreviewSampleFile.Designer.cs">
       <DependentUpon>PreviewSampleFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SubEngRemoverControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\SubEngRemoverControl.Designer.cs">
+      <DependentUpon>SubEngRemoverControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\VttToDocControl.cs">
       <SubType>UserControl</SubType>
@@ -235,8 +251,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\RightToLeftControl.resx">
+      <DependentUpon>RightToLeftControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\PreviewSampleFile.resx">
       <DependentUpon>PreviewSampleFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SubEngRemoverControl.resx">
+      <DependentUpon>SubEngRemoverControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\VttToDocControl.resx">
       <DependentUpon>VttToDocControl.cs</DependentUpon>

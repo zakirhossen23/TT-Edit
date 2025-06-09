@@ -228,9 +228,29 @@ namespace TT_Edit
             ActivateButton((IconButton)sender);
         }
 
-        private void guna2Panel4_Paint(object sender, PaintEventArgs e)
-        {
 
+        private void ICBRightToLeft_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            selectedControl = new TT_Edit.Forms.RightToLeftControl();
+
+            selectedControl.Parent = this;
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
+            ActivateButton((IconButton)sender);
+        }
+
+        private void ICBSubOrgRemover_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            selectedControl = new TT_Edit.Forms.SubEngRemoverControl();
+
+            selectedControl.Parent = this;
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
+            ActivateButton((IconButton)sender);
         }
     }
 

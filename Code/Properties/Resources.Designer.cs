@@ -351,6 +351,19 @@ namespace TT_Edit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to الدرس: الجهاز العضلي
+        ///
+        ///يعد الجهاز العضلي ضروريًا لبنية الجسم ووظيفته بشكل عام، ويلعب دورًا حاسمًا في الحركة والاستقرار والعمليات الداخلية. وتتكون من ثلاثة أنواع متميزة من الأنسجة العضلية: العضلات الهيكلية، والملساء، والعضلات القلبية.
+        ///• العضلات الهيكلية: تقع هذه العضلات تحت سيطرتنا الواعية وتسمح لنا بالحركة. وهي متصلة بالعظام عن طريق الأوتار، ويسمح لنا تقلصها واسترخاؤها بالتحرك. بالإضافة إلى ذلك، فإنها تولد الحرارة أثناء النشاط البدني، مما يساعد في الحفاظ على درجة حرارة الجسم. 
+        ///• العضلات الملساء: على عكس  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RightToLeftSample {
+            get {
+                return ResourceManager.GetString("RightToLeftSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap searchicon {
@@ -429,6 +442,15 @@ namespace TT_Edit.Properties {
         internal static string SubOrgMergerSample {
             get {
                 return ResourceManager.GetString("SubOrgMergerSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SubOrgRemoverSample {
+            get {
+                return ResourceManager.GetString("SubOrgRemoverSample", resourceCulture);
             }
         }
         

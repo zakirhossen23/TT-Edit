@@ -36,9 +36,11 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.ICBHelp = new FontAwesome.Sharp.IconButton();
-            this.ICBVttToDoc = new FontAwesome.Sharp.IconButton();
             this.ICBDocToVTT = new FontAwesome.Sharp.IconButton();
+            this.ICBVttToDoc = new FontAwesome.Sharp.IconButton();
+            this.ICBSubEngRemover = new FontAwesome.Sharp.IconButton();
             this.ICBSubOrgLangMerger = new FontAwesome.Sharp.IconButton();
+            this.ICBRightToLeft = new FontAwesome.Sharp.IconButton();
             this.ICBPageTextDeFormatter = new FontAwesome.Sharp.IconButton();
             this.ICBPageTextFormatter = new FontAwesome.Sharp.IconButton();
             this.ICBAtRemover = new FontAwesome.Sharp.IconButton();
@@ -111,15 +113,16 @@
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.Size = new System.Drawing.Size(304, 694);
             this.guna2Panel4.TabIndex = 1;
-            this.guna2Panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2Panel4_Paint);
             // 
             // guna2Panel3
             // 
             this.guna2Panel3.AutoScroll = true;
             this.guna2Panel3.Controls.Add(this.ICBHelp);
-            this.guna2Panel3.Controls.Add(this.ICBVttToDoc);
             this.guna2Panel3.Controls.Add(this.ICBDocToVTT);
+            this.guna2Panel3.Controls.Add(this.ICBVttToDoc);
+            this.guna2Panel3.Controls.Add(this.ICBSubEngRemover);
             this.guna2Panel3.Controls.Add(this.ICBSubOrgLangMerger);
+            this.guna2Panel3.Controls.Add(this.ICBRightToLeft);
             this.guna2Panel3.Controls.Add(this.ICBPageTextDeFormatter);
             this.guna2Panel3.Controls.Add(this.ICBPageTextFormatter);
             this.guna2Panel3.Controls.Add(this.ICBAtRemover);
@@ -151,7 +154,7 @@
             this.ICBHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBHelp.IconSize = 20;
             this.ICBHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBHelp.Location = new System.Drawing.Point(0, 668);
+            this.ICBHelp.Location = new System.Drawing.Point(0, 770);
             this.ICBHelp.Margin = new System.Windows.Forms.Padding(0);
             this.ICBHelp.Name = "ICBHelp";
             this.ICBHelp.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -162,31 +165,6 @@
             this.ICBHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ICBHelp.UseVisualStyleBackColor = true;
             this.ICBHelp.Click += new System.EventHandler(this.ICBHelp_Click);
-            // 
-            // ICBVttToDoc
-            // 
-            this.ICBVttToDoc.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ICBVttToDoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ICBVttToDoc.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.ICBVttToDoc.FlatAppearance.BorderSize = 0;
-            this.ICBVttToDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ICBVttToDoc.ForeColor = System.Drawing.Color.DimGray;
-            this.ICBVttToDoc.IconChar = FontAwesome.Sharp.IconChar.ExchangeAlt;
-            this.ICBVttToDoc.IconColor = System.Drawing.Color.Gray;
-            this.ICBVttToDoc.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ICBVttToDoc.IconSize = 20;
-            this.ICBVttToDoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBVttToDoc.Location = new System.Drawing.Point(0, 617);
-            this.ICBVttToDoc.Margin = new System.Windows.Forms.Padding(0);
-            this.ICBVttToDoc.Name = "ICBVttToDoc";
-            this.ICBVttToDoc.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.ICBVttToDoc.Size = new System.Drawing.Size(287, 51);
-            this.ICBVttToDoc.TabIndex = 15;
-            this.ICBVttToDoc.Text = "VTT to Docx";
-            this.ICBVttToDoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBVttToDoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ICBVttToDoc.UseVisualStyleBackColor = true;
-            this.ICBVttToDoc.Click += new System.EventHandler(this.ICBVttToDoc_Click);
             // 
             // ICBDocToVTT
             // 
@@ -201,7 +179,7 @@
             this.ICBDocToVTT.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBDocToVTT.IconSize = 20;
             this.ICBDocToVTT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBDocToVTT.Location = new System.Drawing.Point(0, 566);
+            this.ICBDocToVTT.Location = new System.Drawing.Point(0, 719);
             this.ICBDocToVTT.Margin = new System.Windows.Forms.Padding(0);
             this.ICBDocToVTT.Name = "ICBDocToVTT";
             this.ICBDocToVTT.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -212,6 +190,56 @@
             this.ICBDocToVTT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ICBDocToVTT.UseVisualStyleBackColor = true;
             this.ICBDocToVTT.Click += new System.EventHandler(this.ICBDocToVTT_Click);
+            // 
+            // ICBVttToDoc
+            // 
+            this.ICBVttToDoc.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBVttToDoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBVttToDoc.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBVttToDoc.FlatAppearance.BorderSize = 0;
+            this.ICBVttToDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBVttToDoc.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBVttToDoc.IconChar = FontAwesome.Sharp.IconChar.ExchangeAlt;
+            this.ICBVttToDoc.IconColor = System.Drawing.Color.Gray;
+            this.ICBVttToDoc.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBVttToDoc.IconSize = 20;
+            this.ICBVttToDoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBVttToDoc.Location = new System.Drawing.Point(0, 668);
+            this.ICBVttToDoc.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBVttToDoc.Name = "ICBVttToDoc";
+            this.ICBVttToDoc.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBVttToDoc.Size = new System.Drawing.Size(287, 51);
+            this.ICBVttToDoc.TabIndex = 15;
+            this.ICBVttToDoc.Text = "VTT to Docx";
+            this.ICBVttToDoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBVttToDoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBVttToDoc.UseVisualStyleBackColor = true;
+            this.ICBVttToDoc.Click += new System.EventHandler(this.ICBVttToDoc_Click);
+            // 
+            // ICBSubEngRemover
+            // 
+            this.ICBSubEngRemover.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBSubEngRemover.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBSubEngRemover.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBSubEngRemover.FlatAppearance.BorderSize = 0;
+            this.ICBSubEngRemover.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBSubEngRemover.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBSubEngRemover.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.ICBSubEngRemover.IconColor = System.Drawing.Color.Gray;
+            this.ICBSubEngRemover.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBSubEngRemover.IconSize = 20;
+            this.ICBSubEngRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBSubEngRemover.Location = new System.Drawing.Point(0, 617);
+            this.ICBSubEngRemover.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBSubEngRemover.Name = "ICBSubEngRemover";
+            this.ICBSubEngRemover.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBSubEngRemover.Size = new System.Drawing.Size(287, 51);
+            this.ICBSubEngRemover.TabIndex = 17;
+            this.ICBSubEngRemover.Text = "English remover (VTT)";
+            this.ICBSubEngRemover.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBSubEngRemover.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBSubEngRemover.UseVisualStyleBackColor = true;
+            this.ICBSubEngRemover.Click += new System.EventHandler(this.ICBSubOrgRemover_Click);
             // 
             // ICBSubOrgLangMerger
             // 
@@ -226,7 +254,7 @@
             this.ICBSubOrgLangMerger.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBSubOrgLangMerger.IconSize = 20;
             this.ICBSubOrgLangMerger.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBSubOrgLangMerger.Location = new System.Drawing.Point(0, 515);
+            this.ICBSubOrgLangMerger.Location = new System.Drawing.Point(0, 566);
             this.ICBSubOrgLangMerger.Margin = new System.Windows.Forms.Padding(0);
             this.ICBSubOrgLangMerger.Name = "ICBSubOrgLangMerger";
             this.ICBSubOrgLangMerger.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -237,6 +265,31 @@
             this.ICBSubOrgLangMerger.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ICBSubOrgLangMerger.UseVisualStyleBackColor = true;
             this.ICBSubOrgLangMerger.Click += new System.EventHandler(this.ICBSubOrgLangMerger_Click);
+            // 
+            // ICBRightToLeft
+            // 
+            this.ICBRightToLeft.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBRightToLeft.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBRightToLeft.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBRightToLeft.FlatAppearance.BorderSize = 0;
+            this.ICBRightToLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBRightToLeft.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBRightToLeft.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleLeft;
+            this.ICBRightToLeft.IconColor = System.Drawing.Color.Gray;
+            this.ICBRightToLeft.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBRightToLeft.IconSize = 20;
+            this.ICBRightToLeft.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBRightToLeft.Location = new System.Drawing.Point(0, 515);
+            this.ICBRightToLeft.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBRightToLeft.Name = "ICBRightToLeft";
+            this.ICBRightToLeft.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBRightToLeft.Size = new System.Drawing.Size(287, 51);
+            this.ICBRightToLeft.TabIndex = 16;
+            this.ICBRightToLeft.Text = "Right to Left";
+            this.ICBRightToLeft.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBRightToLeft.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBRightToLeft.UseVisualStyleBackColor = true;
+            this.ICBRightToLeft.Click += new System.EventHandler(this.ICBRightToLeft_Click);
             // 
             // ICBPageTextDeFormatter
             // 
@@ -512,7 +565,7 @@
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(79, 27);
             this.versionLabel.TabIndex = 0;
-            this.versionLabel.Text = "v1.1.4";
+            this.versionLabel.Text = "v1.1.8";
             this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBox2
@@ -589,6 +642,8 @@
         private FontAwesome.Sharp.IconButton ICBVttToDoc;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
+        private FontAwesome.Sharp.IconButton ICBRightToLeft;
+        private FontAwesome.Sharp.IconButton ICBSubEngRemover;
     }
 }
 

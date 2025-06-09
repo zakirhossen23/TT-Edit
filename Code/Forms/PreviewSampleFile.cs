@@ -16,11 +16,15 @@ namespace TT_Edit.Forms
         string  textOfFile;
         string outputOfFile;
         string extension;
-        public PreviewSampleFile( string fileText,string fileOutput)
+        public PreviewSampleFile( string fileText,string fileOutput,bool LrightToLeft = false, bool RrightToLeft = false)
         {
             this.textOfFile = fileText;
             this.outputOfFile = fileOutput;
             InitializeComponent();
+            if (LrightToLeft) previewRichTB.RightToLeft = RightToLeft.Yes;
+            else previewRichTB.RightToLeft = RightToLeft.No;
+            if (RrightToLeft) outputRichTB.RightToLeft = RightToLeft.Yes;
+            else outputRichTB.RightToLeft = RightToLeft.No;
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
