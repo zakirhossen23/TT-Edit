@@ -477,4 +477,77 @@ Perception is influenced by the perceptual set, context, motivation, and emotion
   <data name="SubOrgRemoverSample" xml:space="preserve">
     <value />
   </data>
+  <data name="SubEngRemoverOutput" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.290
+テネリクテス門（一般にマイコプラズマとして知られる）は、単一の綱であるモリクテス綱を含みます。
+
+00:00:04.290 --&gt; 00:00:07.230
+
+
+00:00:07.230 --&gt; 00:00:11.390
+これらの細菌は細胞壁を持たず、既知の中で最小の生物の一つです。
+
+00:00:11.390 --&gt; 00:00:13.870
+@</value>
+  </data>
+  <data name="SubEngRemoverSample" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:04.290
+The phylum Tenericutes -- commonly known as mycoplasmas -- includes a single class, Mollicutes.
+
+テネリクテス門（一般にマイコプラズマとして知られる）は、単一の綱であるモリクテス綱を含みます。
+
+00:00:04.290 --&gt; 00:00:07.230
+
+
+00:00:07.230 --&gt; 00:00:11.390
+These bacteria lack cell walls and are among the smallest known organisms.
+
+これらの細菌は細胞壁を持たず、既知の中で最小の生物の一つです。
+
+00:00:11.390 --&gt; 00:00:13.870
+@
+
+@</value>
+  </data>
+  <data name="ReverseConverterOutput" xml:space="preserve">
+    <value>
+
+WEBVTT
+
+00:00:00.000 --&gt; 00:00:00.510
+@
+
+00:00:00.510 --&gt; 00:00:04.710
+純粋培養は、混合集団から分離され
+
+00:00:04.710 --&gt; 00:00:07.660
+た単一種の微生物から成り、遺伝的
+
+00:00:07.660 --&gt; 00:00:10.030
+および生理的均一性を確保すること
+
+00:00:10.030 --&gt; 00:00:12.380
+で、制御された研究を可能にします 。</value>
+  </data>
+  <data name="ReverseConverterSample" xml:space="preserve">
+    <value>WEBVTT
+
+00:00:00.000 --&gt; 00:00:00.510
+@
+
+00:00:00.510 --&gt; 00:00:04.710
+純粋培養は、混合集団から分離された単一種の微生物から成り、遺伝的および生理的均一性を確保することで、制御された研究を可能にします。
+
+00:00:04.710 --&gt; 00:00:07.660
+
+
+00:00:07.660 --&gt; 00:00:10.030
+
+
+00:00:10.030 --&gt; 00:00:12.380</value>
+  </data>
 </root>

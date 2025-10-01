@@ -125,6 +125,8 @@
     <Compile Include="Classes\DocxSubOrgMerger.cs" />
     <Compile Include="Classes\FileStruct.cs" />
     <Compile Include="Classes\SubtitleItemCustom.cs" />
+    <Compile Include="Classes\VttFIleFormatter.cs" />
+    <Compile Include="Classes\VTTFileReverser.cs" />
     <Compile Include="Classes\VttFIleSubEngRemover.cs" />
     <Compile Include="Classes\VttFIleToDocConverter.cs" />
     <Compile Include="Classes\VttFIleAtRemover.cs" />
@@ -141,6 +143,12 @@
     <Compile Include="Classes\VttParserDivider.cs" />
     <Compile Include="Classes\VttParserComma.cs" />
     <Compile Include="Classes\VttParser.cs" />
+    <Compile Include="Forms\ReverseConverterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\ReverseConverterControl.Designer.cs">
+      <DependentUpon>ReverseConverterControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RightToLeftControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -152,6 +160,12 @@
     </Compile>
     <Compile Include="Forms\PreviewSampleFile.Designer.cs">
       <DependentUpon>PreviewSampleFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PageTextFormatVTTControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\PageTextFormatVTTControl.Designer.cs">
+      <DependentUpon>PageTextFormatVTTControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SubEngRemoverControl.cs">
       <SubType>UserControl</SubType>
@@ -251,11 +265,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ReverseConverterControl.resx">
+      <DependentUpon>ReverseConverterControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\RightToLeftControl.resx">
       <DependentUpon>RightToLeftControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PreviewSampleFile.resx">
       <DependentUpon>PreviewSampleFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PageTextFormatVTTControl.resx">
+      <DependentUpon>PageTextFormatVTTControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SubEngRemoverControl.resx">
       <DependentUpon>SubEngRemoverControl.cs</DependentUpon>

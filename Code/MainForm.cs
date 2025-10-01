@@ -252,6 +252,28 @@ namespace TT_Edit
             ControlContainer.Controls.Add(selectedControl);
             ActivateButton((IconButton)sender);
         }
+
+        private void ICBReverseConverter_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            selectedControl = new TT_Edit.Forms.ReverseConverterControl();
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
+            ActivateButton((IconButton)sender);
+        }
+
+        private void ICBPageTextFormatterVTT_Click(object sender, EventArgs e)
+        {
+            ControlContainer.Controls.Clear();
+            selectedControl = new TT_Edit.Forms.PageTextFormatVTTControl();
+            selectedControl.Parent = this;
+            selectedControl.ErrorMessageDialog.Parent = this;
+            selectedControl.Dock = DockStyle.Fill;
+            ControlContainer.Controls.Add(selectedControl);
+            ActivateButton((IconButton)sender);
+        }
     }
 
 }

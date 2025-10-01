@@ -11,11 +11,12 @@ using System.Windows.Forms;
 using SubtitlesParser.Parsers;
 using SubtitlesParser;
 using TT_Edit.Classes;
+using System.Text.RegularExpressions;
 using TT_Edit.Properties;
 
 namespace TT_Edit.Forms
 {
-    public partial class SubEngRemoverControl : UserControl
+    public partial class PageTextFormatVTTControl : UserControl
     {
         /* ************** Variables ****************/
         public static int totalFiles = 0;
@@ -26,11 +27,11 @@ namespace TT_Edit.Forms
         public static string vTTfilesPath = "";
         public static string vTTExportfolderPath = "";
 
-        private List<VttFIleSubEngRemover> allVTTFiles = new List<VttFIleSubEngRemover>();
+        private List<VttFIleFormatter> allVTTFiles = new List<VttFIleFormatter>();
 
 
 
-        public SubEngRemoverControl()
+        public PageTextFormatVTTControl()
         {
             InitializeComponent();
         }
@@ -45,6 +46,7 @@ namespace TT_Edit.Forms
                 // Settings selectted path to textboxes
                 txtVTTFilesPath.Text = String.Join(", ", allFiles);
                 vTTfilesPath = txtVTTFilesPath.Text;
+
 
                 if (allFiles.Length == 0)
                 {
@@ -91,7 +93,7 @@ namespace TT_Edit.Forms
                     // Load only vtt files
                     if (fileExt == ".vtt")
                     {
-                        var newfile = new VttFIleSubEngRemover(file, filename);
+                        var newfile = new VttFIleFormatter(file, filename);
                         allVTTFiles.Add(newfile);
 
                     }
@@ -162,7 +164,7 @@ namespace TT_Edit.Forms
         }
 
         // Function to refresh Everything using files list or AllFileList
-        void refreshEverything(List<VttFIleSubEngRemover> loadToView = null)
+        void refreshEverything(List<VttFIleFormatter> loadToView = null)
         {
             updateStatus();
             loadToView = loadToView == null ? allVTTFiles : loadToView;
@@ -170,11 +172,11 @@ namespace TT_Edit.Forms
         }
 
         // Function to load data into datagridview
-        void loadData(List<VttFIleSubEngRemover> loadToView = null)
+        void loadData(List<VttFIleFormatter> loadToView = null)
         {
             loadToView = loadToView == null ? allVTTFiles : loadToView;
             dgvFilesList.Rows.Clear();
-            foreach (VttFIleSubEngRemover item in loadToView)
+            foreach (VttFIleFormatter item in loadToView)
             {
                 // Adding name, lines count, date created, status into datagridview
                 dgvFilesList.Rows.Add(new string[] { item.name, item.lines.ToString(), item.date_created.ToString("dd/MM/yyyy"), item.status });
@@ -206,7 +208,7 @@ namespace TT_Edit.Forms
         {
             if (cmbStatusSearch.Text != "All")
             {
-                List<VttFIleSubEngRemover> searchedvTTFiles = (from file in allVTTFiles where file.status == cmbStatusSearch.Text select file).ToList();
+                List<VttFIleFormatter> searchedvTTFiles = (from file in allVTTFiles where file.status == cmbStatusSearch.Text select file).ToList();
                 refreshEverything(searchedvTTFiles);
             }
             else
@@ -219,7 +221,7 @@ namespace TT_Edit.Forms
         // Event Handler for search box to search in Datagridview
         private void txtSearchBox_TextChanged(object sender, EventArgs e)
         {
-            List<VttFIleSubEngRemover> searchedvTTFiles = (from file in allVTTFiles where file.name.Contains(txtSearchBox.Text) select file).ToList();
+            List<VttFIleFormatter> searchedvTTFiles = (from file in allVTTFiles where file.name.Contains(txtSearchBox.Text) select file).ToList();
             refreshEverything(searchedvTTFiles);
         }
 
@@ -246,9 +248,8 @@ namespace TT_Edit.Forms
 
         }
 
-
         int lastIndex = 0;
-        VttFIleSubEngRemover lastitem;
+        VttFIleFormatter lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -256,25 +257,18 @@ namespace TT_Edit.Forms
             {
 
                 // Iterating through files which status are Pending
-                foreach (VttFIleSubEngRemover item in from file in allVTTFiles where file.status == "Pending" select file)
+                foreach (VttFIleFormatter item in from file in allVTTFiles where file.status == "Pending" select file)
                 {
                     // Setting current status Running and refreshing everything
                     item.status = "Running";
                     refreshEverything();
 
 
-                    for (int i = 0; i < item.AllSubTitleItems.Count; i++)
+                    for (int i = 0; i < item.AllItems.Count; i++)
                     {
+                        item.AllItemsFinal.Add(item.AllItems[i]);
+                        item.AllItemsFinal.Add(item.AllItemsTranslated[i]);
                         lastIndex = i;
-                        lastitem = item;
-                        SubtitleItemCustom subtitle = item.AllSubTitleItems[i];
-
-                        if (item.AllSubTitleItems[i].Lines.Count == 2)
-                        {
-                            subtitle.Lines.RemoveAt(0);
-                        }
-
-                        item.AllSubTitleItems[i] = subtitle;
                     }
 
                     // Now exporting that subtitle 
@@ -288,9 +282,8 @@ namespace TT_Edit.Forms
             catch (Exception ex)
             {
 
-                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + VttFIleSubEngRemover.GetFormattedStartEnd(lastitem.AllSubTitleItems[lastIndex]), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show("Issue at : " + lastitem.AllItems[lastIndex], "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             // When everything is finished then will disable Stop button and enable Start Buttton.
             btnStart.Enabled = true;
             btnStop.Enabled = false;
@@ -349,7 +342,7 @@ namespace TT_Edit.Forms
         private void SampleBTN_Click(object sender, EventArgs e)
         {
 
-            var PreviewSample = new PreviewSampleFile(Properties.Resources.SubEngRemoverSample, Resources.SubEngRemoverOutput); PreviewSample.ShowDialog();
+            var PreviewSample = new PreviewSampleFile(Properties.Resources.PageTextFormatSample, Resources.PageTextFormatOutput); PreviewSample.ShowDialog();
         }
     }
 }

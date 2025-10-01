@@ -42,13 +42,15 @@
             this.ICBSubOrgLangMerger = new FontAwesome.Sharp.IconButton();
             this.ICBRightToLeft = new FontAwesome.Sharp.IconButton();
             this.ICBPageTextDeFormatter = new FontAwesome.Sharp.IconButton();
-            this.ICBPageTextFormatter = new FontAwesome.Sharp.IconButton();
+            this.ICBPageTextFormatterVTT = new FontAwesome.Sharp.IconButton();
+            this.ICBPageTextFormatterDoc = new FontAwesome.Sharp.IconButton();
             this.ICBAtRemover = new FontAwesome.Sharp.IconButton();
             this.ICBCommaChecker = new FontAwesome.Sharp.IconButton();
             this.ICBCPLcounter = new FontAwesome.Sharp.IconButton();
             this.ICBSpaceRemover = new FontAwesome.Sharp.IconButton();
             this.ICBTimeframeDivider = new FontAwesome.Sharp.IconButton();
             this.ICBTimeframe = new FontAwesome.Sharp.IconButton();
+            this.ICBReverseConverter = new FontAwesome.Sharp.IconButton();
             this.ICBConverter = new FontAwesome.Sharp.IconButton();
             this.ICBAtInserter = new FontAwesome.Sharp.IconButton();
             this.guna2ContainerControl1 = new Guna.UI2.WinForms.Guna2ContainerControl();
@@ -124,13 +126,15 @@
             this.guna2Panel3.Controls.Add(this.ICBSubOrgLangMerger);
             this.guna2Panel3.Controls.Add(this.ICBRightToLeft);
             this.guna2Panel3.Controls.Add(this.ICBPageTextDeFormatter);
-            this.guna2Panel3.Controls.Add(this.ICBPageTextFormatter);
+            this.guna2Panel3.Controls.Add(this.ICBPageTextFormatterVTT);
+            this.guna2Panel3.Controls.Add(this.ICBPageTextFormatterDoc);
             this.guna2Panel3.Controls.Add(this.ICBAtRemover);
             this.guna2Panel3.Controls.Add(this.ICBCommaChecker);
             this.guna2Panel3.Controls.Add(this.ICBCPLcounter);
             this.guna2Panel3.Controls.Add(this.ICBSpaceRemover);
             this.guna2Panel3.Controls.Add(this.ICBTimeframeDivider);
             this.guna2Panel3.Controls.Add(this.ICBTimeframe);
+            this.guna2Panel3.Controls.Add(this.ICBReverseConverter);
             this.guna2Panel3.Controls.Add(this.ICBConverter);
             this.guna2Panel3.Controls.Add(this.ICBAtInserter);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -154,7 +158,7 @@
             this.ICBHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBHelp.IconSize = 20;
             this.ICBHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBHelp.Location = new System.Drawing.Point(0, 770);
+            this.ICBHelp.Location = new System.Drawing.Point(0, 872);
             this.ICBHelp.Margin = new System.Windows.Forms.Padding(0);
             this.ICBHelp.Name = "ICBHelp";
             this.ICBHelp.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -179,7 +183,7 @@
             this.ICBDocToVTT.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBDocToVTT.IconSize = 20;
             this.ICBDocToVTT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBDocToVTT.Location = new System.Drawing.Point(0, 719);
+            this.ICBDocToVTT.Location = new System.Drawing.Point(0, 821);
             this.ICBDocToVTT.Margin = new System.Windows.Forms.Padding(0);
             this.ICBDocToVTT.Name = "ICBDocToVTT";
             this.ICBDocToVTT.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -204,7 +208,7 @@
             this.ICBVttToDoc.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBVttToDoc.IconSize = 20;
             this.ICBVttToDoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBVttToDoc.Location = new System.Drawing.Point(0, 668);
+            this.ICBVttToDoc.Location = new System.Drawing.Point(0, 770);
             this.ICBVttToDoc.Margin = new System.Windows.Forms.Padding(0);
             this.ICBVttToDoc.Name = "ICBVttToDoc";
             this.ICBVttToDoc.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -229,7 +233,7 @@
             this.ICBSubEngRemover.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBSubEngRemover.IconSize = 20;
             this.ICBSubEngRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBSubEngRemover.Location = new System.Drawing.Point(0, 617);
+            this.ICBSubEngRemover.Location = new System.Drawing.Point(0, 719);
             this.ICBSubEngRemover.Margin = new System.Windows.Forms.Padding(0);
             this.ICBSubEngRemover.Name = "ICBSubEngRemover";
             this.ICBSubEngRemover.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -254,7 +258,7 @@
             this.ICBSubOrgLangMerger.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBSubOrgLangMerger.IconSize = 20;
             this.ICBSubOrgLangMerger.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBSubOrgLangMerger.Location = new System.Drawing.Point(0, 566);
+            this.ICBSubOrgLangMerger.Location = new System.Drawing.Point(0, 668);
             this.ICBSubOrgLangMerger.Margin = new System.Windows.Forms.Padding(0);
             this.ICBSubOrgLangMerger.Name = "ICBSubOrgLangMerger";
             this.ICBSubOrgLangMerger.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -279,7 +283,7 @@
             this.ICBRightToLeft.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBRightToLeft.IconSize = 20;
             this.ICBRightToLeft.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBRightToLeft.Location = new System.Drawing.Point(0, 515);
+            this.ICBRightToLeft.Location = new System.Drawing.Point(0, 617);
             this.ICBRightToLeft.Margin = new System.Windows.Forms.Padding(0);
             this.ICBRightToLeft.Name = "ICBRightToLeft";
             this.ICBRightToLeft.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -304,7 +308,7 @@
             this.ICBPageTextDeFormatter.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBPageTextDeFormatter.IconSize = 20;
             this.ICBPageTextDeFormatter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBPageTextDeFormatter.Location = new System.Drawing.Point(0, 464);
+            this.ICBPageTextDeFormatter.Location = new System.Drawing.Point(0, 566);
             this.ICBPageTextDeFormatter.Margin = new System.Windows.Forms.Padding(0);
             this.ICBPageTextDeFormatter.Name = "ICBPageTextDeFormatter";
             this.ICBPageTextDeFormatter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -316,30 +320,55 @@
             this.ICBPageTextDeFormatter.UseVisualStyleBackColor = true;
             this.ICBPageTextDeFormatter.Click += new System.EventHandler(this.ICBPageTextDeFormatter_Click);
             // 
-            // ICBPageTextFormatter
+            // ICBPageTextFormatterVTT
             // 
-            this.ICBPageTextFormatter.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ICBPageTextFormatter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.ICBPageTextFormatter.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.ICBPageTextFormatter.FlatAppearance.BorderSize = 0;
-            this.ICBPageTextFormatter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ICBPageTextFormatter.ForeColor = System.Drawing.Color.DimGray;
-            this.ICBPageTextFormatter.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
-            this.ICBPageTextFormatter.IconColor = System.Drawing.Color.Gray;
-            this.ICBPageTextFormatter.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.ICBPageTextFormatter.IconSize = 20;
-            this.ICBPageTextFormatter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBPageTextFormatter.Location = new System.Drawing.Point(0, 413);
-            this.ICBPageTextFormatter.Margin = new System.Windows.Forms.Padding(0);
-            this.ICBPageTextFormatter.Name = "ICBPageTextFormatter";
-            this.ICBPageTextFormatter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.ICBPageTextFormatter.Size = new System.Drawing.Size(287, 51);
-            this.ICBPageTextFormatter.TabIndex = 11;
-            this.ICBPageTextFormatter.Text = "Pagetext format";
-            this.ICBPageTextFormatter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBPageTextFormatter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ICBPageTextFormatter.UseVisualStyleBackColor = true;
-            this.ICBPageTextFormatter.Click += new System.EventHandler(this.ICBPageTextFormatter_Click);
+            this.ICBPageTextFormatterVTT.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBPageTextFormatterVTT.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBPageTextFormatterVTT.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBPageTextFormatterVTT.FlatAppearance.BorderSize = 0;
+            this.ICBPageTextFormatterVTT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBPageTextFormatterVTT.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBPageTextFormatterVTT.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
+            this.ICBPageTextFormatterVTT.IconColor = System.Drawing.Color.Gray;
+            this.ICBPageTextFormatterVTT.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBPageTextFormatterVTT.IconSize = 20;
+            this.ICBPageTextFormatterVTT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBPageTextFormatterVTT.Location = new System.Drawing.Point(0, 515);
+            this.ICBPageTextFormatterVTT.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBPageTextFormatterVTT.Name = "ICBPageTextFormatterVTT";
+            this.ICBPageTextFormatterVTT.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBPageTextFormatterVTT.Size = new System.Drawing.Size(287, 51);
+            this.ICBPageTextFormatterVTT.TabIndex = 19;
+            this.ICBPageTextFormatterVTT.Text = "Pagetext format (VTT)";
+            this.ICBPageTextFormatterVTT.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBPageTextFormatterVTT.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBPageTextFormatterVTT.UseVisualStyleBackColor = true;
+            this.ICBPageTextFormatterVTT.Click += new System.EventHandler(this.ICBPageTextFormatterVTT_Click);
+            // 
+            // ICBPageTextFormatterDoc
+            // 
+            this.ICBPageTextFormatterDoc.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBPageTextFormatterDoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBPageTextFormatterDoc.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBPageTextFormatterDoc.FlatAppearance.BorderSize = 0;
+            this.ICBPageTextFormatterDoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBPageTextFormatterDoc.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBPageTextFormatterDoc.IconChar = FontAwesome.Sharp.IconChar.FileUpload;
+            this.ICBPageTextFormatterDoc.IconColor = System.Drawing.Color.Gray;
+            this.ICBPageTextFormatterDoc.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBPageTextFormatterDoc.IconSize = 20;
+            this.ICBPageTextFormatterDoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBPageTextFormatterDoc.Location = new System.Drawing.Point(0, 464);
+            this.ICBPageTextFormatterDoc.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBPageTextFormatterDoc.Name = "ICBPageTextFormatterDoc";
+            this.ICBPageTextFormatterDoc.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBPageTextFormatterDoc.Size = new System.Drawing.Size(287, 51);
+            this.ICBPageTextFormatterDoc.TabIndex = 11;
+            this.ICBPageTextFormatterDoc.Text = "Pagetext format (DOCX)";
+            this.ICBPageTextFormatterDoc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBPageTextFormatterDoc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBPageTextFormatterDoc.UseVisualStyleBackColor = true;
+            this.ICBPageTextFormatterDoc.Click += new System.EventHandler(this.ICBPageTextFormatter_Click);
             // 
             // ICBAtRemover
             // 
@@ -354,7 +383,7 @@
             this.ICBAtRemover.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBAtRemover.IconSize = 20;
             this.ICBAtRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBAtRemover.Location = new System.Drawing.Point(0, 362);
+            this.ICBAtRemover.Location = new System.Drawing.Point(0, 413);
             this.ICBAtRemover.Margin = new System.Windows.Forms.Padding(0);
             this.ICBAtRemover.Name = "ICBAtRemover";
             this.ICBAtRemover.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -379,7 +408,7 @@
             this.ICBCommaChecker.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBCommaChecker.IconSize = 20;
             this.ICBCommaChecker.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBCommaChecker.Location = new System.Drawing.Point(0, 311);
+            this.ICBCommaChecker.Location = new System.Drawing.Point(0, 362);
             this.ICBCommaChecker.Margin = new System.Windows.Forms.Padding(0);
             this.ICBCommaChecker.Name = "ICBCommaChecker";
             this.ICBCommaChecker.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -404,7 +433,7 @@
             this.ICBCPLcounter.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBCPLcounter.IconSize = 20;
             this.ICBCPLcounter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBCPLcounter.Location = new System.Drawing.Point(0, 260);
+            this.ICBCPLcounter.Location = new System.Drawing.Point(0, 311);
             this.ICBCPLcounter.Margin = new System.Windows.Forms.Padding(0);
             this.ICBCPLcounter.Name = "ICBCPLcounter";
             this.ICBCPLcounter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -429,7 +458,7 @@
             this.ICBSpaceRemover.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBSpaceRemover.IconSize = 20;
             this.ICBSpaceRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBSpaceRemover.Location = new System.Drawing.Point(0, 209);
+            this.ICBSpaceRemover.Location = new System.Drawing.Point(0, 260);
             this.ICBSpaceRemover.Margin = new System.Windows.Forms.Padding(0);
             this.ICBSpaceRemover.Name = "ICBSpaceRemover";
             this.ICBSpaceRemover.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -454,7 +483,7 @@
             this.ICBTimeframeDivider.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBTimeframeDivider.IconSize = 20;
             this.ICBTimeframeDivider.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBTimeframeDivider.Location = new System.Drawing.Point(0, 158);
+            this.ICBTimeframeDivider.Location = new System.Drawing.Point(0, 209);
             this.ICBTimeframeDivider.Margin = new System.Windows.Forms.Padding(0);
             this.ICBTimeframeDivider.Name = "ICBTimeframeDivider";
             this.ICBTimeframeDivider.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -479,7 +508,7 @@
             this.ICBTimeframe.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBTimeframe.IconSize = 20;
             this.ICBTimeframe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBTimeframe.Location = new System.Drawing.Point(0, 107);
+            this.ICBTimeframe.Location = new System.Drawing.Point(0, 158);
             this.ICBTimeframe.Margin = new System.Windows.Forms.Padding(0);
             this.ICBTimeframe.Name = "ICBTimeframe";
             this.ICBTimeframe.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -490,6 +519,32 @@
             this.ICBTimeframe.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ICBTimeframe.UseVisualStyleBackColor = true;
             this.ICBTimeframe.Click += new System.EventHandler(this.ICBTimeframe_Click);
+            // 
+            // ICBReverseConverter
+            // 
+            this.ICBReverseConverter.BackColor = System.Drawing.Color.White;
+            this.ICBReverseConverter.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBReverseConverter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBReverseConverter.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBReverseConverter.FlatAppearance.BorderSize = 0;
+            this.ICBReverseConverter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBReverseConverter.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBReverseConverter.IconChar = FontAwesome.Sharp.IconChar.ExchangeAlt;
+            this.ICBReverseConverter.IconColor = System.Drawing.Color.Gray;
+            this.ICBReverseConverter.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBReverseConverter.IconSize = 20;
+            this.ICBReverseConverter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBReverseConverter.Location = new System.Drawing.Point(0, 107);
+            this.ICBReverseConverter.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBReverseConverter.Name = "ICBReverseConverter";
+            this.ICBReverseConverter.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBReverseConverter.Size = new System.Drawing.Size(287, 51);
+            this.ICBReverseConverter.TabIndex = 18;
+            this.ICBReverseConverter.Text = "Reverse Converter";
+            this.ICBReverseConverter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBReverseConverter.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBReverseConverter.UseVisualStyleBackColor = false;
+            this.ICBReverseConverter.Click += new System.EventHandler(this.ICBReverseConverter_Click);
             // 
             // ICBConverter
             // 
@@ -565,7 +620,7 @@
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(79, 27);
             this.versionLabel.TabIndex = 0;
-            this.versionLabel.Text = "v1.1.8";
+            this.versionLabel.Text = "v1.1.9";
             this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBox2
@@ -635,7 +690,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private System.Windows.Forms.Label versionLabel;
         private FontAwesome.Sharp.IconButton ICBHelp;
-        private FontAwesome.Sharp.IconButton ICBPageTextFormatter;
+        private FontAwesome.Sharp.IconButton ICBPageTextFormatterDoc;
         private FontAwesome.Sharp.IconButton ICBPageTextDeFormatter;
         private FontAwesome.Sharp.IconButton ICBSubOrgLangMerger;
         private FontAwesome.Sharp.IconButton ICBDocToVTT;
@@ -644,6 +699,8 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private FontAwesome.Sharp.IconButton ICBRightToLeft;
         private FontAwesome.Sharp.IconButton ICBSubEngRemover;
+        private FontAwesome.Sharp.IconButton ICBReverseConverter;
+        private FontAwesome.Sharp.IconButton ICBPageTextFormatterVTT;
     }
 }
 

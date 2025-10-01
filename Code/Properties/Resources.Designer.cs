@@ -351,6 +351,55 @@ namespace TT_Edit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 
+        ///
+        ///WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:00.510
+        ///@
+        ///
+        ///00:00:00.510 --&gt; 00:00:04.710
+        ///純粋培養は、混合集団から分離され
+        ///
+        ///00:00:04.710 --&gt; 00:00:07.660
+        ///た単一種の微生物から成り、遺伝的
+        ///
+        ///00:00:07.660 --&gt; 00:00:10.030
+        ///および生理的均一性を確保すること
+        ///
+        ///00:00:10.030 --&gt; 00:00:12.380
+        ///で、制御された研究を可能にします 。.
+        /// </summary>
+        internal static string ReverseConverterOutput {
+            get {
+                return ResourceManager.GetString("ReverseConverterOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:00.510
+        ///@
+        ///
+        ///00:00:00.510 --&gt; 00:00:04.710
+        ///純粋培養は、混合集団から分離された単一種の微生物から成り、遺伝的および生理的均一性を確保することで、制御された研究を可能にします。
+        ///
+        ///00:00:04.710 --&gt; 00:00:07.660
+        ///
+        ///
+        ///00:00:07.660 --&gt; 00:00:10.030
+        ///
+        ///
+        ///00:00:10.030 --&gt; 00:00:12.380.
+        /// </summary>
+        internal static string ReverseConverterSample {
+            get {
+                return ResourceManager.GetString("ReverseConverterSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to الدرس: الجهاز العضلي
         ///
         ///يعد الجهاز العضلي ضروريًا لبنية الجسم ووظيفته بشكل عام، ويلعب دورًا حاسمًا في الحركة والاستقرار والعمليات الداخلية. وتتكون من ثلاثة أنواع متميزة من الأنسجة العضلية: العضلات الهيكلية، والملساء، والعضلات القلبية.
@@ -404,6 +453,54 @@ namespace TT_Edit.Properties {
         internal static string SpaceEraserSample {
             get {
                 return ResourceManager.GetString("SpaceEraserSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.290
+        ///テネリクテス門（一般にマイコプラズマとして知られる）は、単一の綱であるモリクテス綱を含みます。
+        ///
+        ///00:00:04.290 --&gt; 00:00:07.230
+        ///
+        ///
+        ///00:00:07.230 --&gt; 00:00:11.390
+        ///これらの細菌は細胞壁を持たず、既知の中で最小の生物の一つです。
+        ///
+        ///00:00:11.390 --&gt; 00:00:13.870
+        ///@.
+        /// </summary>
+        internal static string SubEngRemoverOutput {
+            get {
+                return ResourceManager.GetString("SubEngRemoverOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:04.290
+        ///The phylum Tenericutes -- commonly known as mycoplasmas -- includes a single class, Mollicutes.
+        ///
+        ///テネリクテス門（一般にマイコプラズマとして知られる）は、単一の綱であるモリクテス綱を含みます。
+        ///
+        ///00:00:04.290 --&gt; 00:00:07.230
+        ///
+        ///
+        ///00:00:07.230 --&gt; 00:00:11.390
+        ///These bacteria lack cell walls and are among the smallest known organisms.
+        ///
+        ///これらの細菌は細胞壁を持たず、既知の中で最小の生物の一つです。
+        ///
+        ///00:00:11.390 --&gt; 00:00:13.870
+        ///@
+        ///
+        ///@.
+        /// </summary>
+        internal static string SubEngRemoverSample {
+            get {
+                return ResourceManager.GetString("SubEngRemoverSample", resourceCulture);
             }
         }
         
