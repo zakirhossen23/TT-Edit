@@ -5,17 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using SubtitlesParser.Parsers;
-using SubtitlesParser;
 using TT_Edit.Classes;
 using TT_Edit.Properties;
 
 namespace TT_Edit.Forms
 {
-    public partial class SubEngRemoverControl : UserControl
+    public partial class RevCatConversionControl : UserControl
     {
         /* ************** Variables ****************/
         public static int totalFiles = 0;
@@ -23,32 +19,32 @@ namespace TT_Edit.Forms
         public static int pendingFiles = 0;
         public static int percentageDone = 0;
         public static int percentagePending = 0;
-        public static string vTTfilesPath = "";
-        public static string vTTExportfolderPath = "";
+        public static string XlsxfilesPath = "";
+        public static string DocxExportfolderPath = "";
 
-        private List<VttFIleSubEngRemover> allVTTFiles = new List<VttFIleSubEngRemover>();
+        private List<XlsxRevCatConversion> allXlsxFiles = new List<XlsxRevCatConversion>();
 
 
 
-        public SubEngRemoverControl()
+        public RevCatConversionControl()
         {
             InitializeComponent();
         }
 
 
-        // Event Handler to Open Folder Browser for VTT files
-        private void btnVTTFilesBrowse_Click(object sender, EventArgs e)
+        // Event Handler to Open Folder Browser for Xlsx files
+        private void btnXlsxFilesBrowse_Click(object sender, EventArgs e)
         {
-            if (vttOFD.ShowDialog() == DialogResult.OK)
+            if (xlsxOFD.ShowDialog() == DialogResult.OK)
             {
-                string[] allFiles = (from file in vttOFD.FileNames where Path.GetExtension(file).ToLower() == ".vtt" select file).ToArray();
+                string[] allFiles = (from file in xlsxOFD.FileNames where Path.GetExtension(file).ToLower() == (".xlsx") select file).ToArray();
                 // Settings selectted path to textboxes
-                txtVTTFilesPath.Text = String.Join(", ", allFiles);
-                vTTfilesPath = txtVTTFilesPath.Text;
+                txtXlsxFilesPath.Text = String.Join(", ", allFiles);
+                XlsxfilesPath = txtXlsxFilesPath.Text;
 
                 if (allFiles.Length == 0)
                 {
-                    ErrorMessageDialog.Text = "No VTT files to convert";
+                    ErrorMessageDialog.Text = "No Xlsx files to convert";
                     ErrorMessageDialog.Show();
                 }
 
@@ -58,41 +54,43 @@ namespace TT_Edit.Forms
             }
         }
 
-        // Event Handler to opening Export Folder Browser for VTT files
-        private void btnVTTExportFolderBrowse_Click(object sender, EventArgs e)
+        // Event Handler to opening Export Folder Browser for Docx files
+        private void btnDocxExportFolderBrowse_Click(object sender, EventArgs e)
         {
             var folderBrowser = new Microsoft.WindowsAPICodePack.Dialogs.CommonOpenFileDialog { IsFolderPicker = true };
 
             if (folderBrowser.ShowDialog() == Microsoft.WindowsAPICodePack.Dialogs.CommonFileDialogResult.Ok)
             {
                 // Settings selectted path to textboxes
-                txtVTTExportFolderPath.Text = folderBrowser.FileName;
-                vTTExportfolderPath = txtVTTExportFolderPath.Text;
+                txtDocxExportFolderPath.Text = folderBrowser.FileName;
+                DocxExportfolderPath = txtDocxExportFolderPath.Text;
             }
         }
 
 
         /********************** Functions ******************/
-        // Function to load vtt files
+        // Function to load doc files
         void loadFiles(string[] files)
         {
-            if (txtVTTFilesPath.Text != "")
+            if (txtXlsxFilesPath.Text != "")
             {
-                //Clear previous VTT files
-                allVTTFiles.Clear();
+                //Clear previous Docx files
+                allXlsxFiles.Clear();
 
                 // Iterate all the files                 
                 foreach (var file in files)
                 {
-                    // Adding those file into allVTTFiles List as VTTFile class
+                    // Adding those file into allDocxFiles List as DocxFile class
                     string filename = Path.GetFileName(file);
                     string fileExt = Path.GetExtension(filename).Trim().ToLower();
 
-                    // Load only vtt files
-                    if (fileExt == ".vtt")
+                    // Load only xlsx files
+                    if (fileExt == (".xlsx"))
                     {
-                        var newfile = new VttFIleSubEngRemover(file, filename);
-                        allVTTFiles.Add(newfile);
+                        filename = filename.Substring(0, filename.ToLower().IndexOf(".xlsx"));
+
+                        var newfile = new XlsxRevCatConversion(file, filename, cbxIncludeTimeCode.Checked);
+                        allXlsxFiles.Add(newfile);
 
                     }
 
@@ -110,11 +108,11 @@ namespace TT_Edit.Forms
         {
 
             // Getting All the Pending and Completed files
-            var allPending = from file in allVTTFiles where file.status == "Pending" select file;
-            var allCompleted = from file in allVTTFiles where file.status == "Completed" select file;
+            var allPending = from file in allXlsxFiles where file.status == "Pending" select file;
+            var allCompleted = from file in allXlsxFiles where file.status == "Completed" select file;
 
             // Storing those files count
-            totalFiles = allVTTFiles.Count();
+            totalFiles = allXlsxFiles.Count();
             doneFiles = allCompleted.Count();
             pendingFiles = allPending.Count();
 
@@ -153,9 +151,9 @@ namespace TT_Edit.Forms
                 string statusText = rowItem.Cells["stStatus"].Value.ToString();
 
                 if (statusText == "Pending") rowItem.Cells["stStatus"].Style.ForeColor = Color.Coral;
+                if (statusText == "Format Error") rowItem.Cells["stStatus"].Style.ForeColor = Color.Red;
                 if (statusText == "Completed") rowItem.Cells["stStatus"].Style.ForeColor = Color.Lime;
                 if (statusText == "Running") rowItem.Cells["stStatus"].Style.ForeColor = Color.Blue;
-                if (statusText == "Format Error") rowItem.Cells["stStatus"].Style.ForeColor = Color.Red;
 
 
 
@@ -163,19 +161,19 @@ namespace TT_Edit.Forms
         }
 
         // Function to refresh Everything using files list or AllFileList
-        void refreshEverything(List<VttFIleSubEngRemover> loadToView = null)
+        void refreshEverything(List<XlsxRevCatConversion> loadToView = null)
         {
             updateStatus();
-            loadToView = loadToView == null ? allVTTFiles : loadToView;
+            loadToView = loadToView == null ? allXlsxFiles : loadToView;
             loadData(loadToView);
         }
 
         // Function to load data into datagridview
-        void loadData(List<VttFIleSubEngRemover> loadToView = null)
+        void loadData(List<XlsxRevCatConversion> loadToView = null)
         {
-            loadToView = loadToView == null ? allVTTFiles : loadToView;
+            loadToView = loadToView == null ? allXlsxFiles : loadToView;
             dgvFilesList.Rows.Clear();
-            foreach (VttFIleSubEngRemover item in loadToView)
+            foreach (XlsxRevCatConversion item in loadToView)
             {
                 // Adding name, lines count, date created, status into datagridview
                 dgvFilesList.Rows.Add(new string[] { item.name, item.lines.ToString(), item.date_created.ToString("dd/MM/yyyy"), item.status });
@@ -196,7 +194,7 @@ namespace TT_Edit.Forms
                 if (selectedCell.ColumnIndex == dgvFilesList.Columns["stRemoveBTN"].Index)
                 {
                     // Removing that file and refreshing everything
-                    allVTTFiles.RemoveAt(e.RowIndex);
+                    allXlsxFiles.RemoveAt(e.RowIndex);
                     refreshEverything();
                 }
             }
@@ -207,7 +205,7 @@ namespace TT_Edit.Forms
         {
             if (cmbStatusSearch.Text != "All")
             {
-                List<VttFIleSubEngRemover> searchedvTTFiles = (from file in allVTTFiles where file.status == cmbStatusSearch.Text select file).ToList();
+                List<XlsxRevCatConversion> searchedvTTFiles = (from file in allXlsxFiles where file.status == cmbStatusSearch.Text select file).ToList();
                 refreshEverything(searchedvTTFiles);
             }
             else
@@ -220,7 +218,7 @@ namespace TT_Edit.Forms
         // Event Handler for search box to search in Datagridview
         private void txtSearchBox_TextChanged(object sender, EventArgs e)
         {
-            List<VttFIleSubEngRemover> searchedvTTFiles = (from file in allVTTFiles where file.name.Contains(txtSearchBox.Text) select file).ToList();
+            List<XlsxRevCatConversion> searchedvTTFiles = (from file in allXlsxFiles where file.name.Contains(txtSearchBox.Text) select file).ToList();
             refreshEverything(searchedvTTFiles);
         }
 
@@ -229,11 +227,11 @@ namespace TT_Edit.Forms
         {
             // Validating if all the fields are filled
             ErrorMessageDialog.Text = "";
-            if (txtVTTFilesPath.Text == "") ErrorMessageDialog.Text = "Please select VTT folder Files";
+            if (txtXlsxFilesPath.Text == "") ErrorMessageDialog.Text = "Please select Docx folder Files";
 
-            if (txtVTTExportFolderPath.Text == "") ErrorMessageDialog.Text = "Please enter VTT export folder Path";
+            if (txtDocxExportFolderPath.Text == "") ErrorMessageDialog.Text = "Please enter Docx export folder Path";
 
-            if (allVTTFiles.Count == 0) ErrorMessageDialog.Text = "No VTT files to convert";
+            if (allXlsxFiles.Count == 0) ErrorMessageDialog.Text = "No Docx files to convert";
 
             if (ErrorMessageDialog.Text != "") { ErrorMessageDialog.Show(); return; }
 
@@ -247,51 +245,59 @@ namespace TT_Edit.Forms
 
         }
 
-
         int lastIndex = 0;
-        VttFIleSubEngRemover lastitem;
+        XlsxRevCatConversion lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
-
                 // Iterating through files which status are Pending
-                foreach (VttFIleSubEngRemover item in from file in allVTTFiles where file.status == "Pending" select file)
+                foreach (XlsxRevCatConversion item in from file in allXlsxFiles where file.status == "Pending" select file)
                 {
+                    lastitem = item;
                     // Setting current status Running and refreshing everything
                     item.status = "Running";
                     refreshEverything();
 
-
-                    for (int i = 0; i < item.AllSubTitleItems.Count; i++)
+                    if (item.isIncludedTimeCode)
                     {
-                        lastIndex = i;
-                        lastitem = item;
-                        SubtitleItemCustom subtitle = item.AllSubTitleItems[i];
 
-                        if (item.AllSubTitleItems[i].Lines.Count == 2)
+                        for (int i = 0; i < item.AllSubTitleItems.Count; i++)
                         {
-                            subtitle.Lines.RemoveAt(0);
+
+                            item.AllItems.Add(item.AllSubTitleItems[i].StartEndString);
+
+                            if (item.AllSubTitleItems[i].Lines.Count > 0)
+                            {
+                                item.AllItems.Add(item.AllSubTitleItems[i].Lines[0]);
+                            }
+                            item.AllItems.Add("");
+                            if (item.AllSubTitleItems[i].Lines.Count > 0)
+                            {
+                                item.AllItems.Add(item.AllSubTitleItems[i].Lines[1]);
+                            }
+                            item.AllItems.Add("");
+
+                            lastIndex = i;
                         }
 
-                        item.AllSubTitleItems[i] = subtitle;
                     }
 
                     // Now exporting that subtitle 
                     item.export();
+                    item.status = "Completed";
+
 
                     // Updating current item status to Completed and refreshing everything
-                    item.status = "Completed";
+
                     refreshEverything();
                 }
             }
             catch (Exception ex)
             {
-
-                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + VttFIleSubEngRemover.GetFormattedStartEnd(lastitem.AllSubTitleItems[lastIndex]), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Issue at : " + lastitem.AllItems[lastIndex], "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             // When everything is finished then will disable Stop button and enable Start Buttton.
             btnStart.Enabled = true;
             btnStop.Enabled = false;
@@ -323,14 +329,14 @@ namespace TT_Edit.Forms
 
         private void btnExportedFolderOpen_Click(object sender, EventArgs e)
         {
-            if (txtVTTExportFolderPath.Text.Trim() == "") return;
-            System.Diagnostics.Process.Start(txtVTTExportFolderPath.Text);
+            if (txtDocxExportFolderPath.Text.Trim() == "") return;
+            System.Diagnostics.Process.Start(txtDocxExportFolderPath.Text);
 
         }
 
-        private void txtVTTExportFolderPath_TextChanged(object sender, EventArgs e)
+        private void txtDocxExportFolderPath_TextChanged(object sender, EventArgs e)
         {
-            if (txtVTTExportFolderPath.Text != "")
+            if (txtDocxExportFolderPath.Text != "")
             {
                 btnExportedFolderOpen.Enabled = true;
             }
@@ -350,7 +356,12 @@ namespace TT_Edit.Forms
         private void SampleBTN_Click(object sender, EventArgs e)
         {
 
-            var PreviewSample = new PreviewSampleFile(Properties.Resources.SubEngRemoverSample, Resources.SubEngRemoverOutput); PreviewSample.ShowDialog();
+            var PreviewSample = new PreviewSampleFile("Xlsx", Resources.SubOrgMergerOutput); PreviewSample.ShowDialog();
+        }
+
+        private void guna2Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

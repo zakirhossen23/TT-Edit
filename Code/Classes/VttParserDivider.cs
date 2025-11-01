@@ -1,5 +1,4 @@
-﻿
-using SubtitlesParser;
+﻿using SubtitlesParser;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,6 +20,9 @@ namespace TT_Edit.Classes
             "- >",
             "->"
       };
+
+        // Regex to match timecode lines (allows variations like "-->", "->", "- >")
+        private readonly Regex _timecodeRegex = new Regex(@"^\s*(.+?)\s*-+>\s*(.+?)\s*$", RegexOptions.Compiled);
 
         // Function to parse VTT file
         public List<SubtitleItem> ParseStream(Stream vttStream, Encoding encoding)
@@ -82,8 +84,10 @@ namespace TT_Edit.Classes
                             newLineCount++;
                         }
                     }
-                    string[] array = item2.Split(_delimiters, StringSplitOptions.None);
-                    if (array.Length == 2)
+
+                    // Use regex to detect timecode lines instead of splitting by delimiters
+                    var mTc = _timecodeRegex.Match(item2 ?? string.Empty);
+                    if (mTc.Success)
                     {
                         // Adding this subtitleItem 
                         if ((subtitleItem.StartTime != 0 || subtitleItem.EndTime != 0))
@@ -160,16 +164,17 @@ namespace TT_Edit.Classes
         // Function to check if possible to Parse TimecodeLine 
         private bool TryParseTimecodeLine(string line, out int startTc, out int endTc)
         {
-            string[] array = line.Split(_delimiters, StringSplitOptions.None);
-            if (array.Length != 2)
+            // Use regex to split into left and right timecode parts (handles variations of arrow)
+            var m = _timecodeRegex.Match(line ?? string.Empty);
+            if (!m.Success || m.Groups.Count < 3)
             {
                 startTc = -1;
                 endTc = -1;
                 return false;
             }
 
-            startTc = ParseVttTimecode(array[0]);
-            endTc = ParseVttTimecode(array[1]);
+            startTc = ParseVttTimecode(m.Groups[1].Value);
+            endTc = ParseVttTimecode(m.Groups[2].Value);
             return true;
         }
 

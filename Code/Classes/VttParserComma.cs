@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -43,6 +42,9 @@ namespace TT_Edit.Classes
             "->"
       };
 
+        // Regex to match VTT timecode lines like: 00:00:33.030 --> 00:00:38.530
+        private readonly Regex _timecodeRegex = new Regex(@"^\s*(\d{2}:\d{2}:\d{2}\.\d{3})\s*-+\s*>\s*(\d{2}:\d{2}:\d{2}\.\d{3})\s*$", RegexOptions.Compiled);
+
         // Function to parse VTT file
         public List<SubtitleItemCommas> ParseStream(Stream vttStream, Encoding encoding)
         {
@@ -79,8 +81,8 @@ namespace TT_Edit.Classes
                         // Checking if subtitleItem starttime and endtime is 0 or not
                         if (subtitleItem.StartEndString == null || subtitleItem.StartEndString == "")
                         {
-                            string[] array = item2.Split(_delimiters, StringSplitOptions.None);
-                            if (array.Length == 2)
+                            // Use regex to detect timecode lines instead of splitting by delimiters
+                            if (_timecodeRegex.IsMatch(item2))
                             {
                                 subtitleItem.StartEndString = item2;
                             }

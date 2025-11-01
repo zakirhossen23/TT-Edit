@@ -93,7 +93,6 @@ namespace TT_Edit.Classes
             date_created = File.GetCreationTime(path);
 
             // Reading file
-            var newParser = new Classes.VttParser();
             using (var vttStream = File.OpenRead(path))
             {
                 vttStream.Position = 0L;

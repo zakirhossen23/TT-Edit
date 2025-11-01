@@ -33,6 +33,7 @@ namespace TT_Edit.Classes
 
 
         /********************** Functions ******************/
+
         // Function to get export path
         public string export_path()
         {
@@ -81,19 +82,26 @@ namespace TT_Edit.Classes
         public void parseVttFile()
         {
             date_created = File.GetCreationTime(path);
-
-            // Reading file
-            var newParser = new Classes.VttParserCustom();
-            using (var fileStream = File.OpenRead(path))
+            try
             {
-                // Parsing the file and storing into AllSubtitleItemCustoms as List
-                var newParsed = newParser.ParseStream(fileStream, Encoding.UTF8);
-                AllSubTitleItems = newParsed.ToList();
+
+                // Reading file
+                var newParser = new Classes.VttParserCustom();
+                using (var fileStream = File.OpenRead(path))
+                {
+                    var newParsed = newParser.ParseStream(fileStream, Encoding.UTF8);
+                    AllSubTitleItems = newParsed.ToList();
+                }
+
+                // Setting All subtitle count
+                lines = AllSubTitleItems.Count;
+
+
             }
-
-            // Setting All subtitle count
-            lines = AllSubTitleItems.Count;
-
+            catch (Exception ex)
+            {
+                this.status = "Format Error";
+            }
 
 
         }

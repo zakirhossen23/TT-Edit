@@ -1,5 +1,4 @@
-﻿
-using SubtitlesParser;
+﻿using SubtitlesParser;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +9,7 @@ using TT_Edit.Forms;
 
 namespace TT_Edit.Classes
 {
-   
+
 
     // Class to Parse VTT
     public class VttParserCustom
@@ -23,21 +22,34 @@ namespace TT_Edit.Classes
             "->"
       };
 
+        // Regex to match VTT timecode lines like: 00:00:33.030 --> 00:00:38.530
+        private readonly Regex _timecodeRegex = new Regex(@"^\s*(\d{2}:\d{2}:\d{2}\.\d{3})\s*-->\s*(\d{2}:\d{2}:\d{2}\.\d{3})\s*$", RegexOptions.Compiled);
+
         // Function to parse VTT file
-        public List<SubtitleItemCustom> ParseStream(Stream vttStream, Encoding encoding)
+        public List<SubtitleItemCustom> ParseStream(Stream vttStream, Encoding encoding, List<String> _lineLists=null )
         {
-            if (!vttStream.CanRead || !vttStream.CanSeek)
+            if ((!vttStream.CanRead || !vttStream.CanSeek) && _lineLists == null)
             {
                 throw new ArgumentException($"Stream must be seekable and readable in a subtitles parser. Operation interrupted; isSeekable: {vttStream.CanSeek} - isReadable: {vttStream.CanSeek}");
             }
+            List<string> list2;
+            if (_lineLists == null)
+            {
 
-            vttStream.Position = 0L;
-            StreamReader reader = new StreamReader(vttStream, encoding, detectEncodingFromByteOrderMarks: true);
+                vttStream.Position = 0L;
+                StreamReader reader = new StreamReader(vttStream, encoding, detectEncodingFromByteOrderMarks: true);
+             
+
+                // Getting all the string lines form the Vtt files
+                list2 = GetVttSubTitleParts(reader).ToList();
+            }
+            else
+            {
+                list2 = _lineLists;
+            }
             List<SubtitleItemCustom> list = new List<SubtitleItemCustom>();
 
 
-            // Getting all the string lines form the Vtt files
-            List<string> list2 = GetVttSubTitleParts(reader).ToList();
             if (list2.Any())
             {
 
@@ -52,7 +64,6 @@ namespace TT_Edit.Classes
                     if (item != null)
                         item2 = item.Trim();
                     if (subtitleItem.StartEndString != null && subtitleItem.StartEndString.ToString() != "")
-                    // Checking if subtitleItem starttime and endtime is 0 or not
                     {
 
                         if (item2 != null && item2 != "" && !item2.StartsWith("\u200B") && item2.Length != 2)
@@ -62,7 +73,7 @@ namespace TT_Edit.Classes
                                 stringBuilder.AppendLine(item2);
                                 newLineCount = 0;
                             }
-                            else if (newLineCount > 0)
+                            else if (newLineCount > 0 && stringBuilder.Length >0)
                             {
                                 if (stringBuilder.ToString().TrimEnd() != "")
                                     subtitleItem.Lines.Add(stringBuilder.ToString().TrimEnd());
@@ -70,9 +81,9 @@ namespace TT_Edit.Classes
                                 newLineCount = 0;
                                 stringBuilder.AppendLine(item2);
                             }
-                            else
+                            else if (newLineCount == 1 && stringBuilder.Length ==0)
                             {
-                                stringBuilder.AppendLine(item2);
+                                throw new FormatException("Format Error.");
                             }
 
 
@@ -83,8 +94,10 @@ namespace TT_Edit.Classes
                             newLineCount++;
                         }
                     }
-                    string[] array = item2.Split(_delimiters, StringSplitOptions.None);
-                    if (array.Length == 2)
+
+                    // Use regex to detect timecode lines instead of splitting by delimiters
+                    var m = _timecodeRegex.Match(item2 ?? string.Empty);
+                    if (m.Success)
                     {
                         // Adding this subtitleItem 
                         if ((subtitleItem.StartEndString != null && subtitleItem.StartEndString.ToString() != ""))
@@ -97,7 +110,7 @@ namespace TT_Edit.Classes
                         stringBuilder = new StringBuilder();
                         subtitleItem.StartEndString = item2;
                     }
-                  
+
 
                 }
                 // Adding this subtitleItem 
