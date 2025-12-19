@@ -36,6 +36,8 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.ICBHelp = new FontAwesome.Sharp.IconButton();
+            this.ICBRevConcatSubText = new FontAwesome.Sharp.IconButton();
+            this.ICBConcatSubText = new FontAwesome.Sharp.IconButton();
             this.ICBRevCatConversion = new FontAwesome.Sharp.IconButton();
             this.ICBCatConversion = new FontAwesome.Sharp.IconButton();
             this.ICBDocToVTT = new FontAwesome.Sharp.IconButton();
@@ -122,6 +124,8 @@
             // 
             this.guna2Panel3.AutoScroll = true;
             this.guna2Panel3.Controls.Add(this.ICBHelp);
+            this.guna2Panel3.Controls.Add(this.ICBRevConcatSubText);
+            this.guna2Panel3.Controls.Add(this.ICBConcatSubText);
             this.guna2Panel3.Controls.Add(this.ICBRevCatConversion);
             this.guna2Panel3.Controls.Add(this.ICBCatConversion);
             this.guna2Panel3.Controls.Add(this.ICBDocToVTT);
@@ -162,7 +166,7 @@
             this.ICBHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBHelp.IconSize = 20;
             this.ICBHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBHelp.Location = new System.Drawing.Point(0, 974);
+            this.ICBHelp.Location = new System.Drawing.Point(0, 1076);
             this.ICBHelp.Margin = new System.Windows.Forms.Padding(0);
             this.ICBHelp.Name = "ICBHelp";
             this.ICBHelp.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -173,6 +177,56 @@
             this.ICBHelp.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ICBHelp.UseVisualStyleBackColor = true;
             this.ICBHelp.Click += new System.EventHandler(this.ICBHelp_Click);
+            // 
+            // ICBRevConcatSubText
+            // 
+            this.ICBRevConcatSubText.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBRevConcatSubText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBRevConcatSubText.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBRevConcatSubText.FlatAppearance.BorderSize = 0;
+            this.ICBRevConcatSubText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBRevConcatSubText.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBRevConcatSubText.IconChar = FontAwesome.Sharp.IconChar.ExpandAlt;
+            this.ICBRevConcatSubText.IconColor = System.Drawing.Color.Gray;
+            this.ICBRevConcatSubText.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBRevConcatSubText.IconSize = 20;
+            this.ICBRevConcatSubText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBRevConcatSubText.Location = new System.Drawing.Point(0, 1025);
+            this.ICBRevConcatSubText.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBRevConcatSubText.Name = "ICBRevConcatSubText";
+            this.ICBRevConcatSubText.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBRevConcatSubText.Size = new System.Drawing.Size(287, 51);
+            this.ICBRevConcatSubText.TabIndex = 23;
+            this.ICBRevConcatSubText.Text = "Reverse Concat Sub Text (VTT)";
+            this.ICBRevConcatSubText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBRevConcatSubText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBRevConcatSubText.UseVisualStyleBackColor = true;
+            this.ICBRevConcatSubText.Click += new System.EventHandler(this.ICBRevConcatSubText_Click);
+            // 
+            // ICBConcatSubText
+            // 
+            this.ICBConcatSubText.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBConcatSubText.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBConcatSubText.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBConcatSubText.FlatAppearance.BorderSize = 0;
+            this.ICBConcatSubText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBConcatSubText.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBConcatSubText.IconChar = FontAwesome.Sharp.IconChar.CompressAlt;
+            this.ICBConcatSubText.IconColor = System.Drawing.Color.Gray;
+            this.ICBConcatSubText.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBConcatSubText.IconSize = 20;
+            this.ICBConcatSubText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBConcatSubText.Location = new System.Drawing.Point(0, 974);
+            this.ICBConcatSubText.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBConcatSubText.Name = "ICBConcatSubText";
+            this.ICBConcatSubText.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBConcatSubText.Size = new System.Drawing.Size(287, 51);
+            this.ICBConcatSubText.TabIndex = 22;
+            this.ICBConcatSubText.Text = "Concat Sub Text (VTT)";
+            this.ICBConcatSubText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBConcatSubText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBConcatSubText.UseVisualStyleBackColor = true;
+            this.ICBConcatSubText.Click += new System.EventHandler(this.ICBConcatSubText_Click);
             // 
             // ICBRevCatConversion
             // 
@@ -674,7 +728,7 @@
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(79, 27);
             this.versionLabel.TabIndex = 0;
-            this.versionLabel.Text = "v1.2.5";
+            this.versionLabel.Text = "v1.2.8";
             this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBox2
@@ -757,6 +811,8 @@
         private FontAwesome.Sharp.IconButton ICBPageTextFormatterVTT;
         private FontAwesome.Sharp.IconButton ICBCatConversion;
         private FontAwesome.Sharp.IconButton ICBRevCatConversion;
+        private FontAwesome.Sharp.IconButton ICBRevConcatSubText;
+        private FontAwesome.Sharp.IconButton ICBConcatSubText;
     }
 }
 
