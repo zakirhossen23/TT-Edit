@@ -314,7 +314,7 @@ namespace TT_Edit
         private void ICBRevConcatSubText_Click(object sender, EventArgs e)
         {
             ControlContainer.Controls.Clear();
-            selectedControl = new TT_Edit.Forms.CatConversionControl();
+            selectedControl = new TT_Edit.Forms.PageRevConcatSubTextVTTControl();
 
             selectedControl.Parent = this;
             selectedControl.ErrorMessageDialog.Parent = this;

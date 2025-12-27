@@ -19,7 +19,7 @@ namespace TT_Edit.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -202,6 +202,50 @@ namespace TT_Edit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 41043.hb.combined.vtt
+        ///--------------
+        ///מודל הרוד-דומר II
+        ///
+        ///מודלים של צמיחה כלכלית שימשו זה שנים רבות כתוכניות אב עבור אסטרטגיות פיתוח. אחד המודלים המוקדמים והמשפיעים ביותר בתחום זה היה מודל הרוד-דומר, שתיאר את הצמיחה כפונקציה ישירה של החיסכון ושל פריון ההון. למרות שמאוחר יותר הוחלף על ידי תיאוריות מקיפות יותר, המודל עיצב במידה ניכרת את מדיניות הפיתוח של אמצע המאה ה־20, בכך שהציע קשר כמותי בין השקעה לבין הרחבת התפוקה.
+        ///
+        ///
+        ///
+        ///WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:03.800
+        ///מודל הרוד-דומר מציע כי
+        ///הצמיחה הכלכלית
+        ///
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ConcatSubTextOutput {
+            get {
+                return ResourceManager.GetString("ConcatSubTextOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 41043.hb.vtt
+        ///--------------
+        ///מודל הרוד-דומר II
+        ///
+        ///מודלים של צמיחה כלכלית שימשו זה שנים רבות כתוכניות אב עבור אסטרטגיות פיתוח. אחד המודלים המוקדמים והמשפיעים ביותר בתחום זה היה מודל הרוד-דומר, שתיאר את הצמיחה כפונקציה ישירה של החיסכון ושל פריון ההון. למרות שמאוחר יותר הוחלף על ידי תיאוריות מקיפות יותר, המודל עיצב במידה ניכרת את מדיניות הפיתוח של אמצע המאה ה־20, בכך שהציע קשר כמותי בין השקעה לבין הרחבת התפוקה.
+        ///
+        ///
+        ///41043.hb.SUB.vtt
+        ///-------------------
+        ///WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:03.800
+        ///מודל הרוד-דומר [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ConcatSubTextSample {
+            get {
+                return ResourceManager.GetString("ConcatSubTextSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WEBVTT
         ///
         ///00:00:00.000 --&gt; 00:00:04.580
@@ -347,6 +391,50 @@ namespace TT_Edit.Properties {
         internal static string PageTextFormatSample {
             get {
                 return ResourceManager.GetString("PageTextFormatSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 41043.hb.vtt
+        ///--------------
+        ///מודל הרוד-דומר II
+        ///
+        ///מודלים של צמיחה כלכלית שימשו זה שנים רבות כתוכניות אב עבור אסטרטגיות פיתוח. אחד המודלים המוקדמים והמשפיעים ביותר בתחום זה היה מודל הרוד-דומר, שתיאר את הצמיחה כפונקציה ישירה של החיסכון ושל פריון ההון. למרות שמאוחר יותר הוחלף על ידי תיאוריות מקיפות יותר, המודל עיצב במידה ניכרת את מדיניות הפיתוח של אמצע המאה ה־20, בכך שהציע קשר כמותי בין השקעה לבין הרחבת התפוקה.
+        ///
+        ///
+        ///41043.hb.SUB.vtt
+        ///-------------------
+        ///WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:03.800
+        ///מודל הרוד-דומר [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RevConcatSubTextOutput {
+            get {
+                return ResourceManager.GetString("RevConcatSubTextOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 41043.hb.combined.vtt
+        ///--------------
+        ///מודל הרוד-דומר II
+        ///
+        ///מודלים של צמיחה כלכלית שימשו זה שנים רבות כתוכניות אב עבור אסטרטגיות פיתוח. אחד המודלים המוקדמים והמשפיעים ביותר בתחום זה היה מודל הרוד-דומר, שתיאר את הצמיחה כפונקציה ישירה של החיסכון ושל פריון ההון. למרות שמאוחר יותר הוחלף על ידי תיאוריות מקיפות יותר, המודל עיצב במידה ניכרת את מדיניות הפיתוח של אמצע המאה ה־20, בכך שהציע קשר כמותי בין השקעה לבין הרחבת התפוקה.
+        ///
+        ///
+        ///
+        ///WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:03.800
+        ///מודל הרוד-דומר מציע כי
+        ///הצמיחה הכלכלית
+        ///
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RevConcatSubTextSample {
+            get {
+                return ResourceManager.GetString("RevConcatSubTextSample", resourceCulture);
             }
         }
         

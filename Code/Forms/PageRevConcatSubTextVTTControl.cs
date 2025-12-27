@@ -1,4 +1,7 @@
-﻿using System;
+﻿using NPOI.SS.Formula.Functions;
+using SubtitlesParser;
+using SubtitlesParser.Parsers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,17 +9,15 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SubtitlesParser.Parsers;
-using SubtitlesParser;
 using TT_Edit.Classes;
-using System.Text.RegularExpressions;
 using TT_Edit.Properties;
 
 namespace TT_Edit.Forms
 {
-    public partial class PageConcatSubTextVTTControl : UserControl
+    public partial class PageRevConcatSubTextVTTControl : UserControl
     {
         /* ************** Variables ****************/
         public static int totalFiles = 0;
@@ -27,11 +28,11 @@ namespace TT_Edit.Forms
         public static string vTTfilesPath = "";
         public static string vTTExportfolderPath = "";
 
-        private List<VttCancatSubText> allVTTFiles = new List<VttCancatSubText>();
+        private List<VttRevCancatSubText> allVTTFiles = new List<VttRevCancatSubText>();
 
 
 
-        public PageConcatSubTextVTTControl()
+        public PageRevConcatSubTextVTTControl()
         {
             InitializeComponent();
         }
@@ -90,16 +91,10 @@ namespace TT_Edit.Forms
                     string filename = Path.GetFileName(file);
                     string fileExt = Path.GetExtension(filename).Trim().ToLower();
 
-                    // Ignore files that end with ".sub.vtt" (case-insensitive)
-                    if (filename.EndsWith(".sub.vtt", StringComparison.OrdinalIgnoreCase))
-                    {
-                        continue;
-                    }
-
                     // Load only vtt files
                     if (fileExt == ".vtt")
                     {
-                        var newfile = new VttCancatSubText(file, filename.Replace(fileExt,""), files);
+                        var newfile = new VttRevCancatSubText(file, filename.Replace(".combined.vtt", ""));
                         allVTTFiles.Add(newfile);
 
                     }
@@ -161,8 +156,8 @@ namespace TT_Edit.Forms
                 string statusText = rowItem.Cells["stStatus"].Value.ToString();
 
                 if (statusText == "Pending") rowItem.Cells["stStatus"].Style.ForeColor = Color.Coral;
-                else if (statusText == "Completed") rowItem.Cells["stStatus"].Style.ForeColor = Color.Lime;
-                else if (statusText == "Running") rowItem.Cells["stStatus"].Style.ForeColor = Color.Blue;
+                else if(statusText == "Completed") rowItem.Cells["stStatus"].Style.ForeColor = Color.Lime;
+                else if(statusText == "Running") rowItem.Cells["stStatus"].Style.ForeColor = Color.Blue;
                 else rowItem.Cells["stStatus"].Style.ForeColor = Color.Red;
 
 
@@ -171,7 +166,7 @@ namespace TT_Edit.Forms
         }
 
         // Function to refresh Everything using files list or AllFileList
-        void refreshEverything(List<VttCancatSubText> loadToView = null)
+        void refreshEverything(List<VttRevCancatSubText> loadToView = null)
         {
             updateStatus();
             loadToView = loadToView == null ? allVTTFiles : loadToView;
@@ -179,11 +174,11 @@ namespace TT_Edit.Forms
         }
 
         // Function to load data into datagridview
-        void loadData(List<VttCancatSubText> loadToView = null)
+        void loadData(List<VttRevCancatSubText> loadToView = null)
         {
             loadToView = loadToView == null ? allVTTFiles : loadToView;
             dgvFilesList.Rows.Clear();
-            foreach (VttCancatSubText item in loadToView)
+            foreach (VttRevCancatSubText item in loadToView)
             {
                 // Adding name, lines count, date created, status into datagridview
                 dgvFilesList.Rows.Add(new string[] { item.name, item.lines.ToString(), item.date_created.ToString("dd/MM/yyyy"), item.status });
@@ -215,7 +210,7 @@ namespace TT_Edit.Forms
         {
             if (cmbStatusSearch.Text != "All")
             {
-                List<VttCancatSubText> searchedvTTFiles = (from file in allVTTFiles where file.status == cmbStatusSearch.Text select file).ToList();
+                List<VttRevCancatSubText> searchedvTTFiles = (from file in allVTTFiles where file.status == cmbStatusSearch.Text select file).ToList();
                 refreshEverything(searchedvTTFiles);
             }
             else
@@ -228,7 +223,7 @@ namespace TT_Edit.Forms
         // Event Handler for search box to search in Datagridview
         private void txtSearchBox_TextChanged(object sender, EventArgs e)
         {
-            List<VttCancatSubText> searchedvTTFiles = (from file in allVTTFiles where file.name.Contains(txtSearchBox.Text) select file).ToList();
+            List<VttRevCancatSubText> searchedvTTFiles = (from file in allVTTFiles where file.name.Contains(txtSearchBox.Text) select file).ToList();
             refreshEverything(searchedvTTFiles);
         }
 
@@ -262,17 +257,11 @@ namespace TT_Edit.Forms
             {
 
                 // Iterating through files which status are Pending
-                foreach (VttCancatSubText item in from file in allVTTFiles where file.status == "Pending" select file)
+                foreach (VttRevCancatSubText item in from file in allVTTFiles where file.status == "Pending" select file)
                 {
                     // Setting current status Running and refreshing everything
                     item.status = "Running";
                     refreshEverything();
-
-                    item.AllItems.AddRange(item.AllItemsOrg);
-                    for (int i = 0; i < 3; i++)
-                    item.AllItems.Add("");
-
-                    item.AllItems.AddRange(item.AllItemsSub);
 
                     // Now exporting that subtitle 
                     item.export();
@@ -344,7 +333,7 @@ namespace TT_Edit.Forms
         private void SampleBTN_Click(object sender, EventArgs e)
         {
 
-            var PreviewSample = new PreviewSampleFile(Properties.Resources.ConcatSubTextSample, Resources.ConcatSubTextOutput); PreviewSample.ShowDialog();
+            var PreviewSample = new PreviewSampleFile(Properties.Resources.RevConcatSubTextSample, Resources.RevConcatSubTextOutput); PreviewSample.ShowDialog();
         }
     }
 }

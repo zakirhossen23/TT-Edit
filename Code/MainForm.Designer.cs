@@ -728,7 +728,7 @@
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(79, 27);
             this.versionLabel.TabIndex = 0;
-            this.versionLabel.Text = "v1.2.8";
+            this.versionLabel.Text = "v1.2.9";
             this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBox2
