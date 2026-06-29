@@ -168,7 +168,7 @@
             this.ICBHelp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBHelp.IconSize = 20;
             this.ICBHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBHelp.Location = new System.Drawing.Point(0, 1076);
+            this.ICBHelp.Location = new System.Drawing.Point(0, 1127);
             this.ICBHelp.Margin = new System.Windows.Forms.Padding(0);
             this.ICBHelp.Name = "ICBHelp";
             this.ICBHelp.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -193,7 +193,7 @@
             this.ICBRevConcatSubText.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBRevConcatSubText.IconSize = 20;
             this.ICBRevConcatSubText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBRevConcatSubText.Location = new System.Drawing.Point(0, 1025);
+            this.ICBRevConcatSubText.Location = new System.Drawing.Point(0, 1076);
             this.ICBRevConcatSubText.Margin = new System.Windows.Forms.Padding(0);
             this.ICBRevConcatSubText.Name = "ICBRevConcatSubText";
             this.ICBRevConcatSubText.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -218,7 +218,7 @@
             this.ICBConcatSubText.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBConcatSubText.IconSize = 20;
             this.ICBConcatSubText.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBConcatSubText.Location = new System.Drawing.Point(0, 974);
+            this.ICBConcatSubText.Location = new System.Drawing.Point(0, 1025);
             this.ICBConcatSubText.Margin = new System.Windows.Forms.Padding(0);
             this.ICBConcatSubText.Name = "ICBConcatSubText";
             this.ICBConcatSubText.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -243,7 +243,7 @@
             this.ICBRevCatConversion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBRevCatConversion.IconSize = 20;
             this.ICBRevCatConversion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBRevCatConversion.Location = new System.Drawing.Point(0, 923);
+            this.ICBRevCatConversion.Location = new System.Drawing.Point(0, 974);
             this.ICBRevCatConversion.Margin = new System.Windows.Forms.Padding(0);
             this.ICBRevCatConversion.Name = "ICBRevCatConversion";
             this.ICBRevCatConversion.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -268,7 +268,7 @@
             this.ICBCatConversion.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBCatConversion.IconSize = 20;
             this.ICBCatConversion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBCatConversion.Location = new System.Drawing.Point(0, 872);
+            this.ICBCatConversion.Location = new System.Drawing.Point(0, 923);
             this.ICBCatConversion.Margin = new System.Windows.Forms.Padding(0);
             this.ICBCatConversion.Name = "ICBCatConversion";
             this.ICBCatConversion.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -293,7 +293,7 @@
             this.ICBDocToVTT.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBDocToVTT.IconSize = 20;
             this.ICBDocToVTT.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBDocToVTT.Location = new System.Drawing.Point(0, 821);
+            this.ICBDocToVTT.Location = new System.Drawing.Point(0, 872);
             this.ICBDocToVTT.Margin = new System.Windows.Forms.Padding(0);
             this.ICBDocToVTT.Name = "ICBDocToVTT";
             this.ICBDocToVTT.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -318,7 +318,7 @@
             this.ICBVttToDoc.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBVttToDoc.IconSize = 20;
             this.ICBVttToDoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBVttToDoc.Location = new System.Drawing.Point(0, 770);
+            this.ICBVttToDoc.Location = new System.Drawing.Point(0, 821);
             this.ICBVttToDoc.Margin = new System.Windows.Forms.Padding(0);
             this.ICBVttToDoc.Name = "ICBVttToDoc";
             this.ICBVttToDoc.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -343,7 +343,7 @@
             this.ICBSubEngRemover.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ICBSubEngRemover.IconSize = 20;
             this.ICBSubEngRemover.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ICBSubEngRemover.Location = new System.Drawing.Point(0, 719);
+            this.ICBSubEngRemover.Location = new System.Drawing.Point(0, 770);
             this.ICBSubEngRemover.Margin = new System.Windows.Forms.Padding(0);
             this.ICBSubEngRemover.Name = "ICBSubEngRemover";
             this.ICBSubEngRemover.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
@@ -755,7 +755,7 @@
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(79, 27);
             this.versionLabel.TabIndex = 0;
-            this.versionLabel.Text = "v1.2.9";
+            this.versionLabel.Text = "v1.3.0";
             this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2PictureBox2
