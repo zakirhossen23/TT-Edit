@@ -43,6 +43,7 @@
             this.ICBDocToVTT = new FontAwesome.Sharp.IconButton();
             this.ICBVttToDoc = new FontAwesome.Sharp.IconButton();
             this.ICBSubEngRemover = new FontAwesome.Sharp.IconButton();
+            this.ICBBilingualExtract = new FontAwesome.Sharp.IconButton();
             this.ICBSubOrgLangMerger = new FontAwesome.Sharp.IconButton();
             this.ICBRightToLeft = new FontAwesome.Sharp.IconButton();
             this.ICBPageTextDeFormatter = new FontAwesome.Sharp.IconButton();
@@ -131,6 +132,7 @@
             this.guna2Panel3.Controls.Add(this.ICBDocToVTT);
             this.guna2Panel3.Controls.Add(this.ICBVttToDoc);
             this.guna2Panel3.Controls.Add(this.ICBSubEngRemover);
+            this.guna2Panel3.Controls.Add(this.ICBBilingualExtract);
             this.guna2Panel3.Controls.Add(this.ICBSubOrgLangMerger);
             this.guna2Panel3.Controls.Add(this.ICBRightToLeft);
             this.guna2Panel3.Controls.Add(this.ICBPageTextDeFormatter);
@@ -352,6 +354,31 @@
             this.ICBSubEngRemover.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ICBSubEngRemover.UseVisualStyleBackColor = true;
             this.ICBSubEngRemover.Click += new System.EventHandler(this.ICBSubOrgRemover_Click);
+            // 
+            // ICBBilingualExtract
+            // 
+            this.ICBBilingualExtract.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBBilingualExtract.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBBilingualExtract.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBBilingualExtract.FlatAppearance.BorderSize = 0;
+            this.ICBBilingualExtract.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBBilingualExtract.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBBilingualExtract.IconChar = FontAwesome.Sharp.IconChar.FileExport;
+            this.ICBBilingualExtract.IconColor = System.Drawing.Color.Gray;
+            this.ICBBilingualExtract.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBBilingualExtract.IconSize = 20;
+            this.ICBBilingualExtract.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBBilingualExtract.Location = new System.Drawing.Point(0, 719);
+            this.ICBBilingualExtract.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBBilingualExtract.Name = "ICBBilingualExtract";
+            this.ICBBilingualExtract.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBBilingualExtract.Size = new System.Drawing.Size(287, 51);
+            this.ICBBilingualExtract.TabIndex = 24;
+            this.ICBBilingualExtract.Text = "Bilingual VTT to Paragraph";
+            this.ICBBilingualExtract.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBBilingualExtract.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBBilingualExtract.UseVisualStyleBackColor = true;
+            this.ICBBilingualExtract.Click += new System.EventHandler(this.ICBBilingualExtract_Click);
             // 
             // ICBSubOrgLangMerger
             // 
@@ -813,6 +840,7 @@
         private FontAwesome.Sharp.IconButton ICBRevCatConversion;
         private FontAwesome.Sharp.IconButton ICBRevConcatSubText;
         private FontAwesome.Sharp.IconButton ICBConcatSubText;
+        private FontAwesome.Sharp.IconButton ICBBilingualExtract;
     }
 }
 

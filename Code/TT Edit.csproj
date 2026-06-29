@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -164,6 +165,9 @@
     <Reference Include="System.Security.Cryptography.Xml, Version=8.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Security.Cryptography.Xml.8.0.2\lib\net462\System.Security.Cryptography.Xml.dll</HintPath>
     </Reference>
+    <Reference Include="System.Resources.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Resources.Extensions.4.6.0\lib\netstandard2.0\System.Resources.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Text.Encoding.CodePages, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
@@ -208,6 +212,7 @@
     <Compile Include="Classes\VTTFileReverser.cs" />
     <Compile Include="Classes\DocxCatConversion.cs" />
     <Compile Include="Classes\VttFIleSubEngRemover.cs" />
+    <Compile Include="Classes\VttBilingualToParagraph.cs" />
     <Compile Include="Classes\VttFIleToDocConverter.cs" />
     <Compile Include="Classes\VttFIleAtRemover.cs" />
     <Compile Include="Classes\VttFIleCommaChecker.cs" />
@@ -283,6 +288,15 @@
     <Compile Include="Forms\VttToDocControl.Designer.cs">
       <DependentUpon>VttToDocControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\BilingualExtractControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\BilingualExtractControl.Designer.cs">
+      <DependentUpon>BilingualExtractControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\BilingualExtractControl.resx">
+      <DependentUpon>BilingualExtractControl.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Forms\AtRemoverControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
