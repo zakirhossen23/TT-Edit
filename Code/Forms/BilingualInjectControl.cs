@@ -289,7 +289,8 @@ namespace TT_Edit.Forms
 
         private void SampleBTN_Click(object sender, EventArgs e)
         {
-            // This would show the reverse sample if available
+            var PreviewSample = new PreviewSampleFile(Properties.Resources.BilingualnjectSample, Resources.BilingualInjectOutput); PreviewSample.ShowDialog();
+
         }
     }
 }

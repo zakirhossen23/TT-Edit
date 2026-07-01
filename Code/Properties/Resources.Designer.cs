@@ -154,6 +154,80 @@ namespace TT_Edit.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 
+        ///&lt;1&gt; When a baseball is hit, ignoring air resistance, its path through the air can be shown by a downward-facing parabola. &lt;2&gt; Here, x is the horizontal position along this path, and y is the height above the ground.
+        ///&lt;1&gt; Cuando se golpea una pelota de béisbol, ignorando la resistencia del aire, su trayectoria a través del aire se puede mostrar mediante una parábola orientada hacia abajo. &lt;2&gt; Aquí, x es la posición horizontal a lo largo de esta trayectoria e y es la altura sobre el suelo. 
+        ///
+        ///WEBVTT
+        ///00:00 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BilingualExtractOutput {
+            get {
+                return ResourceManager.GetString("BilingualExtractOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:03.770
+        ///When a baseball is hit, ignoring air resistance, its path through the air can be shown by a downward-facing parabola.
+        ///
+        ///Cuando se golpea una pelota de béisbol, ignorando la resistencia del aire, su trayectoria a través del aire se puede mostrar mediante una parábola orientada hacia abajo.
+        ///
+        ///00:00:03.770 --&gt; 00:00:05.790
+        ///
+        ///
+        ///00:00:05.790 --&gt; 00:00:09.010
+        ///
+        ///
+        ///00:00:09.010 --&gt; 00:00:12.670
+        ///Here, x is the horizontal position along this path, and y is the height abov [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BilingualExtractSample {
+            get {
+                return ResourceManager.GetString("BilingualExtractSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WEBVTT
+        ///
+        ///00:00:00.000 --&gt; 00:00:03.770
+        ///When a baseball is hit, ignoring air resistance, its path through the air can be shown by a downward-facing parabola.
+        ///
+        ///Cuando se golpea una pelota de béisbol, ignorando la resistencia del aire, su trayectoria a través del aire se puede mostrar mediante una parábola orientada hacia abajo.
+        ///
+        ///00:00:03.770 --&gt; 00:00:05.790
+        ///
+        ///
+        ///00:00:05.790 --&gt; 00:00:09.010
+        ///
+        ///
+        ///00:00:09.010 --&gt; 00:00:12.670
+        ///Here, x is the horizontal position along this path, and y is the height abov [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BilingualInjectOutput {
+            get {
+                return ResourceManager.GetString("BilingualInjectOutput", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 
+        ///&lt;1&gt; When a baseball is hit, ignoring air resistance, its path through the air can be shown by a downward-facing parabola. &lt;2&gt; Here, x is the horizontal position along this path, and y is the height above the ground.
+        ///&lt;1&gt; Cuando se golpea una pelota de béisbol, ignorando la resistencia del aire, su trayectoria a través del aire se puede mostrar mediante una parábola orientada hacia abajo. &lt;2&gt; Aquí, x es la posición horizontal a lo largo de esta trayectoria e y es la altura sobre el suelo. 
+        ///
+        ///WEBVTT
+        ///00:00 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BilingualnjectSample {
+            get {
+                return ResourceManager.GetString("BilingualnjectSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WEBVTT
         ///
         ///00:00:00.000 --&gt; 00:00:03,870 (Have comma - Bad)

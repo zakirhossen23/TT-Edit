@@ -27,8 +27,7 @@ namespace TT_Edit.Forms
         public static string vTTExportfolderPath = "";
 
         private List<VttFIleCplCounter> allVTTFiles = new List<VttFIleCplCounter>();
-
-
+        private System.Threading.CancellationTokenSource cts;
 
         public CplCounterControl()
         {
@@ -245,86 +244,106 @@ namespace TT_Edit.Forms
             btnStart.Enabled = false;
             btnStop.Enabled = true;
 
+            cts = new System.Threading.CancellationTokenSource();
             // Runing the work
-            CheckForIllegalCrossThreadCalls = false;
             backgroundWorkerConverter.RunWorkerAsync();
-
         }
 
-        int lastIndex = 0;
-        VttFIleCplCounter lastitem;
+        void updateItemStatusInGrid(VttFIleCplCounter item)
+        {
+            foreach (DataGridViewRow row in dgvFilesList.Rows)
+            {
+                if (row.Cells["stTitle"].Value?.ToString() == item.name)
+                {
+                    row.Cells["stStatus"].Value = item.status;
+                    row.Cells["stExceed"].Value = item.Exceed;
+                    break;
+                }
+            }
+            updateDGV();
+            updateStatus();
+        }
+
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
-
             try
             {
-                // Iterating through files which status are Pending
-                foreach (VttFIleCplCounter item in from file in allVTTFiles where file.status == "Pending" select file)
+                var pendingFiles = allVTTFiles.Where(f => f.status == "Pending").ToList();
+
+                System.Threading.Tasks.Parallel.ForEach(pendingFiles, new System.Threading.Tasks.ParallelOptions 
+                { 
+                    CancellationToken = cts.Token, 
+                    MaxDegreeOfParallelism = System.Environment.ProcessorCount 
+                }, item => 
                 {
-                    // Setting current status Running and refreshing everything
-                    item.status = "Running";
-                    item.Exceed = "Running";
-                    int total_exceed = 0;
-                    refreshEverything();
-
-                    for (int i = 0; i < item.AllSubTitleItems.Count - 1; i++)
+                    try
                     {
-                        SubtitleItem subtitle = item.AllSubTitleItems[i];
-                        for (int li = 0; li < subtitle.Lines.Count; li++)
-                        {
-                            lastIndex = i;
-                            lastitem = item;
-                            if (subtitle.Lines[li].Length > 45)
-                            {
-                                total_exceed += 1;
-                                subtitle.Lines[li] = subtitle.Lines[li] + " (" + subtitle.Lines[li].Length + " CPL)";
+                        item.status = "Running";
+                        item.Exceed = "Running";
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
 
+                        int total_exceed = 0;
+                        for (int i = 0; i < item.AllSubTitleItems.Count - 1; i++)
+                        {
+                            SubtitleItem subtitle = item.AllSubTitleItems[i];
+                            for (int li = 0; li < subtitle.Lines.Count; li++)
+                            {
+                                if (subtitle.Lines[li].Length > 45)
+                                {
+                                    total_exceed += 1;
+                                    subtitle.Lines[li] = subtitle.Lines[li] + " (" + subtitle.Lines[li].Length + " CPL)";
+                                }
                             }
+                            item.AllSubTitleItems[i] = subtitle;
                         }
 
-                        item.AllSubTitleItems[i] = subtitle;
+                        // Now exporting that subtitle 
+                        if (total_exceed > 0)
+                            item.export();
 
-
+                        item.status = "Completed";
+                        item.Exceed = total_exceed.ToString();
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
                     }
-
-                    // Now exporting that subtitle 
-                    if (total_exceed > 0)
-                        item.export();
-
-                    // Updating current item status to Completed and refreshing everything
-                    item.status = "Completed";
-                    item.Exceed = total_exceed.ToString();
-                    refreshEverything();
-                }
+                    catch (Exception ex)
+                    {
+                        item.status = "Format Error";
+                        this.Invoke(new Action(() => {
+                            updateItemStatusInGrid(item);
+                            System.Windows.Forms.MessageBox.Show($"Issue at : {item.name}\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }));
+                    }
+                });
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Handle cancellation
             }
             catch (Exception ex)
             {
-
-                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + VttFIleCplCounter.GetFormattedStartEnd(lastitem.AllSubTitleItems[lastIndex]), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Invoke(new Action(() => {
+                    System.Windows.Forms.MessageBox.Show("General Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }));
             }
-            // When everything is finished then will disable Stop button and enable Start Buttton.
-            btnStart.Enabled = true;
-            btnStop.Enabled = false;
 
+            this.Invoke(new Action(() => {
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+            }));
         }
 
         // Event Handler to Stop
         private void btnStop_Click(object sender, EventArgs e)
         {
-            // Force Cancel BackgrounWorker and skip if found any error
             try
             {
+                cts?.Cancel();
                 backgroundWorkerConverter.CancelAsync();
             }
-            catch (Exception ex)
-            {
-
-            }
+            catch { }
             finally
             {
-
-                // Then Enable Start button and Disable Stop Button
                 btnStart.Enabled = true;
                 btnStop.Enabled = false;
             }

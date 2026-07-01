@@ -28,8 +28,7 @@ namespace TT_Edit.Forms
         public static string vTTExportfolderPath = "";
 
         private List<VttFIleConverter> allVTTFiles = new List<VttFIleConverter>();
-
-
+        private System.Threading.CancellationTokenSource cts;
 
         public ConverterControl()
         {
@@ -242,11 +241,25 @@ namespace TT_Edit.Forms
             btnStart.Enabled = false;
             btnStop.Enabled = true;
 
+            cts = new System.Threading.CancellationTokenSource();
             // Runing the work
-            CheckForIllegalCrossThreadCalls = false;
             backgroundWorkerConverter.RunWorkerAsync();
-
         }
+
+        void updateItemStatusInGrid(VttFIleConverter item)
+        {
+            foreach (DataGridViewRow row in dgvFilesList.Rows)
+            {
+                if (row.Cells["stTitle"].Value?.ToString() == item.name)
+                {
+                    row.Cells["stStatus"].Value = item.status;
+                    break;
+                }
+            }
+            updateDGV();
+            updateStatus();
+        }
+
         string[] DecimalsInString(String line)
         {
             string[] allDecimals = new string[] { };
@@ -266,144 +279,149 @@ namespace TT_Edit.Forms
         }
 
 
-        int lastIndex = 0;
-        VttFIleConverter lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
+                var pendingFiles = allVTTFiles.Where(f => f.status == "Pending").ToList();
+                
+                bool breakDotEnd = (bool)this.Invoke(new Func<bool>(() => cbxBreakDotEnd.Checked));
+                string ignoreWordsText = (string)this.Invoke(new Func<string>(() => ignoreCharsTxt.Text));
+                string[] allIgnoreWords = ignoreWordsText.Split(',');
 
-                // Iterating through files which status are Pending
-                foreach (VttFIleConverter item in from file in allVTTFiles where file.status == "Pending" select file)
+                System.Threading.Tasks.Parallel.ForEach(pendingFiles, new System.Threading.Tasks.ParallelOptions 
+                { 
+                    CancellationToken = cts.Token, 
+                    MaxDegreeOfParallelism = System.Environment.ProcessorCount 
+                }, item => 
                 {
-                    // Setting current status Running and refreshing everything
-                    item.status = "Running";
-                    refreshEverything();
-
-                    SubtitleItem firstSubTitle = null;
-                    string splittedLine = null;
-                    bool isNewSub = true;
-                    for (int i = 0; i < item.AllSubTitleItems.Count; i++)
+                    try
                     {
-                        lastIndex = i;
-                        lastitem = item;
-                        SubtitleItem subtitle = item.AllSubTitleItems[i];
-                        // First joining all lines into a string
-                        string draftLines = string.Join(" ", subtitle.Lines.ToArray());
+                        item.status = "Running";
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
 
-                        // If it should be new Subtitle to gather next sentances then store it into firstSubTitle variable
-                        if (isNewSub)
+                        SubtitleItem firstSubTitle = null;
+                        string splittedLine = null;
+                        bool isNewSub = true;
+                        for (int i = 0; i < item.AllSubTitleItems.Count; i++)
                         {
-                            if (draftLines.Length > 0)
-                                firstSubTitle = subtitle;
-                            if (splittedLine != null)
-                            {
-                                firstSubTitle.Lines.Insert(0, splittedLine);
-                                splittedLine = null;
+                            SubtitleItem subtitle = item.AllSubTitleItems[i];
+                            // First joining all lines into a string
+                            string draftLines = string.Join(" ", subtitle.Lines.ToArray());
 
-                            }
-                        }
-                        else
-                        {
-
-                            if (cbxBreakDotEnd.Checked)
+                            // If it should be new Subtitle to gather next sentances then store it into firstSubTitle variable
+                            if (isNewSub)
                             {
-                                // If previous one has no fullstop then it will add current lines to that one
-                                firstSubTitle.Lines.AddRange(subtitle.Lines);
-                            }
-                            else
-                            {
-                                foreach (var line in subtitle.Lines)
+                                if (draftLines.Length > 0)
+                                    firstSubTitle = subtitle;
+                                if (splittedLine != null)
                                 {
-
-                                    if (line.Contains(".") && line.Length != 0)
-                                    {
-                                        firstSubTitle.Lines.Add(line.Split('.')[0] + ".");
-
-                                    }
+                                    firstSubTitle.Lines.Insert(0, splittedLine);
+                                    splittedLine = null;
 
                                 }
                             }
-                            // Clearing current subtitle lines
-                            subtitle.Lines.Clear();
-                        }
-
-                        // Removing deciaml (float numbers)
-                        string[] allDecimals = DecimalsInString(draftLines);
-                        foreach (var num in allDecimals)
-                        {
-                            draftLines = draftLines.Replace(num, "");
-                        }
-
-                        // Removing ignoring words
-                        string[] allIgnoreWords = ignoreCharsTxt.Text.Split(',');
-                        foreach (var word in allIgnoreWords)
-                        {
-                            draftLines = draftLines.Replace(word.Trim(), "");
-                        }
-
-
-                        if (cbxBreakDotEnd.Checked)
-                        {
-                            if (draftLines.EndsWith(".") && draftLines.Length != 0) isNewSub = true;
-                            else isNewSub = false;
-                        }
-                        else if (!cbxBreakDotEnd.Checked)
-                        {
-                            if (draftLines.Contains(".") && draftLines.Length != 0)
+                            else
                             {
-                                splittedLine = draftLines.Split('.')[1];
-                                isNewSub = true;
+                                if (breakDotEnd)
+                                {
+                                    // If previous one has no fullstop then it will add current lines to that one
+                                    firstSubTitle.Lines.AddRange(subtitle.Lines);
+                                }
+                                else
+                                {
+                                    foreach (var line in subtitle.Lines)
+                                    {
+                                        if (line.Contains(".") && line.Length != 0)
+                                        {
+                                            firstSubTitle.Lines.Add(line.Split('.')[0] + ".");
+                                        }
+                                    }
+                                }
+                                // Clearing current subtitle lines
+                                subtitle.Lines.Clear();
+                            }
+
+                            // Removing deciaml (float numbers)
+                            string[] allDecimals = DecimalsInString(draftLines);
+                            foreach (var num in allDecimals)
+                            {
+                                draftLines = draftLines.Replace(num, "");
+                            }
+
+                            // Removing ignoring words
+                            foreach (var word in allIgnoreWords)
+                            {
+                                draftLines = draftLines.Replace(word.Trim(), "");
+                            }
+
+                            if (breakDotEnd)
+                            {
+                                if (draftLines.EndsWith(".") && draftLines.Length != 0) isNewSub = true;
+                                else isNewSub = false;
                             }
                             else
                             {
-                                isNewSub = false;
-                                splittedLine = null;
-
+                                if (draftLines.Contains(".") && draftLines.Length != 0)
+                                {
+                                    splittedLine = draftLines.Split('.')[1];
+                                    isNewSub = true;
+                                }
+                                else
+                                {
+                                    isNewSub = false;
+                                    splittedLine = null;
+                                }
                             }
+
+                            if (draftLines.Trim() == "@") isNewSub = true;
                         }
 
-                        if (draftLines.Trim() == "@") isNewSub = true;
+                        // Now exporting that subtitle 
+                        item.export();
 
+                        item.status = "Completed";
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
                     }
-
-
-                    // Now exporting that subtitle 
-                    item.export();
-
-                    // Updating current item status to Completed and refreshing everything
-                    item.status = "Completed";
-                    refreshEverything();
-                }
+                    catch (Exception ex)
+                    {
+                        item.status = "Format Error";
+                        this.Invoke(new Action(() => {
+                            updateItemStatusInGrid(item);
+                            System.Windows.Forms.MessageBox.Show($"Issue at : {item.name}\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }));
+                    }
+                });
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Handle cancellation
             }
             catch (Exception ex)
             {
-
-                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + VttFIleConverter.GetFormattedStartEnd(lastitem.AllSubTitleItems[lastIndex]), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Invoke(new Action(() => {
+                    System.Windows.Forms.MessageBox.Show("General Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }));
             }
-            // When everything is finished then will disable Stop button and enable Start Buttton.
-            btnStart.Enabled = true;
-            btnStop.Enabled = false;
 
+            this.Invoke(new Action(() => {
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+            }));
         }
 
         // Event Handler to Stop
         private void btnStop_Click(object sender, EventArgs e)
         {
-            // Force Cancel BackgrounWorker and skip if found any error
             try
             {
+                cts?.Cancel();
                 backgroundWorkerConverter.CancelAsync();
             }
-            catch (Exception ex)
-            {
-
-            }
+            catch { }
             finally
             {
-
-                // Then Enable Start button and Disable Stop Button
                 btnStart.Enabled = true;
                 btnStop.Enabled = false;
             }

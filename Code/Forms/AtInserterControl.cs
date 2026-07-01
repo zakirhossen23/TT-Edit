@@ -27,8 +27,7 @@ namespace TT_Edit.Forms
         public static string vTTExportfolderPath = "";
 
         private List<VttFIleAtInserter> allVTTFiles = new List<VttFIleAtInserter>();
-
-
+        private System.Threading.CancellationTokenSource cts;
 
         public AtInserterControl()
         {
@@ -241,74 +240,98 @@ namespace TT_Edit.Forms
             btnStart.Enabled = false;
             btnStop.Enabled = true;
 
+            cts = new System.Threading.CancellationTokenSource();
             // Runing the work
-            CheckForIllegalCrossThreadCalls = false;
             backgroundWorkerConverter.RunWorkerAsync();
-
         }
 
+        void updateItemStatusInGrid(VttFIleAtInserter item)
+        {
+            foreach (DataGridViewRow row in dgvFilesList.Rows)
+            {
+                if (row.Cells["stTitle"].Value?.ToString() == item.name)
+                {
+                    row.Cells["stStatus"].Value = item.status;
+                    break;
+                }
+            }
+            updateDGV();
+            updateStatus();
+        }
 
-        int lastIndex = 0;
-        VttFIleAtInserter lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
-                // Iterating through files which status are Pending
-                foreach (VttFIleAtInserter item in from file in allVTTFiles where file.status == "Pending" select file)
-                {
-                    // Setting current status Running and refreshing everything
-                    item.status = "Running";
-                    refreshEverything();
+                var pendingFiles = allVTTFiles.Where(f => f.status == "Pending").ToList();
 
-                    for (int i = 0; i < item.AllSubTitleItems.Count; i++)
+                System.Threading.Tasks.Parallel.ForEach(pendingFiles, new System.Threading.Tasks.ParallelOptions 
+                { 
+                    CancellationToken = cts.Token, 
+                    MaxDegreeOfParallelism = System.Environment.ProcessorCount 
+                }, item => 
+                {
+                    try
                     {
-                        lastIndex = i;
-                        SubtitleItem subtitle = item.AllSubTitleItems[i];
-                        if (subtitle.Lines.Count == 0)
+                        item.status = "Running";
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
+
+                        // Processing subtitles
+                        for (int i = 0; i < item.AllSubTitleItems.Count; i++)
                         {
-                            subtitle.Lines.Add("@");
+                            SubtitleItem subtitle = item.AllSubTitleItems[i];
+                            if (subtitle.Lines.Count == 0)
+                            {
+                                subtitle.Lines.Add("@");
+                            }
+                            item.AllSubTitleItems[i] = subtitle;
                         }
 
-                        item.AllSubTitleItems[i] = subtitle;
+                        // Now exporting that subtitle 
+                        item.export();
+
+                        item.status = "Completed";
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
                     }
-
-                    // Now exporting that subtitle 
-                    item.export();
-
-                    // Updating current item status to Completed and refreshing everything
-                    item.status = "Completed";
-                    refreshEverything();
-                }
+                    catch (Exception ex)
+                    {
+                        item.status = "Format Error";
+                        this.Invoke(new Action(() => {
+                            updateItemStatusInGrid(item);
+                            System.Windows.Forms.MessageBox.Show($"Issue at : {item.name}\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }));
+                    }
+                });
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Handle cancellation
             }
             catch (Exception ex)
             {
-
-                System.Windows.Forms.MessageBox.Show("Issue at timeframe : " + VttFIleAtInserter.GetFormattedStartEnd( lastitem.AllSubTitleItems[lastIndex]), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Invoke(new Action(() => {
+                    System.Windows.Forms.MessageBox.Show("General Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }));
             }
-            // When everything is finished then will disable Stop button and enable Start Buttton.
-            btnStart.Enabled = true;
-            btnStop.Enabled = false;
 
+            this.Invoke(new Action(() => {
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+            }));
         }
 
         // Event Handler to Stop
         private void btnStop_Click(object sender, EventArgs e)
         {
-            // Force Cancel BackgrounWorker and skip if found any error
             try
             {
+                cts?.Cancel();
                 backgroundWorkerConverter.CancelAsync();
             }
-            catch (Exception ex)
-            {
-
-            }
+            catch { }
             finally
             {
-
-                // Then Enable Start button and Disable Stop Button
                 btnStart.Enabled = true;
                 btnStop.Enabled = false;
             }

@@ -28,8 +28,7 @@ namespace TT_Edit.Forms
         public static string DocxExportfolderPath = "";
 
         private List<DocxFileConverter> allDocxFiles = new List<DocxFileConverter>();
-
-
+        private System.Threading.CancellationTokenSource cts;
 
         public DocToVTTConverterControl()
         {
@@ -249,64 +248,86 @@ namespace TT_Edit.Forms
             btnStart.Enabled = false;
             btnStop.Enabled = true;
 
+            cts = new System.Threading.CancellationTokenSource();
             // Runing the work
-            CheckForIllegalCrossThreadCalls = false;
             backgroundWorkerConverter.RunWorkerAsync();
-
         }
 
-        int lastIndex = 0;
-        DocxFileConverter lastitem;
+        void updateItemStatusInGrid(DocxFileConverter item)
+        {
+            foreach (DataGridViewRow row in dgvFilesList.Rows)
+            {
+                if (row.Cells["stTitle"].Value?.ToString() == item.name)
+                {
+                    row.Cells["stStatus"].Value = item.status;
+                    break;
+                }
+            }
+            updateDGV();
+            updateStatus();
+        }
+
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
-                // Iterating through files which status are Pending
-                foreach (DocxFileConverter item in from file in allDocxFiles where file.status == "Pending" select file)
+                var pendingFiles = allDocxFiles.Where(f => f.status == "Pending").ToList();
+
+                System.Threading.Tasks.Parallel.ForEach(pendingFiles, new System.Threading.Tasks.ParallelOptions 
+                { 
+                    CancellationToken = cts.Token, 
+                    MaxDegreeOfParallelism = System.Environment.ProcessorCount 
+                }, item => 
                 {
-                    lastitem = item;
-                    // Setting current status Running and refreshing everything
-                    item.status = "Running";
-                    refreshEverything();                   
+                    try
+                    {
+                        item.status = "Running";
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
 
-                    // Now exporting that subtitle 
-                    item.export();
-                    item.status = "Completed";
-
-
-                    // Updating current item status to Completed and refreshing everything
-
-                    refreshEverything();
-                }
+                        // Now exporting that subtitle 
+                        item.export();
+                        item.status = "Completed";
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
+                    }
+                    catch (Exception ex)
+                    {
+                        item.status = "Format Error";
+                        this.Invoke(new Action(() => {
+                            updateItemStatusInGrid(item);
+                            System.Windows.Forms.MessageBox.Show($"Issue at : {item.name}\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }));
+                    }
+                });
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Handle cancellation
             }
             catch (Exception ex)
             {
-
-                System.Windows.Forms.MessageBox.Show("Issue at : " + lastitem.AllItems[lastIndex], "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Invoke(new Action(() => {
+                    System.Windows.Forms.MessageBox.Show("General Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }));
             }
-            // When everything is finished then will disable Stop button and enable Start Buttton.
-            btnStart.Enabled = true;
-            btnStop.Enabled = false;
 
+            this.Invoke(new Action(() => {
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+            }));
         }
 
         // Event Handler to Stop
         private void btnStop_Click(object sender, EventArgs e)
         {
-            // Force Cancel BackgrounWorker and skip if found any error
             try
             {
+                cts?.Cancel();
                 backgroundWorkerConverter.CancelAsync();
             }
-            catch (Exception ex)
-            {
-
-            }
+            catch { }
             finally
             {
-
-                // Then Enable Start button and Disable Stop Button
                 btnStart.Enabled = true;
                 btnStop.Enabled = false;
             }

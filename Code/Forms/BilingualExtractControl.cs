@@ -27,8 +27,7 @@ namespace TT_Edit.Forms
         public static string vTTExportfolderPath = "";
 
         private List<VttBilingualToParagraph> allVTTFiles = new List<VttBilingualToParagraph>();
-
-
+        private System.Threading.CancellationTokenSource cts;
 
         public BilingualExtractControl()
         {
@@ -241,66 +240,87 @@ namespace TT_Edit.Forms
             btnStart.Enabled = false;
             btnStop.Enabled = true;
 
+            cts = new System.Threading.CancellationTokenSource();
             // Runing the work
-            CheckForIllegalCrossThreadCalls = false;
             backgroundWorkerConverter.RunWorkerAsync();
-
         }
 
+        void updateItemStatusInGrid(VttBilingualToParagraph item)
+        {
+            foreach (DataGridViewRow row in dgvFilesList.Rows)
+            {
+                if (row.Cells["stTitle"].Value?.ToString() == item.name)
+                {
+                    row.Cells["stStatus"].Value = item.status;
+                    break;
+                }
+            }
+            updateDGV();
+            updateStatus();
+        }
 
-        int lastIndex = 0;
-        VttBilingualToParagraph lastitem;
         // Event handler of background worker
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
+                var pendingFiles = allVTTFiles.Where(f => f.status == "Pending").ToList();
 
-                // Iterating through files which status are Pending
-                foreach (VttBilingualToParagraph item in from file in allVTTFiles where file.status == "Pending" select file)
+                System.Threading.Tasks.Parallel.ForEach(pendingFiles, new System.Threading.Tasks.ParallelOptions 
+                { 
+                    CancellationToken = cts.Token, 
+                    MaxDegreeOfParallelism = System.Environment.ProcessorCount 
+                }, item => 
                 {
-                    // Setting current status Running and refreshing everything
-                    item.status = "Running";
-                    refreshEverything();
+                    try
+                    {
+                        item.status = "Running";
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
 
-                    lastitem = item;
+                        // Export the three output files
+                        item.export();
 
-                    // Export the three output files
-                    item.export();
-
-                    // Updating current item status to Completed and refreshing everything
-                    item.status = "Completed";
-                    refreshEverything();
-                }
+                        item.status = "Completed";
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
+                    }
+                    catch (Exception ex)
+                    {
+                        item.status = "Format Error";
+                        this.Invoke(new Action(() => {
+                            updateItemStatusInGrid(item);
+                            System.Windows.Forms.MessageBox.Show($"Issue at : {item.name}\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }));
+                    }
+                });
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Handle cancellation
             }
             catch (Exception ex)
             {
-
-                System.Windows.Forms.MessageBox.Show("Issue at : " + lastitem.name, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Invoke(new Action(() => {
+                    System.Windows.Forms.MessageBox.Show("General Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }));
             }
 
-            // When everything is finished then will disable Stop button and enable Start Buttton.
-            btnStart.Enabled = true;
-            btnStop.Enabled = false;
-
+            this.Invoke(new Action(() => {
+                btnStart.Enabled = true;
+                btnStop.Enabled = false;
+            }));
         }
 
         // Event Handler to Stop
         private void btnStop_Click(object sender, EventArgs e)
         {
-            // Force Cancel BackgrounWorker and skip if found any error
             try
             {
+                cts?.Cancel();
                 backgroundWorkerConverter.CancelAsync();
             }
-            catch (Exception ex)
-            {
-
-            }
+            catch { }
             finally
             {
-
-                // Then Enable Start button and Disable Stop Button
                 btnStart.Enabled = true;
                 btnStop.Enabled = false;
             }
@@ -337,7 +357,7 @@ namespace TT_Edit.Forms
         private void SampleBTN_Click(object sender, EventArgs e)
         {
 
-            var PreviewSample = new PreviewSampleFile(Properties.Resources.PageTextFormatSample, Resources.PageTextFormatOutput); PreviewSample.ShowDialog();
+            var PreviewSample = new PreviewSampleFile(Properties.Resources.BilingualExtractSample, Resources.BilingualExtractOutput); PreviewSample.ShowDialog();
         }
     }
 }
