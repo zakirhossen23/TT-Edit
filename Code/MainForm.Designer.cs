@@ -38,6 +38,7 @@
             this.ICBHelp = new FontAwesome.Sharp.IconButton();
             this.ICBRevConcatSubText = new FontAwesome.Sharp.IconButton();
             this.ICBConcatSubText = new FontAwesome.Sharp.IconButton();
+            this.ICBBilingualInject = new FontAwesome.Sharp.IconButton();
             this.ICBRevCatConversion = new FontAwesome.Sharp.IconButton();
             this.ICBCatConversion = new FontAwesome.Sharp.IconButton();
             this.ICBDocToVTT = new FontAwesome.Sharp.IconButton();
@@ -127,6 +128,7 @@
             this.guna2Panel3.Controls.Add(this.ICBHelp);
             this.guna2Panel3.Controls.Add(this.ICBRevConcatSubText);
             this.guna2Panel3.Controls.Add(this.ICBConcatSubText);
+            this.guna2Panel3.Controls.Add(this.ICBBilingualInject);
             this.guna2Panel3.Controls.Add(this.ICBRevCatConversion);
             this.guna2Panel3.Controls.Add(this.ICBCatConversion);
             this.guna2Panel3.Controls.Add(this.ICBDocToVTT);
@@ -229,6 +231,31 @@
             this.ICBConcatSubText.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.ICBConcatSubText.UseVisualStyleBackColor = true;
             this.ICBConcatSubText.Click += new System.EventHandler(this.ICBConcatSubText_Click);
+            // 
+            // ICBBilingualInject
+            // 
+            this.ICBBilingualInject.Cursor = System.Windows.Forms.Cursors.Default;
+            this.ICBBilingualInject.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ICBBilingualInject.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
+            this.ICBBilingualInject.FlatAppearance.BorderSize = 0;
+            this.ICBBilingualInject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ICBBilingualInject.ForeColor = System.Drawing.Color.DimGray;
+            this.ICBBilingualInject.IconChar = FontAwesome.Sharp.IconChar.FileImport;
+            this.ICBBilingualInject.IconColor = System.Drawing.Color.Gray;
+            this.ICBBilingualInject.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.ICBBilingualInject.IconSize = 20;
+            this.ICBBilingualInject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBBilingualInject.Location = new System.Drawing.Point(0, 974);
+            this.ICBBilingualInject.Margin = new System.Windows.Forms.Padding(0);
+            this.ICBBilingualInject.Name = "ICBBilingualInject";
+            this.ICBBilingualInject.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.ICBBilingualInject.Size = new System.Drawing.Size(287, 51);
+            this.ICBBilingualInject.TabIndex = 25;
+            this.ICBBilingualInject.Text = "Paragraph to Bilingual VTT";
+            this.ICBBilingualInject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ICBBilingualInject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ICBBilingualInject.UseVisualStyleBackColor = true;
+            this.ICBBilingualInject.Click += new System.EventHandler(this.ICBBilingualInject_Click);
             // 
             // ICBRevCatConversion
             // 
@@ -840,6 +867,7 @@
         private FontAwesome.Sharp.IconButton ICBRevCatConversion;
         private FontAwesome.Sharp.IconButton ICBRevConcatSubText;
         private FontAwesome.Sharp.IconButton ICBConcatSubText;
+        private FontAwesome.Sharp.IconButton ICBBilingualInject;
         private FontAwesome.Sharp.IconButton ICBBilingualExtract;
     }
 }

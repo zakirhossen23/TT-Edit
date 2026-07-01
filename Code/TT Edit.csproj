@@ -216,6 +216,7 @@
     <Compile Include="Classes\VttFIleToDocConverter.cs" />
     <Compile Include="Classes\VttFIleAtRemover.cs" />
     <Compile Include="Classes\VttFIleCommaChecker.cs" />
+    <Compile Include="Classes\VttParagraphToBilingual.cs" />
     <Compile Include="Classes\VttFIleCplCounter.cs" />
     <Compile Include="Classes\VttFIleAtInserter.cs" />
     <Compile Include="Classes\VttFIleSpaceRemover.cs" />
@@ -296,6 +297,15 @@
     </Compile>
     <EmbeddedResource Include="Forms\BilingualExtractControl.resx">
       <DependentUpon>BilingualExtractControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Forms\BilingualInjectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\BilingualInjectControl.Designer.cs">
+      <DependentUpon>BilingualInjectControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\BilingualInjectControl.resx">
+      <DependentUpon>BilingualInjectControl.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Forms\AtRemoverControl.cs">
       <SubType>UserControl</SubType>
