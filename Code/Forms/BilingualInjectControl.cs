@@ -25,6 +25,7 @@ namespace TT_Edit.Forms
         public static string vTTExportfolderPath = "";
 
         private List<VttParagraphToBilingual> allCombinedFiles = new List<VttParagraphToBilingual>();
+        private System.Threading.CancellationTokenSource cts;
 
         public BilingualInjectControl()
         {
@@ -188,31 +189,64 @@ namespace TT_Edit.Forms
             btnStart.Enabled = false;
             btnStop.Enabled = true;
 
+            cts = new System.Threading.CancellationTokenSource();
             // Using a safer approach than CheckForIllegalCrossThreadCalls = false
             backgroundWorkerConverter.RunWorkerAsync();
         }
 
-        VttParagraphToBilingual lastitem;
+        void updateItemStatusInGrid(VttParagraphToBilingual item)
+        {
+            foreach (DataGridViewRow row in dgvFilesList.Rows)
+            {
+                if (row.Cells["stTitle"].Value?.ToString() == item.name)
+                {
+                    row.Cells["stStatus"].Value = item.status;
+                    break;
+                }
+            }
+            updateDGV();
+            updateStatus();
+        }
         private void backgroundWorkerConverter_DoWork(object sender, DoWorkEventArgs e)
         {
             try
             {
-                foreach (VttParagraphToBilingual item in from file in allCombinedFiles where file.status == "Pending" select file)
+                var pendingFiles = allCombinedFiles.Where(f => f.status == "Pending").ToList();
+
+                System.Threading.Tasks.Parallel.ForEach(pendingFiles, new System.Threading.Tasks.ParallelOptions 
+                { 
+                    CancellationToken = cts.Token, 
+                    MaxDegreeOfParallelism = System.Environment.ProcessorCount 
+                }, item => 
                 {
-                    item.status = "Running";
-                    this.Invoke(new Action(() => refreshEverything()));
+                    try
+                    {
+                        item.status = "Running";
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
 
-                    lastitem = item;
-                    item.export(vTTExportfolderPath);
+                        item.export(vTTExportfolderPath);
 
-                    item.status = "Completed";
-                    this.Invoke(new Action(() => refreshEverything()));
-                }
+                        item.status = "Completed";
+                        this.Invoke(new Action(() => updateItemStatusInGrid(item)));
+                    }
+                    catch (Exception ex)
+                    {
+                        item.status = "Format Error";
+                        this.Invoke(new Action(() => {
+                            updateItemStatusInGrid(item);
+                            System.Windows.Forms.MessageBox.Show($"Issue at : {item.name}\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }));
+                    }
+                });
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Handle cancellation
             }
             catch (Exception ex)
             {
                 this.Invoke(new Action(() => {
-                    System.Windows.Forms.MessageBox.Show("Issue at : " + (lastitem?.name ?? "Unknown"), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show("General Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }));
             }
 
@@ -226,6 +260,7 @@ namespace TT_Edit.Forms
         {
             try
             {
+                cts?.Cancel();
                 backgroundWorkerConverter.CancelAsync();
             }
             catch { }
